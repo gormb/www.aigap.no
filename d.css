@@ -1,0 +1,4 @@
+body{margin:0}
+img.qr{width:96px;vertical-align:middle;image-rendering:pixelated}
+body.stack{height:100vh;display:flex;flex-direction:column}
+body.stack iframe{flex:1;width:100%;border:0}
