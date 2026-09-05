@@ -1,1 +1,0 @@
-if(location.search&&/^(www\.aigap\.no|localhost|127\.0\.0\.1)$/.test(location.hostname))location.replace("https://aigap.no"+location.search+location.hash);else location.replace("i.html"+location.hash);
