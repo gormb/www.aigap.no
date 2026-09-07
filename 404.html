@@ -1,24 +1,34 @@
+<!doctype html><html lang=no><meta charset=utf-8>
+<title>404 – Not Found</title>
+<style>
+  /* Hidden until we know there's no redirect → body only shows on a real 404. */
+  body{font:16px system-ui;padding:3em;text-align:center;color:#333;visibility:hidden}
+  body.off{visibility:visible}
+  h1{margin:0 0 .3em}
+</style>
+<body id=b>
+<h1>404 – Not Found</h1>
+<p>Siden finnes ikke.</p>
 <script>
-// Custom 404 → redirect single-segment "name" paths to the homepage app.
-//   aigap.no/name            ->  aigap.no/?name
-//   aigap.no/name?params     ->  aigap.no/?name&params
-//   aigap.no/name?p#hash     ->  aigap.no/?name&p#hash   (hash kept on the end)
-// Works for both aigap.no and www.aigap.no (location.* is domain-agnostic).
-// Does NOT redirect multi-segment paths (aigap.no/a/b) or anything with a dot
-// (real files like name.html / image.webp) -> those stay as a true 404.
-(function () {
-  var p = location.pathname.replace(/\/+$/, ''); // "/name"
-  var seg = p.replace(/^\//, '');                // "name"
-  // skip: empty/root, multi-segment, contains a dot (looks like a file)
-  if (!seg || seg.indexOf('/') !== -1 || seg.indexOf('.') !== -1) return;
+(async () => {
+  const show = () => document.body.classList.add('off'); // reveal fallback only here
+  // Only single-segment, letters/digits slug → a plausible shortcode.
+  // Stops it hijacking real files (/m.html, /r.js, /i/*.png) and multi-level paths.
+  const segs = location.pathname.split('/').filter(Boolean);
+  const slug = (segs.length === 1 && /^[A-Za-z0-9]+$/.test(segs[0])) ? segs[0] : '';
+  if (!slug) return show();                // not a code → leave as a real 404
 
-  var q = seg;                                            // name is first param
-  if (location.search) q += '&' + location.search.replace(/^\?/, ''); // keep ?params
-  location.replace('/?' + q + location.hash);             // keep #hash
+  const SUPA = { url: 'https://nlxtqmsghslwgbndxboe.supabase.co', key: 'sb_publishable_H1UyOW06sr_Y6TkCai5OjQ_5rkdhfdO' };
+  const h = { apikey: SUPA.key, 'Authorization': 'Bearer ' + SUPA.key };
+  // Resolve in the same order this repo does: exact → +qr → +qra
+  for (const id of [slug, slug + 'qr', slug + 'qra']) {
+    try {
+      const r = await fetch(SUPA.url + '/rest/v1/redir?select=url&id=eq.' + encodeURIComponent(id), { headers: h });
+      const row = (await r.json())[0];
+      if (row && row.url) { location.replace(row.url); return; }  // → straight to target
+    } catch (e) { return show(); }         // network/CORS error → fail closed (real 404)
+  }
+  show();                                  // not found in table → stay on the 404 page
 })();
 </script>
-<meta charset="utf-8">
-<title>404</title>
-<style>body{font:16px system-ui;padding:3em;text-align:center;color:#333}</style>
-<h1>404</h1>
-<p>Siden finnes ikke.</p>
+</body></html>
