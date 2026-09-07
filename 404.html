@@ -1,0 +1,24 @@
+<script>
+// Custom 404 → redirect single-segment "name" paths to the homepage app.
+//   aigap.no/name            ->  aigap.no/?name
+//   aigap.no/name?params     ->  aigap.no/?name&params
+//   aigap.no/name?p#hash     ->  aigap.no/?name&p#hash   (hash kept on the end)
+// Works for both aigap.no and www.aigap.no (location.* is domain-agnostic).
+// Does NOT redirect multi-segment paths (aigap.no/a/b) or anything with a dot
+// (real files like name.html / image.webp) -> those stay as a true 404.
+(function () {
+  var p = location.pathname.replace(/\/+$/, ''); // "/name"
+  var seg = p.replace(/^\//, '');                // "name"
+  // skip: empty/root, multi-segment, contains a dot (looks like a file)
+  if (!seg || seg.indexOf('/') !== -1 || seg.indexOf('.') !== -1) return;
+
+  var q = seg;                                            // name is first param
+  if (location.search) q += '&' + location.search.replace(/^\?/, ''); // keep ?params
+  location.replace('/?' + q + location.hash);             // keep #hash
+})();
+</script>
+<meta charset="utf-8">
+<title>404</title>
+<style>body{font:16px system-ui;padding:3em;text-align:center;color:#333}</style>
+<h1>404</h1>
+<p>Siden finnes ikke.</p>
