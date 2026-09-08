@@ -27,7 +27,7 @@ WWW = 'www.aigap.no/'
 ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
 SIZES = [21, 25, 29]        # 21 uses the shorter www prefix
-HOLES = [3, 5, 7, 9]
+HOLES = [0, 3, 5, 7, 9]   # 0 = no white centre (full QR)
 
 
 def db_bases():

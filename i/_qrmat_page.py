@@ -14,8 +14,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'u', 'qrmatrix.html')
 PREFIX = 'https://aigap.no/'
 
-PAT = re.compile(r'^(.*)\.qr(21|25|29)([LMQH])([3579])\.png$')
-GLOB = '*.qr2[159][LMQH][3579].png'
+PAT = re.compile(r'^(.*)\.qr(21|25|29)([LMQH])([03579])\.png$')
+GLOB = '*.qr2[159][LMQH][03579].png'
 
 def geo(N, hole):
     """JS-mirror of python blank_centred_hole: centred hole of `hole` modules.
