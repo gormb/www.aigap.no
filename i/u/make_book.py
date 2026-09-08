@@ -2,14 +2,14 @@
 """Generate book QRs (cover-art centred) that VERIFIABLY decode.
 
 For each qra music row (sort 5.5..5.6) writes:
-    b/u/<base>.qr.png   +   b/u/book.html
+    i/<base>.qr.png   +   i/book.html
 
 No blind percentages: we read the QR's real module count N, keep the required
 quiet zone (a QR cannot be detected without it), paste the logo as a centred
 ODD number of modules, then DECODE the finished image with OpenCV and shrink
 the logo until it reads the right URL.
 
-Run:  python3 b/u/make_book.py
+Run:  python3 i/u/make_book.py
 Requires: Pillow, qrcode, numpy, opencv-python-headless.
 """
 import json, os, re, urllib.parse, urllib.request
@@ -19,9 +19,10 @@ from PIL import Image
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
 
-HERE = os.path.dirname(os.path.abspath(__file__))   # b/u
+HERE = os.path.dirname(os.path.abspath(__file__))   # i/u
 ROOT = os.path.dirname(os.path.dirname(HERE))        # repo root
-COVER_DIR = os.path.join(ROOT, 'i')
+COVER_DIR = os.path.join(ROOT, 'i')                  # cover art (m*.png)
+OUT = os.path.join(ROOT, 'i')                        # where QRs + book.html go
 BOX = 8            # px per module
 QUIET = 4          # quiet-zone modules (required for detection)
 MAX_ART = 0.40     # start trying the logo at up to this fraction of N
@@ -97,7 +98,7 @@ def main():
         content = 'https://aigap.no/' + base
         cover = os.path.join(COVER_DIR, base + '.png')
         im, N, am = build(content, cover if os.path.exists(cover) else None)
-        im.save(os.path.join(HERE, base + '.qr.png'))
+        im.save(os.path.join(OUT, base + '.qr.png'))
         tag = 'N=%d art=%d OK' % (N, am) if am else 'N=%d no-logo' % N
         print('%-8s %-20s %s' % (base, content, tag))
         cards.append('<div class="card"><img src="%s.qr.png"><div class="d">%s</div></div>'
@@ -111,8 +112,8 @@ def main():
             '@media print{.card{border:none}.cards{gap:10px}}</style></head><body>'
             '<h1>Book QR codes (DB order, 5.5&ndash;5.6)</h1><div class="cards">'
             + ''.join(cards) + '</div></body></html>')
-    open(os.path.join(HERE, 'book.html'), 'w', encoding='utf8').write(html)
-    print('wrote %d QRs + book.html under %s' % (len(cards), HERE))
+    open(os.path.join(OUT, 'book.html'), 'w', encoding='utf8').write(html)
+    print('wrote %d QRs + book.html under %s' % (len(cards), OUT))
 
 if __name__ == '__main__':
     main()
