@@ -42,6 +42,11 @@ def main():
         base = os.path.basename(p)[:-len('.qr21.png')]
         q25 = os.path.join(HERE, base + '.qr25i.png')
         has_art = os.path.exists(os.path.join(HERE, base + '.png'))
+        art = ('../' + base + '.png') if has_art else 'https://aigap.no/.webp'
+        def slot_style(N, hole):
+            lo = (N - hole) // 2                      # mirror _qrmat.blank_centred_hole
+            return (f'left:{lo*100.0/N:.3f}%;top:{lo*100.0/N:.3f}%;'
+                    f'width:{hole*100.0/N:.3f}%;height:{hole*100.0/N:.3f}%')
         # qr21 raw
         d21 = decodes(p)
         im21 = Image.open(p); N21 = (im21.size[0]) - 2 * 2  # minus QUIET margin approx
@@ -64,8 +69,8 @@ def main():
 <div class="card {cls}">
  <div class=tt><b>{base}</b> <span class=pay>{PREFIX}{base}</span></div>
  <div class=imgs>
-   <a href="../{base}.qr21.png" target=_blank title="open raw"><img src="../{base}.qr21.png" style="width:{w21*SC}px;height:{w21*SC}px"></a>
-   <a href="../{base}.qr25i.png" target=_blank title="open white"><img src="../{base}.qr25i.png" style="width:{w25*SC}px;height:{w25*SC}px"></a>
+   <a class=slot href="../{base}.qr21L5.png" target=_blank title="qr21L5 (www)"><span class=qw><img class=q src="../{base}.qr21L5.png" onerror="this.closest('a').style.display='none'"><img class=art src="{art}" style="{slot_style(21, 5)}" onerror="this.style.display='none'"></span></a>
+   <a class=slot href="../{base}.qr25Q9.png" target=_blank title="qr25Q9 (https)"><span class=qw><img class=q src="../{base}.qr25Q9.png" onerror="this.closest('a').style.display='none'"><img class=art src="{art}" style="{slot_style(25, 9)}" onerror="this.style.display='none'"></span></a>
  </div>
  <div class=chk>
    {badge('decodes', ok21)}
@@ -100,6 +105,9 @@ h1{font-size:19px;margin:0 0 4px} h1 small{color:#666;font-weight:normal}
 .imgs{display:flex;gap:10px;align-items:center;justify-content:center;background:#fff;padding:8px;border-radius:6px}
 .imgs a{background:#fff;display:inline-flex;padding:6px;border:1px solid #ddd;border-radius:6px}
 .imgs img{width:120px;height:120px;image-rendering:pixelated;display:block}
+.imgs a.slot{position:relative}
+.imgs a.slot .qw{position:relative;display:block;width:120px;height:120px}
+.imgs a.slot img.art{position:absolute;object-fit:cover;border:0;max-width:none}
 .comp{position:relative;width:250px;height:250px;margin:10px auto 2px;overflow:hidden;background:#fff}
 .comp img.q{width:100%;height:100%;display:block;image-rendering:pixelated}
 .comp img.art{position:absolute;object-fit:cover;border:0}
