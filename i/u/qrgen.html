@@ -1,6 +1,7 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><title>QR gallery · live</title>
 <script src="../../db.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/jsqr@1.4.0/dist/jsQR.js"></script>
 <style>
 body{font:13px/1.4 system-ui,sans-serif;margin:16px;background:#eef1f4}
 h1{font-size:19px;margin:0 0 2px}h1 small{color:#666;font-weight:400}
@@ -24,9 +25,118 @@ code{background:#eee;border-radius:4px;padding:1px 5px}
 .sel .slot{display:inline-block}
 .flab{color:#666;font-size:11px;margin-top:4px}
 .noimg{color:#b00;font-size:11px;margin-top:6px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tpls{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 10px}
+.tpls b{font-size:12px;color:#0a5;display:block;margin-bottom:2px;text-align:center}
+.legend{font-size:10px;color:#555;margin:0 0 4px;text-align:center}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 3px 0 7px;vertical-align:-1px}
+.dot.g{background:#2c8c3c}.dot.y{background:#e0b400}.dot.r{background:#c33}
+.tpl{display:inline-block;text-align:center;margin:4px}
+.tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
+.tpl .q{position:relative;display:inline-block;width:52px;height:52px}
+.tpl .q img{width:52px;height:52px;image-rendering:pixelated;display:block;background:#fff}
+.tpl .q .tint{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.35}
+.tpl.g .q .tint{background:#2c8c3c}
+.tpl.y .q .tint{background:#e0b400}
+.tpl.r .q .tint{background:#c33}
+.tpl i{display:block;font-style:normal;font-size:9px;color:#444;margin-top:2px}
+.tplwrap{display:flex;flex-wrap:wrap;gap:6px}
+#tplbox.pending .tpl{display:none}
+.tpl.r{display:none}
+.tpl.dup{display:none}
+body.showred .tpl.r{display:inline-block}
+body.showred .tpl.dup{display:inline-block}
+#showred{margin-top:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer}
 </style></head><body>
-<h1>QR gallery <small>live · redir (qr / qra)</small></h1>
-<div id=status>loading…</div>
+<div class=top>
+ <div><h1>QR gallery <small>live · redir (qr / qra)</small></h1><div id=status>loading…</div>
+   <button id=showred type=button>Show hidden</button>
+ </div>
+ <div id=tplbox class="tplwrap pending"></div>
+</div>
+<script>
+var EC=['L','M','Q','H'],HOLES=[0,3,5,7,9],SIZ=[21,25,29];
+var CA='https://aigap.no/zzzzzzzz', CB='www.aigap.no/b';
+function scan(u,expect){return new Promise(function(res){
+  var im=new Image();
+  im.onerror=function(){res(null);};                      // no such image (doesn't fit)
+  im.onload=function(){
+    var c=document.createElement('canvas'),s=im.naturalWidth*3;
+    c.width=c.height=s;var cx=c.getContext('2d',{willReadFrequently:true});
+    cx.imageSmoothingEnabled=false;cx.drawImage(im,0,0,s,s);
+    try{var d=cx.getImageData(0,0,s,s),r=jsQR(d.data,d.width,d.height);
+        res(r&&r.data===expect?true:false);}
+    catch(e){res(false);}};
+  im.src=u;});}
+function buildTpls(){
+  var box=document.getElementById('tplbox');if(!box)return;
+  var html='';
+  SIZ.forEach(function(N){EC.forEach(function(ec){HOLES.forEach(function(h){
+    var tag=N+ec+h;
+    html+='<span class="tpl" data-a="probe/'+tag+'a.png" data-b="probe/'+tag+'b.png">'
+        +'<span class=sz></span><span class=q><img src="probe/'+tag+'b.png" onerror="this.closest(\'.tpl\').style.display=\'none\'"><span class=tint></span></span>'
+        +'<i>'+N+' '+ec+' '+h+'</i></span>';});});});
+  box.innerHTML=html;
+}
+function dedup(){
+  var rec=[];
+  [].slice.call(document.querySelectorAll('#tplbox .tpl')).forEach(function(t){
+    var mm=/probe\/(\d+)([LMQH])(\d)[ab]\.png/.exec(t.dataset.b);
+    var col=t.classList.contains('g')?'g':(t.classList.contains('y')?'y':(t.classList.contains('r')?'r':null));
+    if(!mm||!col)return;
+    rec.push({t:t,k:mm[1]+'-'+mm[2]+'-'+col,h:+mm[3]});
+  });
+  var max={};
+  rec.forEach(function(r){max[r.k]=Math.max(max[r.k]||-1,r.h);});
+  rec.forEach(function(r){
+    // keep the HIGHEST hole of each (size, EC, colour); hide the smaller ones
+    if(r.h<max[r.k]) r.t.classList.add('dup'); else r.t.classList.remove('dup');
+  });
+}
+function has(u){return new Promise(function(res){var im=new Image();im.onload=function(){res(true);};im.onerror=function(){res(false);};im.src=u;});}
+function colourAll(){
+  var tiles=[].slice.call(document.querySelectorAll('#tplbox .tpl'));
+  Promise.all(tiles.map(function(t){return Promise.all([has(t.dataset.a),has(t.dataset.b)]);}))
+  .then(function(rs){rs.forEach(function(r,i){var t=tiles[i];
+      var mm=/probe\/(\d+)([LMQH])(\d)[ab]\.png/.exec(t.dataset.b);
+      var N=+mm[1],ec=mm[2],h=+mm[3];
+      var cap={L:7,M:15,Q:25,H:30}[ec];          // EC error-correction budget (% codewords)
+      var frac=100*h*h/(N*N);                     // % of modules blanked by the hole
+      var aFits=r[0], bFits=r[1];                 // probe file exists = payload fits that (size,EC)
+      var col;
+      if(aFits && frac<=cap) col='g';             // carries https link AND within EC budget
+      else if(bFits && frac<=cap) col='y';        // only short www link, within budget
+      else col='r';
+      t.classList.add(col);
+      t.title='hole '+frac.toFixed(1)+'% vs EC '+cap+'% (https-fits:'+aFits+' www-fits:'+bFits+')';
+      console.log('QR '+N+' '+ec+' '+h+' | hole '+frac.toFixed(1)+'% of modules vs EC '+ec+' max '+cap+'% => '+col);
+    });
+    dedup();
+    document.getElementById('tplbox').classList.remove('pending');});
+}
+var showRed=false;
+document.getElementById('showred').onclick=function(){showRed=!showRed;
+  document.body.classList.toggle('showred',showRed);
+  this.textContent=showRed?'Hide red':'Show hidden';};
+function loadSizes(){
+  [].slice.call(document.querySelectorAll('#tplbox .tpl')).forEach(function(t){
+    var tag=(/(\d+[LMQH]\d)/.exec(t.dataset.b)||[])[1];
+    if(!tag)return;
+    fetch('probe/sz/'+tag+'.png').then(function(r){return r.blob();})
+      .then(function(b){var s=t.querySelector('.sz');if(s)s.textContent=b.size+' B';})
+      .catch(function(){var s=t.querySelector('.sz');if(s)s.textContent='?';});
+  });
+}
+window.addEventListener('load',function(){setTimeout(function(){buildTpls();loadSizes();setTimeout(colourAll,50);},300);});
+// clicking a template sets the Size/EC/Hole radios to that combo
+document.getElementById('tplbox').addEventListener('click',function(ev){
+  var t=ev.target.closest('.tpl');if(!t)return;
+  var mm=/probe\/(\d+)([LMQH])(\d)[ab]\.png/.exec(t.dataset.b);if(!mm)return;
+  var set=function(n,v){var el=document.querySelector('input[name="'+n+'"][value="'+v+'"]');if(el)el.checked=true;};
+  set('n',mm[1]);set('ec',mm[2]);set('h',mm[3]);
+  updateSel();
+});
+</script>
 <div id=missing><b>⚠️ No QR images for:</b> <span id=missList></span><br>
 Run <code>cd i &amp;&amp; python3 _qrmat.py</code> to generate them (reads the DB).</div>
 <div class=toolbar>
