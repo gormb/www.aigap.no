@@ -1,1 +1,1 @@
-python3 _qrGenMul.py
+python3 _qrGenMul.py14
