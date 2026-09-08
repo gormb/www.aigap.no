@@ -8,35 +8,52 @@ h1{font-size:19px;margin:0 0 2px}h1 small{color:#666;font-weight:400}
 #missing{display:none;background:#fff3cd;border:1px solid #e0b400;border-radius:8px;padding:10px 12px;margin:8px 0}
 #missing.on{display:block}
 code{background:#eee;border-radius:4px;padding:1px 5px}
+.toolbar{background:#fff;border:1px solid #ddd;border-radius:10px;padding:8px 12px;margin:8px 0 14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.toolbar label{white-space:nowrap}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px;border-left:5px solid #c33}
 .card.has{border-left-color:#2c8c3c}
 .tt{margin-bottom:8px}.tt b{font-size:14px}
-.vlab{color:#666;font-size:11px;margin-top:4px}
 .pay{color:#0a7;font-size:11px;word-break:break-all}
 .imgs{display:flex;gap:12px;align-items:center;justify-content:center;background:#fff;padding:8px;border-radius:6px}
 .slot{position:relative;overflow:hidden;background:#fff;border:1px solid #ddd;border-radius:6px;display:inline-block}
 .slot .qw{position:relative;display:block;width:120px;height:120px}
 .slot img.q{width:120px;height:120px;display:block;image-rendering:pixelated}
 .slot img.art{position:absolute;object-fit:cover;border:0;max-width:none}
+.sel{margin-top:8px;border-top:1px dashed #ddd;padding-top:8px;text-align:center}
+.sel .slot{display:inline-block}
+.flab{color:#666;font-size:11px;margin-top:4px}
 .noimg{color:#b00;font-size:11px;margin-top:6px}
 </style></head><body>
 <h1>QR gallery <small>live · redir (qr / qra)</small></h1>
 <div id=status>loading…</div>
 <div id=missing><b>⚠️ No QR images for:</b> <span id=missList></span><br>
 Run <code>cd i &amp;&amp; python3 _qrmat.py</code> to generate them (reads the DB).</div>
+<div class=toolbar>
+ <span>Size
+   <label><input type=radio name=n value=21>21</label>
+   <label><input type=radio name=n value=25 checked>25</label>
+   <label><input type=radio name=n value=29>29</label></span>
+ <span>EC
+   <label><input type=radio name=ec value=L checked>L</label>
+   <label><input type=radio name=ec value=M>M</label>
+   <label><input type=radio name=ec value=Q>Q</label>
+   <label><input type=radio name=ec value=H>H</label></span>
+ <span>Hole
+   <label><input type=radio name=h value=3>3</label>
+   <label><input type=radio name=h value=5 checked>5</label>
+   <label><input type=radio name=h value=7>7</label>
+   <label><input type=radio name=h value=9>9</label></span>
+</div>
 <div id=grid class=grid></div>
 <script>
 var grid,miss,missL,missSet={};
 window.artErr=function(el){if(el.dataset.fb){el.style.display='none';return;}el.dataset.fb=1;el.src='https://aigap.no/.webp';};
 function renderMiss(){var a=Object.keys(missSet);
-  miss.classList.toggle('on',a.length>0);
-  missL.textContent=a.join(', ');}
+  miss.classList.toggle('on',a.length>0);missL.textContent=a.join(', ');}
 function artStyle(N,h){var lo=((N-h)/2)|0;
   return 'left:'+(lo*100/N).toFixed(2)+'%;top:'+(lo*100/N).toFixed(2)+'%;width:'+(h*100/N).toFixed(2)+'%;height:'+(h*100/N).toFixed(2)+'%;';}
-/* families: an L5 (hole 5) and a Q9 (hole 9), smallest size first */
 var FAMILIES=[{ec:'L',hole:5,sizes:[21,25,29]},{ec:'Q',hole:9,sizes:[25,29]}];
-/* probe a family for the first size whose file exists -> {N, ec, hole} or null */
 function probe(base,fam){return new Promise(function(res){
   (function t(i){if(i>=fam.sizes.length)return res(null);
     var N=fam.sizes[i],im=new Image();
@@ -50,12 +67,27 @@ function slotHTML(base,p){if(!p)return'';
     '<img class=art src="../'+base+'.png" style="'+artStyle(p.N,p.hole)+'" onerror="artErr(this)">'+
     '</span></a>';}
 function cardHTML(base,a,b){
-  var s=slotHTML(base,a)+slotHTML(base,b), has=!!(a||b);
+  var has=!!(a||b);
   if(!has)missSet[base]=1;
   return '<div class="card '+(has?'has':'')+'" data-base="'+base+'">'+
     '<div class=tt><b>'+base+'</b> <div class=pay><a href="https://aigap.no/'+base+'" target=_blank>https://aigap.no/'+base+'</a></div></div>'+
-    (has?'<div class=imgs>'+s+'</div>':'<div class=noimg>no QR image yet</div>')+
-    '</div>';}
+    (has?'<div class=imgs>'+slotHTML(base,a)+slotHTML(base,b)+'</div>':'<div class=noimg>no QR image yet</div>')+
+    '<div class="sel" data-base="'+base+'"></div></div>';}
+var selTok=0;
+function getV(g){var r=document.querySelector('input[name="'+g+'"]:checked');return r?r.value:'25';}
+function updateSel(){
+  var tok=++selTok,n=getV('n'),ec=getV('ec'),h=getV('h');
+  document.querySelectorAll('.sel').forEach(function(el){
+    var base=el.dataset.base,v=base+'.qr'+n+ec+h+'.png',im=new Image();
+    im.onload=function(){if(tok!==selTok)return;
+      el.innerHTML='<a class="slot" href="../'+v+'" target=_blank><span class=qw>'+
+        '<img class=q src="../'+v+'">'+
+        '<img class=art src="../'+base+'.png" style="'+artStyle(+n,+h)+'" onerror="artErr(this)">'+
+        '</span></a><div class=flab>'+n+' '+ec+' '+h+'</div>';};
+    im.onerror=function(){if(tok!==selTok)return;el.innerHTML='<div class=flab>no '+n+' '+ec+' '+h+'</div>';};
+    im.src='../'+v;});
+}
+document.querySelectorAll('.toolbar input').forEach(function(x){x.addEventListener('change',updateSel);});
 if(!window.SUPABASE||SUPABASE.url.indexOf('YOUR-')>=0){document.getElementById('status').textContent='⚠️ db.js not configured';}
 else{(async function(){
   grid=document.getElementById('grid');var st=document.getElementById('status');
@@ -73,7 +105,7 @@ else{(async function(){
       var a=await probe(base,FAMILIES[0]), b=await probe(base,FAMILIES[1]);
       return cardHTML(base,a,b);}));
     st.textContent=bases.length+' QR codes from the redir table (live)';
-    grid.innerHTML=cards.join('');renderMiss();
+    grid.innerHTML=cards.join('');renderMiss();updateSel();
   }catch(e){st.textContent='DB error: '+e.message;}
 })();}
 </script></body></html>
