@@ -1,1 +1,39 @@
-<script>location.replace(location.search||location.hash?'https://gormb.github.io/_'+location.search+location.hash:'i.html')</script>
+<!doctype html><meta charset=utf-8><title>Aigap</title>
+<script src=db.js></script>
+<script>
+// aigap.no entry point.
+//   bare   → show the site (i.html)
+//   ?<code>→ resolve the shortcode locally against the redir table and redirect;
+//            unknown codes fall through to the 404 page.
+(function () {
+  var p = new URLSearchParams(location.search);
+  var key = p.keys().next().value;              // first query key = shortcode id
+  if (!key) { location.replace('i.html'); return; }
+  var SUPA = window.SUPABASE;
+  var H = { apikey: SUPA.publishableKey, 'Authorization': 'Bearer ' + SUPA.publishableKey };
+  var lookup = function (id) {
+    return fetch(SUPA.url + '/rest/v1/redir?select=url&id=eq.' + encodeURIComponent(id), { headers: H })
+      .then(function (r) { return r.json(); })
+      .then(function (a) { return (a && a[0] && a[0].url) || null; })
+      .catch(function () { return null; });
+  };
+  (async function () {
+    try { if (window.logVisit) logVisit(key, location.href); } catch (e) {}
+    var base = key.endsWith('qr') ? key.slice(0, -2) : key.endsWith('qra') ? key.slice(0, -3) : '';
+    var tries = [key, key + 'qr', key + 'qra'];
+    if (base) tries.push(base, base + 'qr', base + 'qra');
+    var target = null;
+    for (var i = 0; i < tries.length; i++) {
+      target = await lookup(tries[i]);
+      if (target) break;
+    }
+    if (target) {
+      p.delete(key);
+      var s = p.toString();
+      location.replace(target + (s ? (target.indexOf('?') >= 0 ? '&' : '?') + s : '') + (location.hash && target.indexOf('#') < 0 ? location.hash : ''));
+    } else {
+      location.replace('404.html');             // unknown code → 404
+    }
+  })();
+})();
+</script>
