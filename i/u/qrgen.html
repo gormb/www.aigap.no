@@ -34,11 +34,10 @@ code{background:#eee;border-radius:4px;padding:1px 5px}
 .tpl{display:inline-block;text-align:center;margin:4px}
 .tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
 .tpl .q{position:relative;display:inline-block;width:52px;height:52px}
-.tpl .q img{width:52px;height:52px;image-rendering:pixelated;display:block;background:#fff}
-.tpl .q .tint{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.35}
-.tpl.g .q .tint{background:#2c8c3c}
-.tpl.y .q .tint{background:#e0b400}
-.tpl.r .q .tint{background:#c33}
+.tpl .q img{width:52px;height:52px;image-rendering:pixelated;display:block;background:#fff;box-sizing:border-box;border:2px solid #ddd}
+.tpl.g .q img{border-color:#2c8c3c}
+.tpl.y .q img{border-color:#e0b400}
+.tpl.r .q img{border-color:#c33}
 .tpl i{display:block;font-style:normal;font-size:9px;color:#444;margin-top:2px}
 .tplwrap{display:flex;flex-wrap:wrap;gap:6px}
 #tplbox.pending .tpl{display:none}
@@ -74,7 +73,7 @@ function buildTpls(){
   SIZ.forEach(function(N){EC.forEach(function(ec){HOLES.forEach(function(h){
     var tag=N+ec+h;
     html+='<span class="tpl" data-a="probe/'+tag+'a.png" data-b="probe/'+tag+'b.png">'
-        +'<span class=sz></span><span class=q><img src="probe/'+tag+'b.png" onerror="this.closest(\'.tpl\').style.display=\'none\'"><span class=tint></span></span>'
+        +'<span class=sz></span><span class=q><img src="probe/'+tag+'b.png" onerror="this.closest(\'.tpl\').style.display=\'none\'"></span>'
         +'<i>'+N+' '+ec+' '+h+'</i></span>';});});});
   box.innerHTML=html;
 }
@@ -114,10 +113,11 @@ function colourAll(){
     dedup();
     document.getElementById('tplbox').classList.remove('pending');});
 }
+}
 var showRed=false;
 document.getElementById('showred').onclick=function(){showRed=!showRed;
   document.body.classList.toggle('showred',showRed);
-  this.textContent=showRed?'Hide red':'Show hidden';};
+  this.textContent=showRed?'Hide extra':'Show hidden';};
 function loadSizes(){
   [].slice.call(document.querySelectorAll('#tplbox .tpl')).forEach(function(t){
     var tag=(/(\d+[LMQH]\d)/.exec(t.dataset.b)||[])[1];
