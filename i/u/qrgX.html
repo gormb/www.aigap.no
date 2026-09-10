@@ -13,6 +13,8 @@ h1{font-size:18px;margin:0 0 2px}
 .tpl.g .q canvas{border-color:#2c8c3c}
 .tpl.y .q canvas{border-color:#e0b400}
 .tpl.r .q canvas{border-color:#c33}
+.tpl.rec .q canvas{border:2px solid #f80}
+.tpl.rec i{color:#c50}
 .tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
 .tpl i{display:block;font-style:normal;font-size:10px;color:#444;margin-top:2px}
 .tpl .er{font-size:9px;color:#666;margin-top:1px}
@@ -22,7 +24,7 @@ body.showred .tpl.r{display:inline-block}
 body.showred .tpl.dup{display:inline-block}
 .legend{font-size:11px;margin:6px 0 10px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 12px;vertical-align:-1px}
-.dot.g{background:#2c8c3c}.dot.y{background:#e0b400}.dot.r{background:#c33}
+.dot.g{background:#2c8c3c}.dot.y{background:#e0b400}.dot.r{background:#c33}.dot.o{background:#f80}
 button{margin-left:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer}
 #ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;z-index:20;cursor:zoom-out}
 #ov.on{display:flex}
@@ -30,7 +32,7 @@ button{margin-left:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;
 #ov canvas{background:#fff;border-radius:6px;max-width:80vh;max-height:80vh;width:auto;height:auto;image-rendering:pixelated;box-shadow:0 6px 30px rgba(0,0,0,.4)}
 </style></head><body>
 <h1>QR analysis</h1><div id=meta></div>
-<div class=legend><span class="dot g"></span>safe (&le;EC/2 damaged)&nbsp;<span class="dot y"></span>near limit (&le;EC, erasure-only)&nbsp;<span class="dot r"></span>over EC
+<div class=legend><span class="dot g"></span>safe (&le;EC/2 damaged)&nbsp;<span class="dot y"></span>near limit (&le;EC, erasure-only)&nbsp;<span class="dot r"></span>over EC&nbsp;<span class="dot o"></span>recommended
 <button id=showred>Show hidden</button></div>
 <div id=box></div>
 <div id=ov><div><div class=cap></div><canvas></canvas></div></div>
@@ -41,6 +43,10 @@ function loadArt(u){return new Promise(function(res){var im=new Image();im.onloa
 var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES=[0,3,5,7,9];
 var EB={L:7,M:15,Q:25,H:30};                       // EC error budget (% codewords)
 var CAP={21:{L:17,M:14,Q:11,H:7},25:{L:32,M:26,Q:20,H:18},29:{L:53,M:42,Q:34,H:27}};
+var GS=[21,25,29];                                 // grid sizes, index = g (0,1,2)
+// recommended ec / hole per grid g and id-length c (from the layout tables)
+var REC_EC=['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'];
+var REC_HOLE=[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]];
 var box=document.getElementById('box'),meta=document.getElementById('meta');
 function contentFor(N){return (N===21?'www.aigap.no/':'https://aigap.no/')+x;}
 function artStyle(N,h){var lo=((N-h)/2)|0;return 'left:'+(lo*100/N).toFixed(2)+'%;top:'+(lo*100/N).toFixed(2)+'%;width:'+(h*100/N).toFixed(2)+'%;height:'+(h*100/N).toFixed(2)+'%;';}
@@ -91,7 +97,7 @@ else{(async function(){
   box.innerHTML=frag||'<div class=legend>No combos fit this id.</div>';
   box.querySelectorAll('.tpl').forEach(function(el,i){var cn=el.querySelector('canvas'),g=cn.getContext('2d');
     cn.width=tiles[i].cv.width;cn.height=tiles[i].cv.height;g.drawImage(tiles[i].cv,0,0);});
-  dedup();loadSizes();
+  dedup();markRec();loadSizes();
   initOverlay();
 })();}
 // high-res render: S px per module + a quiet zone of `mar` white modules
@@ -114,6 +120,19 @@ function initOverlay(){var ov=document.getElementById('ov');
   ov.addEventListener('click',function(){ov.classList.remove('on');});
   window.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('on');});}
 function colorOf(t){return t.classList.contains('g')?'g':(t.classList.contains('y')?'y':(t.classList.contains('r')?'r':null));}
+function markRec(){ // orange-border the recommended (ec,hole) per grid for this id length
+  if(!x)return;
+  var c=x.length;
+  for(var g=0;g<3;g++){
+    var ec=(REC_EC[g]||'')[c]||null, hole=REC_HOLE[g]?.[c]??null;
+    if(ec==null||hole==null)continue;
+    [].slice.call(document.querySelectorAll('#box .tpl')).forEach(function(t){
+      if(+t.dataset.size===GS[g]&&t.dataset.ec===ec&&+t.dataset.hole===hole){
+        t.classList.add('rec');
+        t.classList.remove('dup','r');   // always show it, highlighted orange
+      }});
+  }
+}
 function dedup(){var ECr={L:0,M:1,Q:2,H:3},rep={};
   [].slice.call(document.querySelectorAll('#box .tpl')).forEach(function(t){var col=colorOf(t);if(!col)return;
     var k=t.dataset.size+'-'+col,s=+t.dataset.hole*10+(ECr[t.dataset.ec]||0);
