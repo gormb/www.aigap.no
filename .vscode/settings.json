@@ -2,7 +2,7 @@
     "liveServer.settings.port": 5501,
     "python-envs.pythonProjects": [
         {
-            "path": "i/_qrGenMul.py",
+            "path": "i/u/qrgen.py",
             "envManager": "ms-python.python:venv",
             "packageManager": "ms-python.python:pip"
         }

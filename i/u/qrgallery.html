@@ -1,0 +1,275 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>QR gallery</title>
+<script src="../../db.js"></script>
+<style>
+body{font:13px/1.4 system-ui,sans-serif;margin:16px;background:#eef1f4}
+h1{font-size:19px;margin:0 0 2px}h1 small{color:#666;font-weight:400}
+#status{color:#888;margin:4px 0 12px}
+code{background:#eee;border-radius:4px;padding:1px 5px}
+pre{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;overflow:auto;font-size:11px}
+.toolbar{background:#fff;border:1px solid #ddd;border-radius:10px;padding:8px 12px;margin:8px 0 14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.toolbar .sp{flex:1}
+#warn{display:none;background:#fff3cd;border:1px solid #e0b400;border-radius:8px;padding:10px 12px;margin:8px 0 14px;font-size:12px}
+#warn.on{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.card.exp{grid-column:1/-1}
+.card.badpick{border-color:#c33;background:#fff7f7}
+.hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px}
+.hd b{font-size:14px}
+.hd .lnk{color:#0a7;text-decoration:none;word-break:break-all}
+.hd .lnk:hover{text-decoration:underline}
+.hd .sp{flex:1}
+button{padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer;font-size:12px}
+button.on{background:#e8f0ff;border-color:#06c}
+#count{color:#666;font-size:12px}
+.picker{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px}
+.picker select{padding:2px 4px;border:1px solid #bbb;border-radius:6px;background:#fff;max-width:100%}
+.picker .cur{color:#666}
+.picker .cur b{color:#06c}
+.picker .sav{color:#666}
+.picker .sav.ok{color:#0a5}.picker .sav.err{color:#c33}
+.fr{width:100%;height:180px;border:1px solid #eee;border-radius:8px;background:#fff;display:block}
+.card.exp .fr{height:780px}
+</style></head><body>
+<h1>QR gallery <small>live · redir (qr / qra) · rendered by qr.html</small></h1>
+<div id=status>loading…</div>
+<div id=warn></div>
+<div class=toolbar>
+  <button id=ex type=button title="Show every size/EC/hole combo, not just the recommended ones">Show extra</button>
+  <button id=vt type=button title="Cycle Opaque / Transparent / All">Opaque</button>
+  <button id=c21 type=button title="Uppercase the 21x21 host (WWW.AIGAP.NO/ID) so short ids fit under 21 modules">21&times;21 CAPS: off</button>
+  <button id=miss type=button title="Show only codes with no QR recorded yet (public.redir.qr empty)">Missing only</button>
+  <span id=count></span>
+  <span class=sp></span>
+  <button id=xall type=button>Expand all</button>
+  <button id=cnone type=button>Collapse all</button>
+</div>
+<div id=grid class=grid></div>
+
+<pre id=sql hidden>-- 1) the "selected QR" field on the redir table (icon row)
+--    token = &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]   t = transparent, u = 21x uppercase host
+--    e.g. 25M5  ·  25M5t  ·  21M5u  ·  21M5tu
+--    (the old ^(21|25|29)[LMQH][03579]t?$ was WRONG: it could not record CAPS,
+--     so it rejected 21M5u and made the 21x CAPS choice unrecordable)
+alter table public.redir add column if not exists qr text;
+comment on column public.redir.qr is
+  'Selected QR variant: &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]; t=transparent, u=21x uppercase host';
+alter table public.redir drop constraint if exists redir_qr_fmt;
+alter table public.redir add constraint redir_qr_fmt
+  check (qr is null or qr ~ '^(21[LMQH][03579]t?u?|2[59][LMQH][03579]t?)$');
+
+-- 2) ONLY if you want this page to record the choice from the browser.
+--    Grants the public anon role UPDATE on the single column `qr`.
+create policy "redir update qr" on public.redir for update to anon
+  using (true) with check (true);
+revoke update on public.redir from anon;
+grant update (qr) on public.redir to anon;
+</pre>
+
+<script>
+// ── state shared by every iframe ──────────────────────────────────────────
+var TRS=0;                  // 0 Opaque, 1 Transparent, 2 All
+var HID=false;              // ex=1 -> show extra tiles
+var X21U=false;             // x21=U -> uppercase 21x21 URL
+var MISS=false;             // filter: show only codes with no selection recorded yet
+var cards={};               // base -> {el, fr, pick, cur, sav, btn, sel, tiles, up, triedUp}
+var io=null;                // kept at module scope: a local-only observer can be GC'd and stop firing
+
+var supa=(window.SUPABASE&&SUPABASE.url&&SUPABASE.url.indexOf('YOUR-')<0)?SUPABASE:null;
+var HDR=supa?{apikey:supa.publishableKey,'Authorization':'Bearer '+supa.publishableKey}:null;
+var exBtn=document.getElementById('ex'),vtBtn=document.getElementById('vt'),c21Btn=document.getElementById('c21');
+var missBtn=document.getElementById('miss');
+var SQL=document.getElementById('sql').textContent.trim();
+
+function srcFor(base,expanded){            // mirrors qr.html's own deep-link order
+  var p=new URLSearchParams();
+  var c=cards[base];
+  var sel=c&&c.sel;
+  // render a card UPPERCASE when its own override says so, when the global
+  // toggle is on, or when its stored token is an uppercase 21x
+  var up=(c&&c.up!=null)?c.up:(X21U||/u$/.test(sel||''));
+  if(up)p.set('x21','U');
+  if(HID)p.set('ex','1');
+  p.set('v',(expanded?['o','t','a']:['O','T','A'])[TRS]);   // UPPER = collapsed minimal view
+  if(sel)p.set('sel',sel);
+  p.set('x',base);                                          // x is always the LAST param
+  return 'qr.html?'+p.toString();
+}
+function reload(base){var c=cards[base];if(c&&c.fr.dataset.on)c.fr.src=srcFor(base,c.el.classList.contains('exp'));}
+function reloadAll(){Object.keys(cards).forEach(reload);}
+function ensure(base){          // lazy: only start an iframe once it is near the viewport
+  var c=cards[base];if(!c||c.fr.dataset.on)return;
+  c.fr.dataset.on='1';
+  c.fr.src=srcFor(base,c.el.classList.contains('exp'));
+}
+function expand(c,on){
+  c.el.classList.toggle('exp',on);
+  c.btn.textContent=on?'collapse':'expand';
+  if(c.fr.dataset.on)c.fr.src=srcFor(c.el.dataset.base,on);
+}
+function setEx(on){HID=on;exBtn.textContent=HID?'Hide extra':'Show extra';reloadAll();}
+function setVt(){TRS=(TRS+1)%3;vtBtn.textContent=['Opaque','Transparent','All'][TRS];reloadAll();}
+function setC21(on){X21U=on;c21Btn.textContent=X21U?'21\u00d721 CAPS: on':'21\u00d721 CAPS: off';reloadAll();}
+exBtn.onclick=function(){setEx(!HID);};
+vtBtn.onclick=setVt;
+c21Btn.onclick=function(){setC21(!X21U);};
+missBtn.onclick=function(){setMiss(!MISS);};
+function applyFilter(){   // hide codes that already have a selection (or vice versa)
+  var shown=0,missing=0;
+  Object.keys(cards).forEach(function(b){
+    var c=cards[b];if(!c.sel)missing++;
+    var hide=MISS&&!!c.sel;
+    c.el.style.display=hide?'none':'';
+    if(!hide)shown++;
+  });
+  document.getElementById('count').textContent=shown+' of '+Object.keys(cards).length+' shown';
+  missBtn.textContent=MISS?'Showing missing':('Missing only ('+missing+')');
+  missBtn.classList.toggle('on',MISS);
+}
+function setMiss(on){
+  MISS=on;applyFilter();
+  if(!on)Object.keys(cards).filter(function(b){return cards[b].el.style.display!=='none';}).slice(0,4).forEach(ensure);
+}
+document.getElementById('xall').onclick=function(){Object.keys(cards).forEach(function(b){expand(cards[b],true);ensure(b);});};
+document.getElementById('cnone').onclick=function(){Object.keys(cards).forEach(function(b){expand(cards[b],false);});};
+
+// ── selection: the engine posts back what it renders ──────────────────────
+function label(o){
+  var caps=o.lab.slice(-1)==='u'?' \u00b7 CAPS':'';
+  var star=o.rec?' \u2605':'';
+  var col=o.col?(o.col==='g'?' \u00b7 safe':o.col==='y'?' \u00b7 near':' \u00b7 over'):'';
+  return o.lab+caps+star+col+(o.pct!=null?' '+o.pct+'%':'');
+}
+function fillPick(base,d){
+  var c=cards[base];if(!c)return;
+  var seen={},opts=[];
+  function add(lab,rec){                       // 21x always offers BOTH cases
+    if(!lab||seen[lab])return;seen[lab]=1;opts.push({lab:lab,rec:rec});
+    if(lab.slice(0,2)==='21'){
+      var twin=lab.slice(-1)==='u'?lab.slice(0,-1):lab+'u';
+      if(!seen[twin]){seen[twin]=1;opts.push({lab:twin,rec:rec});}
+    }
+  }
+  (d.recs||[]).forEach(function(l){add(l,1);});
+  (d.tiles||[]).forEach(function(t){add(t.lab,0);});
+  c.pick.innerHTML='<option value="">\u2014 none \u2014</option>'+opts.map(function(o){
+    return '<option value="'+o.lab+'">'+label(o)+'</option>';}).join('');
+  var stored=c.sel||'';
+  var effUp=(c.up!=null)?c.up:X21U;               // the case THIS card is rendered in
+  var legacy21=stored.slice(0,2)==='21'&&stored.slice(-1)!=='u';   // pre-'u' token: the case is implicit
+  // such a token may only exist UPPERCASE (Byte vs Alphanumeric capacity) ->
+  // render this card uppercase and re-check once
+  if(legacy21&&!seen[stored]&&d.fitL&&d.fitU&&!c.triedUp){
+    var ec21=stored.slice(2,3);
+    if(d.fitL['21'].indexOf(ec21)<0&&d.fitU['21'].indexOf(ec21)>=0){c.triedUp=1;c.up=true;reload(base);return;}
+  }
+  var tok=legacy21?(effUp?stored+'u':stored):stored;   // the token as rendered in this case
+  var found=!stored||!!seen[tok];
+  if(stored&&!found){                 // stored token is not renderable for this id -> say so, never blank
+    c.pick.insertAdjacentHTML('afterbegin','<option value="'+stored+'">'+stored+' \u00b7 STORED \u2014 not renderable</option>');
+    c.pick.value=stored;
+    c.el.classList.add('badpick');
+    c.sav.className='sav err';c.sav.textContent=whyMissing(stored,d,effUp);
+  }else{
+    if(c.el.classList.contains('badpick')){c.sav.className='sav';c.sav.textContent='';}   // clear the mismatch note
+    c.el.classList.remove('badpick');
+    c.pick.value=found?tok:'';
+    if(c.up===true&&tok!==stored){   // auto-resolved: tell them the token is ambiguous
+      c.sav.className='sav';
+      c.sav.textContent='stored '+stored+' has no case marker \u2014 only exists UPPER; re-save to record '+tok;
+    }
+  }
+}
+function whyMissing(tok,d,effUp){      // explain WHY a stored token cannot be shown here
+  var N=tok.slice(0,2),ec=tok.slice(2,3);
+  if(N!=='21'||!d.fitL||!d.fitU)return 'stored '+tok+' is not offered in this view \u2014 turn on Show extra';
+  var low=d.fitL['21'].indexOf(ec)>=0, up=d.fitU['21'].indexOf(ec)>=0;
+  if(!low&&!up)return 'stored '+tok+' cannot exist: 21 modules at EC '+ec+' never fits this id (lower fits '+(d.fitL['21'].join('/')||'-')+', UPPER fits '+(d.fitU['21'].join('/')||'-')+')';
+  return 'stored '+tok+' only fits '+(low?'lower':'')+(low&&up?' + ':'')+(up?'UPPER':'')+' \u2014 toggle 21\u00d721 CAPS, or re-save the right case';
+}
+window.addEventListener('message',function(e){
+  var d=e.data;if(!d||d.type!=='qr-tiles'||!d.x)return;
+  var c=cards[d.x];if(!c)return;
+  c.tiles=d.tiles||[];
+  fillPick(d.x,d);
+});
+
+async function save(base){
+  var c=cards[base];if(!c)return;
+  var val=c.pick.value||'';
+  c.sav.className='sav';
+  if(!supa){c.sav.textContent='db.js not configured';return;}
+  c.sav.textContent='saving…';
+  var ids=[base,base+'qra',base+'qr'];         // icon row first, then its QR siblings
+  for(var i=0;i<ids.length;i++){
+    var u=supa.url+'/rest/v1/redir?id=eq.'+encodeURIComponent(ids[i]);
+    try{
+      var r=await fetch(u,{method:'PATCH',headers:Object.assign({'Content-Type':'application/json','Prefer':'return=representation'},HDR),body:JSON.stringify({qr:val||null})});
+      if(!r.ok){var t=await r.text();c.sav.className='sav err';c.sav.textContent=r.status+' '+t.slice(0,140);return;}
+      var rows=await r.json();
+      if(rows&&rows.length){
+        c.sel=val;c.cur.innerHTML='selected: <b>'+(val||'none')+'</b>';
+        c.triedUp=0;c.up=/u$/.test(val)?true:null;   // an uppercase token pins the card; otherwise follow the toggle
+        c.sav.className='sav ok';c.sav.textContent=val?'saved on '+ids[i]:'cleared on '+ids[i];
+        reload(base);applyFilter();return;
+      }
+    }catch(err){c.sav.className='sav err';c.sav.textContent=err.message;return;}
+  }
+  c.sav.className='sav err';c.sav.textContent='no row updated (needs the anon UPDATE policy)';
+}
+
+// ── build the cards from the live redir table ─────────────────────────────
+function showWarn(msg,pre){var w=document.getElementById('warn');w.innerHTML=msg+(pre?'<pre>'+pre.replace(/[<>&]/g,'')+'</pre>':'');w.classList.add('on');}
+async function dbRows(sel){
+  var r=await fetch(supa.url+'/rest/v1/redir?select='+sel+'&order=sort.asc,id.asc',{headers:HDR});
+  if(!r.ok)throw new Error('HTTP '+r.status+' '+await r.text());
+  return r.json();
+}
+function cardEl(base,sel){
+  var el=document.createElement('div');el.className='card';el.dataset.base=base;
+  el.innerHTML='<div class=hd><b>'+base+'</b>'+
+    '<a class=lnk href="https://aigap.no/'+base+'" target=_blank rel=noopener>aigap.no/'+base+'</a>'+
+    '<span class=sp></span>'+
+    '<a class=lnk href="qr.html?x='+encodeURIComponent(base)+'&v=o" target=_blank rel=noopener>open</a>'+
+    '<button class=btn type=button>expand</button></div>'+
+    '<div class=picker><span class=cur>selected: <b>'+(sel||'none')+'</b></span>'+
+    '<select class=pick><option value="'+(sel||'')+'">'+(sel||'\u2014 none \u2014')+'</option></select>'+
+    '<span class=sav></span></div>'+
+    '<iframe class=fr loading=lazy title="QR for '+base+'"></iframe>';
+  return el;
+}
+
+(async function(){
+  var st=document.getElementById('status'),grid=document.getElementById('grid');
+  if(!supa){st.textContent='\u26a0\ufe0f db.js not configured';return;}
+  try{
+    var rows,hasQr=true;
+    try{ rows=await dbRows('id,url,%22desc%22,sort,qr'); }
+    catch(e){ hasQr=false; rows=await dbRows('id,url,%22desc%22,sort'); }
+    if(!hasQr)showWarn('The <code>qr</code> column does not exist yet, so nothing can be recorded. Run this in the Supabase SQL editor:',SQL);
+    var qrById={};rows.forEach(function(r){qrById[r.id]=r.qr;});
+    var bases=rows.map(function(r){return r.id;}).filter(function(id){
+        return typeof id==='string'&&(id.slice(-3)==='qra'||id.slice(-2)==='qr');})
+      .map(function(id){return id.slice(-3)==='qra'?id.slice(0,-3):id.slice(0,-2);})
+      .filter(function(b,i,a){return b&&a.indexOf(b)===i;}).sort();
+    if(!bases.length){st.textContent='No QR codes (qr/qra) in the redir table.';return;}
+    var frag=document.createDocumentFragment();
+    bases.forEach(function(base){
+      var sel=hasQr?(qrById[base]||qrById[base+'qra']||qrById[base+'qr']||''):'';
+      var el=cardEl(base,sel);frag.appendChild(el);
+      var c={el:el,fr:el.querySelector('.fr'),pick:el.querySelector('.pick'),cur:el.querySelector('.cur'),
+             sav:el.querySelector('.sav'),btn:el.querySelector('.btn'),sel:sel,tiles:[],up:null,triedUp:0};
+      cards[base]=c;
+      c.btn.onclick=function(){expand(c,!el.classList.contains('exp'));ensure(base);};
+      c.pick.onchange=function(){save(base);};
+    });
+    grid.appendChild(frag);
+    st.textContent=bases.length+' QR codes from the redir table (live)';
+    applyFilter();
+    var ioObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)ensure(e.target.dataset.base);});},{rootMargin:'300px'});
+    io=ioObs;
+    Object.keys(cards).forEach(function(b){ioObs.observe(cards[b].el);});
+    bases.slice(0,4).forEach(ensure);   // never start blank if the observer is slow
+  }catch(e){st.textContent='DB error: '+e.message;}
+})();
+</script></body></html>

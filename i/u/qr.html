@@ -1,6 +1,6 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><title>QR · code analysis</title>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
-<script src="_qrmetrics.js"></script>
+<script src="qrmetrics.js"></script>
 <style>
 body{font:13px/1.4 system-ui,sans-serif;margin:16px;background:#eef1f4}
 h1{font-size:18px;margin:0 0 2px}
@@ -26,6 +26,8 @@ body.vonly .tpl.rec .q canvas{border:0}
 .tpl.rec .q canvas{border:2px solid #f80}
 .tpl.rec i{color:#c50}
 .tpl.rec .er{display:none}
+.tpl.sel .q canvas{outline:3px solid #06c;outline-offset:1px}
+.tpl.sel i{color:#06c;font-weight:700}
 .tpl.trna .q canvas{border:2px dashed #c33}
 .tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
 .tpl i{display:block;font-style:normal;font-size:10px;color:#444;margin-top:2px}
@@ -76,6 +78,7 @@ var I=(new URLSearchParams(location.search).get('i')||'').trim();      // i=over
 var V=(new URLSearchParams(location.search).get('v')||'').trim();      // v=o|t|a (normal) / v=O|T|A (collapsed minimal); legacy m=t
 var SP=new URLSearchParams(location.search);                           // shared parser for the deep-link params
 var X21=(SP.get('x21')||'').trim().toUpperCase();                      // x21=U|L -> 21x21 URL case (U=UPPER, L=lower); overrides legacy u=1
+var SEL=(SP.get('sel')||'').trim();                                    // sel=<N><EC><hole>[t] -> outline the stored selection
 var EX=(SP.get('ex')||'').trim();                                      // ex=1 -> show extra tiles (ex=0 = don't); legacy hid=1
 var HID=EX==='1';                                                      // ex=1 -> show extra tiles
 var MIN=(V==='T'||V==='O'||V==='A');                                   // minimalistic (iframe) view
@@ -99,7 +102,7 @@ var KEYTOL=1;   // per-channel slack around the exact most-used colour (0 = exac
 var KEYSHR=0.20; // skip the colour key unless the most-used colour covers >= this share of pixels
 var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
 var METGEN=0;    // bumped on each recalc; guards stale async byte-size results
-var KEYED=null, KEYED_TRIED=false;
+var KEYED=null, KEYED_TRIED=false, KEYED_BLOCKED=false;
 function keyed(){ // turn the most-used opaque colour transparent -- unless the art already has transparency,
                   // or no single colour dominates (<KEYSHR of pixels); then the art is left as-is
   if(KEYED_TRIED)return KEYED;
@@ -124,19 +127,20 @@ function keyed(){ // turn the most-used opaque colour transparent -- unless the 
       p[i+3]=(dr<=KEYTOL&&dg<=KEYTOL&&db<=KEYTOL)?0:255;}  // key colour (KEYTOL=0 -> exact) becomes transparent
     g.putImageData(d,0,0);
     KEYED=c;
-  }catch(e){KEYED=null;}   // pixel access blocked -> keying unavailable
+  }catch(e){KEYED=null;KEYED_BLOCKED=true;}   // pixel access blocked -> keying unavailable
   return KEYED;
 }
-function coverageAlpha(hole){ // per-module alpha of the keyed art (0 = key colour/transparent, 255 = covered)
+function coverageAlpha(hole){ // per-module alpha of the transparent overlay (0 = see-through, 255 = covers the module)
   if(hole in COV)return COV[hole];
-  var k=keyed();
-  if(!k){COV[hole]=null;return null;}
+  // colour-keyed art if the key was usable, otherwise the art's OWN alpha (already-transparent art)
+  var k=keyed()||ART;
+  if(!k||!(k.naturalWidth||k.width)){COV[hole]=null;return null;}
   var c=document.createElement('canvas');c.width=c.height=hole;var g=c.getContext('2d');
-  var f=artFit(hole,k.width,k.height,true); // transparent variant: whole image, centred; rest of the hole stays transparent
+  var f=artFit(hole,k.naturalWidth||k.width,k.naturalHeight||k.height,true); // transparent variant: whole image, centred; rest of the hole stays transparent
   g.drawImage(k,f.sx,f.sy,f.sw,f.sh,f.x,f.y,f.w,f.h);
   var al=null;
   try{var d=g.getImageData(0,0,hole,hole).data;al=new Array(hole*hole);
-    for(var i=0;i<hole*hole;i++)al[i]=d[i*4+3];}catch(e){al=null;}
+    for(var i=0;i<hole*hole;i++)al[i]=d[i*4+3];}catch(e){al=null;KEYED_BLOCKED=true;}
   COV[hole]=al;return al;
 }
 function metricFor(N,ec,h,tr){ // erasure for the opaque (square hole) or transparent (coverage) variant
@@ -146,7 +150,7 @@ function metricFor(N,ec,h,tr){ // erasure for the opaque (square hole) or transp
   return qrHoleErase(N,ec,h);
 }
 function showWarn(msg){var w=document.getElementById('warn');if(!w)return;w.textContent=msg;w.classList.add('on');
-  try{console.warn('[qrgX] '+msg);}catch(e){}}
+  try{console.warn('[qr] '+msg);}catch(e){}}
 function whiteFn(N,h,tr){     // module is white (shows QR underneath) for the given variant
   if(tr&&h>0){var al=coverageAlpha(h);if(al){var lo=(N-h)>>1;
     return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h)return false;return al[(r-lo)*h+(c-lo)]<128;};}}
@@ -168,6 +172,7 @@ function recalcMetrics(){     // (re)compute erasure/colour for every tile from 
   });
 }
 var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES=[0,3,5,7,9];
+var FIT={};   // size -> EC levels the payload actually fits (for this UP/mode)
 var EB={L:7,M:15,Q:25,H:30};                       // EC error budget (% codewords)
 var CAP={21:{L:17,M:14,Q:11,H:7},25:{L:32,M:26,Q:20,H:18},29:{L:53,M:42,Q:34,H:27}};
 var GS=[21,25,29];                                 // grid sizes, index = g (0,1,2)
@@ -176,16 +181,20 @@ var REC_EC=['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'];
 var REC_HOLE=[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]];
 var box=document.getElementById('box'),meta=document.getElementById('meta');
 var UP=X21==='U';   // x21=U -> 21x21 URL UPPERCASE
-function contentFor(N){var s=(N===21?'www.':'https://')+BASE;return (UP&&N===21)?s.toUpperCase():s;}
+function contentFor(N,up){var s=(N===21?'www.':'https://')+BASE;return (((up===undefined)?UP:up)&&N===21)?s.toUpperCase():s;}
 function modeFor(s){return /^[0-9A-Z $%*+\-./:]+$/.test(s)?'Alphanumeric':'Byte';}   // uppercased URLs fit far more in 21x21
+function fitOf(up){   // which EC levels fit each size for a given 21x case (the QR itself is case-dependent!)
+  var f={21:[],25:[],29:[]};
+  for(var N of SIZ)for(var ec of EC){try{matrixFor(N,ec,up);}catch(e){continue;}f[N].push(ec);}
+  return f;}
 function renderMeta(){ if(!x)return;   // show the EXACT strings that get encoded (mirrors contentFor)
   var a=contentFor(21),b=contentFor(25);
   meta.innerHTML='<b>'+x+'</b> &mdash; 21x21: <b>'+a+'</b> ['+modeFor(a)+'] &middot; 25/29: '+b+' ['+modeFor(b)+']';}
 function titleTiles(){ [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
   if(!el.classList.contains('trna'))el.title=contentFor(+el.dataset.size);}); }
 function artStyle(N,h){var lo=((N-h)/2)|0;return 'left:'+(lo*100/N).toFixed(2)+'%;top:'+(lo*100/N).toFixed(2)+'%;width:'+(h*100/N).toFixed(2)+'%;height:'+(h*100/N).toFixed(2)+'%;';}
-function matrixFor(N,ec){
-  var s=contentFor(N);
+function matrixFor(N,ec,up){
+  var s=contentFor(N,up);
   var qr=qrcode((N-17)/4, ec); qr.addData(s,modeFor(s)); qr.make();
   var n=qr.getModuleCount(),M=[];
   for(var r=0;r<n;r++){var row=[];for(var c=0;c<n;c++)row.push(qr.isDark(r,c));M.push(row);}
@@ -227,6 +236,7 @@ function deepURL(){   // reconstruct the URL that reproduces the current UI stat
   if(UP)p.set('x21','U');
   if(HID)p.set('ex','1');
   p.set('v',(MIN?['O','T','A']:['o','t','a'])[TRS]);   // ONE v= for Opaque/Transparent/All; UPPER = collapsed view
+  if(SEL)p.set('sel',SEL);                             // stored selection (highlighted tile)
   if(x)p.set('x',x);                                   // x is always the LAST parameter
   var q=p.toString();
   return location.href.split(/[?#]/)[0]+(q?'?'+q:'');
@@ -268,22 +278,23 @@ function redrawTiles(){
       cn.width=cv.width;cn.height=cv.height;cn.getContext('2d').drawImage(cv,0,0);}catch(e){}
   });
 }
-if(!x){meta.textContent='No ?x=<id>. e.g. qrgX.html?x=bgda';}
+if(!x){meta.textContent='No ?x=<id>. e.g. qr.html?x=bgda';}
 else{(async function(){
   renderMeta();
   // overlay image: ?i=<basename|url> overrides; else art named after x (www./http x has none)
   var imgUrl=I?(/^https?:\/\//i.test(I)?I:('../'+(/\.[a-z0-9]+$/i.test(I)?I:I+'.png')))
               :(FULLURL?null:'../'+x+'.png');
   ART=imgUrl?await loadArt(imgUrl):null;
-  if(ART&&!keyed())showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be keyed or re-scored - they currently fall back to the opaque image. Open the page over http (e.g. Live Server) to enable this.');
+  if(ART&&!keyed()&&KEYED_BLOCKED)showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be scored from the artwork. Open the page over http (e.g. Live Server) to enable this.');
   await buildGrid();
   initOverlay();
 })();}
 async function buildGrid(){   // (re)generate the whole tile set for the current UP/mode (capacity depends on it)
   document.getElementById('recs').innerHTML='';   // drop previously promoted recommended tiles
-  var tiles=[];
+  var tiles=[];FIT={21:[],25:[],29:[]};
   for(var N of SIZ){for(var ec of EC){
     try{ matrixFor(N,ec); }catch(e){ continue; }     // payload too big for this size+EC
+    FIT[N].push(ec);
     for(var h of HOLES){for(var ti=0;ti<2;ti++){
       var tr=ti===1;
       if(tr&&(!ART||h===0))continue;       // transparent needs an overlay image
@@ -305,6 +316,27 @@ async function buildGrid(){   // (re)generate the whole tile set for the current
   box.querySelectorAll('.tpl').forEach(function(el,i){var cn=el.querySelector('canvas'),g=cn.getContext('2d');
     cn.width=tiles[i].cv.width;cn.height=tiles[i].cv.height;g.drawImage(tiles[i].cv,0,0);});
   recalcMetrics();await loadSizes();markRec();dedup();sortTiles();   // bytes first (sort tie-break), then dedup + sort the grid
+  postTiles();   // let a parent gallery (qrgallery.html) offer a selection dropdown
+}
+function lab(t){   // selection token: <N><EC><hole>[t][u]  (t=transparent, u=21x UPPERCASE host)
+  var N=t.dataset.size;
+  return N+t.dataset.ec+t.dataset.hole+(t.dataset.tr==='1'?'t':'')+((UP&&N==='21')?'u':'');}
+var FITL=null,FITU=null;   // fit maps for the lower / upper 21x case (cached per id)
+function postTiles(){   // publish what renders here so an embedding gallery stays in sync
+  if(window.parent===window)return;
+  try{
+    if(!FITL)FITL=fitOf(false);
+    if(!FITU)FITU=fitOf(true);
+    var recs=[].slice.call(document.querySelectorAll('.tpl.rec')).map(lab);
+    var tiles=[].slice.call(document.querySelectorAll('#box .tpl')).map(function(t){
+      return {lab:lab(t),N:+t.dataset.size,ec:t.dataset.ec,h:+t.dataset.hole,tr:t.dataset.tr==='1',
+              col:colorOf(t),pct:+t.dataset.pct};});
+    window.parent.postMessage({type:'qr-tiles',x:x,sel:SEL,recs:recs,tiles:tiles,fit:FIT,fitL:FITL,fitU:FITU,up:UP},'*');
+  }catch(e){}
+}
+function markSel(){   // outline the variant stored in the DB (passed as sel=)
+  [].slice.call(document.querySelectorAll('.tpl')).forEach(function(t){
+    t.classList.toggle('sel',!!SEL&&lab(t)===SEL);});
 }
 // high-res render: S px per module + a quiet zone of `mar` white modules
 function renderHi(N,ec,h,tr,mar){if(mar==null)mar=4;var S=40,M=matrixFor(N,ec);
@@ -361,6 +393,7 @@ function markRec(){ // orange-border the recommended (ec,hole) per grid for this
   }
   upgradeRec();  // give the recommended tiles a high-res render (crisp when enlarged + printable)
   placeColl();   // keep the collapse button just below the recommended tiles
+  markSel();     // outline the stored selection
 }
 function upgradeRec(){   // recommended tiles: high-res S=40 BORDERLESS render (no quiet zone) so the centre art stays sharp
   [].slice.call(document.querySelectorAll('#recs .tpl')).forEach(function(t){

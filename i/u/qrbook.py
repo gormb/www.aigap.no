@@ -9,7 +9,7 @@ quiet zone (a QR cannot be detected without it), paste the logo as a centred
 ODD number of modules, then DECODE the finished image with OpenCV and shrink
 the logo until it reads the right URL.
 
-Run:  python3 i/u/make_book.py
+Run:  python3 i/u/qrbook.py
 Requires: Pillow, qrcode, numpy, opencv-python-headless.
 """
 import json, os, re, urllib.parse, urllib.request
