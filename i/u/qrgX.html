@@ -13,6 +13,7 @@ h1{font-size:18px;margin:0 0 2px}
 /* v=T: iframe view - only the recommended (orange) tiles, no border, nothing else */
 body.vonly{margin:0;background:#fff}
 body.vonly #meta,body.vonly #tools,body.vonly .legend,body.vonly #box,body.vonly #warn{display:none}
+body.vonly #deep{display:block;position:fixed;left:0;right:0;bottom:0;margin:0;padding:4px 6px;background:#fff;border-top:1px solid #ddd;z-index:15}
 #tools{margin:6px 0}
 body.vonly .tpl.rec .q canvas{border:0}
 .tpl{display:inline-block;text-align:center;margin:4px;cursor:pointer}
@@ -32,8 +33,9 @@ body.vonly .tpl.rec .q canvas{border:0}
 .tpl.r{display:none}
 .tpl.dup{display:none}
 .tpl.trp{display:none}
-body.showred .tpl.r{display:inline-block}
-body.showred .tpl.dup{display:inline-block}
+body.showred .tpl.r:not(.trp){display:inline-block}
+body.showred .tpl.dup:not(.trp){display:inline-block}
+body.showtr.showred .tpl:not(.trp){display:none}   /* keep the variants exclusive even with Show extra on */
 /* opaque / transparent are mutually exclusive: show only the selected variant */
 body.showtr .tpl.trp{display:inline-block}
 body.showtr .tpl:not(.trp){display:none}
@@ -51,26 +53,34 @@ body.showred.showall .tpl.trp.r,body.showred.showall .tpl.trp.dup{display:inline
 button{margin-left:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer}
 #warn{display:none;background:#fff3cd;border:1px solid #e0b400;color:#7a5c00;padding:6px 10px;border-radius:6px;margin:6px 0;font-size:12px}
 #warn.on{display:block}
+#deep{margin:10px 0 2px;font-size:12px;color:#333}
+#deep a{color:#06c;word-break:break-all}
+#coll{position:fixed;right:0;top:1vh;margin:0;z-index:15;border-radius:6px 0 0 6px;padding:4px 8px;font-size:12px;white-space:nowrap}
 #ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;z-index:20;cursor:zoom-out}
 #ov.on{display:flex}
 #ov .cap{font:12px/1.3 system-ui;color:#333;margin-bottom:10px;text-align:center}
 #ov canvas{background:#fff;border-radius:6px;max-width:80vh;max-height:80vh;width:auto;height:auto;image-rendering:pixelated;box-shadow:0 6px 30px rgba(0,0,0,.4)}
 </style></head><body>
 <div id=meta></div>
-<div id=tools><button id=showred>Show hidden</button><button id=trtog title="Cycle Opaque / Transparent / All">Opaque</button></div>
+<div id=tools><button id=showred>Show hidden</button><button id=trtog title="Cycle Opaque / Transparent / All">Opaque</button><button id=casetog title="Swap the 21x21 URL between www.aigap.no/id and WWW.AIGAP.NO/ID">21xLower</button></div>
 <div class=legend><span class="dot g"></span>safe (&le;EC/2 damaged)<br><span class="dot y"></span>near limit (&le;EC, erasure-only)<br><span class="dot o"></span>recommended<br><span class="dot r"></span>over EC</div>
+<div id=deep></div>
 <div id=warn></div>
 <div id=box></div>
 <div id=recs></div>
+<button id=coll title="Collapse to / expand from the minimal view (only the recommended tiles)"></button>
 <div id=ov><div><div class=cap></div><canvas></canvas></div></div>
 <script>
 var x=(new URLSearchParams(location.search).get('x')||'').trim();
-var MODE=(new URLSearchParams(location.search).get('m')||'').trim();   // m=t -> show transparent variants
 var I=(new URLSearchParams(location.search).get('i')||'').trim();      // i=overlay image (basename or full URL)
-var V=(new URLSearchParams(location.search).get('v')||'').trim();      // v=T transparent only, v=O opaque only, v=A all (minimal); v=a all (normal)
+var V=(new URLSearchParams(location.search).get('v')||'').trim();      // v=o|t|a (normal) / v=O|T|A (collapsed minimal); legacy m=t
+var SP=new URLSearchParams(location.search);                           // shared parser for the deep-link params
+var X21=(SP.get('x21')||'').trim().toUpperCase();                      // x21=U|L -> 21x21 URL case (U=UPPER, L=lower); overrides legacy u=1
+var EX=(SP.get('ex')||'').trim();                                      // ex=1 -> show extra tiles (ex=0 = don't); legacy hid=1
+var HID=EX==='1';                                                      // ex=1 -> show extra tiles
 var MIN=(V==='T'||V==='O'||V==='A');                                   // minimalistic (iframe) view
 if(MIN)document.body.classList.add('vonly');
-if(V==='T')document.body.classList.add('showtr');                     // transparent only
+if(V==='T'||V==='t')document.body.classList.add('showtr');   // transparent
 if(V==='A'||V==='a')document.body.classList.add('showall');           // show both variants
 var FULLURL=/^(https?:\/\/|www\.)/i.test(x);   // x is a full URL -> normalise host, no aigap.no
 var BASE=FULLURL?x.replace(/^https?:\/\//i,'').replace(/^www\./i,''):'aigap.no/'+x;
@@ -85,11 +95,13 @@ function artFit(side,aW,aH,tr){   // destination rect for the art inside a side�
 function loadArt(u){return new Promise(function(res){var im=new Image();
   if(/^https?:\/\//i.test(u))im.crossOrigin='anonymous';   // allow pixel read if the server sends CORS
   im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src=u;});}
-var WHITE=250;   // pixel is 'white' (-> transparent) when luminance >= WHITE
+var KEYTOL=1;   // per-channel slack around the exact most-used colour (0 = exact match only)
+var KEYSHR=0.20; // skip the colour key unless the most-used colour covers >= this share of pixels
 var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
 var METGEN=0;    // bumped on each recalc; guards stale async byte-size results
 var KEYED=null, KEYED_TRIED=false;
-function keyed(){ // art with white turned fully transparent (alpha 0), the rest opaque (alpha 255)
+function keyed(){ // turn the most-used opaque colour transparent -- unless the art already has transparency,
+                  // or no single colour dominates (<KEYSHR of pixels); then the art is left as-is
   if(KEYED_TRIED)return KEYED;
   KEYED_TRIED=true;
   if(!(ART&&ART.naturalWidth))return KEYED=null;
@@ -97,15 +109,25 @@ function keyed(){ // art with white turned fully transparent (alpha 0), the rest
     var w=ART.naturalWidth,h=ART.naturalHeight;
     var c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');
     g.drawImage(ART,0,0);
-    var d=g.getImageData(0,0,w,h),p=d.data;
-    for(var i=0;i<p.length;i+=4){var a=p[i+3],l=0.299*p[i]+0.587*p[i+1]+0.114*p[i+2];
-      p[i+3]=(a<128||l>=WHITE)?0:255;}   // transparent stays transparent, white becomes transparent
+    var d=g.getImageData(0,0,w,h),p=d.data,total=p.length/4;
+    // key colour = the single most frequent object colour, counted EXACTLY (no binning/rounding)
+    var hist={},bestN=0,k=null,hasAlpha=false;
+    for(var j=0;j<p.length;j+=4){
+      if(p[j+3]<128){hasAlpha=true;continue;}             // art already carries transparency -> never colour-key
+      var rgb=(p[j]<<16)|(p[j+1]<<8)|p[j+2],n=(hist[rgb]||0)+1;hist[rgb]=n;
+      if(n>bestN){bestN=n;k=rgb;}}   // ties keep first seen (top-left-to-bottom-right)
+    var useKey=!hasAlpha&&k!=null&&bestN>=KEYSHR*total;   // ignore the colour key if <KEYSHR of pixels have it
+    for(var i=0;i<p.length;i+=4){var a=p[i+3];
+      if(a<128||!useKey){p[i+3]=a<128?0:255;continue;}    // no colour filter: keep the art's own transparency only
+      var kr=(k>>16)&255,kg=(k>>8)&255,kb=k&255;
+      var dr=Math.abs(p[i]-kr),dg=Math.abs(p[i+1]-kg),db=Math.abs(p[i+2]-kb);
+      p[i+3]=(dr<=KEYTOL&&dg<=KEYTOL&&db<=KEYTOL)?0:255;}  // key colour (KEYTOL=0 -> exact) becomes transparent
     g.putImageData(d,0,0);
     KEYED=c;
   }catch(e){KEYED=null;}   // pixel access blocked -> keying unavailable
   return KEYED;
 }
-function coverageAlpha(hole){ // per-module alpha of the keyed art (0 = white/transparent, 255 = covered)
+function coverageAlpha(hole){ // per-module alpha of the keyed art (0 = key colour/transparent, 255 = covered)
   if(hole in COV)return COV[hole];
   var k=keyed();
   if(!k){COV[hole]=null;return null;}
@@ -153,10 +175,18 @@ var GS=[21,25,29];                                 // grid sizes, index = g (0,1
 var REC_EC=['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'];
 var REC_HOLE=[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]];
 var box=document.getElementById('box'),meta=document.getElementById('meta');
-function contentFor(N){return (N===21?'www.':'https://')+BASE;}
+var UP=X21==='U';   // x21=U -> 21x21 URL UPPERCASE
+function contentFor(N){var s=(N===21?'www.':'https://')+BASE;return (UP&&N===21)?s.toUpperCase():s;}
+function modeFor(s){return /^[0-9A-Z $%*+\-./:]+$/.test(s)?'Alphanumeric':'Byte';}   // uppercased URLs fit far more in 21x21
+function renderMeta(){ if(!x)return;   // show the EXACT strings that get encoded (mirrors contentFor)
+  var a=contentFor(21),b=contentFor(25);
+  meta.innerHTML='<b>'+x+'</b> &mdash; 21x21: <b>'+a+'</b> ['+modeFor(a)+'] &middot; 25/29: '+b+' ['+modeFor(b)+']';}
+function titleTiles(){ [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
+  if(!el.classList.contains('trna'))el.title=contentFor(+el.dataset.size);}); }
 function artStyle(N,h){var lo=((N-h)/2)|0;return 'left:'+(lo*100/N).toFixed(2)+'%;top:'+(lo*100/N).toFixed(2)+'%;width:'+(h*100/N).toFixed(2)+'%;height:'+(h*100/N).toFixed(2)+'%;';}
 function matrixFor(N,ec){
-  var qr=qrcode((N-17)/4, ec); qr.addData(contentFor(N),'Byte'); qr.make();
+  var s=contentFor(N);
+  var qr=qrcode((N-17)/4, ec); qr.addData(s,modeFor(s)); qr.make();
   var n=qr.getModuleCount(),M=[];
   for(var r=0;r<n;r++){var row=[];for(var c=0;c<n;c++)row.push(qr.isDark(r,c));M.push(row);}
   return M;
@@ -174,14 +204,63 @@ function draw(M,hole,tr){
   return cv;
 }
 function pngSize(cv){return new Promise(function(res){cv.toBlob(function(b){res(b?b.size:null);},'image/png');});}
-document.getElementById('showred').onclick=function(){var s=document.body.classList.toggle('showred');this.textContent=s?'Hide extra':'Show hidden';};
-var TRS=document.body.classList.contains('showtr')?1:(document.body.classList.contains('showall')?2:0);
+function setHID(){document.body.classList.toggle('showred',HID);
+  document.getElementById('showred').textContent=HID?'Hide extra':'Show hidden';updateDeep();}
+document.getElementById('showred').onclick=function(){HID=!HID;setHID();};
+setHID();
+var TRS=document.body.classList.contains('showall')?2
+        :(document.body.classList.contains('showtr')?1:0);   // derived from v= (showall All / showtr Transparent)
 function setTRS(){document.body.classList.remove('showtr','showall');
   if(TRS===1)document.body.classList.add('showtr'); else if(TRS===2)document.body.classList.add('showall');
-  document.getElementById('trtog').textContent=['Opaque','Transparent','All'][TRS];}
+  document.getElementById('trtog').textContent=['Opaque','Transparent','All'][TRS];markRec();updateDeep();}
 document.getElementById('trtog').onclick=function(){TRS=(TRS+1)%3;setTRS();};
-if(MODE==='t')document.body.classList.add('showtr');
 setTRS();
+function setCase(){document.getElementById('casetog').textContent=UP?'21xUpper':'21xLower';updateDeep();}
+document.getElementById('casetog').onclick=function(){UP=!UP;setCase();
+  renderMeta();                         // show the new encoded 21x21 string + mode
+  if(x)buildGrid().then(titleTiles);    // capacity depends on mode -> rebuild the whole tile set
+  if(ovCur){renderOv();document.querySelector('#ov .cap').textContent=contentFor(ovCur.N)+'  \u00b7  '+ovCur.N+' '+ovCur.ec+'  hole '+ovCur.h+(ovCur.tr?'  transparent':'')+'  \u00b7  click to close';}};
+setCase();
+function deepURL(){   // reconstruct the URL that reproduces the current UI state
+  var p=new URLSearchParams();
+  if(I)p.set('i',I);
+  if(UP)p.set('x21','U');
+  if(HID)p.set('ex','1');
+  p.set('v',(MIN?['O','T','A']:['o','t','a'])[TRS]);   // ONE v= for Opaque/Transparent/All; UPPER = collapsed view
+  if(x)p.set('x',x);                                   // x is always the LAST parameter
+  var q=p.toString();
+  return location.href.split(/[?#]/)[0]+(q?'?'+q:'');
+}
+function updateDeep(){   // (re)render the deep link under the image grid AND sync the address bar
+  var d=document.getElementById('deep');
+  if(!x){if(d)d.textContent='';return;}
+  var u=deepURL();
+  try{history.replaceState(null,'',u);}catch(e){}   // keep the address bar in step (no history entry)
+  if(!d)return;
+  d.textContent='deep link: ';
+  var a=document.createElement('a');a.href=u;a.textContent=u;d.appendChild(a);
+}
+updateDeep();
+var collBtn=document.getElementById('coll');
+function setVonly(on){   // collapse = minimal view (only the recommended tiles); expand = full grid
+  MIN=on;
+  document.body.classList.toggle('vonly',MIN);
+  setTRS();                                    // re-applies showtr/showall + re-lays out + syncs the deep link & address bar
+  updateDeep();
+  if(collBtn)collBtn.textContent=MIN?'\u25b8 expand':'\u25c2 collapse';   // label = the ACTION
+}
+function placeColl(){   // park the button on the far right, just below the orange (recommended) tiles
+  if(!collBtn)return;
+  var rc=document.getElementById('recs'),maxB=0;
+  if(rc)[].slice.call(rc.children).forEach(function(t){var r=t.getBoundingClientRect();if(r.bottom>maxB)maxB=r.bottom;});
+  collBtn.style.top=Math.max(4,maxB+6)+'px';
+}
+if(collBtn){
+  if(!x)collBtn.style.display='none';
+  collBtn.textContent=MIN?'\u25b8 expand':'\u25c2 collapse';
+  collBtn.onclick=function(){setVonly(!MIN);};
+}
+window.addEventListener('resize',placeColl);
 function redrawTiles(){
   [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
     var N=+el.dataset.size,ec=el.dataset.ec,h=+el.dataset.hole,tr=+el.dataset.tr;
@@ -191,13 +270,17 @@ function redrawTiles(){
 }
 if(!x){meta.textContent='No ?x=<id>. e.g. qrgX.html?x=bgda';}
 else{(async function(){
-  var https='https://aigap.no/'+x, www='www.aigap.no/'+x;
-  meta.innerHTML=FULLURL?('<b>'+x+'</b>'):('<b>'+x+'</b> &mdash; www: '+www+' &middot; https: '+https);
+  renderMeta();
   // overlay image: ?i=<basename|url> overrides; else art named after x (www./http x has none)
   var imgUrl=I?(/^https?:\/\//i.test(I)?I:('../'+(/\.[a-z0-9]+$/i.test(I)?I:I+'.png')))
               :(FULLURL?null:'../'+x+'.png');
   ART=imgUrl?await loadArt(imgUrl):null;
   if(ART&&!keyed())showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be keyed or re-scored - they currently fall back to the opaque image. Open the page over http (e.g. Live Server) to enable this.');
+  await buildGrid();
+  initOverlay();
+})();}
+async function buildGrid(){   // (re)generate the whole tile set for the current UP/mode (capacity depends on it)
+  document.getElementById('recs').innerHTML='';   // drop previously promoted recommended tiles
   var tiles=[];
   for(var N of SIZ){for(var ec of EC){
     try{ matrixFor(N,ec); }catch(e){ continue; }     // payload too big for this size+EC
@@ -212,7 +295,7 @@ else{(async function(){
   var frag='';
   for(var t of tiles){
     var pct=Math.round(100*t.erased/t.ecPer);
-    frag+='<span class="tpl '+t.col+(t.tr?' trp':'')+'" data-size="'+t.N+'" data-ec="'+t.ec+'" data-hole="'+t.h+'" data-tr="'+(t.tr?1:0)+'" data-er="'+t.erased+'" data-ecp="'+t.ecPer+'" data-pct="'+pct+'">'
+    frag+='<span class="tpl '+t.col+(t.tr?' trp':'')+'" title="'+contentFor(t.N)+'" data-size="'+t.N+'" data-ec="'+t.ec+'" data-hole="'+t.h+'" data-tr="'+(t.tr?1:0)+'" data-er="'+t.erased+'" data-ecp="'+t.ecPer+'" data-pct="'+pct+'">'
       +'<div class=sz></div>'
       +'<span class="q"><canvas></canvas></span>'
       +'<i>'+t.N+t.ec+t.h+(t.tr?' trans':'')+'</i>'
@@ -222,10 +305,9 @@ else{(async function(){
   box.querySelectorAll('.tpl').forEach(function(el,i){var cn=el.querySelector('canvas'),g=cn.getContext('2d');
     cn.width=tiles[i].cv.width;cn.height=tiles[i].cv.height;g.drawImage(tiles[i].cv,0,0);});
   recalcMetrics();await loadSizes();markRec();dedup();sortTiles();   // bytes first (sort tie-break), then dedup + sort the grid
-  initOverlay();
-})();}
+}
 // high-res render: S px per module + a quiet zone of `mar` white modules
-function renderHi(N,ec,h,tr){var S=40,mar=4,M=matrixFor(N,ec);
+function renderHi(N,ec,h,tr,mar){if(mar==null)mar=4;var S=40,M=matrixFor(N,ec);
   var D=(N+2*mar)*S,cv=document.createElement('canvas');cv.width=cv.height=D;
   var g=cv.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,D,D);g.fillStyle='#000';
   for(var y=0;y<N;y++)for(var xx=0;xx<N;xx++)if(M[y][xx])g.fillRect((mar+xx)*S,(mar+y)*S,S,S);
@@ -239,7 +321,7 @@ var ovCur=null;
 function renderOv(){if(!ovCur)return;var ov=document.getElementById('ov'),cv=renderHi(ovCur.N,ovCur.ec,ovCur.h,ovCur.tr);
   var c=ov.querySelector('canvas');c.width=cv.width;c.height=cv.height;c.getContext('2d').drawImage(cv,0,0);}
 function initOverlay(){var ov=document.getElementById('ov');
-  box.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('.tpl'):null;
+  document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('.tpl'):null;
     if(!t)return;
     ovCur={N:+t.dataset.size,ec:t.dataset.ec,h:+t.dataset.hole,tr:+t.dataset.tr};renderOv();
     ov.querySelector('.cap').textContent=contentFor(ovCur.N)+'  ·  '+ovCur.N+' '+ovCur.ec+'  hole '+ovCur.h+(ovCur.tr?'  transparent':'')+'  ·  click to close';
@@ -259,27 +341,42 @@ function markRec(){ // orange-border the recommended (ec,hole) per grid for this
         t.classList.remove('dup','r');   // always show it, highlighted orange
       }});
   }
-  // move the recommended tiles into the fixed top-right corner at 95/90/85vw
-  // (position each set independently so opaque and transparent both land correctly)
+  // move the recommended tiles into the fixed top-right corner
   var rc=document.getElementById('recs'); if(!rc)return;
-  var recs=[].slice.call(box.querySelectorAll('.tpl.rec'));
+  var recs=[].slice.call(document.querySelectorAll('.tpl.rec'));   // document-wide: they move from #box to #recs
   var ops=recs.filter(function(t){return !t.classList.contains('trp');});
   var trs=recs.filter(function(t){return t.classList.contains('trp');});
-  [ops,trs].forEach(function(arr){arr.forEach(function(t,i){
-    var isTr=t.classList.contains('trp');
-    if(V==='a'){                     // normal page: compact single row, top-right (shrunk a lot)
-      var ia=i+(isTr?3:0);
-      t.style.left=(95-6*ia)+'vw'; t.style.top='1vh'; t.style.width='4.5vw';
-    }else if(MIN){                   // minimal iframe view: 1 unit sides, 5 units tile, 1 unit gaps
-      var per=(V==='A')?37:19, idx=(V==='A')?(i+(isTr?3:0)):i;
+  if(MIN){                          // minimal view: unit-spaced row (All -> 6 tiles, else 3)
+    var per=(TRS===2)?37:19;
+    [ops,trs].forEach(function(arr){arr.forEach(function(t,i){
+      var idx=(TRS===2)?(i+(t.classList.contains('trp')?3:0)):i;
       t.style.left=(100*(1+6*idx)/per).toFixed(3)+'vw';
       t.style.top =(100/per).toFixed(3)+'vw';
       t.style.width=(500/per).toFixed(3)+'vw';
-    }else{                           // normal: top-right corner
-      t.style.left=(85-15*i)+'vw'; t.style.top=''; t.style.width='';
-    }
-    rc.appendChild(t);
-  });});
+      rc.appendChild(t);
+    });});
+  }else{                            // normal: one SMALL row filling the right half, with space around
+    ops.concat(trs).forEach(function(t){rc.appendChild(t);});
+    layoutExpanded();
+  }
+  upgradeRec();  // give the recommended tiles a high-res render (crisp when enlarged + printable)
+  placeColl();   // keep the collapse button just below the recommended tiles
+}
+function upgradeRec(){   // recommended tiles: high-res S=40 BORDERLESS render (no quiet zone) so the centre art stays sharp
+  [].slice.call(document.querySelectorAll('#recs .tpl')).forEach(function(t){
+    if(t.dataset.hi)return;
+    var cv; try{cv=renderHi(+t.dataset.size,t.dataset.ec,+t.dataset.hole,+t.dataset.tr,0);}catch(e){return;}
+    var cn=t.querySelector('canvas'); cn.width=cv.width; cn.height=cv.height; cn.getContext('2d').drawImage(cv,0,0);
+    t.dataset.hi='1';   // re-render on each toggle too: cheap for ~3-6 tiles
+  });
+}
+function layoutExpanded(){   // tight row of the VISIBLE recommended tiles, right-aligned into the top-right corner
+  var rc=document.getElementById('recs'); if(!rc)return;
+  var vis=[].slice.call(rc.children).filter(function(t){return getComputedStyle(t).display!=='none';});
+  if(!vis.length)return;
+  var w=4.5,gap=w*0.5,mright=1.5,pitch=w+gap,rightmost=100-mright-w;   // 4.5vw tile, half-tile gap, 1.5vw margin
+  vis.forEach(function(t,k){t.style.width=w+'vw';t.style.top='1vh';
+    t.style.left=(rightmost-(vis.length-1-k)*pitch).toFixed(3)+'vw';});   // last tile hugs the right edge
 }
 function tileCmp(a,b){            // sort: size asc, hole desc, err% asc, transparent first, filesize desc
   var A=+a.dataset.size,B=+b.dataset.size; if(A!==B)return A-B;
