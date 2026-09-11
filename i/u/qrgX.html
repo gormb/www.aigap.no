@@ -76,6 +76,12 @@ var FULLURL=/^(https?:\/\/|www\.)/i.test(x);   // x is a full URL -> normalise h
 var BASE=FULLURL?x.replace(/^https?:\/\//i,'').replace(/^www\./i,''):'aigap.no/'+x;
 // 21 uses the 'www.' host, all other sizes use 'https://'
 var ART=null;
+function artFit(side,aW,aH,tr){   // destination rect for the art inside a side×side hole
+  if(!(aW&&aH))return {sx:0,sy:0,sw:1,sh:1,x:0,y:0,w:side,h:side};
+  if(!tr){var s=Math.min(aW,aH);return {sx:aW>aH?(aW-s)/2:0,sy:aH>aW?(aH-s)/2:0,sw:s,sh:s,x:0,y:0,w:side,h:side};}   // opaque: crop (cover)
+  var r=Math.min(side/aW,side/aH),w=aW*r,h=aH*r;   // transparent: whole image, centred (contain)
+  return {sx:0,sy:0,sw:aW,sh:aH,x:(side-w)/2,y:(side-h)/2,w:w,h:h};
+}
 function loadArt(u){return new Promise(function(res){var im=new Image();
   if(/^https?:\/\//i.test(u))im.crossOrigin='anonymous';   // allow pixel read if the server sends CORS
   im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src=u;});}
@@ -104,9 +110,8 @@ function coverageAlpha(hole){ // per-module alpha of the keyed art (0 = white/tr
   var k=keyed();
   if(!k){COV[hole]=null;return null;}
   var c=document.createElement('canvas');c.width=c.height=hole;var g=c.getContext('2d');
-  var aW=k.width,aH=k.height;
-  if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(k,dx,0,s,aH,0,0,hole,hole);}
-  else{var sy=(aH-aW)/2;g.drawImage(k,0,sy,aW,aW,0,0,hole,hole);}
+  var f=artFit(hole,k.width,k.height,true); // transparent variant: whole image, centred; rest of the hole stays transparent
+  g.drawImage(k,f.sx,f.sy,f.sw,f.sh,f.x,f.y,f.w,f.h);
   var al=null;
   try{var d=g.getImageData(0,0,hole,hole).data;al=new Array(hole*hole);
     for(var i=0;i<hole*hole;i++)al[i]=d[i*4+3];}catch(e){al=null;}
@@ -162,9 +167,10 @@ function draw(M,hole,tr){
   g.fillStyle='#000';
   for(var y=0;y<N;y++)for(var xx=0;xx<N;xx++)if(M[y][xx])g.fillRect(xx*S,y*S,S,S);
   var a=(tr?keyed():null)||ART;
-  if(hole&&a&&(a.naturalWidth||a.width)){var lo=(N-hole)>>1,p=lo*S,size=hole*S,aW=a.naturalWidth||a.width,aH=a.naturalHeight||a.height;
-    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(a,dx,0,s,aH,p,p,size,size);}
-    else{var sy=(aH-aW)/2;g.drawImage(a,0,sy,aW,aW,p,p,size,size);}}
+  if(hole&&a&&(a.naturalWidth||a.width)){var lo=(N-hole)>>1,p=lo*S,size=hole*S;
+    var f=artFit(size,a.naturalWidth||a.width,a.naturalHeight||a.height,tr);
+    if(!tr){g.fillStyle='#fff';g.fillRect(p,p,size,size);}   // opaque: the hole reads as a white block
+    g.drawImage(a,f.sx,f.sy,f.sw,f.sh,p+f.x,p+f.y,f.w,f.h);}
   return cv;
 }
 function pngSize(cv){return new Promise(function(res){cv.toBlob(function(b){res(b?b.size:null);},'image/png');});}
@@ -224,9 +230,10 @@ function renderHi(N,ec,h,tr){var S=40,mar=4,M=matrixFor(N,ec);
   var g=cv.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,D,D);g.fillStyle='#000';
   for(var y=0;y<N;y++)for(var xx=0;xx<N;xx++)if(M[y][xx])g.fillRect((mar+xx)*S,(mar+y)*S,S,S);
   var a=(tr?keyed():null)||ART;
-  if(h&&a&&(a.naturalWidth||a.width)){var lo=(N-h)>>1,px=(mar+lo)*S,pw=h*S,aW=a.naturalWidth||a.width,aH=a.naturalHeight||a.height;
-    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(a,dx,0,s,aH,px,px,pw,pw);}
-    else{var sy=(aH-aW)/2;g.drawImage(a,0,sy,aW,aW,px,px,pw,pw);}}
+  if(h&&a&&(a.naturalWidth||a.width)){var lo=(N-h)>>1,px=(mar+lo)*S,pw=h*S;
+    var f=artFit(pw,a.naturalWidth||a.width,a.naturalHeight||a.height,tr);
+    if(!tr){g.fillStyle='#fff';g.fillRect(px,px,pw,pw);}     // opaque: the hole reads as a white block
+    g.drawImage(a,f.sx,f.sy,f.sw,f.sh,px+f.x,px+f.y,f.w,f.h);}
   return cv;}
 var ovCur=null;
 function renderOv(){if(!ovCur)return;var ov=document.getElementById('ov'),cv=renderHi(ovCur.N,ovCur.ec,ovCur.h,ovCur.tr);
