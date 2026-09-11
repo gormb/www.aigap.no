@@ -6,40 +6,140 @@ body{font:13px/1.4 system-ui,sans-serif;margin:16px;background:#eef1f4}
 h1{font-size:18px;margin:0 0 2px}
 #meta{color:#555;margin:4px 0 8px;word-break:break-all}
 #box{display:flex;flex-wrap:wrap;gap:10px}
+#recs{position:fixed;top:0;left:0;width:0;height:0;z-index:10}
+#recs .tpl{position:fixed;top:1vh;width:10vw;margin:0}
+#recs .tpl .q{width:100%}
+#recs .tpl .q canvas{width:100%;height:auto}
+/* v=T: iframe view - only the recommended (orange) tiles, no border, nothing else */
+body.vonly{margin:0;background:#fff}
+body.vonly #meta,body.vonly #tools,body.vonly .legend,body.vonly #box,body.vonly #warn{display:none}
+#tools{margin:6px 0}
+body.vonly .tpl.rec .q canvas{border:0}
 .tpl{display:inline-block;text-align:center;margin:4px;cursor:pointer}
 .tpl .q{position:relative;display:inline-block}
-.tpl .q canvas{display:block;background:#fff;border:1px solid #ddd;border-radius:4px}
+.tpl .q canvas{display:block;background:#fff;border:1px solid #ddd;border-radius:4px;width:100px;height:100px;image-rendering:pixelated}
 .tpl .q img.art{position:absolute;object-fit:cover}
 .tpl.g .q canvas{border-color:#2c8c3c}
 .tpl.y .q canvas{border-color:#e0b400}
 .tpl.r .q canvas{border-color:#c33}
 .tpl.rec .q canvas{border:2px solid #f80}
 .tpl.rec i{color:#c50}
+.tpl.rec .er{display:none}
+.tpl.trna .q canvas{border:2px dashed #c33}
 .tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
 .tpl i{display:block;font-style:normal;font-size:10px;color:#444;margin-top:2px}
 .tpl .er{font-size:9px;color:#666;margin-top:1px}
 .tpl.r{display:none}
 .tpl.dup{display:none}
+.tpl.trp{display:none}
 body.showred .tpl.r{display:inline-block}
 body.showred .tpl.dup{display:inline-block}
+/* opaque / transparent are mutually exclusive: show only the selected variant */
+body.showtr .tpl.trp{display:inline-block}
+body.showtr .tpl:not(.trp){display:none}
+/* a transparent tile stays hidden if red/duplicate unless "Show hidden" is also on */
+body.showtr .tpl.trp.r,body.showtr .tpl.trp.dup{display:none}
+body.showred.showtr .tpl.trp.r,body.showred.showtr .tpl.trp.dup{display:inline-block}
+/* v=A / v=a: show BOTH variants together */
+body.showall .tpl.trp{display:inline-block}
+/* ...but a transparent tile still obeys red/duplicate hiding unless "Show hidden" is on */
+body.showall .tpl.trp.r,body.showall .tpl.trp.dup{display:none}
+body.showred.showall .tpl.trp.r,body.showred.showall .tpl.trp.dup{display:inline-block}
 .legend{font-size:11px;margin:6px 0 10px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 12px;vertical-align:-1px}
 .dot.g{background:#2c8c3c}.dot.y{background:#e0b400}.dot.r{background:#c33}.dot.o{background:#f80}
 button{margin-left:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer}
+#warn{display:none;background:#fff3cd;border:1px solid #e0b400;color:#7a5c00;padding:6px 10px;border-radius:6px;margin:6px 0;font-size:12px}
+#warn.on{display:block}
 #ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;z-index:20;cursor:zoom-out}
 #ov.on{display:flex}
 #ov .cap{font:12px/1.3 system-ui;color:#333;margin-bottom:10px;text-align:center}
 #ov canvas{background:#fff;border-radius:6px;max-width:80vh;max-height:80vh;width:auto;height:auto;image-rendering:pixelated;box-shadow:0 6px 30px rgba(0,0,0,.4)}
 </style></head><body>
-<h1>QR analysis</h1><div id=meta></div>
-<div class=legend><span class="dot g"></span>safe (&le;EC/2 damaged)&nbsp;<span class="dot y"></span>near limit (&le;EC, erasure-only)&nbsp;<span class="dot r"></span>over EC&nbsp;<span class="dot o"></span>recommended
-<button id=showred>Show hidden</button></div>
+<div id=meta></div>
+<div id=tools><button id=showred>Show hidden</button><button id=trtog title="Cycle Opaque / Transparent / All">Opaque</button></div>
+<div class=legend><span class="dot g"></span>safe (&le;EC/2 damaged)<br><span class="dot y"></span>near limit (&le;EC, erasure-only)<br><span class="dot o"></span>recommended<br><span class="dot r"></span>over EC</div>
+<div id=warn></div>
 <div id=box></div>
+<div id=recs></div>
 <div id=ov><div><div class=cap></div><canvas></canvas></div></div>
 <script>
 var x=(new URLSearchParams(location.search).get('x')||'').trim();
+var MODE=(new URLSearchParams(location.search).get('m')||'').trim();   // m=t -> show transparent variants
+var I=(new URLSearchParams(location.search).get('i')||'').trim();      // i=overlay image (basename or full URL)
+var V=(new URLSearchParams(location.search).get('v')||'').trim();      // v=T transparent only, v=O opaque only, v=A all (minimal); v=a all (normal)
+var MIN=(V==='T'||V==='O'||V==='A');                                   // minimalistic (iframe) view
+if(MIN)document.body.classList.add('vonly');
+if(V==='T')document.body.classList.add('showtr');                     // transparent only
+if(V==='A'||V==='a')document.body.classList.add('showall');           // show both variants
+var FULLURL=/^(https?:\/\/|www\.)/i.test(x);   // x is a full URL -> normalise host, no aigap.no
+var BASE=FULLURL?x.replace(/^https?:\/\//i,'').replace(/^www\./i,''):'aigap.no/'+x;
+// 21 uses the 'www.' host, all other sizes use 'https://'
 var ART=null;
-function loadArt(u){return new Promise(function(res){var im=new Image();im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src=u;});}
+function loadArt(u){return new Promise(function(res){var im=new Image();
+  if(/^https?:\/\//i.test(u))im.crossOrigin='anonymous';   // allow pixel read if the server sends CORS
+  im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src=u;});}
+var WHITE=250;   // pixel is 'white' (-> transparent) when luminance >= WHITE
+var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
+var METGEN=0;    // bumped on each recalc; guards stale async byte-size results
+var KEYED=null, KEYED_TRIED=false;
+function keyed(){ // art with white turned fully transparent (alpha 0), the rest opaque (alpha 255)
+  if(KEYED_TRIED)return KEYED;
+  KEYED_TRIED=true;
+  if(!(ART&&ART.naturalWidth))return KEYED=null;
+  try{
+    var w=ART.naturalWidth,h=ART.naturalHeight;
+    var c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');
+    g.drawImage(ART,0,0);
+    var d=g.getImageData(0,0,w,h),p=d.data;
+    for(var i=0;i<p.length;i+=4){var a=p[i+3],l=0.299*p[i]+0.587*p[i+1]+0.114*p[i+2];
+      p[i+3]=(a<128||l>=WHITE)?0:255;}   // transparent stays transparent, white becomes transparent
+    g.putImageData(d,0,0);
+    KEYED=c;
+  }catch(e){KEYED=null;}   // pixel access blocked -> keying unavailable
+  return KEYED;
+}
+function coverageAlpha(hole){ // per-module alpha of the keyed art (0 = white/transparent, 255 = covered)
+  if(hole in COV)return COV[hole];
+  var k=keyed();
+  if(!k){COV[hole]=null;return null;}
+  var c=document.createElement('canvas');c.width=c.height=hole;var g=c.getContext('2d');
+  var aW=k.width,aH=k.height;
+  if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(k,dx,0,s,aH,0,0,hole,hole);}
+  else{var sy=(aH-aW)/2;g.drawImage(k,0,sy,aW,aW,0,0,hole,hole);}
+  var al=null;
+  try{var d=g.getImageData(0,0,hole,hole).data;al=new Array(hole*hole);
+    for(var i=0;i<hole*hole;i++)al[i]=d[i*4+3];}catch(e){al=null;}
+  COV[hole]=al;return al;
+}
+function metricFor(N,ec,h,tr){ // erasure for the opaque (square hole) or transparent (coverage) variant
+  if(tr&&h>0){var al=coverageAlpha(h);
+    if(al){var lo=(N-h)>>1;
+      return qrErasure(N,ec,function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h)return false;return al[(r-lo)*h+(c-lo)]>=128;});}}
+  return qrHoleErase(N,ec,h);
+}
+function showWarn(msg){var w=document.getElementById('warn');if(!w)return;w.textContent=msg;w.classList.add('on');
+  try{console.warn('[qrgX] '+msg);}catch(e){}}
+function whiteFn(N,h,tr){     // module is white (shows QR underneath) for the given variant
+  if(tr&&h>0){var al=coverageAlpha(h);if(al){var lo=(N-h)>>1;
+    return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h)return false;return al[(r-lo)*h+(c-lo)]<128;};}}
+  var lo=(N-h)>>1;
+  return function(r,c){return r>=lo&&r<lo+h&&c>=lo&&c<lo+h;};
+}
+function recalcMetrics(){     // (re)compute erasure/colour for every tile from its own variant
+  METGEN++;
+  [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
+    var N=+el.dataset.size,ec=el.dataset.ec,h=+el.dataset.hole,tr=+el.dataset.tr;
+    var na=tr&&h>0&&!coverageAlpha(h);   // transparent variant fell back (pixel access blocked)
+    el.classList.toggle('trna',!!na);
+    if(na)el.title='transparent unavailable: browser blocks reading image pixels (serve over http)';
+    var q=metricFor(N,ec,h,tr);
+    el.classList.remove('g','y','r');el.classList.add(q.col);
+    el.dataset.er=q.erased;el.dataset.ecp=q.ecPer;el.dataset.pct=Math.round(100*q.erased/q.ecPer);
+    el.querySelector('.er').textContent=(na?'\u26a0 ':'')+'erases '+q.erased+'/'+q.ecPer+' EC cw';
+    el.querySelector('.sz').title='erases '+q.erased+' of '+q.ecPer+' EC codewords';
+  });
+}
 var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES=[0,3,5,7,9];
 var EB={L:7,M:15,Q:25,H:30};                       // EC error budget (% codewords)
 var CAP={21:{L:17,M:14,Q:11,H:7},25:{L:32,M:26,Q:20,H:18},29:{L:53,M:42,Q:34,H:27}};
@@ -48,7 +148,7 @@ var GS=[21,25,29];                                 // grid sizes, index = g (0,1
 var REC_EC=['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'];
 var REC_HOLE=[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]];
 var box=document.getElementById('box'),meta=document.getElementById('meta');
-function contentFor(N){return (N===21?'www.aigap.no/':'https://aigap.no/')+x;}
+function contentFor(N){return (N===21?'www.':'https://')+BASE;}
 function artStyle(N,h){var lo=((N-h)/2)|0;return 'left:'+(lo*100/N).toFixed(2)+'%;top:'+(lo*100/N).toFixed(2)+'%;width:'+(h*100/N).toFixed(2)+'%;height:'+(h*100/N).toFixed(2)+'%;';}
 function matrixFor(N,ec){
   var qr=qrcode((N-17)/4, ec); qr.addData(contentFor(N),'Byte'); qr.make();
@@ -56,73 +156,93 @@ function matrixFor(N,ec){
   for(var r=0;r<n;r++){var row=[];for(var c=0;c<n;c++)row.push(qr.isDark(r,c));M.push(row);}
   return M;
 }
-function draw(M,hole){
+function draw(M,hole,tr){
   var N=M.length, S=5, cv=document.createElement('canvas'); cv.width=cv.height=N*S;
   var g=cv.getContext('2d'); g.fillStyle='#fff';g.fillRect(0,0,cv.width,cv.height);
   g.fillStyle='#000';
-  var lo=0;
-  if(hole){lo=(N-hole)>>1;for(var y=lo;y<lo+hole;y++)for(var xx=lo;xx<lo+hole;xx++)M[y][xx]=false;}
   for(var y=0;y<N;y++)for(var xx=0;xx<N;xx++)if(M[y][xx])g.fillRect(xx*S,y*S,S,S);
-  if(hole&&ART&&ART.naturalWidth){var p=lo*S,size=hole*S,aW=ART.naturalWidth,aH=ART.naturalHeight;
-    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(ART,dx,0,s,aH,p,p,size,size);}
-    else{var sy=(aH-aW)/2;g.drawImage(ART,0,sy,aW,aW,p,p,size,size);}}
+  var a=(tr?keyed():null)||ART;
+  if(hole&&a&&(a.naturalWidth||a.width)){var lo=(N-hole)>>1,p=lo*S,size=hole*S,aW=a.naturalWidth||a.width,aH=a.naturalHeight||a.height;
+    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(a,dx,0,s,aH,p,p,size,size);}
+    else{var sy=(aH-aW)/2;g.drawImage(a,0,sy,aW,aW,p,p,size,size);}}
   return cv;
 }
 function pngSize(cv){return new Promise(function(res){cv.toBlob(function(b){res(b?b.size:null);},'image/png');});}
 document.getElementById('showred').onclick=function(){var s=document.body.classList.toggle('showred');this.textContent=s?'Hide extra':'Show hidden';};
+var TRS=document.body.classList.contains('showtr')?1:(document.body.classList.contains('showall')?2:0);
+function setTRS(){document.body.classList.remove('showtr','showall');
+  if(TRS===1)document.body.classList.add('showtr'); else if(TRS===2)document.body.classList.add('showall');
+  document.getElementById('trtog').textContent=['Opaque','Transparent','All'][TRS];}
+document.getElementById('trtog').onclick=function(){TRS=(TRS+1)%3;setTRS();};
+if(MODE==='t')document.body.classList.add('showtr');
+setTRS();
+function redrawTiles(){
+  [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
+    var N=+el.dataset.size,ec=el.dataset.ec,h=+el.dataset.hole,tr=+el.dataset.tr;
+    try{var cv=draw(matrixFor(N,ec),h,tr),cn=el.querySelector('canvas');
+      cn.width=cv.width;cn.height=cv.height;cn.getContext('2d').drawImage(cv,0,0);}catch(e){}
+  });
+}
 if(!x){meta.textContent='No ?x=<id>. e.g. qrgX.html?x=bgda';}
 else{(async function(){
   var https='https://aigap.no/'+x, www='www.aigap.no/'+x;
-  meta.innerHTML='<b>'+x+'</b> &mdash; www: '+www+' &middot; https: '+https;
-  ART=await loadArt('../'+x+'.png');
+  meta.innerHTML=FULLURL?('<b>'+x+'</b>'):('<b>'+x+'</b> &mdash; www: '+www+' &middot; https: '+https);
+  // overlay image: ?i=<basename|url> overrides; else art named after x (www./http x has none)
+  var imgUrl=I?(/^https?:\/\//i.test(I)?I:('../'+(/\.[a-z0-9]+$/i.test(I)?I:I+'.png')))
+              :(FULLURL?null:'../'+x+'.png');
+  ART=imgUrl?await loadArt(imgUrl):null;
+  if(ART&&!keyed())showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be keyed or re-scored - they currently fall back to the opaque image. Open the page over http (e.g. Live Server) to enable this.');
   var tiles=[];
   for(var N of SIZ){for(var ec of EC){
     try{ matrixFor(N,ec); }catch(e){ continue; }     // payload too big for this size+EC
-    for(var h of HOLES){
-      var q=qrHoleErase(N,ec,h);            // real codeword erasure (ISO standard layout)
-      var cv=draw(matrixFor(N,ec),h);       // fresh matrix per hole
-      tiles.push({col:q.col,N:N,ec:ec,h:h,cv:cv,erased:q.erased,ecPer:q.ecPer,
-        title:contentFor(N)+' | erases '+q.erased+' of '+q.ecPer+' EC codewords'});
-    }
+    for(var h of HOLES){for(var ti=0;ti<2;ti++){
+      var tr=ti===1;
+      if(tr&&(!ART||h===0))continue;       // transparent needs an overlay image
+      var q=metricFor(N,ec,h,tr);          // opaque: square hole; transparent: image coverage
+      var cv=draw(matrixFor(N,ec),h,tr);   // fresh matrix per hole+variant
+      tiles.push({col:q.col,N:N,ec:ec,h:h,tr:tr,cv:cv,erased:q.erased,ecPer:q.ecPer});
+    }}
   }}
   var frag='';
   for(var t of tiles){
     var pct=Math.round(100*t.erased/t.ecPer);
-    frag+='<span class="tpl '+t.col+'" data-size="'+t.N+'" data-ec="'+t.ec+'" data-hole="'+t.h+'" data-er="'+t.erased+'" data-ecp="'+t.ecPer+'" data-pct="'+pct+'">'
+    frag+='<span class="tpl '+t.col+(t.tr?' trp':'')+'" data-size="'+t.N+'" data-ec="'+t.ec+'" data-hole="'+t.h+'" data-tr="'+(t.tr?1:0)+'" data-er="'+t.erased+'" data-ecp="'+t.ecPer+'" data-pct="'+pct+'">'
       +'<div class=sz></div>'
       +'<span class="q"><canvas></canvas></span>'
-      +'<i>'+t.N+' '+t.ec+' '+t.h+'</i>'
+      +'<i>'+t.N+t.ec+t.h+(t.tr?' trans':'')+'</i>'
       +'<div class=er>erases '+t.erased+'/'+t.ecPer+' EC cw</div></span>';
   }
   box.innerHTML=frag||'<div class=legend>No combos fit this id.</div>';
   box.querySelectorAll('.tpl').forEach(function(el,i){var cn=el.querySelector('canvas'),g=cn.getContext('2d');
     cn.width=tiles[i].cv.width;cn.height=tiles[i].cv.height;g.drawImage(tiles[i].cv,0,0);});
-  dedup();markRec();loadSizes();
+  recalcMetrics();await loadSizes();markRec();dedup();sortTiles();   // bytes first (sort tie-break), then dedup + sort the grid
   initOverlay();
 })();}
 // high-res render: S px per module + a quiet zone of `mar` white modules
-function renderHi(N,ec,h){var S=40,mar=4,M=matrixFor(N,ec),lo=0;
-  if(h){lo=(N-h)>>1;for(var y=lo;y<lo+h;y++)for(var xx=lo;xx<lo+h;xx++)M[y][xx]=false;}
+function renderHi(N,ec,h,tr){var S=40,mar=4,M=matrixFor(N,ec);
   var D=(N+2*mar)*S,cv=document.createElement('canvas');cv.width=cv.height=D;
   var g=cv.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,D,D);g.fillStyle='#000';
   for(var y=0;y<N;y++)for(var xx=0;xx<N;xx++)if(M[y][xx])g.fillRect((mar+xx)*S,(mar+y)*S,S,S);
-  if(h&&ART&&ART.naturalWidth){var px=(mar+lo)*S,pw=h*S,aW=ART.naturalWidth,aH=ART.naturalHeight;
-    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(ART,dx,0,s,aH,px,px,pw,pw);}
-    else{var sy=(aH-aW)/2;g.drawImage(ART,0,sy,aW,aW,px,px,pw,pw);}}
+  var a=(tr?keyed():null)||ART;
+  if(h&&a&&(a.naturalWidth||a.width)){var lo=(N-h)>>1,px=(mar+lo)*S,pw=h*S,aW=a.naturalWidth||a.width,aH=a.naturalHeight||a.height;
+    if(aW>aH){var s=aH,dx=(aW-s)/2;g.drawImage(a,dx,0,s,aH,px,px,pw,pw);}
+    else{var sy=(aH-aW)/2;g.drawImage(a,0,sy,aW,aW,px,px,pw,pw);}}
   return cv;}
+var ovCur=null;
+function renderOv(){if(!ovCur)return;var ov=document.getElementById('ov'),cv=renderHi(ovCur.N,ovCur.ec,ovCur.h,ovCur.tr);
+  var c=ov.querySelector('canvas');c.width=cv.width;c.height=cv.height;c.getContext('2d').drawImage(cv,0,0);}
 function initOverlay(){var ov=document.getElementById('ov');
   box.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('.tpl'):null;
     if(!t)return;
-    var N=+t.dataset.size,ec=t.dataset.ec,h=+t.dataset.hole,cv=renderHi(N,ec,h);
-    var c=ov.querySelector('canvas');c.width=cv.width;c.height=cv.height;c.getContext('2d').drawImage(cv,0,0);
-    ov.querySelector('.cap').textContent=contentFor(N)+'  ·  '+N+' '+ec+'  hole '+h+'  ·  click to close';
+    ovCur={N:+t.dataset.size,ec:t.dataset.ec,h:+t.dataset.hole,tr:+t.dataset.tr};renderOv();
+    ov.querySelector('.cap').textContent=contentFor(ovCur.N)+'  ·  '+ovCur.N+' '+ovCur.ec+'  hole '+ovCur.h+(ovCur.tr?'  transparent':'')+'  ·  click to close';
     ov.classList.add('on');});
   ov.addEventListener('click',function(){ov.classList.remove('on');});
   window.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('on');});}
 function colorOf(t){return t.classList.contains('g')?'g':(t.classList.contains('y')?'y':(t.classList.contains('r')?'r':null));}
 function markRec(){ // orange-border the recommended (ec,hole) per grid for this id length
   if(!x)return;
-  var c=x.length;
+  var c=(FULLURL?BASE:x).length;   // key off the normalised host, not the raw x (www./https:// differ)
   for(var g=0;g<3;g++){
     var ec=(REC_EC[g]||'')[c]||null, hole=REC_HOLE[g]?.[c]??null;
     if(ec==null||hole==null)continue;
@@ -132,21 +252,57 @@ function markRec(){ // orange-border the recommended (ec,hole) per grid for this
         t.classList.remove('dup','r');   // always show it, highlighted orange
       }});
   }
+  // move the recommended tiles into the fixed top-right corner at 95/90/85vw
+  // (position each set independently so opaque and transparent both land correctly)
+  var rc=document.getElementById('recs'); if(!rc)return;
+  var recs=[].slice.call(box.querySelectorAll('.tpl.rec'));
+  var ops=recs.filter(function(t){return !t.classList.contains('trp');});
+  var trs=recs.filter(function(t){return t.classList.contains('trp');});
+  [ops,trs].forEach(function(arr){arr.forEach(function(t,i){
+    var isTr=t.classList.contains('trp');
+    if(V==='a'){                     // normal page: compact single row, top-right (shrunk a lot)
+      var ia=i+(isTr?3:0);
+      t.style.left=(95-6*ia)+'vw'; t.style.top='1vh'; t.style.width='4.5vw';
+    }else if(MIN){                   // minimal iframe view: 1 unit sides, 5 units tile, 1 unit gaps
+      var per=(V==='A')?37:19, idx=(V==='A')?(i+(isTr?3:0)):i;
+      t.style.left=(100*(1+6*idx)/per).toFixed(3)+'vw';
+      t.style.top =(100/per).toFixed(3)+'vw';
+      t.style.width=(500/per).toFixed(3)+'vw';
+    }else{                           // normal: top-right corner
+      t.style.left=(85-15*i)+'vw'; t.style.top=''; t.style.width='';
+    }
+    rc.appendChild(t);
+  });});
 }
-function dedup(){var ECr={L:0,M:1,Q:2,H:3},rep={};
-  [].slice.call(document.querySelectorAll('#box .tpl')).forEach(function(t){var col=colorOf(t);if(!col)return;
-    var k=t.dataset.size+'-'+col,s=+t.dataset.hole*10+(ECr[t.dataset.ec]||0);
-    if(!(k in rep)||s>rep[k].s)rep[k]={t:t,s:s};});
-  [].slice.call(document.querySelectorAll('#box .tpl')).forEach(function(t){var col=colorOf(t);if(!col)return;
-    var k=t.dataset.size+'-'+col; if(!(k in rep)||rep[k].t!==t)t.classList.add('dup');});}
-function loadSizes(){ // top line: real 1-bit indexed PNG size then error % of EC budget
-  [].slice.call(document.querySelectorAll('#box .tpl')).forEach(function(t){
+function tileCmp(a,b){            // sort: size asc, hole desc, err% asc, transparent first, filesize desc
+  var A=+a.dataset.size,B=+b.dataset.size; if(A!==B)return A-B;
+  var h=(+b.dataset.hole)-(+a.dataset.hole); if(h)return h;
+  var e=(+a.dataset.pct)-(+b.dataset.pct); if(e)return e;
+  var t=(b.dataset.tr==='1'?1:0)-(a.dataset.tr==='1'?1:0); if(t)return t;
+  return (+b.dataset.bytes||0)-(+a.dataset.bytes||0);
+}
+function sortTiles(){             // order the grid by the same sort used to pick the best
+  [].slice.call(box.querySelectorAll('.tpl')).sort(tileCmp).forEach(function(t){box.appendChild(t);});
+}
+function dedup(){var rep={};
+  var all=[].slice.call(document.querySelectorAll('#box .tpl'));
+  all.forEach(function(t){t.classList.remove('dup');});
+  all.forEach(function(t){var col=colorOf(t);if(!col)return;
+    var k=t.dataset.size+'-'+col+'-'+(t.dataset.tr||0);
+    if(!(k in rep)||tileCmp(t,rep[k])<0)rep[k]=t;});   // first in sort order = best
+  all.forEach(function(t){var col=colorOf(t);if(!col)return;
+    var k=t.dataset.size+'-'+col+'-'+(t.dataset.tr||0); if(rep[k]!==t)t.classList.add('dup');});}
+function loadSizes(){ // real 1-bit indexed PNG size, and the filesize tie-break for sorting
+  return Promise.all([].slice.call(document.querySelectorAll('.tpl')).map(function(t){
     var N=+t.dataset.size, ec=t.dataset.ec, h=+t.dataset.hole, M;
-    try{ M=matrixFor(N,ec); }catch(e){ return; }
-    var lo=(N-h)>>1, hi=lo+h;
-    palettePngBytes(N,h,function(y,x){return (y>=lo&&y<hi&&x>=lo&&x<hi)?false:M[y][x];}).then(function(sz){
+    try{ M=matrixFor(N,ec); }catch(e){ return null; }
+    var g=METGEN;
+    return palettePngBytes(N,function(y,x){return M[y][x];},whiteFn(N,h,+t.dataset.tr)).then(function(sz){
+      if(g!==METGEN)return;            // a newer recalc superseded this one
+      t.dataset.bytes=sz;
       var el=t.querySelector('.sz'); if(!el)return;
       el.textContent=sz+'B / e:'+t.dataset.pct+'%';
       el.title='erases '+t.dataset.er+' of '+t.dataset.ecp+' EC codewords';});
-  });}
+  }));
+}
 </script></body></html>

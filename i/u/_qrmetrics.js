@@ -66,17 +66,16 @@ function dataCells(N, ec){
   return {cells:cells, nb:nb, dataTotal:dataTotal, ecPer:total-rs[2], totalCW:totalCW, remainder:cells.length-totalCW*8};
 }
 
-// Measure how many codewords of each RS block a centred square hole of side
-// `hole` modules erases (a codeword counts as erased if ANY of its modules is
-// inside the hole).
-function qrHoleErase(N, ec, hole){
+// Measure how many codewords of each RS block are lost for a given erase set.
+// `isErased(r,c)` decides whether a module is covered (damaged). A codeword
+// counts as erased if ANY of its modules is erased.
+function qrErasure(N, ec, isErased){
   var L=dataCells(N,ec), nb=L.nb, ecPer=L.ecPer, maxBit=L.totalCW*8;
-  var lo=(N-hole)>>1, hi=lo+hole;   // [lo,hi)
   var hit={};                        // cw -> block (only real codeword bits)
   for(var i=0;i<L.cells.length;i++){
     var cl=L.cells[i];
     if(cl.seq>=maxBit) continue;     // remainder bits carry no codeword
-    if(cl.r>=lo&&cl.r<hi&&cl.c>=lo&&cl.c<hi){ var cw=(cl.seq/8)|0; hit[cw]=1; }
+    if(isErased(cl.r,cl.c)){ var cw=(cl.seq/8)|0; hit[cw]=1; }
   }
   var perBlock=[];for(var b=0;b<nb;b++)perBlock.push(0);
   for(var cw in hit) perBlock[cw%nb]++;   // equal data/ec => block = cw % nb
@@ -88,6 +87,12 @@ function qrHoleErase(N, ec, hole){
   else col='r';
   return {erased:worst, ecPer:ecPer, col:col, perBlock:perBlock};
 }
+
+// Predicate for the centred square hole of side `hole` modules.
+function holeInside(N, hole){var lo=(N-hole)>>1,hi=lo+hole;return function(r,c){return r>=lo&&r<hi&&c>=lo&&c<hi;};}
+
+// Measure how many codewords a centred square hole of side `hole` erases.
+function qrHoleErase(N, ec, hole){ return qrErasure(N, ec, holeInside(N,hole)); }
 
 // ---------------------------------------------------------------------------
 // Real 1-bit indexed PNG byte size (like the served .qr1.png files), computed
@@ -102,15 +107,13 @@ function chunk(type,data){var len=data.length,out=new Uint8Array(len+12);
   var dv=new DataView(out.buffer);dv.setUint32(0,len);out.set(type,4);out.set(data,8);
   var crcIn=new Uint8Array(4+len);crcIn.set(type,0);crcIn.set(data,4);
   dv.setUint32(len+8,crc32(crcIn));return out;}
-async function palettePngBytes(N, hole, isDark){
+async function palettePngBytes(N, isDark, isWhite){
   var rowBytes=Math.ceil(N/8),raw=(rowBytes+1)*N,rawB=new Uint8Array(raw),rp=0;
-  var lo=(N-hole)>>1,hi=lo+hole;
   for(var y=0;y<N;y++){
     rawB[rp++]=0;
     var acc=0,nb2=0;
     for(var x=0;x<N;x++){
-      var inHole=y>=lo&&y<hi&&x>=lo&&x<hi;
-      var dark=inHole?false:isDark(y,x);   // 1 => black
+      var dark=isWhite(y,x)?false:isDark(y,x);   // 1 => black
       acc=(acc<<1)|(dark?1:0);nb2++;
       if(nb2==8){rawB[rp++]=acc;acc=0;nb2=0;}
     }
