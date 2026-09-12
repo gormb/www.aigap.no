@@ -7,7 +7,7 @@ returns void language sql as $$ insert into log(k,u,d) values(k,u,d); $$;
 alter table log enable row level security;
 drop policy if exists log_all on log;
 create policy log_all on log for all using (true) with check (true);
--- Premum codes (db.js logUsage → log_usage RPC); used by other projects.
+-- Premium codes (db.js logUsage → log_usage RPC); used by other projects.
 create table if not exists codes (code text primary key, book text not null default '', dtfrom timestamptz not null default now(), dtto timestamptz not null default '2099-12-31 23:59:59+00', use_limit integer, mails text not null default '', created_at timestamptz default now());
 alter table codes enable row level security;
 drop policy if exists codes_all on codes;
