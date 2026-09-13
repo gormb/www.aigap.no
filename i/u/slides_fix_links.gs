@@ -76,12 +76,13 @@ function fixGormbLinks(dry) {
     for (const el of page.getPageElements()) {
       try { walk(el); } catch (e) { /* ignore individual element errors */ }
     }
-  const tag = D ? 'DRY RUN (nothing written) - ' : '';
+  const tag = D ? 'CHECK ONLY, the deck was NOT changed - ' : '';
   Logger.log(tag + 'pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
              ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
   Logger.log(tag + 'text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
              ', replaced: ' + n + ', link runs styled: ' + styled);
   Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
+  if (D) Logger.log('Nothing was written. To apply it, run fixGormbLinks (not previewLinks) and Run again.');
 }
 
 /** Default Run = apply. previewLinks() = report only, writes nothing. */
