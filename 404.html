@@ -5,8 +5,9 @@ slug=location.pathname.match(/^\/([A-Za-z0-9]+)\/?$/)?.[1]
 if (slug)try{
   r=await (await fetch('https://nlxtqmsghslwgbndxboe.supabase.co/rest/v1/redir?select=id,url&or=(id.eq.'+slug+',id.ilike.'+slug+')',{headers:{apikey:k,'Authorization':'Bearer '+k}})).json()
   ,e=Array.isArray(r)?r.find(x=>x.id===slug):null
-  ,u=(e||(Array.isArray(r)&&r.length===1?r[0]:null)||{}).url;
-  if (u) return location.replace(u);
+  ,u=(e||(Array.isArray(r)&&r.length===1?r[0]:null)||{}).url
+  ,q=location.search.slice(1);
+  if (u) return location.replace(u+(q?(u.indexOf('?')<0?'?':'&')+q:'')+(location.hash&&u.indexOf('#')<0?location.hash:''));
 }catch{}
 document.title=document.body.innerHTML='404 – Not Found';
 })();
