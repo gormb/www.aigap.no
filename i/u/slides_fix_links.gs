@@ -5,8 +5,8 @@
  *   https://gormb.github.io/_?<base>qra  ->  https://aigap.no/<base>
  *
  * No Advanced services needed - just open the deck ->
- * Extensions -> Apps Script, paste this, press Run. Run only PREVIEWS.
- * To apply the changes, pick fixGormbLinks in the function dropdown and Run.
+ * Extensions -> Apps Script, paste this, press Run. That applies the changes.
+ * previewLinks() instead only reports what it would do, writing nothing.
  *
  * Links are shown in black Garamond (the font is only set when it is not
  * Garamond already).
@@ -84,7 +84,11 @@ function fixGormbLinks(dry) {
   Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
 }
 
-/** Default Run = preview only, so pressing it can never change the deck. */
+/** Default Run = apply. previewLinks() = report only, writes nothing. */
 function myFunction() {
+  fixGormbLinks();
+}
+
+function previewLinks() {
   fixGormbLinks(true);
 }
