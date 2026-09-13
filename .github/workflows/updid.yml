@@ -1,0 +1,11 @@
+name: Music IDs from m.md
+on:
+  workflow_dispatch:
+  push:
+    paths: [m.md]
+jobs:
+  updid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 i/u/qrbook_updID.py
