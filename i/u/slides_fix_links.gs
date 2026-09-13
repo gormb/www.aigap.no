@@ -5,20 +5,21 @@
  *   https://gormb.github.io/_?<base>qra  ->  https://aigap.no/<base>
  *
  * No Advanced services needed - just open the deck ->
- * Extensions -> Apps Script, paste this, press Run.
+ * Extensions -> Apps Script, paste this, press Run. Run only PREVIEWS.
+ * To apply the changes, pick fixGormbLinks in the function dropdown and Run.
  *
- * Every hyperlink run is also shown in black Garamond (the font is only set
- * when it is not Garamond already).
+ * Links are shown in black Garamond (the font is only set when it is not
+ * Garamond already).
  *
  * NOTE: this changes the text shown in the deck. If your items are QR IMAGES,
  * replace text does NOT change what the images encode - swap in the new QR
  * images for those. (Retargeting clickable hyperlink URLs needs the Slides
  * REST/Advanced service, which this intentionally avoids.)
  */
-function fixGormbLinks() {
-  const deck = SlidesApp.getActivePresentation();
+function fixGormbLinks(dry) {
+  const D = !!dry, deck = SlidesApp.getActivePresentation();
   let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, txtEls = 0, imgs = 0, other = 0;
-  const samples = [];
+  const samples = [], would = [];
 
   function linkStyle(text) {
     for (const run of text.getRuns()) {
@@ -29,10 +30,12 @@ function fixGormbLinks() {
       if (url) links++;
       if (samples.length < 4) samples.push(JSON.stringify(s.slice(0, 40)));
       if (!url && !/aigap\.no|gormb\.github\.io/.test(s)) continue;
+      if (would.length < 5) would.push(JSON.stringify(s.slice(0, 60)));
+      styled++;
+      if (D) continue;
       const st = run.getTextStyle();
       if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
       if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
-      styled++;
     }
   }
 
@@ -46,7 +49,7 @@ function fixGormbLinks() {
                    : id;
         return 'https://aigap.no/' + base;
       });
-      if (fixed !== s) { text.replaceAllText(s, fixed); n++; }
+      if (fixed !== s) { if (!D) text.replaceAllText(s, fixed); n++; }
     }
     linkStyle(text);
   }
@@ -73,14 +76,16 @@ function fixGormbLinks() {
     for (const el of page.getPageElements()) {
       try { walk(el); } catch (e) { /* ignore individual element errors */ }
     }
-  Logger.log('pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
+  const tag = D ? 'DRY RUN (nothing written) - ' : '';
+  Logger.log(tag + 'pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
              ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
-  Logger.log('text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
+  Logger.log(tag + 'text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
              ', replaced: ' + n + ', link runs styled: ' + styled);
   Logger.log('first runs seen: ' + (samples.join(' | ') || '(no text runs at all)'));
+  Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
 }
 
-/** Alias so pressing the default Run (myFunction) works. */
+/** Default Run = preview only, so pressing it can never change the deck. */
 function myFunction() {
-  fixGormbLinks();
+  fixGormbLinks(true);
 }
