@@ -24,6 +24,7 @@ body.vonly .tpl.rec .q canvas{border:0}
 .tpl.rec .er{display:none}
 .tpl.sel .q canvas{outline:3px solid #06c;outline-offset:1px}
 .tpl.sel i{color:#06c;font-weight:700}
+.need{outline:3px solid #06c;outline-offset:1px;background:#dbe9ff}
 .tpl.trna .q canvas{border:2px dashed #c33}
 .tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
 .tpl i{display:block;font-style:normal;font-size:10px;color:#444;margin-top:2px}

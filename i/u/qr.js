@@ -160,7 +160,7 @@ function draw(M,hole,tr){
 }
 function pngSize(cv){return new Promise(function(res){cv.toBlob(function(b){res(b?b.size:null);},'image/png');});}
 function setHID(){document.body.classList.toggle('showred',HID);
-  document.getElementById('showred').textContent=HID?'Hide extra':'Show hidden';updateDeep();}
+  document.getElementById('showred').textContent=HID?'Hide extra':'Show hidden';markSel();updateDeep();}
 document.getElementById('showred').onclick=function(){HID=!HID;setHID();};
 setHID();
 var TRS=document.body.classList.contains('showall')?2
@@ -280,9 +280,25 @@ function postTiles(){   // publish what renders here so an embedding gallery sta
     window.parent.postMessage({type:'qr-tiles',x:x,sel:SEL,recs:recs,tiles:tiles,fit:FIT,fitL:FITL,fitU:FITU,up:UP},'*');
   }catch(e){}
 }
-function markSel(){   // outline the variant stored in the DB (passed as sel=)
+function hintFor(){   // the stored variant is off screen -> the control that reveals it
+  if(!SEL||!document.querySelector('.tpl'))return null;
+  if(MIN)return 'coll';   // collapsed: #box is hidden and so is #tools, so expanding comes first
+  var t=[].slice.call(document.querySelectorAll('.tpl')).filter(function(e){return lab(e)===SEL;})[0];
+  if(!t)return /^21/.test(SEL)&&UP!==/[0-9]u$/.test(SEL)?'casetog':null;   // the label only exists in the other 21x case
+  var trp=t.classList.contains('trp');
+  if((trp&&TRS===0)||(!trp&&TRS===1))return 'trtog';
+  if((t.classList.contains('r')||t.classList.contains('dup'))&&!HID)return 'showred';
+  return null;
+}
+function markSel(){   // outline the variant stored in the DB (sel=); if it is off screen, mark the button to click
+  var hit=null;
   [].slice.call(document.querySelectorAll('.tpl')).forEach(function(t){
-    t.classList.toggle('sel',!!SEL&&lab(t)===SEL);});
+    t.classList.remove('sel');
+    if(SEL&&lab(t)===SEL&&t.getClientRects().length)hit=t;});
+  var h=hit?null:hintFor();
+  ['showred','trtog','casetog','coll'].forEach(function(i){
+    document.getElementById(i).classList.toggle('need',i===h);});
+  if(hit)hit.classList.add('sel');
 }
 // high-res render: S px per module + a quiet zone of `mar` white modules
 function renderHi(N,ec,h,tr,mar){if(mar==null)mar=4;var S=40,M=matrixFor(N,ec);
@@ -312,7 +328,7 @@ function initOverlay(){var ov=document.getElementById('ov'),t1=null,tmo=null;
     var t=e.target.closest?e.target.closest('.tpl'):null;
     if(!t)return;
     if(tmo&&t===t1){clearTimeout(tmo);tmo=null;return pickTile(t);}
-    clearTimeout(tmo);t1=t;tmo=setTimeout(function(){tmo=null;showOv(t,e);},250);});
+    clearTimeout(tmo);t1=t;tmo=setTimeout(function(){tmo=null;showOv(t,e);},500);});
   ov.addEventListener('click',function(e){ov.classList.remove('on');   // slow double-click: its 2nd click lands on the zoom overlay
     if(ovTpl&&Date.now()-ovAt<500&&Math.abs(e.clientX-ovX)<8&&Math.abs(e.clientY-ovY)<8)pickTile(ovTpl);});
   window.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('on');});}
