@@ -6,7 +6,7 @@ $('t').onclick=e=>{const tr=e.target.closest('tr'),b=e.target.closest('button');
 const ed=$('ed'),prs=$('present'),qrpick=$('qrpick'),qrfr=$('qrfr'),qrbox=$('qrbox'),imgbox=$('imgbox'),artimg=$('artimg'),artlink=$('artlink');let edId='',edSel='',edNew=true,idT=null
 const patch=async(id,body)=>{const{data,error}=await sb.from('redir').update(body).eq('id',id).select('id');return error?error.message:(data&&data.length?'':`no row ${id}: needs the anon UPDATE policy`)}
 const rowOf=id=>[...list.querySelectorAll('tr')].find(r=>r.dataset.id===id)
-const loadQr=()=>{qrfr.dataset.for=edId;qrfr.src='i/u/qr.html?'+(/u$/.test(edSel)?'x21=U&':'')+'ex=1&v=O&sel='+encodeURIComponent(edSel)+'&x='+encodeURIComponent(edId)}
+const loadQr=()=>{qrfr.dataset.for=edId;qrfr.src='i/u/qr.html?'+(/u$/.test(edSel)?'x21=U&':'')+'v=O&sel='+encodeURIComponent(edSel)+'&x='+encodeURIComponent(edId)}
 const loadImg=()=>{const u='i/'+edId+'.png';imgbox.hidden=false;$('imgmsg').textContent='';artimg.classList.remove('miss');artimg.alt=edId;artlink.href=u;artimg.src=u}
 artimg.onerror=()=>{artimg.classList.add('miss');$('imgmsg').textContent='i/'+edId+'.png not found'}
 const syncPrs=()=>{const v=prs.value;qrbox.hidden=v!=='qr';imgbox.hidden=v!=='img';if(v!=='qr'){qrfr.removeAttribute('src');qrfr.dataset.for=''}else if(qrfr.dataset.for!==edId)loadQr();if(v==='img')loadImg();else{artimg.removeAttribute('src');artimg.classList.remove('miss');$('imgmsg').textContent=''}}
