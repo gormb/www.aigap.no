@@ -296,16 +296,25 @@ function renderHi(N,ec,h,tr,mar){if(mar==null)mar=4;var S=40,M=matrixFor(N,ec);
     g.drawImage(a,f.sx,f.sy,f.sw,f.sh,px+f.x,px+f.y,f.w,f.h);
     if(N===21&&h===9)repaint21(g,M,h,S,mar);}
   return cv;}
-var ovCur=null;
+var ovCur=null,ovTpl=null,ovAt=0,ovX=0,ovY=0;
 function renderOv(){if(!ovCur)return;var ov=document.getElementById('ov'),cv=renderHi(ovCur.N,ovCur.ec,ovCur.h,ovCur.tr);
   var c=ov.querySelector('canvas');c.width=cv.width;c.height=cv.height;c.getContext('2d').drawImage(cv,0,0);}
-function initOverlay(){var ov=document.getElementById('ov');
-  document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('.tpl'):null;
+function pickTile(t){   // tell an embedding picker (dbAdm.html / qrgallery.html) which variant was chosen
+  if(!x||window.parent===window)return;
+  SEL=lab(t);markSel();
+  window.parent.postMessage({type:'qr-pick',x:x,lab:SEL},'*');}
+function showOv(t,e){var ov=document.getElementById('ov');
+  ovCur={N:+t.dataset.size,ec:t.dataset.ec,h:+t.dataset.hole,tr:+t.dataset.tr};ovTpl=t;ovAt=Date.now();ovX=e.clientX;ovY=e.clientY;renderOv();
+  ov.querySelector('.cap').textContent=contentFor(ovCur.N)+'  ·  '+ovCur.N+' '+ovCur.ec+'  hole '+ovCur.h+(ovCur.tr?'  transparent':'')+'  ·  click to close';
+  ov.classList.add('on');}
+function initOverlay(){var ov=document.getElementById('ov'),t1=null,tmo=null;
+  document.addEventListener('click',function(e){   // 2nd click on the same tile = select it; a lone click opens the zoom 250ms later
+    var t=e.target.closest?e.target.closest('.tpl'):null;
     if(!t)return;
-    ovCur={N:+t.dataset.size,ec:t.dataset.ec,h:+t.dataset.hole,tr:+t.dataset.tr};renderOv();
-    ov.querySelector('.cap').textContent=contentFor(ovCur.N)+'  ·  '+ovCur.N+' '+ovCur.ec+'  hole '+ovCur.h+(ovCur.tr?'  transparent':'')+'  ·  click to close';
-    ov.classList.add('on');});
-  ov.addEventListener('click',function(){ov.classList.remove('on');});
+    if(tmo&&t===t1){clearTimeout(tmo);tmo=null;return pickTile(t);}
+    clearTimeout(tmo);t1=t;tmo=setTimeout(function(){tmo=null;showOv(t,e);},250);});
+  ov.addEventListener('click',function(e){ov.classList.remove('on');   // slow double-click: its 2nd click lands on the zoom overlay
+    if(ovTpl&&Date.now()-ovAt<500&&Math.abs(e.clientX-ovX)<8&&Math.abs(e.clientY-ovY)<8)pickTile(ovTpl);});
   window.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('on');});}
 function colorOf(t){return t.classList.contains('g')?'g':(t.classList.contains('y')?'y':(t.classList.contains('r')?'r':null));}
 function markRec(){ // orange-border the recommended (ec,hole) per grid for this id length
