@@ -29,7 +29,7 @@ function fixGormbLinks(dry) {
       try { url = run.getLinkUrl(); } catch (e) {}
       if (url) links++;
 
-      if (!url && !/aigap\.no[\/?]|gormb\.github\.io/.test(s)) continue;
+      if (!url && !/aigap\.no\/m|gormb\.github\.io\/_\?m/.test(s)) continue;
       if (would.length < 5) would.push(JSON.stringify(s.slice(0, 60)));
       styled++;
       if (D) continue;
