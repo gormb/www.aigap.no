@@ -1,38 +1,15 @@
-<!doctype html><html lang=no><meta charset=utf-8>
-<!-- Title intentionally empty: it's only set to "404" if the redirect fails. -->
-<title></title>
-<style>
-  /* Hidden until we know there's no redirect → body only shows on a real 404. */
-  body{font:16px system-ui;padding:3em;text-align:center;color:#333;visibility:hidden}
-  body.off{visibility:visible}
-  h1{margin:0 0 .3em}
-</style>
-<body id=b>
-<h1>404 – Not Found</h1>
-<p>Siden finnes ikke.</p>
-<script>
-(async () => {
-  const show = () => {                    // reveal fallback only here
-    document.title = '404 – Not Found';   // …and only now set the 404 title
-    document.body.classList.add('off');
-  };
-  // Only single-segment, letters/digits slug → a plausible shortcode.
-  // Stops it hijacking real files (/m.html, /r.js, /i/*.png) and multi-level paths.
-  const segs = location.pathname.split('/').filter(Boolean);
-  const slug = (segs.length === 1 && /^[A-Za-z0-9]+$/.test(segs[0])) ? segs[0] : '';
-  if (!slug) return show();                // not a code → leave as a real 404
-
-  const SUPA = { url: 'https://nlxtqmsghslwgbndxboe.supabase.co', key: 'sb_publishable_H1UyOW06sr_Y6TkCai5OjQ_5rkdhfdO' };
-  const h = { apikey: SUPA.key, 'Authorization': 'Bearer ' + SUPA.key };
-  // Resolve in the same order this repo does: exact → +qr → +qra
-  for (const id of [slug, slug + 'qr', slug + 'qra']) {
-    try {
-      const r = await fetch(SUPA.url + '/rest/v1/redir?select=url&id=eq.' + encodeURIComponent(id), { headers: h });
-      const row = (await r.json())[0];
-      if (row && row.url) { location.replace(row.url); return; }  // → straight to target
-    } catch (e) { return show(); }         // network/CORS error → fail closed (real 404)
+<!doctype html><meta charset=utf-8><body>
+<script>(async ()=>{
+slug=location.pathname.match(/^\/([A-Za-z0-9]+)\/?$/)?.[1]
+,k='sb_publishable_H1UyOW06sr_Y6TkCai5OjQ_5rkdhfdO'
+,ids=[slug,slug+'qr',slug+'qra'];
+if (slug)try{
+  r=await (await fetch('https://nlxtqmsghslwgbndxboe.supabase.co/rest/v1/redir?select=id,url&id=in.('+ids.join(',')+')',{headers:{apikey:k,'Authorization':'Bearer '+k}})).json();
+  for (id of ids){
+    row=r.find(x=> x.id===id);
+    if (row?.url) return location.replace(row.url);
   }
-  show();                                  // not found in table → stay on the 404 page
+}catch{}
+document.title=document.body.innerHTML='404 – Not Found';
 })();
-</script>
-</body></html>
+</script></body></html>
