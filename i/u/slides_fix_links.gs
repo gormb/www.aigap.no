@@ -18,7 +18,7 @@
  * REST/Advanced service, which this intentionally avoids.)
  */
 function fixGormbLinks(dry) {
-  const D = !!dry, ONLY = 28, deck = SlidesApp.getActivePresentation();   // ONLY = slide number to touch, 0 = every slide
+  const D = !!dry, ONLY = 0, deck = SlidesApp.getActivePresentation();   // ONLY = slide number to touch, 0 = every slide
   let n = 0, hit = 0, made = 0, els = 0, chars = 0, txtEls = 0, imgs = 0, other = 0;
   const texts = [], found = [], errs = [];
 
