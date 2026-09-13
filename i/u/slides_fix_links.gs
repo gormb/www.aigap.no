@@ -18,9 +18,9 @@
  * REST/Advanced service, which this intentionally avoids.)
  */
 function fixGormbLinks(dry) {
-  const D = !!dry, ONLY = 0, deck = SlidesApp.getActivePresentation();   // ONLY = slide number to touch, 0 = every slide
+  const D = !!dry, ONLY = 28, deck = SlidesApp.getActivePresentation();   // ONLY = slide number to touch, 0 = every slide
   let n = 0, hit = 0, made = 0, els = 0, chars = 0, txtEls = 0, imgs = 0, other = 0;
-  const texts = [], found = [], errs = [];
+  const texts = [], found = [];
 
   function urls(text) {   // black Garamond + clickable on every https://aigap.no/m* URL in this text
     const s = text.asString();
@@ -32,17 +32,13 @@ function fixGormbLinks(dry) {
       hit++;
       if (found.length < 5) found.push(m[0]);
       if (D) continue;
-      let r = s.trim() === m[0] ? text : null;                       // URL is the whole text
-      if (!r) { try { r = text.find(m[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); } catch (e) {} }
-      if (!r) { if (errs.length < 3) errs.push('not found: ' + m[0]); continue; }
+      const r = text.getRange(m.index, m.index + m[0].length);   // exact URL range: runs may be split anywhere
+      r.setLinkUrl(m[0]);
+      made++;
       const st = r.getTextStyle();
-      try { st.setLinkUrl(m[0]); made++; }                           // link lives on the text style in Slides
-      catch (e) { if (errs.length < 3) errs.push('link: ' + e); }
-      try {
-        st.setUnderline(false);                                      // Slides underlines new hyperlinks
-        if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
-        if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
-      } catch (e) { if (errs.length < 3) errs.push('style: ' + e); }
+      st.setUnderline(false);                                    // Slides underlines new hyperlinks
+      if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
+      if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
     }
   }
 
@@ -90,7 +86,6 @@ function fixGormbLinks(dry) {
   Logger.log(tag + 'text chars: ' + chars + ', matched URLs: ' + hit + ', links set: ' + made + ', replaced: ' + n);
   Logger.log('matched: ' + (found.join(' | ') || '(none)'));
   if (ONLY) Logger.log('text on slide ' + ONLY + ': ' + (texts.join(' | ') || '(no text found)'));
-  if (errs.length) Logger.log('errors: ' + errs.join(' | '));
 }
 
 /** Default Run = apply. previewLinks() = report only, writes nothing. */
