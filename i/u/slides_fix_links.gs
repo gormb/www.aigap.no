@@ -19,7 +19,7 @@
 function fixGormbLinks(dry) {
   const D = !!dry, deck = SlidesApp.getActivePresentation();
   let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, txtEls = 0, imgs = 0, other = 0;
-  const samples = [], would = [];
+  const would = [];
 
   function linkStyle(text) {
     for (const run of text.getRuns()) {
@@ -28,8 +28,8 @@ function fixGormbLinks(dry) {
       try { s = run.asString(); } catch (e) {}
       try { url = run.getLinkUrl(); } catch (e) {}
       if (url) links++;
-      if (samples.length < 4) samples.push(JSON.stringify(s.slice(0, 40)));
-      if (!url && !/aigap\.no|gormb\.github\.io/.test(s)) continue;
+
+      if (!url && !/aigap\.no[\/?]|gormb\.github\.io/.test(s)) continue;
       if (would.length < 5) would.push(JSON.stringify(s.slice(0, 60)));
       styled++;
       if (D) continue;
@@ -81,7 +81,6 @@ function fixGormbLinks(dry) {
              ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
   Logger.log(tag + 'text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
              ', replaced: ' + n + ', link runs styled: ' + styled);
-  Logger.log('first runs seen: ' + (samples.join(' | ') || '(no text runs at all)'));
   Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
 }
 
