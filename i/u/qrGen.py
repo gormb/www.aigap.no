@@ -6,14 +6,20 @@ size / EC / hole grid and the SAME file naming, so a matrix shown in the
 browser can be written straight to disk (and vice versa).
 
 Output, under i/:
-    <base>.qr<N><EC><hole>.png   borderless NxN code, centred WHITE hole
+    <base>.qr<N><EC><hole>.png   borderless NxN code with a WHITE hole
                                  (no quiet zone -- the site adds it via CSS)
     <base>.qr1.png               clean, tiny, hole-0 code the site displays
 
     <N>    module count, one of {21, 25, 29}   (21 uses the short www. host)
     <EC>   error correction, one of {L, M, Q, H}
-    <hole> centred white hole in modules, one of {0, 3, 5, 7, 9}
+    <hole> white hole in modules, one of {0, 3, 5, 7, 9}
     e.g. bgda.qr29Q9.png = https://aigap.no/bgda, 29x29, EC Q, 9-module hole
+
+The hole is CENTRED (so the artwork stays centred).  For a 9x9 hole on a 21x21
+code -- the one case where the box overlaps finder/separator cells -- the 9
+cells of KEEP21 keep their module; the other 72 stay free for the artwork.
+Every other combination is a plain centred square, as before.  Mirrors
+`i/u/qr.html`.
 
 `<base>.qr1.png` is the smallest code that fits: 21 modules with the www host
 at EC-L when the id is short enough, else the https link at EC-M at its
@@ -43,6 +49,15 @@ ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
 SIZES = [21, 25, 29]
 HOLES = [0, 3, 5, 7, 9]
+
+# The requested pattern for the one overlapping case: a 9x9 hole on a 21x21
+# code.  These 9 cells (of the 81) keep the QR module -- the box's left column
+# for the top three rows and the bottom three rows, and the right column for the
+# top three rows.  The other 72 cells stay free for the artwork.  Nothing else is
+# affected: 5x5 / 7x7 and the 25 / 29 codes are a plain centred square.
+KEEP21 = {(6, 6), (7, 6), (8, 6),
+          (6, 14), (7, 14), (8, 14),
+          (12, 6), (13, 6), (14, 6)}
 
 
 def db_bases():
@@ -94,13 +109,21 @@ def png_bytes(mask):
 
 
 def combo_bytes(base, N, ec, hole):
-    """Borderless NxN code with a centred white hole, or None if it can't fit."""
+    """Borderless NxN code with a centred white hole, or None if it can't fit.
+    For a 9x9 hole on a 21x21 code the 9 cells of KEEP21 keep their module."""
     try:
         mask = matrix(content_for(base, N), (N - 17) // 4, ec)
     except Exception:
         return None                          # payload too big for N at this EC
-    lo = (N - hole) // 2
-    mask[lo:lo + hole, lo:lo + hole] = False
+    if hole > 0:
+        lo = (N - hole) // 2
+        if N == 21 and hole == 9:
+            for r in range(lo, lo + hole):
+                for c in range(lo, lo + hole):
+                    if (r, c) not in KEEP21:
+                        mask[r][c] = False
+        else:
+            mask[lo:lo + hole, lo:lo + hole] = False
     return png_bytes(mask)
 
 

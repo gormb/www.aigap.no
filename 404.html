@@ -1,5 +1,6 @@
 <!doctype html><html lang=no><meta charset=utf-8>
-<title>404 – Not Found</title>
+<!-- Title intentionally empty: it's only set to "404" if the redirect fails. -->
+<title></title>
 <style>
   /* Hidden until we know there's no redirect → body only shows on a real 404. */
   body{font:16px system-ui;padding:3em;text-align:center;color:#333;visibility:hidden}
@@ -11,7 +12,10 @@
 <p>Siden finnes ikke.</p>
 <script>
 (async () => {
-  const show = () => document.body.classList.add('off'); // reveal fallback only here
+  const show = () => {                    // reveal fallback only here
+    document.title = '404 – Not Found';   // …and only now set the 404 title
+    document.body.classList.add('off');
+  };
   // Only single-segment, letters/digits slug → a plausible shortcode.
   // Stops it hijacking real files (/m.html, /r.js, /i/*.png) and multi-level paths.
   const segs = location.pathname.split('/').filter(Boolean);

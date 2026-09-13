@@ -1,0 +1,60 @@
+body{font:13px/1.4 system-ui,sans-serif;margin:16px;background:#eef1f4}
+h1{font-size:18px;margin:0 0 2px}
+#meta{color:#555;margin:4px 0 8px;word-break:break-all}
+#box{display:flex;flex-wrap:wrap;gap:10px}
+#recs{position:fixed;top:0;left:0;width:0;height:0;z-index:10}
+#recs .tpl{position:fixed;top:1vh;width:10vw;margin:0}
+#recs .tpl .q{width:100%}
+#recs .tpl .q canvas{width:100%;height:auto}
+/* v=T: iframe view - only the recommended (orange) tiles, no border, nothing else */
+body.vonly{margin:0;background:#fff}
+body.vonly #meta,body.vonly #tools,body.vonly .legend,body.vonly #box,body.vonly #warn{display:none}
+body.vonly #deep{display:block;position:fixed;left:0;right:0;bottom:0;margin:0;padding:4px 6px;background:#fff;border-top:1px solid #ddd;z-index:15}
+#tools{margin:6px 0}
+body.vonly .tpl.rec .q canvas{border:0}
+.tpl{display:inline-block;text-align:center;margin:4px;cursor:pointer}
+.tpl .q{position:relative;display:inline-block}
+.tpl .q canvas{display:block;background:#fff;border:1px solid #ddd;border-radius:4px;width:100px;height:100px;image-rendering:pixelated}
+.tpl .q img.art{position:absolute;object-fit:cover}
+.tpl.g .q canvas{border-color:#2c8c3c}
+.tpl.y .q canvas{border-color:#e0b400}
+.tpl.r .q canvas{border-color:#c33}
+.tpl.rec .q canvas{border:2px solid #f80}
+.tpl.rec i{color:#c50}
+.tpl.rec .er{display:none}
+.tpl.sel .q canvas{outline:3px solid #06c;outline-offset:1px}
+.tpl.sel i{color:#06c;font-weight:700}
+.tpl.trna .q canvas{border:2px dashed #c33}
+.tpl .sz{display:block;font-size:9px;color:#888;margin-bottom:2px}
+.tpl i{display:block;font-style:normal;font-size:10px;color:#444;margin-top:2px}
+.tpl .er{font-size:9px;color:#666;margin-top:1px}
+.tpl.r{display:none}
+.tpl.dup{display:none}
+.tpl.trp{display:none}
+body.showred .tpl.r:not(.trp){display:inline-block}
+body.showred .tpl.dup:not(.trp){display:inline-block}
+body.showtr.showred .tpl:not(.trp){display:none}   /* keep the variants exclusive even with Show extra on */
+/* opaque / transparent are mutually exclusive: show only the selected variant */
+body.showtr .tpl.trp{display:inline-block}
+body.showtr .tpl:not(.trp){display:none}
+/* a transparent tile stays hidden if red/duplicate unless "Show hidden" is also on */
+body.showtr .tpl.trp.r,body.showtr .tpl.trp.dup{display:none}
+body.showred.showtr .tpl.trp.r,body.showred.showtr .tpl.trp.dup{display:inline-block}
+/* v=A / v=a: show BOTH variants together */
+body.showall .tpl.trp{display:inline-block}
+/* ...but a transparent tile still obeys red/duplicate hiding unless "Show hidden" is on */
+body.showall .tpl.trp.r,body.showall .tpl.trp.dup{display:none}
+body.showred.showall .tpl.trp.r,body.showred.showall .tpl.trp.dup{display:inline-block}
+.legend{font-size:11px;margin:6px 0 10px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 12px;vertical-align:-1px}
+.dot.g{background:#2c8c3c}.dot.y{background:#e0b400}.dot.r{background:#c33}.dot.o{background:#f80}
+button{margin-left:6px;padding:3px 10px;border:1px solid #999;border-radius:6px;background:#fff;cursor:pointer}
+#warn{display:none;background:#fff3cd;border:1px solid #e0b400;color:#7a5c00;padding:6px 10px;border-radius:6px;margin:6px 0;font-size:12px}
+#warn.on{display:block}
+#deep{margin:10px 0 2px;font-size:12px;color:#333}
+#deep a{color:#06c;word-break:break-all}
+#coll{position:fixed;right:0;top:1vh;margin:0;z-index:15;border-radius:6px 0 0 6px;padding:4px 8px;font-size:12px;white-space:nowrap}
+#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;z-index:20;cursor:zoom-out}
+#ov.on{display:flex}
+#ov .cap{font:12px/1.3 system-ui;color:#333;margin-bottom:10px;text-align:center}
+#ov canvas{background:#fff;border-radius:6px;max-width:80vh;max-height:80vh;width:auto;height:auto;image-rendering:pixelated;box-shadow:0 6px 30px rgba(0,0,0,.4)}
