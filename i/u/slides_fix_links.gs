@@ -17,7 +17,7 @@
  */
 function fixGormbLinks() {
   const deck = SlidesApp.getActivePresentation();
-  let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0;
+  let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, txtEls = 0, imgs = 0, other = 0;
   const samples = [];
 
   function linkStyle(text) {
@@ -61,8 +61,10 @@ function fixGormbLinks() {
       for (let r = 0; r < tb.getNumRows(); r++)
         for (let c = 0; c < tb.getNumColumns(); c++)
           fix(tb.getCell(r, c).getText());
+    } else if (t === SlidesApp.PageElementType.IMAGE || t === SlidesApp.PageElementType.VIDEO) {
+      imgs++;
     } else {
-      try { fix(el.asShape().getText()); } catch (e) { /* not a text-bearing shape */ }
+      try { fix(el.asShape().getText()); txtEls++; } catch (e) { other++; }
     }
   }
 
@@ -72,8 +74,9 @@ function fixGormbLinks() {
       try { walk(el); } catch (e) { /* ignore individual element errors */ }
     }
   Logger.log('pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
-             ', text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links);
-  Logger.log('text blocks replaced: ' + n + ', link runs styled: ' + styled);
+             ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
+  Logger.log('text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
+             ', replaced: ' + n + ', link runs styled: ' + styled);
   Logger.log('first runs seen: ' + (samples.join(' | ') || '(no text runs at all)'));
 }
 
