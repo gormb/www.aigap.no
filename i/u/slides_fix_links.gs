@@ -9,7 +9,8 @@
  * previewLinks() instead only reports what it would do, writing nothing.
  *
  * Links are shown in black Garamond (the font is only set when it is not
- * Garamond already).
+ * Garamond already), and the https://aigap.no/m* URLs are made clickable
+ * (hyperlinked to their own text) when they are not links yet.
  *
  * NOTE: this changes the text shown in the deck. If your items are QR IMAGES,
  * replace text does NOT change what the images encode - swap in the new QR
@@ -18,7 +19,7 @@
  */
 function fixGormbLinks(dry) {
   const D = !!dry, deck = SlidesApp.getActivePresentation();
-  let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, txtEls = 0, imgs = 0, other = 0;
+  let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, made = 0, txtEls = 0, imgs = 0, other = 0;
   const would = [];
 
   function linkStyle(text) {
@@ -36,6 +37,11 @@ function fixGormbLinks(dry) {
       const st = run.getTextStyle();
       if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
       if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
+      const m = /https?:\/\/[^\s]+/.exec(s);   // hyperlink exactly the URL text, not the run's trailing newlines
+      if (m && m[0] !== url) {
+        try { text.getRange(run.getStartIndex() + m.index, run.getStartIndex() + m.index + m[0].length).setLinkUrl(m[0]); made++; }
+        catch (e) { /* invalid URL for Slides - leave as text */ }
+      }
     }
   }
 
@@ -80,7 +86,7 @@ function fixGormbLinks(dry) {
   Logger.log(tag + 'pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
              ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
   Logger.log(tag + 'text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
-             ', replaced: ' + n + ', link runs styled: ' + styled);
+             ', replaced: ' + n + ', link runs styled: ' + styled + ', links set: ' + made);
   Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
   if (D) Logger.log('Nothing was written. To apply it, run fixGormbLinks (not previewLinks) and Run again.');
 }
