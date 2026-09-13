@@ -18,28 +18,25 @@
  * REST/Advanced service, which this intentionally avoids.)
  */
 function fixGormbLinks(dry) {
-  const D = !!dry, deck = SlidesApp.getActivePresentation();
-  let n = 0, styled = 0, els = 0, chars = 0, runs = 0, links = 0, made = 0, txtEls = 0, imgs = 0, other = 0;
-  const would = [];
+  const D = !!dry, ONLY = 28, deck = SlidesApp.getActivePresentation();   // ONLY = slide number to touch, 0 = every slide
+  let n = 0, hit = 0, made = 0, els = 0, chars = 0, txtEls = 0, imgs = 0, other = 0;
+  const texts = [], found = [];
 
-  function linkStyle(text) {
-    for (const run of text.getRuns()) {
-      runs++;
-      let s = '', url = null;
-      try { s = run.asString(); } catch (e) {}
-      try { url = run.getLinkUrl(); } catch (e) {}
-      if (url) links++;
-
-      if (!url && !/aigap\.no\/m|gormb\.github\.io\/_\?m/.test(s)) continue;
-      if (would.length < 5) would.push(JSON.stringify(s.slice(0, 60)));
-      styled++;
+  function urls(text) {   // black Garamond + clickable on every https://aigap.no/m* URL in this text
+    const s = text.asString();
+    chars += s.length;
+    if (ONLY && texts.length < 10) texts.push(JSON.stringify(s.replace(/\s+/g, ' ').trim().slice(0, 70)));
+    const re = /https?:\/\/aigap\.no\/m[^\s]*/g;
+    let m;
+    while ((m = re.exec(s))) {
+      hit++;
+      if (found.length < 5) found.push(m[0]);
       if (D) continue;
-      const m = /https?:\/\/[^\s]+/.exec(s);   // hyperlink exactly the URL text, not the run's trailing newlines
-      if (m && m[0] !== url) {
-        try { text.getRange(run.getStartIndex() + m.index, run.getStartIndex() + m.index + m[0].length).setLinkUrl(m[0]); made++; }
-        catch (e) { /* invalid URL for Slides - leave as text */ }
-      }
-      const st = run.getTextStyle();   // after linking, so the link style cannot override it
+      const r = text.getRange(m.index, m.index + m[0].length);   // exact URL range: runs may be split anywhere
+      r.setLinkUrl(m[0]);
+      made++;
+      const st = r.getTextStyle();
+      st.setUnderline(false);                                    // Slides underlines new hyperlinks
       if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
       if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
     }
@@ -47,7 +44,6 @@ function fixGormbLinks(dry) {
 
   function fix(text) {
     const s = text.asString();
-    chars += s.length;
     if (s.indexOf('gormb.github.io/_?') >= 0) {
       const fixed = s.replace(/https:\/\/gormb\.github\.io\/_\?([A-Za-z0-9]+)/g, function (m, id) {
         const base = id.endsWith('qra') ? id.slice(0, -3)
@@ -57,7 +53,7 @@ function fixGormbLinks(dry) {
       });
       if (fixed !== s) { if (!D) text.replaceAllText(s, fixed); n++; }
     }
-    linkStyle(text);
+    urls(text);   // re-reads the text itself, so offsets stay correct after a replace
   }
 
   function walk(el) {
@@ -77,18 +73,19 @@ function fixGormbLinks(dry) {
     }
   }
 
-  const pages = deck.getSlides().concat(deck.getLayouts(), deck.getMasters());
-  for (const page of pages)
-    for (const el of page.getPageElements()) {
+  const slides = deck.getSlides(), pages = slides.concat(deck.getLayouts(), deck.getMasters());
+  for (let i = 0; i < pages.length; i++) {
+    if (ONLY && !(i < slides.length && i + 1 === ONLY)) continue;
+    for (const el of pages[i].getPageElements()) {
       try { walk(el); } catch (e) { /* ignore individual element errors */ }
     }
+  }
   const tag = D ? 'CHECK ONLY, the deck was NOT changed - ' : '';
-  Logger.log(tag + 'pages: ' + pages.length + ' (slides ' + deck.getSlides().length + '), elements: ' + els +
-             ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
-  Logger.log(tag + 'text chars: ' + chars + ', runs: ' + runs + ', hyperlink runs: ' + links +
-             ', replaced: ' + n + ', link runs styled: ' + styled + ', links set: ' + made);
-  Logger.log('matched link runs: ' + (would.join(' | ') || '(none)'));
-  if (D) Logger.log('Nothing was written. To apply it, run fixGormbLinks (not previewLinks) and Run again.');
+  Logger.log(tag + 'pages: ' + pages.length + ' (slides ' + slides.length + ', only slide ' + (ONLY || 'all') +
+             '), elements: ' + els + ', shapes with text: ' + txtEls + ', images/videos: ' + imgs + ', other: ' + other);
+  Logger.log(tag + 'text chars: ' + chars + ', matched URLs: ' + hit + ', links set: ' + made + ', replaced: ' + n);
+  Logger.log('matched: ' + (found.join(' | ') || '(none)'));
+  if (ONLY) Logger.log('text on slide ' + ONLY + ': ' + (texts.join(' | ') || '(no text found)'));
 }
 
 /** Default Run = apply. previewLinks() = report only, writes nothing. */
