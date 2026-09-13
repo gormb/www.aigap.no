@@ -34,14 +34,14 @@ function fixGormbLinks(dry) {
       if (would.length < 5) would.push(JSON.stringify(s.slice(0, 60)));
       styled++;
       if (D) continue;
-      const st = run.getTextStyle();
-      if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
-      if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
       const m = /https?:\/\/[^\s]+/.exec(s);   // hyperlink exactly the URL text, not the run's trailing newlines
       if (m && m[0] !== url) {
         try { text.getRange(run.getStartIndex() + m.index, run.getStartIndex() + m.index + m[0].length).setLinkUrl(m[0]); made++; }
         catch (e) { /* invalid URL for Slides - leave as text */ }
       }
+      const st = run.getTextStyle();   // after linking, so the link style cannot override it
+      if ((st.getFontFamily() || '').toLowerCase() !== 'garamond') st.setFontFamily('Garamond');
+      if ((st.getForegroundColor() || '').toUpperCase() !== '#000000') st.setForegroundColor('#000000');
     }
   }
 
