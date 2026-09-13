@@ -2,7 +2,7 @@
 <script src="../../db.js"></script>
 <link rel=stylesheet href="qrgallery.css">
 </head><body>
-<h1>QR gallery <small>live · redir (qr / qra) · rendered by qr.html</small></h1>
+<h1>QR gallery <small>live · redir · present qr / img / none · rendered by qr.html</small></h1>
 <div id=status>loading…</div>
 <div id=warn></div>
 <div class=toolbar>
@@ -17,24 +17,47 @@
 </div>
 <div id=grid class=grid></div>
 
-<pre id=sql hidden>-- 1) the "selected QR" field on the redir table (icon row)
---    token = &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]   t = transparent, u = 21x uppercase host
---    e.g. 25M5  ·  25M5t  ·  21M5u  ·  21M5tu
+<pre id=sql hidden>-- 1) the two redir fields this page reads/writes
+--    qr      selected variant  = &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]   (t = transparent, u = 21x CAPS)
+--    present how the code is shown: qr | img | none
 --    (the old ^(21|25|29)[LMQH][03579]t?$ was WRONG: it could not record CAPS,
 --     so it rejected 21M5u and made the 21x CAPS choice unrecordable)
 alter table public.redir add column if not exists qr text;
+alter table public.redir add column if not exists present text;
 comment on column public.redir.qr is
   'Selected QR variant: &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]; t=transparent, u=21x uppercase host';
+comment on column public.redir.present is
+  'How the code is presented: qr | img | none';
 alter table public.redir drop constraint if exists redir_qr_fmt;
 alter table public.redir add constraint redir_qr_fmt
   check (qr is null or qr ~ '^(21[LMQH][03579]t?u?|2[59][LMQH][03579]t?)$');
+alter table public.redir drop constraint if exists redir_present_chk;
+alter table public.redir add constraint redir_present_chk
+  check (present is null or present in ('qr','img','none'));
+alter table public.redir alter column present set default 'img';
+create index if not exists redir_id_lower_idx on public.redir (lower(id));
 
--- 2) ONLY if you want this page to record the choice from the browser.
---    Grants the public anon role UPDATE on the single column `qr`.
+-- 2) let this page record both fields from the browser (public anon UPDATE).
+--    Narrowing anon to grant update (qr) broke dbAdm Save/Edit -> keep table-level.
+drop policy if exists "redir update qr" on public.redir;
 create policy "redir update qr" on public.redir for update to anon
   using (true) with check (true);
-revoke update on public.redir from anon;
-grant update (qr) on public.redir to anon;
+grant update on public.redir to anon;
+
+-- 3) ONE-SHOT migration: bare every qr/qra id, remember it in `present`.
+--    BACK UP FIRST (Util -> Export -> redir).  Run the block once.
+update public.redir set present='qr' where id ~ '(qr|qra)$';
+update public.redir set url = replace(url,'&c=w,3000,nLg0','') where id='lddqra';
+update public.redir set qr = (select qr from public.redir where id='lddqra') where id='LDD' and qr is null;
+delete from public.redir where id in ('Bqra','BMD');
+update public.redir set id = regexp_replace(id,'(qr|qra)$','') where id ~ '(qr|qra)$';
+update public.redir set present='none' where "group"='Hidden';
+update public.redir set present='img' where present is null;
+
+-- 4) guards: both must return 0 rows
+-- select id from public.redir where id ~ '(qr|qra)$';
+-- select lower(id),count(*) from public.redir group by 1 having count(*)>1;
+-- rollback: update public.redir set id=id||'qra' where present='qr'; + restore the 3 deleted rows
 </pre>
 
 <script src="qrgallery.js"></script></body></html>

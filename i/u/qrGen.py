@@ -26,7 +26,7 @@ at EC-L when the id is short enough, else the https link at EC-M at its
 natural minimum size.  Content is always https://aigap.no/<base>.
 
 Usage:
-    python3 i/u/qrgen.py [base ...]     # default: every qr/qra base in the DB
+    python3 i/u/qrgen.py [base ...]     # default: every present='qr' id in the DB
     python3 i/u/qrgen.py --no-combos    # only refresh the .qr1.png thumbnails
     python3 i/u/qrgen.py --no-qr1       # only refresh the matrix combos
 
@@ -61,10 +61,9 @@ KEEP21 = {(6, 6), (7, 6), (8, 6),
 
 
 def db_bases():
-    """QR-code bases from the live Supabase `redir` table.
+    """QR-code ids from the live Supabase `redir` table.
 
-    Only ids ending in `qra` (current) or `qr` (legacy) are QR codes; the
-    suffix is stripped: `bgdaqra` -> `bgda`.  Returns None if unreachable."""
+    A row is a QR code when present = 'qr'.  Returns None if unreachable."""
     try:
         dbjs = open(os.path.join(ROOT, 'db.js'), encoding='utf8').read()
         url = re.search(r'url\s*:\s*"([^"]+)"', dbjs).group(1)
@@ -72,18 +71,10 @@ def db_bases():
         if 'YOUR-' in url:
             return None
         hdr = {'apikey': key, 'Authorization': 'Bearer ' + key}
-        u = url + '/rest/v1/redir?' + urllib.parse.urlencode({'select': 'id'})
+        q = {'select': 'id', 'present': 'eq.qr'}
+        u = url + '/rest/v1/redir?' + urllib.parse.urlencode(q)
         rows = json.load(urllib.request.urlopen(urllib.request.Request(u, headers=hdr)))
-        out = set()
-        for r in rows:
-            i = r.get('id')
-            if not isinstance(i, str):
-                continue
-            if i.endswith('qra'):
-                out.add(i[:-3])
-            elif i.endswith('qr'):
-                out.add(i[:-2])
-        return sorted(out)
+        return sorted({r['id'] for r in rows if isinstance(r.get('id'), str)})
     except Exception:
         return None
 
@@ -158,7 +149,7 @@ def main(argv):
                             for f in glob.glob(os.path.join(OUT, '*.qr.png'))})
             src = 'local *.qr.png files'
         else:
-            src = 'live redir table (qra/qr)'
+            src = 'live redir table (present=qr)'
     else:
         src = 'command line'
 

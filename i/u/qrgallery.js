@@ -26,17 +26,17 @@ function srcFor(base,expanded){            // mirrors qr.html's own deep-link or
   p.set('x',base);                                          // x is always the LAST param
   return 'qr.html?'+p.toString();
 }
-function reload(base){var c=cards[base];if(c&&c.fr.dataset.on)c.fr.src=srcFor(base,c.el.classList.contains('exp'));}
+function reload(base){var c=cards[base];if(c&&c.fr&&c.fr.dataset.on)c.fr.src=srcFor(base,c.el.classList.contains('exp'));}
 function reloadAll(){Object.keys(cards).forEach(reload);}
 function ensure(base){          // lazy: only start an iframe once it is near the viewport
-  var c=cards[base];if(!c||c.fr.dataset.on)return;
+  var c=cards[base];if(!c||!c.fr||c.fr.dataset.on)return;
   c.fr.dataset.on='1';
   c.fr.src=srcFor(base,c.el.classList.contains('exp'));
 }
 function expand(c,on){
   c.el.classList.toggle('exp',on);
   c.btn.textContent=on?'collapse':'expand';
-  if(c.fr.dataset.on)c.fr.src=srcFor(c.el.dataset.base,on);
+  if(c.fr&&c.fr.dataset.on)c.fr.src=srcFor(c.el.dataset.base,on);
 }
 function setEx(on){HID=on;exBtn.textContent=HID?'Hide extra':'Show extra';reloadAll();}
 function setVt(){TRS=(TRS+1)%3;vtBtn.textContent=['Opaque','Transparent','All'][TRS];reloadAll();}
@@ -49,7 +49,7 @@ function applyFilter(){   // hide codes that already have a selection (or vice v
   var shown=0,missing=0;
   Object.keys(cards).forEach(function(b){
     var c=cards[b];if(!c.sel)missing++;
-    var hide=MISS&&!!c.sel;
+    var hide=(MISS&&!!c.sel)||c.present==='none';
     c.el.style.display=hide?'none':'';
     if(!hide)shown++;
   });
@@ -72,7 +72,7 @@ function label(o){
   return o.lab+caps+star+col+(o.pct!=null?' '+o.pct+'%':'');
 }
 function fillPick(base,d){
-  var c=cards[base];if(!c)return;
+  var c=cards[base];if(!c||!c.pick)return;
   var seen={},opts=[];
   function add(lab,rec){                       // 21x always offers BOTH cases
     if(!lab||seen[lab])return;seen[lab]=1;opts.push({lab:lab,rec:rec});
@@ -125,28 +125,33 @@ window.addEventListener('message',function(e){
   fillPick(d.x,d);
 });
 
+async function patch(base,data,okMsg){
+  var c=cards[base];
+  if(!supa){c.sav.className='sav err';c.sav.textContent='db.js not configured';return null;}
+  c.sav.className='sav';c.sav.textContent='saving…';
+  try{
+    var r=await fetch(supa.url+'/rest/v1/redir?id=eq.'+encodeURIComponent(base),
+      {method:'PATCH',headers:Object.assign({'Content-Type':'application/json','Prefer':'return=representation'},HDR),body:JSON.stringify(data)});
+    if(!r.ok){var t=await r.text();c.sav.className='sav err';c.sav.textContent=r.status+' '+t.slice(0,140);return null;}
+    var rows=await r.json();
+    if(!rows||!rows.length){c.sav.className='sav err';c.sav.textContent='no row updated (needs the anon UPDATE policy)';return null;}
+    c.sav.className='sav ok';c.sav.textContent=okMsg;
+    return rows[0];
+  }catch(err){c.sav.className='sav err';c.sav.textContent=err.message;return null;}
+}
 async function save(base){
-  var c=cards[base];if(!c)return;
+  var c=cards[base];if(!c||!c.pick)return;
   var val=c.pick.value||'';
-  c.sav.className='sav';
-  if(!supa){c.sav.textContent='db.js not configured';return;}
-  c.sav.textContent='saving…';
-  var ids=[base,base+'qra',base+'qr'];         // icon row first, then its QR siblings
-  for(var i=0;i<ids.length;i++){
-    var u=supa.url+'/rest/v1/redir?id=eq.'+encodeURIComponent(ids[i]);
-    try{
-      var r=await fetch(u,{method:'PATCH',headers:Object.assign({'Content-Type':'application/json','Prefer':'return=representation'},HDR),body:JSON.stringify({qr:val||null})});
-      if(!r.ok){var t=await r.text();c.sav.className='sav err';c.sav.textContent=r.status+' '+t.slice(0,140);return;}
-      var rows=await r.json();
-      if(rows&&rows.length){
-        c.sel=val;c.cur.innerHTML='selected: <b>'+(val||'none')+'</b>';
-        c.triedUp=0;c.up=/u$/.test(val)?true:null;   // an uppercase token pins the card; otherwise follow the toggle
-        c.sav.className='sav ok';c.sav.textContent=val?'saved on '+ids[i]:'cleared on '+ids[i];
-        reload(base);applyFilter();return;
-      }
-    }catch(err){c.sav.className='sav err';c.sav.textContent=err.message;return;}
-  }
-  c.sav.className='sav err';c.sav.textContent='no row updated (needs the anon UPDATE policy)';
+  if(!await patch(base,{qr:val||null},val?'saved':'cleared'))return;
+  c.sel=val;c.cur.innerHTML='selected: <b>'+(val||'none')+'</b>';
+  c.triedUp=0;c.up=/u$/.test(val)?true:null;   // an uppercase token pins the card; otherwise follow the toggle
+  reload(base);applyFilter();
+}
+async function savePresent(base){
+  var c=cards[base];if(!c)return;
+  var v=c.prs.value;
+  if(!await patch(base,{present:v},'present: '+v))return;
+  c.present=v;reload(base);applyFilter();
 }
 
 // ── build the cards from the live redir table ─────────────────────────────
@@ -156,17 +161,20 @@ async function dbRows(sel){
   if(!r.ok)throw new Error('HTTP '+r.status+' '+await r.text());
   return r.json();
 }
-function cardEl(base,sel){
+function cardEl(base,sel,present){
   var el=document.createElement('div');el.className='card';el.dataset.base=base;
   el.innerHTML='<div class=hd><b>'+base+'</b>'+
     '<a class=lnk href="https://aigap.no/'+base+'" target=_blank rel=noopener>aigap.no/'+base+'</a>'+
     '<span class=sp></span>'+
     '<a class=lnk href="qr.html?x='+encodeURIComponent(base)+'&v=o" target=_blank rel=noopener>open</a>'+
-    '<button class=btn type=button>expand</button></div>'+
+    (present==='qr'?'<button class=btn type=button>expand</button>':'')+'</div>'+
     '<div class=picker><span class=cur>selected: <b>'+(sel||'none')+'</b></span>'+
-    '<select class=pick><option value="'+(sel||'')+'">'+(sel||'\u2014 none \u2014')+'</option></select>'+
+    (present==='qr'?'<select class=pick><option value="'+(sel||'')+'">'+(sel||'\u2014 none \u2014')+'</option></select>':'')+
+    '<select class=prs>'+['qr','img','none'].map(function(v){return '<option value="'+v+'"'+(v===present?' selected':'')+'>'+v+'</option>';}).join('')+'</select>'+
     '<span class=sav></span></div>'+
-    '<iframe class=fr loading=lazy title="QR for '+base+'"></iframe>';
+    (present==='qr'
+      ?'<iframe class=fr loading=lazy title="QR for '+base+'"></iframe>'
+      :'<img class=art loading=lazy alt="'+base+'" src="i/'+base+'.png">');
   return el;
 }
 
@@ -175,31 +183,30 @@ function cardEl(base,sel){
   if(!supa){st.textContent='\u26a0\ufe0f db.js not configured';return;}
   try{
     var rows,hasQr=true;
-    try{ rows=await dbRows('id,url,%22desc%22,sort,qr'); }
+    try{ rows=await dbRows('id,url,%22desc%22,sort,qr,present'); }
     catch(e){ hasQr=false; rows=await dbRows('id,url,%22desc%22,sort'); }
-    if(!hasQr)showWarn('The <code>qr</code> column does not exist yet, so nothing can be recorded. Run this in the Supabase SQL editor:',SQL);
-    var qrById={};rows.forEach(function(r){qrById[r.id]=r.qr;});
-    var bases=rows.map(function(r){return r.id;}).filter(function(id){
-        return typeof id==='string'&&(id.slice(-3)==='qra'||id.slice(-2)==='qr');})
-      .map(function(id){return id.slice(-3)==='qra'?id.slice(0,-3):id.slice(0,-2);})
-      .filter(function(b,i,a){return b&&a.indexOf(b)===i;}).sort();
-    if(!bases.length){st.textContent='No QR codes (qr/qra) in the redir table.';return;}
+    if(!hasQr)showWarn('The <code>qr</code>/<code>present</code> columns do not exist yet, so nothing can be recorded. Run this in the Supabase SQL editor:',SQL);
+    var coded=rows.filter(function(r){return r.present==='qr'||r.present==='img';})
+      .sort(function(a,b){return a.id<b.id?-1:a.id>b.id?1:0;});
+    if(!coded.length){st.textContent='No QR/image codes (present) in the redir table.';return;}
     var frag=document.createDocumentFragment();
-    bases.forEach(function(base){
-      var sel=hasQr?(qrById[base]||qrById[base+'qra']||qrById[base+'qr']||''):'';
-      var el=cardEl(base,sel);frag.appendChild(el);
-      var c={el:el,fr:el.querySelector('.fr'),pick:el.querySelector('.pick'),cur:el.querySelector('.cur'),
-             sav:el.querySelector('.sav'),btn:el.querySelector('.btn'),sel:sel,tiles:[],up:null,triedUp:0};
+    coded.forEach(function(r){
+      var base=r.id,sel=hasQr?(r.qr||''):'';
+      var el=cardEl(base,sel,r.present);frag.appendChild(el);
+      var c={el:el,fr:el.querySelector('.fr'),pick:el.querySelector('.pick'),prs:el.querySelector('.prs'),
+             cur:el.querySelector('.cur'),sav:el.querySelector('.sav'),btn:el.querySelector('.btn'),
+             sel:sel,present:r.present,tiles:[],up:null,triedUp:0};
       cards[base]=c;
-      c.btn.onclick=function(){expand(c,!el.classList.contains('exp'));ensure(base);};
-      c.pick.onchange=function(){save(base);};
+      if(c.btn)c.btn.onclick=function(){expand(c,!el.classList.contains('exp'));ensure(base);};
+      if(c.pick)c.pick.onchange=function(){save(base);};
+      if(c.prs)c.prs.onchange=function(){savePresent(base);};
     });
     grid.appendChild(frag);
-    st.textContent=bases.length+' QR codes from the redir table (live)';
+    st.textContent=coded.length+' codes from the redir table (live)';
     applyFilter();
     var ioObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)ensure(e.target.dataset.base);});},{rootMargin:'300px'});
     io=ioObs;
     Object.keys(cards).forEach(function(b){ioObs.observe(cards[b].el);});
-    bases.slice(0,4).forEach(ensure);   // never start blank if the observer is slow
+    Object.keys(cards).slice(0,4).forEach(ensure);   // never start blank if the observer is slow
   }catch(e){st.textContent='DB error: '+e.message;}
 })();

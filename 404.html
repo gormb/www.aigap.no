@@ -1,14 +1,12 @@
 <!doctype html><meta charset=utf-8><body>
 <script>(async ()=>{
 slug=location.pathname.match(/^\/([A-Za-z0-9]+)\/?$/)?.[1]
-,k='sb_publishable_H1UyOW06sr_Y6TkCai5OjQ_5rkdhfdO'
-,ids=[slug,slug+'qr',slug+'qra'];
+,k='sb_publishable_H1UyOW06sr_Y6TkCai5OjQ_5rkdhfdO';
 if (slug)try{
-  r=await (await fetch('https://nlxtqmsghslwgbndxboe.supabase.co/rest/v1/redir?select=id,url&id=in.('+ids.join(',')+')',{headers:{apikey:k,'Authorization':'Bearer '+k}})).json();
-  for (id of ids){
-    row=r.find(x=> x.id===id);
-    if (row?.url) return location.replace(row.url);
-  }
+  r=await (await fetch('https://nlxtqmsghslwgbndxboe.supabase.co/rest/v1/redir?select=id,url&or=(id.eq.'+slug+',id.ilike.'+slug+')',{headers:{apikey:k,'Authorization':'Bearer '+k}})).json()
+  ,e=Array.isArray(r)?r.find(x=>x.id===slug):null
+  ,u=(e||(Array.isArray(r)&&r.length===1?r[0]:null)||{}).url;
+  if (u) return location.replace(u);
 }catch{}
 document.title=document.body.innerHTML='404 – Not Found';
 })();

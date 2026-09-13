@@ -11,21 +11,19 @@
   if (!key) { location.replace('h.html'); return; }
   var SUPA = window.SUPABASE;
   var H = { apikey: SUPA.publishableKey, 'Authorization': 'Bearer ' + SUPA.publishableKey };
-  var lookup = function (id) {
-    return fetch(SUPA.url + '/rest/v1/redir?select=url&id=eq.' + encodeURIComponent(id), { headers: H })
-      .then(function (r) { return r.json(); })
-      .then(function (a) { return (a && a[0] && a[0].url) || null; })
-      .catch(function () { return null; });
-  };
   (async function () {
     try { if (window.logVisit) logVisit(key, location.href); } catch (e) {}
-    var base = key.endsWith('qr') ? key.slice(0, -2) : key.endsWith('qra') ? key.slice(0, -3) : '';
-    var tries = [key, key + 'qr', key + 'qra'];
-    if (base) tries.push(base, base + 'qr', base + 'qra');
     var target = null;
-    for (var i = 0; i < tries.length; i++) {
-      target = await lookup(tries[i]);
-      if (target) break;
+    if (/^[A-Za-z0-9]+$/.test(key)) {
+      try {
+        var rows = await (await fetch(SUPA.url + '/rest/v1/redir?select=id,url&or=(id.eq.' + key + ',id.ilike.' + key + ')', { headers: H })).json();
+        var exact = null, single = null;
+        if (Array.isArray(rows)) {
+          for (var i = 0; i < rows.length; i++) if (rows[i].id === key) exact = rows[i];
+          single = rows.length === 1 ? rows[0] : null;
+        }
+        target = (exact || single || {}).url || null;
+      } catch (e) {}
     }
     if (target) {
       p.delete(key);

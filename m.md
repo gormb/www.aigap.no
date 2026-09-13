@@ -1,12 +1,17 @@
+
 # Liv krevde død
+
 ## Nullsum — p. 2
+
 🎵 https://aigap.no/mlist (https://aigap.no/mlist) — p. 2
 “Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
 Advokaten jeg nettopp hadde møtt over en Whisky smålo.
 “Nei, du skulle vært død”
 Kanskje det, men jeg føler ingenting likevel, unntatt skam overfor mine nærmeste. Kanskje gjennom musikk, kan jeg oppleve tapet av forstanden som lyd, tiden som stanser; sammenbrudd og erkjennelse.
 Døden gir plass
+
 ### Nulloppsummering — p. 3
+
 🎵 https://aigap.no/mncty (https://aigap.no/mncty) — p. 3
 En død gir plass til et liv
 Krever nytt liv at noe gammelt dør for å gi plass? Er det begrenset med ressurser og derfor med muligheter?

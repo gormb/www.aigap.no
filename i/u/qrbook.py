@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate book QRs (cover-art centred) that VERIFIABLY decode.
 
-For each qra music row (sort 5.5..5.6) writes:
+For each row with present='qr' and sort 5.5..5.6 writes:
     i/<base>.qr.png   +   i/book.html
 
 No blind percentages: we read the QR's real module count N, keep the required
@@ -34,7 +34,7 @@ def conf():
 
 def fetch():
     url, key = conf()
-    u = url + '/rest/v1/redir?select=id,%22desc%22,sort&order=sort.asc,id.asc'
+    u = url + '/rest/v1/redir?select=id,%22desc%22,sort,present&order=sort.asc,id.asc'
     h = {'apikey': key, 'Authorization': 'Bearer ' + key}
     return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=h)))
 
@@ -88,13 +88,13 @@ def build(content, cover):
 
 def main():
     rows = [r for r in fetch()
-            if isinstance(r.get('id'), str) and r['id'].endswith('qra')
+            if r.get('present') == 'qr'
             and isinstance(r.get('sort'), (int, float)) and 5.5 <= r['sort'] < 5.6]
     if not rows:
         print('No rows in 5.5..5.6'); return
     cards = []
     for x in rows:
-        base = x['id'][:-3]
+        base = x['id']
         content = 'https://aigap.no/' + base
         cover = os.path.join(COVER_DIR, base + '.png')
         im, N, am = build(content, cover if os.path.exists(cover) else None)

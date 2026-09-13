@@ -27,3 +27,5 @@ button.on{background:#e8f0ff;border-color:#06c}
 .picker .sav.ok{color:#0a5}.picker .sav.err{color:#c33}
 .fr{width:100%;height:180px;border:1px solid #eee;border-radius:8px;background:#fff;display:block}
 .card.exp .fr{height:780px}
+.art{width:100%;height:180px;object-fit:contain;border:1px solid #eee;border-radius:8px;background:#fff;display:block}
+.card.exp .art{height:780px}
