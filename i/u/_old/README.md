@@ -8,7 +8,7 @@ be reviewed / mined later. The live tooling is one level up:
 | `qr.html` | the analysis + live render engine (every size/EC/hole, deep links, `v=` minimal view) |
 | `qrgallery.html` | DB-driven gallery; renders each code by embedding `qr.html` in an iframe |
 | `qrmetrics.js` | real ISO codeword-erasure scoring + 1-bit PNG sizing (used by `qr.html`) |
-| `qrgen.py` | writes the served PNGs: `<base>.qr<N><EC><hole>.png` combos + `<base>.qr1.png` |
+| `qrgen.py` | writes the served PNG for each `redir.qr` token: `i/<base>.<token>.png` (token = `<N><EC><hole>[t][u]`) |
 | `qrbook.py` | writes the book QRs `<base>.qr.png` + `i/book.html` (decode-verified) |
 
 ## What was replaced, and by what
@@ -33,4 +33,5 @@ be reviewed / mined later. The live tooling is one level up:
   relative paths no longer resolve from `_old/` — they are reference material,
   not runnable pages.
 - The engine is the single source of truth for *which* combo is safe; Python
-  only writes the bytes the browser has already approved.
+  writes the bytes the engine has already approved, one file per stored token
+  (`i/<base>.<token>.png`), and `--prune` deletes anything no token needs.

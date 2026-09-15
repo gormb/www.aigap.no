@@ -1,177 +1,173 @@
 #!/usr/bin/env python3
-"""qrgen.py - generate every served QR *image* for the redir QR codes.
+"""qrgen.py - write the ONE png each `redir` row's `qr` token asks for.
 
-This is the single Python counterpart of `i/u/qr.html`: both use the SAME
-size / EC / hole grid and the SAME file naming, so a matrix shown in the
-browser can be written straight to disk (and vice versa).
+Filename = the token, verbatim:   i/<id>.<token>.png     e.g. i/ldd.21Q9tu.png
+Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.html)
 
-Output, under i/:
-    <base>.qr<N><EC><hole>.png   borderless NxN code with a WHITE hole
-                                 (no quiet zone -- the site adds it via CSS)
-    <base>.qr1.png               clean, tiny, hole-0 code the site displays
+    N     21 | 25 | 29      modules; 21 encodes the short www.aigap.no host
+    EC    L | M | Q | H
+    hole  0 | 3 | 5 | 7 | 9  centred white square kept free for the artwork
+    t     clear ONLY the modules the keyed art really covers -- the same rule
+          i/u/qr.js uses, so the file and the browser tile agree; without t the
+          whole square is cleared and the art covers it
+    u     21x UPPERCASE host (Alphanumeric mode fits 21 modules where the
+          lowercase Byte string does not)
 
-    <N>    module count, one of {21, 25, 29}   (21 uses the short www. host)
-    <EC>   error correction, one of {L, M, Q, H}
-    <hole> white hole in modules, one of {0, 3, 5, 7, 9}
-    e.g. bgda.qr29Q9.png = https://aigap.no/bgda, 29x29, EC Q, 9-module hole
+A 9x9 hole on a 21x21 code keeps the 9 KEEP21 cells (identical set to
+i/u/qrmetrics.js).
 
-The hole is CENTRED (so the artwork stays centred).  For a 9x9 hole on a 21x21
-code -- the one case where the box overlaps finder/separator cells -- the 9
-cells of KEEP21 keep their module; the other 72 stay free for the artwork.
-Every other combination is a plain centred square, as before.  Mirrors
-`i/u/qr.html`.
+    python3 i/u/qrgen.py             every present='qr' row: writes what the
+                                     token needs AND deletes every generated png
+                                     no token needs (keeps <id>.png art and
+                                     <id>.qr.png print codes)
+    python3 i/u/qrgen.py <id> [...]   only these rows (no deleting)
+    python3 i/u/qrgen.py --check      report only, write nothing
+    python3 i/u/qrgen.py --no-prune   write, delete nothing
 
-`<base>.qr1.png` is the smallest code that fits: 21 modules with the www host
-at EC-L when the id is short enough, else the https link at EC-M at its
-natural minimum size.  Content is always https://aigap.no/<base>.
-
-Usage:
-    python3 i/u/qrgen.py [base ...]     # default: every present='qr' id in the DB
-    python3 i/u/qrgen.py --no-combos    # only refresh the .qr1.png thumbnails
-    python3 i/u/qrgen.py --no-qr1       # only refresh the matrix combos
-
-Requires: Pillow, numpy, qrcode.
+Requires: PIL, numpy, qrcode.
 """
-import glob, io, json, os, re, sys, urllib.parse, urllib.request
+import io, json, os, re, sys, urllib.request
 import numpy as np
 import qrcode
 from PIL import Image
 from qrcode.constants import (ERROR_CORRECT_L, ERROR_CORRECT_M,
                               ERROR_CORRECT_Q, ERROR_CORRECT_H)
 
-HERE = os.path.dirname(os.path.abspath(__file__))        # i/u
-ROOT = os.path.dirname(os.path.dirname(HERE))            # repo root
-OUT = os.path.join(ROOT, 'i')                            # served images live here
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(HERE))
+OUT = os.path.join(ROOT, 'i')
 
-PREFIX = 'https://aigap.no/'
-WWW = 'www.aigap.no/'
+PREFIX, WWW = 'https://aigap.no/', 'www.aigap.no/'
 ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
-SIZES = [21, 25, 29]
-HOLES = [0, 3, 5, 7, 9]
-
-# The requested pattern for the one overlapping case: a 9x9 hole on a 21x21
-# code.  These 9 cells (of the 81) keep the QR module -- the box's left column
-# for the top three rows and the bottom three rows, and the right column for the
-# top three rows.  The other 72 cells stay free for the artwork.  Nothing else is
-# affected: 5x5 / 7x7 and the 25 / 29 codes are a plain centred square.
 KEEP21 = {(6, 6), (7, 6), (8, 6),
-          (6, 14), (7, 14), (8, 14),
-          (12, 6), (13, 6), (14, 6)}
+          (6, 14), (7, 14), (8, 14), (12, 6), (13, 6), (14, 6)}
+KEYTOL, KEYSHR = 1, 0.20
+TOK = re.compile(r'^(2[159])([LMQH])([03579])(t?)(u?)$')
+OLD = (re.compile(r'^.+\.qr2[159][LMQH][03579]t?u?\.png$'),
+       re.compile(r'^.+\.qr1\.png$'),
+       re.compile(r'^qr2[159]i\d*\.png$'))
+KEEP = set()
 
 
-def db_bases():
-    """QR-code ids from the live Supabase `redir` table.
-
-    A row is a QR code when present = 'qr'.  Returns None if unreachable."""
-    try:
-        dbjs = open(os.path.join(ROOT, 'db.js'), encoding='utf8').read()
-        url = re.search(r'url\s*:\s*"([^"]+)"', dbjs).group(1)
-        key = re.search(r'publishableKey\s*:\s*"([^"]+)"', dbjs).group(1)
-        if 'YOUR-' in url:
-            return None
-        hdr = {'apikey': key, 'Authorization': 'Bearer ' + key}
-        q = {'select': 'id', 'present': 'eq.qr'}
-        u = url + '/rest/v1/redir?' + urllib.parse.urlencode(q)
-        rows = json.load(urllib.request.urlopen(urllib.request.Request(u, headers=hdr)))
-        return sorted({r['id'] for r in rows if isinstance(r.get('id'), str)})
-    except Exception:
-        return None
+def db():
+    t = open(os.path.join(ROOT, 'db.js'), encoding='utf8').read()
+    u, k = (re.search(p, t).group(1) for p in
+            (r'url\s*:\s*"([^"]+)"', r'publishableKey\s*:\s*"([^"]+)"'))
+    h = {'apikey': k, 'Authorization': 'Bearer ' + k}
+    q = '/rest/v1/redir?select=id,qr,present&present=eq.qr&order=sort.asc,id.asc'
+    return json.load(urllib.request.urlopen(urllib.request.Request(u + q, headers=h)))
 
 
-def content_for(base, N):
-    """The encoded string: 21 modules use the shorter www. host, the rest https."""
-    return (WWW if N == 21 else PREFIX) + base
-
-
-def matrix(content, version, ec):
-    """Module matrix; True = black.  version=None -> smallest that fits."""
-    q = qrcode.QRCode(version=version, error_correction=ec, box_size=1, border=0)
-    q.add_data(content)
-    q.make(fit=version is None)
+def mat(s, N, ec):
+    q = qrcode.QRCode(version=(N - 17) // 4, error_correction=ECS[ec], box_size=1, border=0)
+    q.add_data(s)
+    q.make(fit=False)
     return np.array(q.get_matrix(), dtype=bool)
 
 
-def png_bytes(mask):
-    """1-bit borderless PNG (black modules on white), like the served files."""
-    buf = io.BytesIO()
-    Image.fromarray(~mask).convert('1').save(buf, format='PNG', optimize=True)
-    return buf.getvalue()
+def keyed(i):
+    p = os.path.join(OUT, i + '.png')
+    if not os.path.exists(p):
+        return None
+    a = np.asarray(Image.open(p).convert('RGBA'), dtype=np.uint8)
+    op = a[:, :, 3] >= 128
+    if not op.any():
+        return np.zeros(op.shape, bool)
+    c = ((a[:, :, 0].astype(np.int32) << 16) | (a[:, :, 1].astype(np.int32) << 8)
+         | a[:, :, 2].astype(np.int32))
+    v, n = np.unique(c[op], return_counts=True)
+    k, best = int(v[n.argmax()]), int(n.max())
+    if op.all() and best >= KEYSHR * op.size:
+        d = ((np.abs(a[:, :, 0].astype(np.int32) - ((k >> 16) & 255)) <= KEYTOL)
+             & (np.abs(a[:, :, 1].astype(np.int32) - ((k >> 8) & 255)) <= KEYTOL)
+             & (np.abs(a[:, :, 2].astype(np.int32) - (k & 255)) <= KEYTOL))
+        return ~(op & d)
+    return op
 
 
-def combo_bytes(base, N, ec, hole):
-    """Borderless NxN code with a centred white hole, or None if it can't fit.
-    For a 9x9 hole on a 21x21 code the 9 cells of KEEP21 keep their module."""
-    try:
-        mask = matrix(content_for(base, N), (N - 17) // 4, ec)
-    except Exception:
-        return None                          # payload too big for N at this EC
-    if hole > 0:
-        lo = (N - hole) // 2
+def cov(i, h):
+    a = keyed(i)
+    if a is None:
+        return np.zeros((h, h), bool)
+    im = Image.fromarray(np.where(a, 255, 0).astype(np.uint8))
+    w0, h0 = im.size
+    r = min(h / w0, h / h0)
+    w, hh = max(1, round(w0 * r)), max(1, round(h0 * r))
+    box = Image.new('L', (h, h), 0)
+    box.paste(im.resize((w, hh), Image.BILINEAR), ((h - w) // 2, (h - hh) // 2))
+    return np.asarray(box) >= 128
+
+
+def build(i, tok):
+    N, ec, hole, t, u = TOK.match(tok).groups()
+    N, hole = int(N), int(hole)
+    s = (WWW if N == 21 else PREFIX) + i
+    m = mat(s.upper() if u else s, N, ec)
+    if hole:
+        lo, o = (N - hole) // 2, m.copy()
+        c = cov(i, hole) if t else np.ones((hole, hole), bool)
+        for r in range(hole):
+            for x in range(hole):
+                if c[r, x]:
+                    m[lo + r][lo + x] = False
         if N == 21 and hole == 9:
-            for r in range(lo, lo + hole):
-                for c in range(lo, lo + hole):
-                    if (r, c) not in KEEP21:
-                        mask[r][c] = False
-        else:
-            mask[lo:lo + hole, lo:lo + hole] = False
-    return png_bytes(mask)
+            for r, x in KEEP21:
+                m[r][x] = o[r][x]
+    b = io.BytesIO()
+    Image.fromarray(~m).convert('1').save(b, format='PNG', optimize=True)
+    return b.getvalue()
 
 
-def qr1_bytes(base):
-    """Smallest clean hole-0 code the site displays (no art, no hole)."""
-    for content, version, ec in ((WWW + base, 1, ERROR_CORRECT_L),
-                                 (PREFIX + base, None, ERROR_CORRECT_M)):
-        try:
-            return png_bytes(matrix(content, version, ec))
-        except Exception:
+def main(a):
+    chk = '--check' in a
+    ids = {x for x in a if not x.startswith('-')}
+    prune = '--no-prune' not in a and not ids
+    rs = [r for r in db() if not ids or r['id'] in ids]
+    need, new, w = set(), [], []
+    for r in rs:
+        i, tok = r['id'], (r.get('qr') or '').strip()
+        if not tok:
+            w.append('%s: no qr token -> pick one in i/u/qrgallery.html' % i)
             continue
-    return None
-
-
-def write(path, data):
-    """Write only when the bytes changed; return True if written."""
-    if os.path.exists(path) and open(path, 'rb').read() == data:
-        return False
-    open(path, 'wb').write(data)
-    return True
-
-
-def main(argv):
-    combos = '--no-combos' not in argv
-    qr1 = '--no-qr1' not in argv
-    bases = [a for a in argv if not a.startswith('-')]
-
-    if not bases:
-        bases = db_bases()
-        if bases is None:
-            bases = sorted({os.path.basename(f)[:-len('.qr.png')]
-                            for f in glob.glob(os.path.join(OUT, '*.qr.png'))})
-            src = 'local *.qr.png files'
-        else:
-            src = 'live redir table (present=qr)'
-    else:
-        src = 'command line'
-
-    os.makedirs(OUT, exist_ok=True)
-    n_combos = n_qr1 = 0
-    for b in bases:
-        if combos:
-            for N in SIZES:
-                for ecname, ec in ECS.items():
-                    for hole in HOLES:
-                        data = combo_bytes(b, N, ec, hole)
-                        if data is None:
-                            continue             # can't fit -> skip
-                        n_combos += write(
-                            os.path.join(OUT, f'{b}.qr{N}{ecname}{hole}.png'), data)
-        if qr1:
-            data = qr1_bytes(b)
-            if data:
-                n_qr1 += write(os.path.join(OUT, f'{b}.qr1.png'), data)
-
-    print(f'{len(bases)} bases ({src}) -> {n_combos} combos, {n_qr1} .qr1.png '
-          f'written under {OUT}')
+        if not TOK.match(tok):
+            w.append('%s: token "%s" is not <N><EC><hole>[t][u] -> re-pick in i/u/qrgallery.html'
+                     % (i, tok))
+            continue
+        try:
+            d = build(i, tok)
+        except Exception as e:
+            w.append('%s: %s does not fit (%s) -> pick another size/EC in i/u/qrgallery.html'
+                     % (i, tok, e))
+            continue
+        f = '%s.%s.png' % (i, tok)
+        need.add(f)
+        if tok[3] != '0' and not os.path.exists(os.path.join(OUT, i + '.png')):
+            w.append('%s: art i/%s.png missing -> the hole stays white (add the art or use hole 0)'
+                     % (i, i))
+        p = os.path.join(OUT, f)
+        if not os.path.exists(p) or open(p, 'rb').read() != d:
+            new.append(f)
+            if not chk:
+                open(p, 'wb').write(d)
+    gone = []
+    if prune and not chk:
+        for f in sorted(os.listdir(OUT)):
+            if f in need or f in KEEP or f.endswith('.qr.png') or not any(p.match(f) for p in OLD):
+                continue
+            os.remove(os.path.join(OUT, f))
+            gone.append(f)
+    print('%d rows -> %d png %s, %d stale png %s, %d warnings'
+          % (len(rs), len(new), 'to write' if chk else 'written',
+             len(gone), 'deleted', len(w)))
+    for f in gone[:5]:
+        print('  deleted i/' + f + ('  (+%d more)' % (len(gone) - 5) if len(gone) > 5 else ''))
+    for x in w:
+        print('WARN', x)
+    if w:
+        print('WARN       fix the row in i/u/qrgallery.html, then: python3 i/u/qrgen.py <id>')
+    if new or gone:
+        print('now: git add i && git commit   (check the pngs in)')
 
 
 if __name__ == '__main__':
