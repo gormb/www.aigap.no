@@ -7,8 +7,8 @@ $('t').onclick=e=>{const tr=e.target.closest('tr'),b=e.target.closest('button');
 const ed=$('ed'),prs=$('present'),qrpick=$('qrpick'),qrfr=$('qrfr'),qrbox=$('qrbox'),imgbox=$('imgbox'),artimg=$('artimg'),artlink=$('artlink'),artup=$('artup');let edId='',edSel='',edNew=true,idT=null
 const patch=async(id,body)=>{const{data,error}=await sb.from('redir').update(body).eq('id',id).select('id');return error?error.message:(data&&data.length?'':`no row ${id}: needs the anon UPDATE policy`)}
 const rowOf=id=>[...list.querySelectorAll('tr')].find(r=>r.dataset.id===id)
-const loadQr=()=>{qrfr.dataset.for=edId;qrfr.src='i/u/qr.html?'+(/u$/.test(edSel)?'x21=U&':'')+'v=O&sel='+encodeURIComponent(edSel)+'&x='+encodeURIComponent(edId)}
-const loadImg=()=>{const u='i/'+edId+'.png';imgbox.hidden=false;$('imgmsg').textContent='';artimg.classList.remove('miss');artimg.alt=edId;artlink.href=u;artimg.src=u;artup.textContent='upload '+edId+'.png'}
+const loadQr=()=>{qrfr.dataset.for=edId;qrfr.src='i/u/qr.html?'+(/u$/.test(edSel)?'x21=U&':'')+'v=O&sel='+encodeURIComponent(edSel)+'&t='+Date.now()+'&x='+encodeURIComponent(edId)}
+const loadImg=()=>{const u='i/'+edId+'.png';imgbox.hidden=false;$('imgmsg').textContent='';artimg.classList.remove('miss');artimg.alt=edId;artlink.href=u;artimg.src=u+'?t='+Date.now();artup.textContent='upload '+edId+'.png'}
 artimg.onerror=()=>{artimg.classList.add('miss');$('imgmsg').textContent='i/'+edId+'.png not found'}
 $('artup').onclick=()=>edId&&$('artf').click()
 $('artf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!edId)return;if(!ghTok)return void($('imgmsg').textContent='no cfg row ghtoken');$('imgmsg').textContent='uploading…';const p='i/'+edId+'.png',R='https://api.github.com/repos/gormb/www.aigap.no/contents/',h={Authorization:'Bearer '+ghTok,Accept:'application/vnd.github+json','Content-Type':'application/json'}

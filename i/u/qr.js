@@ -4,6 +4,7 @@ var V=(new URLSearchParams(location.search).get('v')||'').trim();      // v=o|t|
 var SP=new URLSearchParams(location.search);                           // shared parser for the deep-link params
 var X21=(SP.get('x21')||'').trim().toUpperCase();                      // x21=U|L -> 21x21 URL case (U=UPPER, L=lower); overrides legacy u=1
 var SEL=(SP.get('sel')||'').trim();                                    // sel=<N><EC><hole>[t] -> outline the stored selection
+var CB=(SP.get('t')||'').trim();                                       // t=<cache-buster> -> appended to the art URL (dbAdm re-fetches after an upload); dropped from the deep link
 var EX=(SP.get('ex')||'').trim();                                      // ex=1 -> show extra tiles (ex=0 = don't); legacy hid=1
 var HID=EX==='1';                                                      // ex=1 -> show extra tiles
 var MIN=(V==='T'||V==='O'||V==='A');                                   // minimalistic (iframe) view
@@ -203,6 +204,7 @@ else{(async function(){
   // overlay image: ?i=<basename|url> overrides; else art named after x (www./http x has none)
   var imgUrl=I?(/^https?:\/\//i.test(I)?I:('../'+(/\.[a-z0-9]+$/i.test(I)?I:I+'.png')))
               :(FULLURL?null:'../'+x+'.png');
+  if(imgUrl&&CB)imgUrl+=(imgUrl.indexOf('?')<0?'?':'&')+'t='+CB;
   ART=imgUrl?await loadArt(imgUrl):null;
   if(ART&&!keyed()&&KEYED_BLOCKED)showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be scored from the artwork. Open the page over http (e.g. Live Server) to enable this.');
   await buildGrid();
