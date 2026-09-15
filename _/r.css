@@ -1,0 +1,6 @@
+body{margin:0}
+table{border-spacing:4vw 1vw}
+td{vertical-align:top;width:5vw;overflow-wrap:anywhere}
+img{image-rendering:pixelated}
+.ov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;image-rendering:auto;pointer-events:none}
+
