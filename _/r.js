@@ -33,8 +33,10 @@ function cut(im,h,lo){                                  // 21x21 h9: the kept mo
   g.globalCompositeOperation='destination-out';
   for(let y=0;y<h;y++)for(let x=0;x<h;x++)if(!keep21(y+lo,x+lo))g.fillRect(x,y,1,1);
   return c.toDataURL()}
-function key(a){try{const k=keyArt(a,1,0.20);return k?k.toDataURL():a.src}catch(e){return a.src}}
-function art(im,i,h,tr){const s=(100*artSide(im.naturalWidth,h)).toFixed(2)+'%',L=document.createElement('img');L.className='ov';L.loading='lazy';L.style.width=s;L.style.height=s;L.style.objectFit=tr?'contain':'cover';L.onerror=()=>{L.remove();console.warn('OPTIMIZE QR','art i/'+i+'.png not there','the '+h+'-module hole stays white: add the art image or pick a hole-0 variant: '+gl(i))};L.onload=()=>{L.onload=null;if(tr)L.src=key(L)};L.src='i/'+i+'.png';im.parentElement.appendChild(L);
+const q=[],RID=window.requestIdleCallback||(f=>setTimeout(f,0));let qd=0;
+const qrun=()=>{if(qd||!q.length)return;qd=1;RID(()=>{qd=0;q.shift()();qrun()})};
+function key(a){try{const w=a.naturalWidth||a.width,h=a.naturalHeight||a.height,r=Math.min(1,256/Math.max(w,h)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*r));c.height=Math.max(1,Math.round(h*r));c.getContext('2d').drawImage(a,0,0,c.width,c.height);const k=keyArt(c,1,0.20);return k?k.toDataURL():a.src}catch(e){return a.src}}
+function art(im,i,h,tr){const s=(100*artSide(im.naturalWidth,h)).toFixed(2)+'%',L=document.createElement('img');L.className='ov';L.loading='lazy';L.style.width=s;L.style.height=s;L.style.objectFit=tr?'contain':'cover';L.onerror=()=>{L.remove();console.warn('OPTIMIZE QR','art i/'+i+'.png not there','the '+h+'-module hole stays white: add the art image or pick a hole-0 variant: '+gl(i))};L.onload=()=>{L.onload=null;if(tr){q.push(()=>L.src=key(L));qrun()}};L.src='i/'+i+'.png';im.parentElement.appendChild(L);
   if(im.naturalWidth===21&&h===9){const lo=(21-h)>>1,K=document.createElement('img');K.className='ov';K.style.width=s;K.style.height=s;K.style.imageRendering='pixelated';K.src=cut(im,h,lo);im.parentElement.appendChild(K)}}
 (async()=>{
   let k=[...p.keys()][0]

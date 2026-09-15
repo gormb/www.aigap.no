@@ -123,17 +123,17 @@ function keyArt(a, tol, share){
   if(!(w&&h))return null;
   var c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');
   g.drawImage(a,0,0);
-  var d=g.getImageData(0,0,w,h),p=d.data,total=p.length/4;
-  var hist={},best=0,k=null,hasAlpha=false;
-  for(var i=0;i<p.length;i+=4){
+  var d=g.getImageData(0,0,w,h),p=d.data,cn=p.length,total=cn/4;
+  var hist=new Map(),best=0,k=-1,hasAlpha=false;
+  for(var i=0;i<cn;i+=4){
     if(p[i+3]<128){hasAlpha=true;continue;}      // art already carries transparency
-    var rgb=(p[i]<<16)|(p[i+1]<<8)|p[i+2],n=(hist[rgb]||0)+1;hist[rgb]=n;
+    var rgb=(p[i]<<16)|(p[i+1]<<8)|p[i+2],n=(hist.get(rgb)||0)+1;hist.set(rgb,n);
     if(n>best){best=n;k=rgb;}}                   // ties keep the first seen colour
-  var use=!hasAlpha&&k!=null&&best>=share*total; // no dominant colour -> no colour key
-  for(var j=0;j<p.length;j+=4){
+  var use=!hasAlpha&&k>=0&&best>=share*total;    // no dominant colour -> no colour key
+  var kr=(k>>16)&255,kg=(k>>8)&255,kb=k&255;
+  for(var j=0;j<cn;j+=4){
     var al=p[j+3];
     if(al<128||!use){p[j+3]=al<128?0:255;continue;}
-    var kr=(k>>16)&255,kg=(k>>8)&255,kb=k&255;
     p[j+3]=(Math.abs(p[j]-kr)<=tol&&Math.abs(p[j+1]-kg)<=tol&&Math.abs(p[j+2]-kb)<=tol)?0:255;}
   g.putImageData(d,0,0);
   return c;
