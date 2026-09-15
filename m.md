@@ -631,7 +631,7 @@ Motstandskraft kan oppstå i gapet mellom det trygge og det destruktive.
 #### p. 147
 #### p. 148
 ### Alle kan fortsette å endre seg
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 #### p. 149
 #### p. 150
 ### Historiske røtter nullsummerings død
