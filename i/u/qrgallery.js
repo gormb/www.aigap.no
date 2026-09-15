@@ -3,6 +3,7 @@ var TRS=0;                  // 0 Opaque, 1 Transparent, 2 All
 var HID=false;              // ex=1 -> show extra tiles
 var X21U=false;             // x21=U -> uppercase 21x21 URL
 var MISS=false;             // filter: show only codes with no selection recorded yet
+var ID=(new URLSearchParams(location.search).get('id')||'').trim();   // ?id=<base> = this one code only
 var cards={};               // base -> {el, fr, pick, cur, sav, btn, sel, tiles, up, triedUp}
 var io=null;                // kept at module scope: a local-only observer can be GC'd and stop firing
 
@@ -49,7 +50,7 @@ function applyFilter(){   // hide codes that already have a selection (or vice v
   var shown=0,missing=0;
   Object.keys(cards).forEach(function(b){
     var c=cards[b];if(!c.sel)missing++;
-    var hide=(MISS&&!!c.sel)||c.present==='none';
+    var hide=ID?b!==ID:((MISS&&!!c.sel)||c.present==='none');
     c.el.style.display=hide?'none':'';
     if(!hide)shown++;
   });
@@ -203,10 +204,15 @@ function cardEl(base,sel,present){
     });
     grid.appendChild(frag);
     st.textContent=coded.length+' codes from the redir table (live)';
-    applyFilter();
     var ioObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)ensure(e.target.dataset.base);});},{rootMargin:'300px'});
     io=ioObs;
     Object.keys(cards).forEach(function(b){ioObs.observe(cards[b].el);});
     Object.keys(cards).slice(0,4).forEach(ensure);   // never start blank if the observer is slow
+    if(ID){
+      var c=cards[ID];
+      if(!c){st.innerHTML='no redir row with id <b>'+ID+'</b> \u2014 <a href="'+location.pathname+'">show all</a>';}
+      else{st.innerHTML='only <b>'+ID+'</b> \u2014 <a href="'+location.pathname+'">show all</a>';ensure(ID);expand(c,true);c.el.scrollIntoView({block:'start'});}
+    }
+    applyFilter();
   }catch(e){st.textContent='DB error: '+e.message;}
 })();
