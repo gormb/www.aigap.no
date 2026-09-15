@@ -1,14 +1,25 @@
 // Redir admin — IIFE, no globals.
-(()=>{const sb=supabase.createClient(SUPABASE.url,SUPABASE.publishableKey),$=id=>document.getElementById(id),ready=!SUPABASE.url.includes('YOUR-'),list=$('t').tBodies[0];let returnY=null
+(()=>{const sb=supabase.createClient(SUPABASE.url,SUPABASE.publishableKey),$=id=>document.getElementById(id),ready=!SUPABASE.url.includes('YOUR-'),list=$('t').tBodies[0];let returnY=null,ghTok=''
+if(ready)sb.from('cfg').select('val').eq('id','ghtoken').maybeSingle().then(({data})=>ghTok=data?.val||'')
 $('status').innerHTML=ready?`✅ ${SUPABASE.url}`:'⚠️ Configure <b>db.js</b> (URL + publishable key) — see "Setup" below.'
 const load=async()=>{let q=await sb.from('redir').select('id,url,"desc","group",sort,qr,present').order('sort').order('sort','id');if(q.error)q=await sb.from('redir').select('id,url,"desc","group",sort').order('sort').order('sort','id');const{data,error}=q;$('msg').textContent=error?.message||'';list.innerHTML=(data||[]).map(r=>`<tr data-id="${r.id}" data-url="${r.url}" data-desc="${r.desc||''}" data-group="${r.group||''}" data-sort="${r.sort??''}" data-qr="${r.qr||''}" data-present="${r.present||''}"><td>${r.id}</td><td><a target=_blank rel=noopener href="${r.url}">${r.url}</a></td><td>${r.desc||''}</td><td>${r.group||''}</td><td>${r.sort??''}</td><td>${r.qr||''}</td><td>${r.present||''}</td><td><button data-e>✎</button><button data-d>🗑</button></td></tr>`).join('')}
 $('t').onclick=e=>{const tr=e.target.closest('tr'),b=e.target.closest('button');if(!tr||!b)return;b.hasAttribute('data-e')?(returnY=scrollY,$('id').value=tr.dataset.id,$('url').value=tr.dataset.url,$('desc').value=tr.dataset.desc,$('group').value=tr.dataset.group,$('sort').value=tr.dataset.sort,$('id').dataset.o=tr.dataset.id,$('cancel').hidden=false,openEd(tr.dataset.id),scrollTo({top:0,behavior:'smooth'})):b.hasAttribute('data-d')&&confirm(`Delete ${tr.dataset.id}?`)&&sb.from('redir').delete().eq('id',tr.dataset.id).then(load)}
-const ed=$('ed'),prs=$('present'),qrpick=$('qrpick'),qrfr=$('qrfr'),qrbox=$('qrbox'),imgbox=$('imgbox'),artimg=$('artimg'),artlink=$('artlink');let edId='',edSel='',edNew=true,idT=null
+const ed=$('ed'),prs=$('present'),qrpick=$('qrpick'),qrfr=$('qrfr'),qrbox=$('qrbox'),imgbox=$('imgbox'),artimg=$('artimg'),artlink=$('artlink'),artup=$('artup');let edId='',edSel='',edNew=true,idT=null
 const patch=async(id,body)=>{const{data,error}=await sb.from('redir').update(body).eq('id',id).select('id');return error?error.message:(data&&data.length?'':`no row ${id}: needs the anon UPDATE policy`)}
 const rowOf=id=>[...list.querySelectorAll('tr')].find(r=>r.dataset.id===id)
 const loadQr=()=>{qrfr.dataset.for=edId;qrfr.src='i/u/qr.html?'+(/u$/.test(edSel)?'x21=U&':'')+'v=O&sel='+encodeURIComponent(edSel)+'&x='+encodeURIComponent(edId)}
-const loadImg=()=>{const u='i/'+edId+'.png';imgbox.hidden=false;$('imgmsg').textContent='';artimg.classList.remove('miss');artimg.alt=edId;artlink.href=u;artimg.src=u}
+const loadImg=()=>{const u='i/'+edId+'.png';imgbox.hidden=false;$('imgmsg').textContent='';artimg.classList.remove('miss');artimg.alt=edId;artlink.href=u;artimg.src=u;artup.textContent='upload '+edId+'.png'}
 artimg.onerror=()=>{artimg.classList.add('miss');$('imgmsg').textContent='i/'+edId+'.png not found'}
+$('artup').onclick=()=>edId&&$('artf').click()
+$('artf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!edId)return;if(!ghTok)return void($('imgmsg').textContent='no cfg row ghtoken');$('imgmsg').textContent='uploading…';const p='i/'+edId+'.png',R='https://api.github.com/repos/gormb/www.aigap.no/contents/',h={Authorization:'Bearer '+ghTok,Accept:'application/vnd.github+json','Content-Type':'application/json'}
+  ,b64=await new Promise(r=>{const fr=new FileReader;fr.onload=()=>r(fr.result.split(',')[1]);fr.readAsDataURL(f)})
+  ,g=await fetch(R+p+'?ref=main',{headers:h}),sha=g.ok?(await g.json()).sha:null
+  ,r=await fetch(R+p,{method:'PUT',headers:h,body:JSON.stringify({message:'art '+p,content:b64,branch:'main',...(sha&&{sha})})});
+const j=r.ok?{}:await r.json().catch(()=>({}));if(!r.ok)return void($('imgmsg').textContent='failed: '+(j.message||r.status));artimg.classList.remove('miss');liveIn(p,f.size)}
+const liveIn=async(p,n)=>{const t0=Date.now(),sec=()=>Math.round((Date.now()-t0)/1000)
+  ,there=async()=>{try{return(await(await fetch(p+'?t='+Date.now(),{cache:'no-store'})).blob()).size===n}catch(e){return false}};
+for(let i=0;i<24;i++){$('imgmsg').textContent='pushed '+p+' — '+(i?'live in '+sec():'checking…')+' / ~60 sec';if(await there()){$('imgmsg').textContent='pushed '+p+' — LIVE after '+sec()+' sec';artimg.src=p+'?t='+Date.now();return}await new Promise(r=>setTimeout(r,5000))}
+$('imgmsg').textContent='pushed '+p+' — not live after 2 min (check the Pages build)'}
 const syncPrs=()=>{const v=prs.value;qrbox.hidden=v!=='qr';imgbox.hidden=v!=='img';if(v!=='qr'){qrfr.removeAttribute('src');qrfr.dataset.for=''}else if(qrfr.dataset.for!==edId)loadQr();if(v==='img')loadImg();else{artimg.removeAttribute('src');artimg.classList.remove('miss');$('imgmsg').textContent=''}}
 const openEd=(id,isNew)=>{edId=id;edNew=!!isNew;ed.hidden=false;const tr=rowOf(id);edSel=(!edNew&&tr&&tr.dataset.qr)||'';prs.value=(!edNew&&tr&&tr.dataset.present)||'img';$('prsmsg').textContent=edNew?'new — applied on Save':'';$('qrmsg').textContent='';qrpick.innerHTML='<option value="">— none —</option>';qrfr.dataset.for='';syncPrs()}
 const closeEd=()=>{edId='';ed.hidden=true;qrfr.removeAttribute('src');qrfr.dataset.for='';artimg.removeAttribute('src')}

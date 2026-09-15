@@ -27,3 +27,8 @@ create table if not exists book_versions (book text not null default 'ABook', ve
 alter table book_versions enable row level security;
 drop policy if exists book_versions_all on book_versions;
 create policy book_versions_all on book_versions for all using (true) with check (true);
+-- Admin config (dbAdm.js art upload → GitHub contents API); row id 'ghtoken'.
+create table if not exists cfg (id text primary key, val text);
+alter table cfg enable row level security;
+drop policy if exists cfg_all on cfg;
+create policy cfg_all on cfg for all using (true) with check (true);
