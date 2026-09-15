@@ -28,31 +28,13 @@ var KEYSHR=0.20; // skip the colour key unless the most-used colour covers >= th
 var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
 var METGEN=0;    // bumped on each recalc; guards stale async byte-size results
 var KEYED=null, KEYED_TRIED=false, KEYED_BLOCKED=false;
-function keyed(){ // turn the most-used opaque colour transparent -- unless the art already has transparency,
-                  // or no single colour dominates (<KEYSHR of pixels); then the art is left as-is
+function keyed(){ // turn the most-used opaque colour transparent -- unless the art already has
+                  // transparency, or no colour dominates (<KEYSHR); rule lives in qrmetrics.js
   if(KEYED_TRIED)return KEYED;
   KEYED_TRIED=true;
   if(!(ART&&ART.naturalWidth))return KEYED=null;
-  try{
-    var w=ART.naturalWidth,h=ART.naturalHeight;
-    var c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');
-    g.drawImage(ART,0,0);
-    var d=g.getImageData(0,0,w,h),p=d.data,total=p.length/4;
-    // key colour = the single most frequent object colour, counted EXACTLY (no binning/rounding)
-    var hist={},bestN=0,k=null,hasAlpha=false;
-    for(var j=0;j<p.length;j+=4){
-      if(p[j+3]<128){hasAlpha=true;continue;}             // art already carries transparency -> never colour-key
-      var rgb=(p[j]<<16)|(p[j+1]<<8)|p[j+2],n=(hist[rgb]||0)+1;hist[rgb]=n;
-      if(n>bestN){bestN=n;k=rgb;}}   // ties keep first seen (top-left-to-bottom-right)
-    var useKey=!hasAlpha&&k!=null&&bestN>=KEYSHR*total;   // ignore the colour key if <KEYSHR of pixels have it
-    for(var i=0;i<p.length;i+=4){var a=p[i+3];
-      if(a<128||!useKey){p[i+3]=a<128?0:255;continue;}    // no colour filter: keep the art's own transparency only
-      var kr=(k>>16)&255,kg=(k>>8)&255,kb=k&255;
-      var dr=Math.abs(p[i]-kr),dg=Math.abs(p[i+1]-kg),db=Math.abs(p[i+2]-kb);
-      p[i+3]=(dr<=KEYTOL&&dg<=KEYTOL&&db<=KEYTOL)?0:255;}  // key colour (KEYTOL=0 -> exact) becomes transparent
-    g.putImageData(d,0,0);
-    KEYED=c;
-  }catch(e){KEYED=null;KEYED_BLOCKED=true;}   // pixel access blocked -> keying unavailable
+  try{KEYED=keyArt(ART,KEYTOL,KEYSHR);}
+  catch(e){KEYED=null;KEYED_BLOCKED=true;}   // pixel access blocked -> keying unavailable
   return KEYED;
 }
 function coverageAlpha(hole){ // per-module alpha of the transparent overlay (0 = see-through, 255 = covers the module)
@@ -87,16 +69,7 @@ function whiteFn(N,h,tr){     // module is white (shows QR underneath) for the g
     return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h)return false;return al2[(r-lo)*h+(c-lo)]<128;};}}
   return function(r,c){return r>=lo&&r<lo+h&&c>=lo&&c<lo+h;};
 }
-// ---- the requested pattern: a 9x9 hole on a 21x21 code ---------------------
-// 9 of the 81 cells keep the QR module -- the box's left column for the top
-// three rows and the bottom three rows, and the right column for the top three
-// rows.  The other 72 cells stay free for the image.  Nothing else changes:
-// 5x5 / 7x7 and the 25 / 29 codes are untouched.
-var KEEP21=[[6,6],[7,6],[8,6],[6,14],[7,14],[8,14],[12,6],[13,6],[14,6]];
-function keep21(r,c){
-  for(var i=0;i<KEEP21.length;i++)if(KEEP21[i][0]===r&&KEEP21[i][1]===c)return true;
-  return false;
-}
+// hole pattern / artwork keying / hole area: i/u/qrmetrics.js (shared with /_/r.js)
 function repaint21(g,M,hole,S,mar){   // put those 9 cells back on top of the image
   var N=M.length,lo=(N-hole)>>1,off=(mar||0)*S;
   for(var r=lo;r<lo+hole;r++)for(var c=lo;c<lo+hole;c++)if(keep21(r,c)){

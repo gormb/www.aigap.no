@@ -95,6 +95,51 @@ function holeInside(N, hole){var lo=(N-hole)>>1,hi=lo+hole;return function(r,c){
 function qrHoleErase(N, ec, hole){ return qrErasure(N, ec, holeInside(N,hole)); }
 
 // ---------------------------------------------------------------------------
+// Shared rendering geometry -- used by i/u/qr.js (analysis) and /_/r.js (the
+// homepage tiles) so both cut the artwork into the code the same way.
+// ---------------------------------------------------------------------------
+
+// The requested pattern for the one overlapping case: a 9x9 hole on a 21x21
+// code.  These 9 cells (of the 81) keep their QR module -- the box's left column
+// for the top three rows and the bottom three rows, and the right column for the
+// top three rows.  The other 72 cells stay free for the artwork.
+var KEEP21=[[6,6],[7,6],[8,6],[6,14],[7,14],[8,14],[12,6],[13,6],[14,6]];
+function keep21(r,c){
+  for(var i=0;i<KEEP21.length;i++)if(KEEP21[i][0]===r&&KEEP21[i][1]===c)return true;
+  return false;
+}
+
+// Artwork side as a fraction of the code side: a hole is `hole` modules wide on
+// an NxN code, so the artwork covers (hole/N)^2 of the code area.
+function artSide(N, hole){ return hole/N; }
+
+// Colour-key an image: the single most-used opaque colour (within `tol` per
+// channel) becomes transparent.  When there is nothing to key -- the art already
+// carries transparency, or no colour covers `share` of the pixels -- the art's
+// own alpha is kept, but binarised at the same >=128 threshold the metric uses.
+// Throws if the browser blocks pixel access (file://); callers catch that.
+function keyArt(a, tol, share){
+  var w=a.naturalWidth||a.width,h=a.naturalHeight||a.height;
+  if(!(w&&h))return null;
+  var c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');
+  g.drawImage(a,0,0);
+  var d=g.getImageData(0,0,w,h),p=d.data,total=p.length/4;
+  var hist={},best=0,k=null,hasAlpha=false;
+  for(var i=0;i<p.length;i+=4){
+    if(p[i+3]<128){hasAlpha=true;continue;}      // art already carries transparency
+    var rgb=(p[i]<<16)|(p[i+1]<<8)|p[i+2],n=(hist[rgb]||0)+1;hist[rgb]=n;
+    if(n>best){best=n;k=rgb;}}                   // ties keep the first seen colour
+  var use=!hasAlpha&&k!=null&&best>=share*total; // no dominant colour -> no colour key
+  for(var j=0;j<p.length;j+=4){
+    var al=p[j+3];
+    if(al<128||!use){p[j+3]=al<128?0:255;continue;}
+    var kr=(k>>16)&255,kg=(k>>8)&255,kb=k&255;
+    p[j+3]=(Math.abs(p[j]-kr)<=tol&&Math.abs(p[j+1]-kg)<=tol&&Math.abs(p[j+2]-kb)<=tol)?0:255;}
+  g.putImageData(d,0,0);
+  return c;
+}
+
+// ---------------------------------------------------------------------------
 // Real 1-bit indexed PNG byte size (like the served .qr1.png files), computed
 // from the actual dark module map. Uses the browser CompressionStream so the
 // result matches what an optimized encoder produces (~150 B for 21, not ~450).
