@@ -93,7 +93,7 @@ function recalcMetrics(){     // (re)compute erasure/colour for every tile from 
     el.querySelector('.sz').title='erases '+q.erased+' of '+q.ecPer+' EC codewords';
   });
 }
-var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES={21:[0,3,5,7,9],25:[0,3,5,7,9,13],29:[0,3,5,7,9,11,13]};
+var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES=[0,3,5,7,9,11,13];
 var FIT={};   // size -> EC levels the payload actually fits (for this UP/mode)
 var EB={L:7,M:15,Q:25,H:30};                       // EC error budget (% codewords)
 var CAP={21:{L:17,M:14,Q:11,H:7},25:{L:32,M:26,Q:20,H:18},29:{L:53,M:42,Q:34,H:27}};
@@ -219,7 +219,7 @@ async function buildGrid(){   // (re)generate the whole tile set for the current
   for(var N of SIZ){for(var ec of EC){
     try{ matrixFor(N,ec); }catch(e){ continue; }     // payload too big for this size+EC
     FIT[N].push(ec);
-    for(var h of HOLES[N]){for(var ti=0;ti<2;ti++){
+    for(var h of HOLES){for(var ti=0;ti<2;ti++){
       var tr=ti===1;
       if(tr&&(!ART||h===0))continue;       // transparent needs an overlay image
       var q=metricFor(N,ec,h,tr);          // opaque: square hole; transparent: image coverage

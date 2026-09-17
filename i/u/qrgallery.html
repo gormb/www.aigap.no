@@ -25,9 +25,6 @@
 alter table public.redir add column if not exists qr text;
 comment on column public.redir.qr is
   'Selected QR variant: &lt;size&gt;&lt;EC&gt;&lt;hole&gt;[t][u]; t=transparent, u=21x uppercase host';
-alter table public.redir drop constraint if exists redir_qr_fmt;
-alter table public.redir add constraint redir_qr_fmt
-  check (qr is null or qr ~ '^(21[LMQH][03579]t?u?|25[LMQH](?:[03579]|13)t?|29[LMQH](?:[03579]|11|13)t?)$');
 
 -- 2) ONLY if you want this page to record the choice from the browser.
 --    Grants the public anon role UPDATE on `qr` so the picker can save.

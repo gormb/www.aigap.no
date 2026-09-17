@@ -7,7 +7,7 @@ Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.ht
     N     21 | 25 | 29      modules; 21 encodes the short www.aigap.no host
     EC    L | M | Q | H
     hole  0 | 3 | 5 | 7 | 9 | 11 | 13   centred white square kept free for the artwork
-           (11 fits only 29, 13 only 25/29)
+           (the big ones only survive on a transparent/keyed art)
     t     clear ONLY the modules the keyed art really covers -- the same rule
           i/u/qr.js uses, so the file and the browser tile agree; without t the
           whole square is cleared and the art covers it
@@ -16,7 +16,8 @@ Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.ht
 
 The hole of each size that fits the artwork -- 9x9 on a 21x21 code, 13x13 on a
 25x25 code, 11x11 and 13x13 on a 29x29 code -- keeps 9 of its modules (identical
-set to keep() in i/u/qrmetrics.js) so the artwork never covers them.
+set to keep() in i/u/qrmetrics.js) so the artwork never covers them.  Any other
+hole is a plain square: nothing is kept.
 
     python3 i/u/qrgen.py             every present='qr' row: writes what the
                                      token needs AND deletes every generated png
@@ -44,7 +45,7 @@ ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
 KEEP_AT = {21: (9,), 25: (13,), 29: (11, 13)}   # the holes that keep modules
 KEYTOL, KEYSHR = 1, 0.20
-TOK = re.compile(r'^(21[LMQH][03579]|25[LMQH](?:[03579]|13)|29[LMQH](?:[03579]|11|13))(t?)(u?)$')
+TOK = re.compile(r'^(2[159][LMQH](?:[03579]|11|13))(t?)(u?)$')
 OLD = (re.compile(r'^.+\.qr2[159][LMQH](?:[03579]|11|13)t?u?\.png$'),
        re.compile(r'^.+\.qr1\.png$'),
        re.compile(r'^qr2[159]i\d*\.png$'))

@@ -1,9 +1,8 @@
--- Visit log (db.js logVisit → log_visit RPC); read by log.html.
+-- Visit log (db.js logVisit); read by log.html.
 create table if not exists log (id bigint generated always as identity primary key,ts timestamptz default now(),k text,u text,d jsonb);
 create index if not exists log_k_idx on log(k);
 create index if not exists log_ts_idx on log(ts desc);
-create or replace function public.log_visit(k text,u text,d jsonb)
-returns void language sql as $$ insert into log(k,u,d) values(k,u,d); $$;
+drop function if exists public.log_visit(text,text,jsonb);
 alter table log enable row level security;
 drop policy if exists log_all on log;
 create policy log_all on log for all using (true) with check (true);

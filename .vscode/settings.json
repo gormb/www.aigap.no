@@ -1,5 +1,6 @@
 {
     "liveServer.settings.port": 5501,
+    "mssql.intelliSense.enableErrorChecking": false,
     "python-envs.pythonProjects": [
         {
             "path": "i/u/qrgen.py",
