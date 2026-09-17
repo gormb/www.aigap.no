@@ -21,9 +21,12 @@ function artFit(side,aW,aH,tr){   // destination rect for the art inside a sideÃ
   var r=Math.min(side/aW,side/aH),w=aW*r,h=aH*r;   // transparent: whole image, centred (contain)
   return {sx:0,sy:0,sw:aW,sh:aH,x:(side-w)/2,y:(side-h)/2,w:w,h:h};
 }
-function loadArt(u){return new Promise(function(res){var im=new Image();
-  if(/^https?:\/\//i.test(u))im.crossOrigin='anonymous';   // allow pixel read if the server sends CORS
-  im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src=u;});}
+function loadArt(u){return new Promise(function(res){var im=new Image(),cr=/^https?:\/\//i.test(u);
+  if(cr)im.crossOrigin='anonymous';   // allow pixel read if the server sends CORS
+  im.onload=function(){res(im)};
+  im.onerror=function(){if(!cr)return res(null);   // no CORS header -> retry without it (art shows, pixel read stays blocked)
+    cr=false;im.crossOrigin=null;im.src=u+(u.indexOf('?')<0?'?':'&')+'t='+Date.now();};
+  im.src=u;});}
 var KEYTOL=1;   // per-channel slack around the exact most-used colour (0 = exact match only)
 var KEYSHR=0.20; // skip the colour key unless the most-used colour covers >= this share of pixels
 var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
@@ -206,7 +209,7 @@ else{(async function(){
               :(FULLURL?null:'../'+x+'.png');
   if(imgUrl&&CB)imgUrl+=(imgUrl.indexOf('?')<0?'?':'&')+'t='+CB;
   ART=imgUrl?await loadArt(imgUrl):null;
-  if(ART&&!keyed()&&KEYED_BLOCKED)showWarn('Pixel access is blocked in this browser (file://), so the transparent variants cannot be scored from the artwork. Open the page over http (e.g. Live Server) to enable this.');
+  if(ART&&!keyed()&&KEYED_BLOCKED)showWarn('Pixel access to the artwork is blocked (file:// page, or the art host sends no CORS header), so the transparent variants cannot be scored from the artwork.');
   await buildGrid();
   initOverlay();
 })();}
