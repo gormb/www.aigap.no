@@ -99,15 +99,13 @@ function qrHoleErase(N, ec, hole){ return qrErasure(N, ec, holeInside(N,hole)); 
 // homepage tiles) so both cut the artwork into the code the same way.
 // ---------------------------------------------------------------------------
 
-// The requested pattern for the one overlapping case: a 9x9 hole on a 21x21
-// code.  These 9 cells (of the 81) keep their QR module -- the box's left column
-// for the top three rows and the bottom three rows, and the right column for the
-// top three rows.  The other 72 cells stay free for the artwork.
-var KEEP21=[[6,6],[7,6],[8,6],[6,14],[7,14],[8,14],[12,6],[13,6],[14,6]];
-function keep21(r,c){
-  for(var i=0;i<KEEP21.length;i++)if(KEEP21[i][0]===r&&KEEP21[i][1]===c)return true;
-  return false;
-}
+// The modules a hole keeps for the artwork: three 3-module bars -- the hole's
+// left column (top three rows and bottom three rows) and its right column (top
+// three rows).  Coordinates are LOCAL to the hole, so one function serves every
+// hole size.
+function keep(h,r,c){ return (c===0&&(r<3||r>=h-3))||(c===h-1&&r<3); }
+// The holes that use it: 9x9 on 21, 13x13 on 25 and 29, 11x11 on 29.
+function keepHole(N,h){ return (N===21&&h===9)||(N===25&&h===13)||(N===29&&(h===11||h===13)); }
 
 // Artwork side as a fraction of the code side: a hole is `hole` modules wide on
 // an NxN code, so the artwork covers (hole/N)^2 of the code area.

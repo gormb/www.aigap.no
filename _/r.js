@@ -12,7 +12,7 @@ const qr=async(x,N,ec,u)=>{window.qrcode||await new Promise((r,j)=>(s=document.c
 ,dbA=async()=>{if(SUPABASE.url.includes('YOUR-'))return[];const r=await fetch(SUPABASE.url+"/rest/v1/redir?select=id,\"desc\",\"group\",sort,present,qr&order=sort.asc,id.asc",{headers:rh});if(!r.ok)throw new Error(r.status);const a=await r.json();if(!Array.isArray(a))throw new Error('bad');return a}
 ,phT="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 ,gl=x=>location.origin+'/i/u/qrgallery.html?id='+x
-,hp=async (u='https://aigap.no/h.html')=>{if(!window.keep21)await new Promise((r,j)=>{const s=document.createElement('script');s.src='/i/u/qrmetrics.js?v=2';s.onload=r;s.onerror=j;document.head.appendChild(s)});
+,hp=async (u='https://aigap.no/h.html')=>{if(!window.keep)await new Promise((r,j)=>{const s=document.createElement('script');s.src='/i/u/qrmetrics.js?v=3';s.onload=r;s.onerror=j;document.head.appendChild(s)});
 const out=document.createElement('div');document.body.appendChild(out);
   out.insertAdjacentHTML('beforeend'
     ,`<div style="height:30vw;left:2vw;top:2vw">
@@ -27,17 +27,17 @@ const out=document.createElement('div');document.body.appendChild(out);
     if(q)console.warn('OPTIMIZE QR',f+' not pre-generated','execute: python3 i/u/qrgen.py '+x,'on the client and check the png in');else console.warn('OPTIMIZE QR',x+' has no qr token','pick one: '+gl(x));rt()};
   im.onload=()=>{if(h&&im.naturalWidth>20&&im.naturalWidth<42)art(im,x,h,T)};im.onerror=nx;nx()}else{const im=td.querySelector('img');if(im)im.onerror=()=>im.src=phT}n++}}
 ,p=new URLSearchParams(location.search); 
-function cut(im,h,lo){                                  // 21x21 h9: the kept modules, cut out of the code
+function cut(im,h,lo){                                  // the kept modules, cut out of the code
   const c=document.createElement('canvas');c.width=c.height=h,g=c.getContext('2d');
   g.drawImage(im,lo,lo,h,h,0,0,h,h);
   g.globalCompositeOperation='destination-out';
-  for(let y=0;y<h;y++)for(let x=0;x<h;x++)if(!keep21(y+lo,x+lo))g.fillRect(x,y,1,1);
+  for(let y=0;y<h;y++)for(let x=0;x<h;x++)if(!keep(h,y,x))g.fillRect(x,y,1,1);
   return c.toDataURL()}
 const q=[],RID=window.requestIdleCallback||(f=>setTimeout(f,0));let qd=0;
 const qrun=()=>{if(qd||!q.length)return;qd=1;RID(()=>{qd=0;q.shift()();qrun()})};
 function key(a){try{const w=a.naturalWidth||a.width,h=a.naturalHeight||a.height,r=Math.min(1,256/Math.max(w,h)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*r));c.height=Math.max(1,Math.round(h*r));c.getContext('2d').drawImage(a,0,0,c.width,c.height);const k=keyArt(c,1,0.20);return k?k.toDataURL():a.src}catch(e){return a.src}}
 function art(im,i,h,tr){const s=(100*artSide(im.naturalWidth,h)).toFixed(2)+'%',L=document.createElement('img');L.className='ov';L.loading='lazy';L.style.width=s;L.style.height=s;L.style.objectFit=tr?'contain':'cover';L.onerror=()=>{L.remove();console.warn('OPTIMIZE QR','art i/'+i+'.png not there','the '+h+'-module hole stays white: add the art image or pick a hole-0 variant: '+gl(i))};L.onload=()=>{L.onload=null;if(tr){q.push(()=>L.src=key(L));qrun()}};L.src='i/'+i+'.png';im.parentElement.appendChild(L);
-  if(im.naturalWidth===21&&h===9){const lo=(21-h)>>1,K=document.createElement('img');K.className='ov';K.style.width=s;K.style.height=s;K.style.imageRendering='pixelated';K.src=cut(im,h,lo);im.parentElement.appendChild(K)}}
+  if(keepHole(im.naturalWidth,h)){const lo=(im.naturalWidth-h)>>1,K=document.createElement('img');K.className='ov';K.style.width=s;K.style.height=s;K.style.imageRendering='pixelated';K.src=cut(im,h,lo);im.parentElement.appendChild(K)}}
 (async()=>{
   let k=[...p.keys()][0]
   if(!k){logVisit(k||'', '');hp() ;return}

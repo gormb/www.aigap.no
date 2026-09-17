@@ -6,15 +6,17 @@ Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.ht
 
     N     21 | 25 | 29      modules; 21 encodes the short www.aigap.no host
     EC    L | M | Q | H
-    hole  0 | 3 | 5 | 7 | 9  centred white square kept free for the artwork
+    hole  0 | 3 | 5 | 7 | 9 | 11 | 13   centred white square kept free for the artwork
+           (11 fits only 29, 13 only 25/29)
     t     clear ONLY the modules the keyed art really covers -- the same rule
           i/u/qr.js uses, so the file and the browser tile agree; without t the
           whole square is cleared and the art covers it
     u     21x UPPERCASE host (Alphanumeric mode fits 21 modules where the
           lowercase Byte string does not)
 
-A 9x9 hole on a 21x21 code keeps the 9 KEEP21 cells (identical set to
-i/u/qrmetrics.js).
+The hole of each size that fits the artwork -- 9x9 on a 21x21 code, 13x13 on a
+25x25 code, 11x11 and 13x13 on a 29x29 code -- keeps 9 of its modules (identical
+set to keep() in i/u/qrmetrics.js) so the artwork never covers them.
 
     python3 i/u/qrgen.py             every present='qr' row: writes what the
                                      token needs AND deletes every generated png
@@ -40,14 +42,17 @@ OUT = os.path.join(ROOT, 'i')
 PREFIX, WWW = 'https://aigap.no/', 'www.aigap.no/'
 ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
-KEEP21 = {(6, 6), (7, 6), (8, 6),
-          (6, 14), (7, 14), (8, 14), (12, 6), (13, 6), (14, 6)}
+KEEP_AT = {21: (9,), 25: (13,), 29: (11, 13)}   # the holes that keep modules
 KEYTOL, KEYSHR = 1, 0.20
-TOK = re.compile(r'^(2[159])([LMQH])([03579])(t?)(u?)$')
-OLD = (re.compile(r'^.+\.qr2[159][LMQH][03579]t?u?\.png$'),
+TOK = re.compile(r'^(21[LMQH][03579]|25[LMQH](?:[03579]|13)|29[LMQH](?:[03579]|11|13))(t?)(u?)$')
+OLD = (re.compile(r'^.+\.qr2[159][LMQH](?:[03579]|11|13)t?u?\.png$'),
        re.compile(r'^.+\.qr1\.png$'),
        re.compile(r'^qr2[159]i\d*\.png$'))
 KEEP = set()
+
+
+def keep(h, r, x):   # the 3 bars the artwork never covers (i/u/qrmetrics.js)
+    return (x == 0 and (r < 3 or r >= h - 3)) or (x == h - 1 and r < 3)
 
 
 def db():
@@ -100,8 +105,8 @@ def cov(i, h):
 
 
 def build(i, tok):
-    N, ec, hole, t, u = TOK.match(tok).groups()
-    N, hole = int(N), int(hole)
+    head, t, u = TOK.match(tok).groups()
+    N, ec, hole = int(head[:2]), head[2], int(head[3:])
     s = (WWW if N == 21 else PREFIX) + i
     m = mat(s.upper() if u else s, N, ec)
     if hole:
@@ -111,9 +116,11 @@ def build(i, tok):
             for x in range(hole):
                 if c[r, x]:
                     m[lo + r][lo + x] = False
-        if N == 21 and hole == 9:
-            for r, x in KEEP21:
-                m[r][x] = o[r][x]
+        if hole in KEEP_AT[N]:
+            for r in range(hole):
+                for x in range(hole):
+                    if keep(hole, r, x):
+                        m[lo + r][lo + x] = o[lo + r][lo + x]
     b = io.BytesIO()
     Image.fromarray(~m).convert('1').save(b, format='PNG', optimize=True)
     return b.getvalue()

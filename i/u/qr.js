@@ -63,21 +63,21 @@ function metricFor(N,ec,h,tr){ // erasure for the opaque (square hole) or transp
   try{console.warn('[qr] '+msg);}catch(e){}}
 function whiteFn(N,h,tr){     // module is white (shows QR underneath) for the given variant
   var lo=(N-h)>>1;
-  if(N===21&&h===9){          // the requested pattern: 9 of the 81 cells keep the QR (KEEP21)
+  if(keepHole(N,h)){          // the kept modules of the hole stay QR (see keep() in qrmetrics.js)
     if(tr&&h>0){var al=coverageAlpha(h);if(al){
-      return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h||keep21(r,c))return false;
+      return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h||keep(h,r-lo,c-lo))return false;
         return al[(r-lo)*h+(c-lo)]<128;};}}
-    return function(r,c){return r>=lo&&r<lo+h&&c>=lo&&c<lo+h&&!keep21(r,c);};
+    return function(r,c){return r>=lo&&r<lo+h&&c>=lo&&c<lo+h&&!keep(h,r-lo,c-lo);};
   }
   if(tr&&h>0){var al2=coverageAlpha(h);if(al2){
     return function(r,c){if(r<lo||r>=lo+h||c<lo||c>=lo+h)return false;return al2[(r-lo)*h+(c-lo)]<128;};}}
   return function(r,c){return r>=lo&&r<lo+h&&c>=lo&&c<lo+h;};
 }
 // hole pattern / artwork keying / hole area: i/u/qrmetrics.js (shared with /_/r.js)
-function repaint21(g,M,hole,S,mar){   // put those 9 cells back on top of the image
+function repaint(g,M,hole,S,mar){   // put the kept cells back on top of the image
   var N=M.length,lo=(N-hole)>>1,off=(mar||0)*S;
-  for(var r=lo;r<lo+hole;r++)for(var c=lo;c<lo+hole;c++)if(keep21(r,c)){
-    g.fillStyle=M[r][c]?'#000':'#fff';g.fillRect(off+c*S,off+r*S,S,S);}
+  for(var r=0;r<hole;r++)for(var c=0;c<hole;c++)if(keep(hole,r,c)){
+    g.fillStyle=M[lo+r][lo+c]?'#000':'#fff';g.fillRect(off+(lo+c)*S,off+(lo+r)*S,S,S);}
 }
 function recalcMetrics(){     // (re)compute erasure/colour for every tile from its own variant
   METGEN++;
@@ -93,7 +93,7 @@ function recalcMetrics(){     // (re)compute erasure/colour for every tile from 
     el.querySelector('.sz').title='erases '+q.erased+' of '+q.ecPer+' EC codewords';
   });
 }
-var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES=[0,3,5,7,9];
+var SIZ=[21,25,29],EC=['L','M','Q','H'],HOLES={21:[0,3,5,7,9],25:[0,3,5,7,9,13],29:[0,3,5,7,9,11,13]};
 var FIT={};   // size -> EC levels the payload actually fits (for this UP/mode)
 var EB={L:7,M:15,Q:25,H:30};                       // EC error budget (% codewords)
 var CAP={21:{L:17,M:14,Q:11,H:7},25:{L:32,M:26,Q:20,H:18},29:{L:53,M:42,Q:34,H:27}};
@@ -132,7 +132,7 @@ function draw(M,hole,tr){
     var f=artFit(size,a.naturalWidth||a.width,a.naturalHeight||a.height,tr);
     if(!tr){g.fillStyle='#fff';g.fillRect(p,p,size,size);}   // opaque: the hole reads as a white block
     g.drawImage(a,f.sx,f.sy,f.sw,f.sh,p+f.x,p+f.y,f.w,f.h);
-    if(N===21&&hole===9)repaint21(g,M,hole,S,0);}
+    if(keepHole(N,hole))repaint(g,M,hole,S,0);}
   return cv;
 }
 function pngSize(cv){return new Promise(function(res){cv.toBlob(function(b){res(b?b.size:null);},'image/png');});}
@@ -219,7 +219,7 @@ async function buildGrid(){   // (re)generate the whole tile set for the current
   for(var N of SIZ){for(var ec of EC){
     try{ matrixFor(N,ec); }catch(e){ continue; }     // payload too big for this size+EC
     FIT[N].push(ec);
-    for(var h of HOLES){for(var ti=0;ti<2;ti++){
+    for(var h of HOLES[N]){for(var ti=0;ti<2;ti++){
       var tr=ti===1;
       if(tr&&(!ART||h===0))continue;       // transparent needs an overlay image
       var q=metricFor(N,ec,h,tr);          // opaque: square hole; transparent: image coverage
@@ -288,7 +288,7 @@ function renderHi(N,ec,h,tr,mar){if(mar==null)mar=4;var S=40,M=matrixFor(N,ec);
     var f=artFit(pw,a.naturalWidth||a.width,a.naturalHeight||a.height,tr);
     if(!tr){g.fillStyle='#fff';g.fillRect(px,px,pw,pw);}     // opaque: the hole reads as a white block
     g.drawImage(a,f.sx,f.sy,f.sw,f.sh,px+f.x,px+f.y,f.w,f.h);
-    if(N===21&&h===9)repaint21(g,M,h,S,mar);}
+    if(keepHole(N,h))repaint(g,M,h,S,mar);}
   return cv;}
 var ovCur=null,ovTpl=null,ovAt=0,ovX=0,ovY=0;
 function renderOv(){if(!ovCur)return;var ov=document.getElementById('ov'),cv=renderHi(ovCur.N,ovCur.ec,ovCur.h,ovCur.tr);
