@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<style>
+body{font:14px/1.5 system-ui,sans-serif;margin:1rem}
+nav{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem;align-items:flex-end;margin-bottom:1rem}
+label{display:flex;flex-direction:column;gap:.2rem;font-size:12px;color:#666}
+input,select{font:inherit}
+input[type=text]{width:16ch}
+input[type=number]{width:6ch}
+a{margin-left:auto}
+#o canvas{width:min(70vmin,420px);padding:4%;background:#fff;image-rendering:pixelated}
+#s{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+</style>
+<nav id=f>
+  <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
+  <label>img (art name | url)<input id=img value=ldi spellcheck=false autocomplete=off></label>
+  <label>iSz<select id=iSz><option>21</option><option>25</option><option>29</option></select></label>
+  <label>iTrans<input id=iTrans type=checkbox checked></label>
+  <label>iHole<input id=iHole type=number value=5 min=0 max=21 step=2 title="0 = the hole recommended for this id length"></label>
+  <label>emax %<input id=emax type=number value=20 min=0 max=100></label>
+  <a id=d download>png</a>
+</nav>
+<main>
+  <div id=o></div>
+  <p id=s></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="/i/u/qrmetrics.js?v=3"></script>
+<script src=qr.js></script>
+<script>
+const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
+,E={};
+['t','img','iSz','iTrans','iHole','emax'].forEach(k=>E[k]=document.getElementById(k));
+let to=null,run=0;
+const go=async()=>{
+  const k=++run;
+  try{const cv=await qr.g(E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,E.iTrans.checked,+E.iHole.value,+E.emax.value);
+    if(k!==run)return;
+    if(!cv){O.replaceChildren();S.textContent='nothing fits: no EC level holds that text at iSz';return}
+    O.replaceChildren(cv);
+    D.href=cv.toDataURL();D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
+    const e=cv.e;
+    S.textContent=cv.t+'\n'+cv.u+'\nerases '+e.erased+'/'+e.ecPer+' EC cw \u00b7 '+Math.round(100*e.erased/e.ecPer)+'% '+{g:'safe',y:'near limit',r:'over EC'}[e.col];
+  }catch(e){S.textContent=String(e&&e.message||e)}}
+,arm=()=>{clearTimeout(to);to=setTimeout(go,300)};
+F.addEventListener('input',arm);
+F.addEventListener('change',arm);
+go();
+</script>
