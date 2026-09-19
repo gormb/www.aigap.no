@@ -7,17 +7,20 @@ window.qr = {
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
   GS:[21,25,29],
   EC:['L','M','Q','H'],
+  HOLES:[0,3,5,7,9,11,13],                                    // the holes that exist (i/u/qr.js + i/u/qr.sql)
   EB:{L:7,M:15,Q:25,H:30},                                  // EC error budget (% codewords)
   REC_EC:['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'],          // recommended EC per size and id length
   REC_HOLE:[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]],
   KEYTOL:1,                                                 // per-channel slack of the colour key
   KEYSHR:0.20,                                              // key only if one colour covers this share
-  S:10,                                                     // px per module (the page adds the quiet zone)
-  // g(text|id, art name|url|null, size, transparent, hole, max erasure %) -> canvas
-  // iHole 0 = the hole recommended for that id length (REC_HOLE); EC is REC_EC, or the
-  // strongest level within emax when the table has no entry (or it cannot hold the text).
+  S:40,                                                     // px per module (i/u/qr.js renderHi)
+  MAR:4,                                                    // quiet zone in modules (renderHi default)
+  // g(text|id, art name|url|null, size, transparent, hole, error %) -> canvas
+  // iHole is any whole number of modules (0 = no hole, clamped to the code); an empty hole
+  // takes the one recommended for that id length (REC_HOLE). EC is REC_EC, or
+  // the strongest level within `error` when the table has no entry (or it cannot hold the text).
   // .t = token (i/<id>.<token>.png), .u = encoded text, .e = {erased,ecPer,col}.
-  g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,emax=20)=>{
+  g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20)=>{
     t=(t||'').trim();
     if(!t)return null;
     const N=qr.GS.indexOf(+iSz)>=0?+iSz:21
@@ -26,17 +29,18 @@ window.qr = {
      ,B=F?t.replace(/^https?:\/\//i,'').replace(/^www\./i,''):'aigap.no/'+t
      ,s=(N===21?'www.':'https://')+B
      ,c=(F?B:t).length
-     ,em=+emax>=0?+emax:20
+     ,em=+error>=0?+error:20
+     ,hi=iHole==null||iHole===''?NaN:+iHole
      ,fit=qr.EC.filter(e=>{try{qr._mx(N,e,s);return true}catch(_){return false}});
     if(!fit.length)return null;
     const want=(qr.REC_EC[gi]||'')[c]
      ,ec=fit.indexOf(want)>=0?want:(fit.filter(e=>qr.EB[e]<=em).pop()||fit[0])
-     ,h=Math.min(+iHole||(qr.REC_HOLE[gi]||[])[c]||0,N-1)
+     ,h=isFinite(hi)?Math.min(Math.max(0,Math.round(hi)),N-1):(qr.REC_HOLE[gi]||[])[c]||0
      ,A=img&&String(img).trim()?await qr._art(String(img).trim()):null
-     ,cv=qr._draw(qr._mx(N,ec,s),h>0?h:0,!!iTrans,A);
+     ,cv=qr._draw(qr._mx(N,ec,s),h,iTrans?true:false,A);
     cv.t=N+ec+h+(h>0&&iTrans?'t':'');
     cv.u=s;
-    cv.e=qr._met(N,ec,h>0?h:0,!!iTrans,A);
+    cv.e=qr._met(N,ec,h,iTrans?true:false,A);
     return cv;
   },
   // id|url -> the art image (name -> /i/<name>.png); missing art or blocked pixels -> null
@@ -87,23 +91,24 @@ window.qr = {
       g.fillStyle=M[lo+r][lo+c]?'#000':'#fff';
       g.fillRect(off+(lo+c)*S,off+(lo+r)*S,S,S);}
   },
-  _draw:(M,h,tr,A)=>{   // i/u/qrgen.py build(): whites of the hole, then the art, then the kept cells
-    const N=M.length,S=qr.S,cv=document.createElement('canvas');cv.width=cv.height=N*S;
+  _draw:(M,h,tr,A)=>{   // i/u/qr.js renderHi(): hole whites, then the art, then the kept cells
+    const N=M.length,S=qr.S,mar=qr.MAR,D=(N+2*mar)*S
+     ,cv=document.createElement('canvas');cv.width=cv.height=D;
     const g=cv.getContext('2d');
-    g.fillStyle='#fff';g.fillRect(0,0,cv.width,cv.height);
+    g.fillStyle='#fff';g.fillRect(0,0,D,D);
     g.fillStyle='#000';
-    for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(M[r][c])g.fillRect(c*S,r*S,S,S);
+    for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(M[r][c])g.fillRect((mar+c)*S,(mar+r)*S,S,S);
     if(h>0&&h<N){
-      const lo=(N-h)>>1,bar=keepHole(N,h),al=tr?qr._cov(A,h):null;
+      const lo=(N-h)>>1,p=(mar+lo)*S,size=h*S,bar=keepHole(N,h),al=tr?qr._cov(A,h):null;
       for(let r=0;r<h;r++)for(let c=0;c<h;c++){
         if(bar&&keep(h,r,c))continue;
         if(tr&&al&&al[r*h+c]<128)continue;
-        g.fillStyle='#fff';g.fillRect((lo+c)*S,(lo+r)*S,S,S);}
+        g.fillStyle='#fff';g.fillRect(p+c*S,p+r*S,S,S);}
       const K=tr?qr._key(A):A;
-      if(K){const p=lo*S,size=h*S,f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
+      if(K){const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
         g.save();g.beginPath();g.rect(p,p,size,size);g.clip();
         g.drawImage(K,f.sx,f.sy,f.sw,f.sh,p+f.x,p+f.y,f.w,f.h);g.restore();}
-      if(bar)qr._keep(g,M,h,S,0);}
+      if(bar)qr._keep(g,M,h,S,mar);}
     return cv;
   }
 };
