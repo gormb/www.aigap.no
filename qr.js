@@ -7,7 +7,6 @@ window.qr = {
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
   GS:[21,25,29,33,37,41,45,49,53],                          // QR versions 1..9 modules
   EC:['L','M','Q','H'],
-  HOLES:[0,3,5,7,9,11,13],                                    // the holes that exist (i/u/qr.js + i/u/qr.sql)
   EB:{L:7,M:15,Q:25,H:30},                                  // EC error budget (% codewords)
   REC_EC:['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'],          // recommended EC per size and id length
   REC_HOLE:[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]],
@@ -15,12 +14,37 @@ window.qr = {
   KEYSHR:0.20,                                              // key only if one colour covers this share
   S:40,                                                     // px per module (i/u/qr.js renderHi)
   MAR:4,                                                    // quiet zone in modules (renderHi default)
-  // g(text|id, art name|url|null, size, transparent, hole, error %) -> canvas
-  // iHole is any whole number of modules (0 = no hole, clamped to the code); an empty hole
-  // takes the one recommended for that id length (REC_HOLE). EC is REC_EC, or
-  // the strongest level within `error` when the table has no entry (or it cannot hold the text).
-  // .t = token (i/<id>.<token>.png), .u = encoded text, .e = {erased,ecPer,col}.
-  g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20)=>{
+  _i:{},                                                    // art src -> decoded image
+  _k:{},                                                    // art src -> keyed canvas (i/u/qr.js KEYED)
+  _f:{},                                                    // "size|text" -> the EC levels that hold it (i/u/qr.js FIT)
+  _q:{},                                                    // art|hole|tr -> the art at one pixel per module
+  // g(text|id, art name|url|null, size, transparent, hole, error %, offsetX, offsetY) -> canvas
+  // iHole is any whole number of modules up to the code size (0 = no hole, clamped to the
+  // code); an empty hole takes the one recommended for that id length (REC_HOLE).
+  // offsetX/offsetY move the hole off centre, in modules (1/10 is the step) -- for art that sits
+  // a little off middle.  The hole may run past the edge: only the part inside the code is drawn.
+  // The code is painted first and the art is drawn on top of it at the art's OWN resolution, so
+  // the art stays sharp however coarse the module grid is.  The erasure (.e) stays whole modules:
+  // a module the art covers at least half of counts, by the same >=128 coverage rule.
+  // .t = token (i/<id>.<token>.png, always the centred code), .u = encoded text,
+  // .e = {erased,ecPer,col}, .o = the offsets actually used.
+  g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
+    const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
+    if(!o)return null;
+    const cv=qr._draw(qr._mx(o.N,o.ec,o.s),o.h,o.tr,o.A,o.lx,o.ly,o.fx,o.fy);
+    cv.t=o.N+o.ec+o.h+(o.h>0&&o.tr?'t':'');
+    cv.u=o.s;
+    cv.e=qr._met(o.N,o.ec,o.h,o.tr,o.A,o.lx,o.ly);
+    cv.o=[o.fx-o.cx,o.fy-o.cy];
+    return cv;
+  },
+  // the same variant without drawing it: the i/u/qrmetrics.js erasure numbers alone, so a
+  // caller can walk the holes itself and draw only the one it picks.
+  met:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
+    const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
+    return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.lx,o.ly):null;
+  },
+  _o:async (t,img,iSz,iTrans,iHole,error,offsetX,offsetY)=>{   // one variant: text, size, EC, hole, art, offsets
     t=(t||'').trim();
     if(!t)return null;
     const N=qr.GS.indexOf(+iSz)>=0?+iSz:21
@@ -31,26 +55,34 @@ window.qr = {
      ,c=(F?B:t).length
      ,em=+error>=0?+error:20
      ,hi=iHole==null||iHole===''?NaN:+iHole
-     ,fit=qr.EC.filter(e=>{try{qr._mx(N,e,s);return true}catch(_){return false}});
+     ,fk=N+'|'+s
+     ,fit=qr._f[fk]||(qr._f[fk]=qr.EC.filter(e=>{try{qr._mx(N,e,s);return true}catch(_){return false}}));
+    if(Object.keys(qr._f).length>200)qr._f={};   // a caller typing text must not grow this forever
     if(!fit.length)return null;
     const want=(qr.REC_EC[gi]||'')[c]
      ,ec=fit.indexOf(want)>=0?want:(fit.filter(e=>qr.EB[e]<=em).pop()||fit[0])
-     ,h=isFinite(hi)?Math.min(Math.max(0,Math.round(hi)),N-1):(qr.REC_HOLE[gi]||[])[c]||0
-     ,A=img&&String(img).trim()?await qr._art(String(img).trim()):null
-     ,cv=qr._draw(qr._mx(N,ec,s),h,iTrans?true:false,A);
-    cv.t=N+ec+h+(h>0&&iTrans?'t':'');
-    cv.u=s;
-    cv.e=qr._met(N,ec,h,iTrans?true:false,A);
-    return cv;
+     ,h=isFinite(hi)?Math.min(Math.max(0,Math.round(hi)),N):(qr.REC_HOLE[gi]||[])[c]||0
+     ,cx=h>0?(N-h)>>1:0
+     ,cy=cx
+     ,fx=h>0?cx+(+offsetX||0):0       // the art may sit at a fraction of a module
+     ,fy=h>0?cy+(+offsetY||0):0
+     ,lx=Math.round(fx)               // the cleared modules (and the erasure) stay whole
+     ,ly=Math.round(fy);
+    return {N:N,ec:ec,h:h,tr:iTrans?true:false,s:s,cx:cx,cy:cy,lx:lx,ly:ly,fx:fx,fy:fy,
+      A:img&&String(img).trim()?await qr._art(String(img).trim()):null};
   },
   // id|url -> the art image (name -> /i/<name>.png); missing art or blocked pixels -> null
-  _art:async v=>{
-    const u=/^\w+:|\//.test(v)?v:'/i/'+(/\.\w+$/.test(v)?v:v+'.png'),cr=/^https?:\/\//i.test(v),i=new Image();
-    if(cr)i.crossOrigin='anonymous';   // i/u/qr.js loadArt: ask for CORS so the pixels can be read
-    i.src=u;
-    try{await i.decode();return i}
-    catch(e){if(!cr)return null;const j=new Image();j.src=u;   // no CORS header -> draw it anyway, pixel read stays blocked
-      try{await j.decode();return j}catch(e2){return null}}
+  _art:v=>{
+    const u=/^\w+:|\//.test(v)?v:'/i/'+(/\.\w+$/.test(v)?v:v+'.png'),cr=/^https?:\/\//i.test(v);
+    if(!(u in qr._i))qr._i[u]=(async()=>{      // decode each art once (a hidden tab may never
+      const l=x=>new Promise(res=>{const i=new Image();   // decode(), so wait for load instead)
+        if(x)i.crossOrigin='anonymous';   // i/u/qr.js loadArt: ask for CORS so the pixels can be read
+        i.onload=()=>res(i);
+        i.onerror=()=>res(null);
+        i.src=u});
+      return await l(cr)||(cr?await l(false):null);   // no CORS header -> draw it anyway, pixel read stays blocked
+    })();
+    return qr._i[u];
   },
   _mx:(N,ec,s)=>{   // i/u/qr.js matrixFor + modeFor
     const q=qrcode((N-17)/4,ec);
@@ -62,25 +94,37 @@ window.qr = {
   },
   _key:A=>{   // the keyed art (i/u/qrmetrics.js keyArt); null when there is nothing to draw
     if(!A||!(A.naturalWidth||A.width))return null;
-    try{return keyArt(A,qr.KEYTOL,qr.KEYSHR)||A}catch(e){return A}
+    if(!(A.src in qr._k)){                 // keying reads every pixel -- do it once per art
+      try{qr._k[A.src]=keyArt(A,qr.KEYTOL,qr.KEYSHR)||A}catch(e){qr._k[A.src]=A}   // blocked pixels -> the raw art
+    }
+    return qr._k[A.src];
   },
   _cov:(A,h)=>{   // per-module alpha of the keyed art inside the hole (i/u/qr.js coverageAlpha)
-    const K=qr._key(A);
-    if(!K)return null;
-    const c=document.createElement('canvas');c.width=c.height=h;
-    const g=c.getContext('2d'),f=qr._fit(h,K.naturalWidth||K.width,K.naturalHeight||K.height,true);
-    g.drawImage(K,f.sx,f.sy,f.sw,f.sh,f.x,f.y,f.w,f.h);
-    try{const d=g.getImageData(0,0,h,h).data,al=new Array(h*h);
-      for(let i=0;i<h*h;i++)al[i]=d[i*4+3];
-      return al;}catch(e){return null}
+    const d=qr._quad(A,h,true);
+    if(!d)return null;
+    const al=new Array(h*h);
+    for(let i=0;i<h*h;i++)al[i]=d[i*4+3];
+    return al;
   },
-  _met:(N,ec,h,tr,A)=>{   // i/u/qr.js metricFor: transparent counts the keyed art, opaque the square
+  _quad:(A,h,tr)=>{   // the art averaged down to the module grid: one pixel per module, for the count
+    const K=tr?qr._key(A):A;
+    if(!K||!(K.naturalWidth||K.width))return null;
+    const k=h+'|'+tr+'|'+((A&&A.src)||'');
+    if(!(k in qr._q)){
+      const c=document.createElement('canvas');c.width=c.height=h;
+      const g=c.getContext('2d',{willReadFrequently:true});
+      const f=qr._fit(h,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
+      g.drawImage(K,f.sx,f.sy,f.sw,f.sh,f.x,f.y,f.w,f.h);
+      try{qr._q[k]=g.getImageData(0,0,h,h).data}catch(e){qr._q[k]=null}
+    }
+    return qr._q[k];
+  },
+  _met:(N,ec,h,tr,A,lx,ly)=>{   // i/u/qr.js metricFor: transparent counts the keyed art, opaque the square
     if(tr&&h>0){
       const al=qr._cov(A,h);
-      if(al){const lo=(N-h)>>1;
-        return qrErasure(N,ec,(r,c)=>r>=lo&&r<lo+h&&c>=lo&&c<lo+h&&al[(r-lo)*h+(c-lo)]>=128);}
+      if(al)return qrErasure(N,ec,(r,c)=>r>=ly&&r<ly+h&&c>=lx&&c<lx+h&&al[(r-ly)*h+(c-lx)]>=128);
     }
-    return qrHoleErase(N,ec,h);
+    return qrErasure(N,ec,(r,c)=>r>=ly&&r<ly+h&&c>=lx&&c<lx+h);
   },
   _fit:(side,aW,aH,tr)=>{   // i/u/qr.js artFit: opaque crops to the square, transparent contains
     if(!(aW&&aH))return {sx:0,sy:0,sw:1,sh:1,x:0,y:0,w:side,h:side};
@@ -88,30 +132,28 @@ window.qr = {
     const r=Math.min(side/aW,side/aH),w=aW*r,h=aH*r;
     return {sx:0,sy:0,sw:aW,sh:aH,x:(side-w)/2,y:(side-h)/2,w:w,h:h};
   },
-  _keep:(g,M,h,S,mar)=>{   // i/u/qr.js repaint: the kept cells go back on top of the art
-    const N=M.length,lo=(N-h)>>1,off=(mar||0)*S;
+  _keep:(g,M,h,S,mar,lx,ly)=>{   // i/u/qr.js repaint: the kept cells go back on top of the art
+    const N=M.length,off=(mar||0)*S;
     for(let r=0;r<h;r++)for(let c=0;c<h;c++)if(keep(h,r,c)){
-      g.fillStyle=M[lo+r][lo+c]?'#000':'#fff';
-      g.fillRect(off+(lo+c)*S,off+(lo+r)*S,S,S);}
+      if(ly+r<0||ly+r>=N||lx+c<0||lx+c>=N)continue;      // the hole may hang off the code
+      g.fillStyle=M[ly+r][lx+c]?'#000':'#fff';
+      g.fillRect(off+(lx+c)*S,off+(ly+r)*S,S,S);}
   },
-  _draw:(M,h,tr,A)=>{   // i/u/qr.js renderHi(): hole whites, then the art, then the kept cells
+  _draw:(M,h,tr,A,lx,ly,fx,fy)=>{   // i/u/qr.js renderHi(): the code, then the art, then the kept cells
     const N=M.length,S=qr.S,mar=qr.MAR,D=(N+2*mar)*S
      ,cv=document.createElement('canvas');cv.width=cv.height=D;
     const g=cv.getContext('2d');
     g.fillStyle='#fff';g.fillRect(0,0,D,D);
     g.fillStyle='#000';
     for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(M[r][c])g.fillRect((mar+c)*S,(mar+r)*S,S,S);
-    if(h>0&&h<N){
-      const lo=(N-h)>>1,p=(mar+lo)*S,size=h*S,bar=keepHole(N,h),al=tr?qr._cov(A,h):null;
-      for(let r=0;r<h;r++)for(let c=0;c<h;c++){
-        if(bar&&keep(h,r,c))continue;
-        if(tr&&al&&al[r*h+c]<128)continue;
-        g.fillStyle='#fff';g.fillRect(p+c*S,p+r*S,S,S);}
-      const K=tr?qr._key(A):A;
-      if(K){const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
-        g.save();g.beginPath();g.rect(p,p,size,size);g.clip();
-        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,p+f.x,p+f.y,f.w,f.h);g.restore();}
-      if(bar)qr._keep(g,M,h,S,mar);}
+    if(h>0){
+      const size=h*S,bar=keepHole(N,h),K=tr?qr._key(A):A
+       ,x0=Math.max(0,fx),y0=Math.max(0,fy),x1=Math.min(N,fx+h),y1=Math.min(N,fy+h);
+      if(K&&x1>x0&&y1>y0){   // the code stays underneath; the art keeps its own resolution
+        const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
+        g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();
+        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,(mar+fx)*S+f.x,(mar+fy)*S+f.y,f.w,f.h);g.restore();}
+      if(bar)qr._keep(g,M,h,S,mar,lx,ly);}
     return cv;
   }
 };
