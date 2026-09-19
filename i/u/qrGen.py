@@ -4,9 +4,9 @@
 Filename = the token, verbatim:   i/<id>.<token>.png     e.g. i/ldd.21Q9tu.png
 Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.html)
 
-    N     21 | 25 | 29      modules; 21 encodes the short www.aigap.no host
+    N     21 | 25 | … | 53  modules (QR version 1..9); 21 encodes the short www.aigap.no host
     EC    L | M | Q | H
-    hole  0 | 3 | 5 | 7 | 9 | 11 | 13   centred white square kept free for the artwork
+    hole  0 | 3 | … | N-1   centred white square kept free for the artwork
            (the big ones only survive on a transparent/keyed art)
     t     clear ONLY the modules the keyed art really covers -- the same rule
           i/u/qr.js uses, so the file and the browser tile agree; without t the
@@ -45,7 +45,7 @@ ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
        'Q': ERROR_CORRECT_Q, 'H': ERROR_CORRECT_H}
 KEEP_AT = {21: (9,), 25: (13,), 29: (11, 13)}   # the holes that keep modules
 KEYTOL, KEYSHR = 1, 0.20
-TOK = re.compile(r'^(2[159][LMQH](?:[03579]|11|13))(t?)(u?)$')
+TOK = re.compile(r'^((?:2[159]|3[379]|4[159]|5[3])[LMQH]\d{1,2})(t?)(u?)$')
 OLD = (re.compile(r'^.+\.qr2[159][LMQH](?:[03579]|11|13)t?u?\.png$'),
        re.compile(r'^.+\.qr1\.png$'),
        re.compile(r'^qr2[159]i\d*\.png$'))
@@ -117,7 +117,7 @@ def build(i, tok):
             for x in range(hole):
                 if c[r, x]:
                     m[lo + r][lo + x] = False
-        if hole in KEEP_AT[N]:
+        if hole in KEEP_AT.get(N, ()):
             for r in range(hole):
                 for x in range(hole):
                     if keep(hole, r, x):

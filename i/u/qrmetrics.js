@@ -8,16 +8,24 @@
 // codewords are damaged (random errors). It can *still* decode up to E damaged
 // codewords only if those are known erasures. Above E it cannot decode.
 //
-// SIZES handled: version 1 (21), 2 (25), 3 (29) — every RS block has equal
-// data and equal EC counts, so the interleave is a simple round-robin.
+// SIZES handled: versions 1..9 (21, 25, 29, 33, 37, 41, 45, 49, 53 modules).  From
+// version 5 a level can need TWO block groups of different size, so every codeword is
+// mapped to its own RS block and each block is judged against its own EC count.
 
-// RS_BLOCK_TABLE[version-1] => [L,M,Q,H], each entry [count,total,data]
+// RS_BLOCK_TABLE[version-1] => [L,M,Q,H], a group list [count,total,data] or
+// [count,total,data,count,total,data] -- the table qrcode-generator itself uses.
 var RS = {
   1: {L:[1,26,19],M:[1,26,16],Q:[1,26,13],H:[1,26,9]},
   2: {L:[1,44,34],M:[1,44,28],Q:[1,44,22],H:[1,44,16]},
-  3: {L:[1,70,55],M:[1,70,44],Q:[2,35,17],H:[2,35,13]}
+  3: {L:[1,70,55],M:[1,70,44],Q:[2,35,17],H:[2,35,13]},
+  4: {L:[1,100,80],M:[2,50,32],Q:[2,50,24],H:[4,25,9]},
+  5: {L:[1,134,108],M:[2,67,43],Q:[2,33,15,2,34,16],H:[2,33,11,2,34,12]},
+  6: {L:[2,86,68],M:[4,43,27],Q:[4,43,19],H:[4,43,15]},
+  7: {L:[2,98,78],M:[4,49,31],Q:[2,32,14,4,33,15],H:[4,39,13,1,40,14]},
+  8: {L:[2,121,97],M:[2,60,38,2,61,39],Q:[4,40,18,2,41,19],H:[4,40,14,2,41,15]},
+  9: {L:[2,146,116],M:[3,58,36,2,59,37],Q:[4,36,16,4,37,17],H:[4,36,12,4,37,13]}
 };
-var ALIGN = {1:[],2:[6,18],3:[6,22]};
+var ALIGN = {1:[],2:[6,18],3:[6,22],4:[6,26],5:[6,30],6:[6,34],7:[6,22,38],8:[6,24,42],9:[6,26,46]};
 
 // Enumerate every data module (the modules that carry codeword bits) in the
 // exact placement order the standard uses, assigning each its codeword index.
@@ -42,11 +50,21 @@ function dataCells(N, ec){
     if(i2<6)set(i2,8);else if(i2<8)set(i2+1,8);else set(N-15+i2,8);
     if(i2<8)set(8,N-1-i2);else if(i2<9)set(8,15-i2);else set(8,14-i2);} // i2=8->col7
   set(N-8,8);
-  // (version info only exists for v>=7, not here)
+  // 5) version info (18 bits, a 6x3 block) -- only from version 7
+  if(v>=7)for(var i3=0;i3<18;i3++){set((i3/3)|0,i3%3+N-11);set(i3%3+N-11,(i3/3)|0);}
+
+  // 6) blocks + the interleave order: mapData walks the blocks round-robin (a shorter
+  //    block drops out), so the k-th codeword belongs to block bmap[k]
+  var raw=RS[v][ec], blk=[];
+  for(var g=0;g<raw.length;g+=3)for(var gb=0;gb<raw[g];gb++)
+    blk.push({data:raw[g+2],ec:raw[g+1]-raw[g+2]});
+  var totalCW=0,maxD=0,maxE=0;
+  blk.forEach(function(b){totalCW+=b.data+b.ec;if(b.data>maxD)maxD=b.data;if(b.ec>maxE)maxE=b.ec;});
+  var bmap=[];
+  for(var d=0;d<maxD;d++)for(var bd=0;bd<blk.length;bd++)if(d<blk[bd].data)bmap.push(bd);
+  for(var e=0;e<maxE;e++)for(var be=0;be<blk.length;be++)if(e<blk[be].ec)bmap.push(be);
 
   // mapData placement order
-  var rs=RS[v][ec], nb=rs[0], total=rs[1];  // per-table-entry total codewords
-  var totalCW=nb*total;                     // total codewords (data+ec) across blocks
   var cells=[]; // {r,c,seq} in placement order
   var inc=-1,row=N-1,bit=7,seq=0;
   for(var col=N-1;col>0;col-=2){
@@ -62,30 +80,29 @@ function dataCells(N, ec){
       if(row<0||row>=N){row-=inc;inc=-inc;break;}
     }
   }
-  var dataTotal=rs[2]*nb;
-  return {cells:cells, nb:nb, dataTotal:dataTotal, ecPer:total-rs[2], totalCW:totalCW, remainder:cells.length-totalCW*8};
+  return {cells:cells, blk:blk, bmap:bmap, totalCW:totalCW, remainder:cells.length-totalCW*8};
 }
 
 // Measure how many codewords of each RS block are lost for a given erase set.
 // `isErased(r,c)` decides whether a module is covered (damaged). A codeword
 // counts as erased if ANY of its modules is erased.
 function qrErasure(N, ec, isErased){
-  var L=dataCells(N,ec), nb=L.nb, ecPer=L.ecPer, maxBit=L.totalCW*8;
-  var hit={};                        // cw -> block (only real codeword bits)
+  var L=dataCells(N,ec), nb=L.blk.length, maxBit=L.totalCW*8;
+  var hit={};                        // cw -> 1 when ANY of its modules is erased
   for(var i=0;i<L.cells.length;i++){
     var cl=L.cells[i];
     if(cl.seq>=maxBit) continue;     // remainder bits carry no codeword
-    if(isErased(cl.r,cl.c)){ var cw=(cl.seq/8)|0; hit[cw]=1; }
+    if(isErased(cl.r,cl.c)) hit[(cl.seq/8)|0]=1;
   }
-  var perBlock=[];for(var b=0;b<nb;b++)perBlock.push(0);
-  for(var cw in hit) perBlock[cw%nb]++;   // equal data/ec => block = cw % nb
-  var worst=0;for(var b2=0;b2<nb;b2++)if(perBlock[b2]>worst)worst=perBlock[b2];
-  // guaranteed decode <= ecPer/2 (random errors); erasure-only <= ecPer; else fail
-  var col;
-  if(worst*2<=ecPer)col='g';
-  else if(worst<=ecPer)col='y';
+  var hits=[];for(var b=0;b<nb;b++)hits.push(0);
+  for(var cw in hit) hits[L.bmap[cw]]++;    // each codeword counts in its own block
+  var w=0,worst=-1;                  // the block that loses the largest share of its EC
+  for(var b2=0;b2<nb;b2++){var sh=hits[b2]/L.blk[b2].ec;if(sh>worst){worst=sh;w=b2;}}
+  var erased=hits[w], ecPer=L.blk[w].ec, col;
+  if(erased*2<=ecPer)col='g';
+  else if(erased<=ecPer)col='y';
   else col='r';
-  return {erased:worst, ecPer:ecPer, col:col, perBlock:perBlock};
+  return {erased:erased, ecPer:ecPer, col:col, perBlock:hits};
 }
 
 // Predicate for the centred square hole of side `hole` modules.

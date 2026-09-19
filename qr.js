@@ -5,7 +5,7 @@ window.qr = {
   // returns at qr.S px per module is i/<id>.<token>.png (and its transparent twin).
   // The page loads qrcode-generator (window.qrcode) and i/u/qrmetrics.js (keep
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
-  GS:[21,25,29],
+  GS:[21,25,29,33,37,41,45,49,53],                          // QR versions 1..9 modules
   EC:['L','M','Q','H'],
   HOLES:[0,3,5,7,9,11,13],                                    // the holes that exist (i/u/qr.js + i/u/qr.sql)
   EB:{L:7,M:15,Q:25,H:30},                                  // EC error budget (% codewords)
@@ -45,9 +45,12 @@ window.qr = {
   },
   // id|url -> the art image (name -> /i/<name>.png); missing art or blocked pixels -> null
   _art:async v=>{
-    const i=new Image();
-    i.src=/^\w+:|\//.test(v)?v:'/i/'+(/\.\w+$/.test(v)?v:v+'.png');
-    try{await i.decode();return i}catch(e){return null}
+    const u=/^\w+:|\//.test(v)?v:'/i/'+(/\.\w+$/.test(v)?v:v+'.png'),cr=/^https?:\/\//i.test(v),i=new Image();
+    if(cr)i.crossOrigin='anonymous';   // i/u/qr.js loadArt: ask for CORS so the pixels can be read
+    i.src=u;
+    try{await i.decode();return i}
+    catch(e){if(!cr)return null;const j=new Image();j.src=u;   // no CORS header -> draw it anyway, pixel read stays blocked
+      try{await j.decode();return j}catch(e2){return null}}
   },
   _mx:(N,ec,s)=>{   // i/u/qr.js matrixFor + modeFor
     const q=qrcode((N-17)/4,ec);

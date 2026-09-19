@@ -15,7 +15,7 @@ a{margin-left:auto}
 <nav id=f>
   <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
   <label>img (art name | url)<input id=img value=ldi spellcheck=false autocomplete=off></label>
-  <label>iSz<select id=iSz size=3 title="the sizes that exist"></select></label>
+  <label>iSz<select id=iSz title="the sizes that exist"></select></label>
   <label>iTrans<input id=iTrans type=checkbox checked></label>
   <label>iHole<select id=iHole size=8 title="any whole number of modules; 0 = no hole; rec = qr.REC_HOLE"></select></label>
   <label>error %<input id=error type=number value=20 min=0 max=100></label>
@@ -28,13 +28,14 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=3"></script>
-<script src=qr.js></script>
+<script src=qr.js?v=1></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
 ,E={},K='LdD.qr';
 ['t','img','iSz','iTrans','iHole','error'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
+E.iSz.size=qr.GS.length;               // list box: show every size, do not make the rest scroll
 let to=null,run=0,mode='go';
 const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
   E.iHole.replaceChildren(new Option('rec',''));
