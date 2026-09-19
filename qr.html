@@ -9,7 +9,8 @@ input[type=number]{width:6ch}
 select[size]{height:auto}
 a{margin-left:auto}
 #o canvas{width:min(80vmin,520px);background:#fff;image-rendering:pixelated}
-#s{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+#s,#u{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+#u{word-break:break-all}
 </style>
 <nav id=f>
   <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
@@ -23,16 +24,18 @@ a{margin-left:auto}
 <main>
   <div id=o></div>
   <p id=s></p>
+  <p id=u></p>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=3"></script>
 <script src=qr.js></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
+,U=document.getElementById('u')
 ,E={},K='LdD.qr';
 ['t','img','iSz','iTrans','iHole','error'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
-let to=null,run=0;
+let to=null,run=0,mode='go';
 const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
   E.iHole.replaceChildren(new Option('rec',''));
   for(let h=0;h<n;h++)E.iHole.append(new Option(h,h));
@@ -45,7 +48,31 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   if(v.iSz)E.iSz.value=v.iSz;      // the hole list depends on the size, so the size goes first
   holes();
   for(const k in v){if(k==='iSz'||!E[k])continue;if(E[k].type==='checkbox')E[k].checked=!!v[k];else E[k].value=v[k]}}
+,fromURL=()=>{const q=new URLSearchParams(location.search);   // ?t= &img= &iSz= &iTrans= &iHole= &error= beat what is remembered
+  if(!q.has('t')&&!q.has('img')&&!q.has('iSz')&&!q.has('iTrans')&&!q.has('iHole')&&!q.has('error'))return false;
+  if(q.has('iSz'))E.iSz.value=q.get('iSz');
+  holes();
+  if(q.has('img'))E.img.value=q.get('img');
+  if(q.has('t'))E.t.value=q.get('t');
+  if(q.has('iHole'))E.iHole.value=q.get('iHole');
+  if(q.has('iTrans'))E.iTrans.checked=q.get('iTrans')!=='0';
+  if(q.has('error')){E.error.value=q.get('error');return true}   // error= means: pick the hole, do not take iHole=
+  return false}
+,href=()=>{const p=new URLSearchParams();   // the link that brings back exactly this drawing
+  if(E.img.value.trim())p.set('img',E.img.value.trim());
+  if(+E.iSz.value!==21)p.set('iSz',E.iSz.value);
+  if(!E.iTrans.checked)p.set('iTrans','0');
+  if(E.iHole.value!=='')p.set('iHole',E.iHole.value);
+  if(mode==='fit')p.set('error',E.error.value);
+  if(E.t.value.trim())p.set('t',E.t.value.trim());   // t last, like x in i/u/qr.js
+  const s=p.toString();
+  return location.href.split(/[?#]/)[0]+(s?'?'+s:'')}
+,deep=()=>{const u=href();
+  try{history.replaceState(null,'',u)}catch(e){}   // keep the address bar in step (no history entry)
+  const a=document.createElement('a');a.href=u;a.textContent=u;
+  U.replaceChildren(document.createTextNode('deep link: '),a)}
 ,show=cv=>{
+  deep();
   if(!cv){O.replaceChildren();S.textContent='nothing fits: no EC level holds that text at iSz';return null}
   O.replaceChildren(cv);
   D.href=cv.toDataURL();D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
@@ -53,6 +80,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   S.textContent=cv.t+'\n'+cv.u+'\nerases '+e.erased+'/'+e.ecPer+' EC cw \u00b7 '+p+'% error';
   return p}
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
+  mode='go';
   holes();
   const k=++run,cv=await qr.g(...args());
   if(k!==run)return;
@@ -60,6 +88,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   if(p!=null)E.error.value=p;
   save()}
 ,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
+  mode='fit';
   const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
   for(const h of [...qr.HOLES].reverse())for(const tr of [true,false]){
     const cv=await qr.g(v,A,sz,tr,h,lim);
@@ -72,5 +101,5 @@ E.error.addEventListener('input',arm(fit));
 E.error.addEventListener('change',arm(fit));
 holes();
 load();
-go();
+if(fromURL())fit();else go();
 </script>
