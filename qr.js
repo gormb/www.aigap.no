@@ -5,10 +5,13 @@ window.qr = {
   // returns at qr.S px per module is i/<id>.<token>.png (and its transparent twin).
   // The page loads qrcode-generator (window.qrcode) and i/u/qrmetrics.js (keep
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
-  GS:[21,25,29,33,37,41,45,49,53],                          // QR versions 1..9 modules
+  GS:[21,25,29,37,49,65,85,109,141,177],                    // QR versions 1,2,3,5,8,12,17,23,31,40 modules
   EC:['L','M','Q','H'],
   EB:{L:7,M:15,Q:25,H:30},                                  // EC error budget (% codewords)
-  REC_EC:['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'],          // recommended EC per size and id length
+  // Recommended EC / hole per size and id length.  Rows exist for the three sizes the served
+  // codes use (21/25/29); where a size has no row there is no recommendation, so an empty
+  // iHole means 0 and the EC comes from the error % budget alone.
+  REC_EC:['MMLLL','QMMMLLL','HHHQQQQMMMMLLLLLLL'],
   REC_HOLE:[[5,5,5,5,5],[7,7,7,7,5,5,5],[9,9,9,7,7,7,7,5,5,5,5,5,5,5,5,5,5]],
   KEYTOL:1,                                                 // per-channel slack of the colour key
   KEYSHR:0.20,                                              // key only if one colour covers this share
@@ -43,6 +46,22 @@ window.qr = {
   met:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
     return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.lx,o.ly):null;
+  },
+  // The sizes in GS that can hold this id/url, so a caller only offers those.  Same string and
+  // same mode rule as _o (21 is the bare www. host, the rest https://), and the header+payload
+  // bits are matched against dataBits(), so the list is exactly what g() can build.
+  sizes:t=>{
+    t=(t||'').trim();
+    if(!t)return qr.GS.slice();
+    const F=/^(https?:\/\/|www\.)/i.test(t)
+     ,B=F?t.replace(/^https?:\/\//i,'').replace(/^www\./i,''):'aigap.no/'+t;
+    return qr.GS.filter(N=>{
+      const s=(N===21?'www.':'https://')+B,v=(N-17)/4
+       ,A=/^[0-9A-Z $%*+\-./:]+$/.test(s),n=s.length
+       ,pay=A?11*((n/2)|0)+(n%2?6:0):8*n     // alphanumeric pairs pack 2 chars into 11 bits
+       ,hdr=4+(A?(v<=9?9:v<=26?11:13):(v<=9?8:16));
+      return qr.EC.some(e=>dataBits(N,e)>=hdr+pay);
+    });
   },
   _o:async (t,img,iSz,iTrans,iHole,error,offsetX,offsetY)=>{   // one variant: text, size, EC, hole, art, offsets
     t=(t||'').trim();

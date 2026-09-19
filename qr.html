@@ -29,36 +29,42 @@ a{margin-left:auto}
   <p id=u></p>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
-<script src="/i/u/qrmetrics.js?v=3"></script>
-<script src=qr.js?v=11></script>
+<script src="/i/u/qrmetrics.js?v=5"></script>
+<script src=qr.js?v=13></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
 ,E={},K='LdD.qr';
 ['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
-E.iSz.size=qr.GS.length;               // list box: show every size, do not make the rest scroll
 let to=null,run=0,mode='go',url=0,drg=null;   // url=1 while the state came from the deep link, not from you
 const S0=qr.S;                                // the full render scale: a drag drops to a fifth of it
 const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
   E.iHole.replaceChildren(new Option('rec',''));
   for(let h=0;h<=n;h++)E.iHole.append(new Option(h,h));
   E.iHole.value=keep}
+,sizes=()=>{const keep=+E.iSz.value,ok=qr.sizes(E.t.value);   // only the sizes the id/url fits in
+  if(ok.join()!==[...E.iSz.options].map(o=>o.value).join()){    // rebuild only when the set changes,
+    E.iSz.replaceChildren();                                    // so the list does not scroll back while you type
+    ok.forEach(n=>E.iSz.append(new Option(n,n)));
+    E.iSz.size=ok.length||1;}
+  E.iSz.value=ok.indexOf(keep)>=0?keep:(ok[0]||'')}
 ,args=tr=>[E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,tr==null?E.iTrans.checked:tr,E.iHole.value===''?null:+E.iHole.value,+E.error.value,+E.offsetX.value||0,+E.offsetY.value||0]
 ,val=()=>{const v={};['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>v[k]=E[k].type==='checkbox'?E[k].checked:E[k].value);return v}
 ,save=()=>{if(url)return;try{localStorage.setItem(K,JSON.stringify(val()))}catch(e){}}   // storage blocked -> just do not remember
 ,load=()=>{let v;try{v=JSON.parse(localStorage.getItem(K)||'null')}catch(e){return}
   if(!v)return;
-  if(v.iSz)E.iSz.value=v.iSz;      // the hole list depends on the size, so the size goes first
-  holes();
-  for(const k in v){if(k==='iSz'||!E[k])continue;if(E[k].type==='checkbox')E[k].checked=!!v[k];else E[k].value=v[k]}}
+  if(v.iSz)E.iSz.value=v.iSz;      // the size list depends on t and the hole list on the size
+  if(v.t)E.t.value=v.t;
+  sizes();holes();
+  for(const k in v){if(k==='iSz'||k==='t'||!E[k])continue;if(E[k].type==='checkbox')E[k].checked=!!v[k];else E[k].value=v[k]}}
 ,fromURL=()=>{const q=new URLSearchParams(location.search);   // ?t= &img= &iSz= &iTrans= &iHole= &error= beat what is remembered
   if(!q.has('t')&&!q.has('img')&&!q.has('iSz')&&!q.has('iTrans')&&!q.has('iHole')&&!q.has('error')&&!q.has('offsetX')&&!q.has('offsetY'))return false;
   url=1;                          // the link is a one-off: do not overwrite LdD.qr with it
   if(q.has('iSz'))E.iSz.value=q.get('iSz');
-  holes();
-  if(q.has('img'))E.img.value=q.get('img');
   if(q.has('t'))E.t.value=q.get('t');
+  sizes();holes();
+  if(q.has('img'))E.img.value=q.get('img');
   if(q.has('iHole'))E.iHole.value=q.get('iHole');
   if(q.has('iTrans'))E.iTrans.checked=q.get('iTrans')!=='0';
   if(q.has('offsetX'))E.offsetX.value=q.get('offsetX');
@@ -93,7 +99,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   return p}
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
   mode='go';
-  holes();
+  sizes();holes();
   const k=++run,cv=await qr.g(...args());
   if(k!==run)return;
   const p=show(cv);
@@ -101,6 +107,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   save()}
 ,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
   mode='fit';
+  sizes();holes();
   const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
   for(let h=sz;h>=0;h--)for(const tr of [true,false]){   // every hole the code has room for, biggest first
     const e=await qr.met(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0);   // qrmetrics only: nothing is drawn yet

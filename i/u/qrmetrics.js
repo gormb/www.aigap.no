@@ -8,9 +8,10 @@
 // codewords are damaged (random errors). It can *still* decode up to E damaged
 // codewords only if those are known erasures. Above E it cannot decode.
 //
-// SIZES handled: versions 1..9 (21, 25, 29, 33, 37, 41, 45, 49, 53 modules).  From
-// version 5 a level can need TWO block groups of different size, so every codeword is
-// mapped to its own RS block and each block is judged against its own EC count.
+// SIZES handled: versions 1, 2, 3, 5, 8, 12, 17, 23, 31, 40 -- 21, 25, 29, 37, 49,
+// 65, 85, 109, 141, 177 modules.  From version 5 a level can need TWO block groups
+// of different size, so every codeword is mapped to its own RS block and each block is
+// judged against its own EC count.
 
 // RS_BLOCK_TABLE[version-1] => [L,M,Q,H], a group list [count,total,data] or
 // [count,total,data,count,total,data] -- the table qrcode-generator itself uses.
@@ -18,14 +19,20 @@ var RS = {
   1: {L:[1,26,19],M:[1,26,16],Q:[1,26,13],H:[1,26,9]},
   2: {L:[1,44,34],M:[1,44,28],Q:[1,44,22],H:[1,44,16]},
   3: {L:[1,70,55],M:[1,70,44],Q:[2,35,17],H:[2,35,13]},
-  4: {L:[1,100,80],M:[2,50,32],Q:[2,50,24],H:[4,25,9]},
   5: {L:[1,134,108],M:[2,67,43],Q:[2,33,15,2,34,16],H:[2,33,11,2,34,12]},
-  6: {L:[2,86,68],M:[4,43,27],Q:[4,43,19],H:[4,43,15]},
-  7: {L:[2,98,78],M:[4,49,31],Q:[2,32,14,4,33,15],H:[4,39,13,1,40,14]},
   8: {L:[2,121,97],M:[2,60,38,2,61,39],Q:[4,40,18,2,41,19],H:[4,40,14,2,41,15]},
-  9: {L:[2,146,116],M:[3,58,36,2,59,37],Q:[4,36,16,4,37,17],H:[4,36,12,4,37,13]}
+  12: {L:[2,116,92,2,117,93],M:[6,58,36,2,59,37],Q:[4,46,20,6,47,21],H:[7,42,14,4,43,15]},
+  17: {L:[1,135,107,5,136,108],M:[10,74,46,1,75,47],Q:[1,50,22,15,51,23],H:[2,42,14,17,43,15]},
+  23: {L:[4,151,121,5,152,122],M:[4,75,47,14,76,48],Q:[11,54,24,14,55,25],H:[16,45,15,14,46,16]},
+  31: {L:[13,145,115,3,146,116],M:[2,74,46,29,75,47],Q:[42,54,24,1,55,25],H:[23,45,15,28,46,16]},
+  40: {L:[19,148,118,6,149,119],M:[18,75,47,31,76,48],Q:[34,54,24,34,55,25],H:[20,45,15,61,46,16]}
 };
-var ALIGN = {1:[],2:[6,18],3:[6,22],4:[6,26],5:[6,30],6:[6,34],7:[6,22,38],8:[6,24,42],9:[6,26,46]};
+var ALIGN = {1:[],2:[6,18],3:[6,22],5:[6,30],8:[6,24,42],12:[6,32,58],17:[6,30,54,78],
+  23:[6,30,54,78,102],31:[6,30,56,82,108,134],40:[6,30,58,86,114,142,170]};
+
+// Bits a version/level leaves for the text: every block's data codewords.
+function dataBits(N, ec){var L=RS[(N-17)/4][ec];if(!L)return -1;
+  var b=0;for(var i=0;i<L.length;i+=3)b+=L[i]*L[i+2];return b*8;}
 
 // Enumerate every data module (the modules that carry codeword bits) in the
 // exact placement order the standard uses, assigning each its codeword index.
