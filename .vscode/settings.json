@@ -1,10 +1,17 @@
 {
     "liveServer.settings.port": 5501,
+    "mssql.intelliSense.enableErrorChecking": false,
     "python-envs.pythonProjects": [
         {
             "path": "i/u/qrgen.py",
             "envManager": "ms-python.python:venv",
             "packageManager": "ms-python.python:pip"
         }
-    ]
+    ],
+    "chat.tools.terminal.autoApprove": {
+        "/^cd ~/Desktop/github/www\\.aigap\\.no && node --check qr\\.js && node -e \"\nconst fs=require\\('fs'\\),h=fs\\.readFileSync\\('qr\\.html','utf8'\\);\nconst m=h\\.match\\(/<script>\\(\\[\\\\s\\\\S\\]\\*\\?\\)<\\\\/script>/g\\)\\.pop\\(\\)\\.replace\\(/\\^<script>\\|<\\\\/script>\\$/g,''\\);\nfs\\.writeFileSync\\('/tmp/qrpage\\.js',m\\);\" && node --check /tmp/qrpage\\.js && echo 'both OK' && sed -n '/\\^<script>\\$/,/\\^<\\\\/script>\\$/p' qr\\.html \\| head -50$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

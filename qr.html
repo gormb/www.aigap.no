@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<style>
+body{font:14px/1.5 system-ui,sans-serif;margin:1rem}
+nav{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem;align-items:flex-start;margin-bottom:1rem}
+label{display:flex;flex-direction:column;gap:.2rem;font-size:12px;color:#666}
+input,select{font:inherit}
+input[type=text]{width:16ch}
+input[type=number]{width:6ch}
+select[size]{height:auto}
+a{margin-left:auto}
+#o canvas{width:min(80vmin,520px);background:#fff;image-rendering:pixelated;cursor:grab;touch-action:none;user-select:none}
+#s,#u{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+#u{word-break:break-all}
+</style>
+<nav id=f>
+  <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
+  <label>img (art name | url)<input id=img value=ldi spellcheck=false autocomplete=off></label>
+  <label>iSz<select id=iSz title="the sizes that exist"></select></label>
+  <label>iTrans<input id=iTrans type=checkbox checked></label>
+  <label>iHole<select id=iHole size=8 title="any whole number of modules; 0 = no hole; rec = qr.REC_HOLE"></select></label>
+  <label>error %<input id=error type=number value=20 min=0 max=100></label>
+  <label>offsetX<input id=offsetX type=number value=0 step=0.1 title="modules to move the artwork sideways, 1/10 is fine (or drag the image)"></label>
+  <label>offsetY<input id=offsetY type=number value=0 step=0.1 title="modules to move the artwork up/down, 1/10 is fine"></label>
+  <a id=d download>png</a>
+</nav>
+<main>
+  <div id=o></div>
+  <p id=s></p>
+  <p id=u></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="/i/u/qrmetrics.js?v=5"></script>
+<script src=qr.js?v=13></script>
+<script>
+const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
+,U=document.getElementById('u')
+,E={},K='LdD.qr';
+['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>E[k]=document.getElementById(k));
+qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
+let to=null,run=0,mode='go',url=0,drg=null;   // url=1 while the state came from the deep link, not from you
+const S0=qr.S;                                // the full render scale: a drag drops to a fifth of it
+const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
+  E.iHole.replaceChildren(new Option('rec',''));
+  for(let h=0;h<=n;h++)E.iHole.append(new Option(h,h));
+  E.iHole.value=keep}
+,sizes=()=>{const keep=+E.iSz.value,ok=qr.sizes(E.t.value);   // only the sizes the id/url fits in
+  if(ok.join()!==[...E.iSz.options].map(o=>o.value).join()){    // rebuild only when the set changes,
+    E.iSz.replaceChildren();                                    // so the list does not scroll back while you type
+    ok.forEach(n=>E.iSz.append(new Option(n,n)));
+    E.iSz.size=ok.length||1;}
+  E.iSz.value=ok.indexOf(keep)>=0?keep:(ok[0]||'')}
+,args=tr=>[E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,tr==null?E.iTrans.checked:tr,E.iHole.value===''?null:+E.iHole.value,+E.error.value,+E.offsetX.value||0,+E.offsetY.value||0]
+,val=()=>{const v={};['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>v[k]=E[k].type==='checkbox'?E[k].checked:E[k].value);return v}
+,save=()=>{if(url)return;try{localStorage.setItem(K,JSON.stringify(val()))}catch(e){}}   // storage blocked -> just do not remember
+,load=()=>{let v;try{v=JSON.parse(localStorage.getItem(K)||'null')}catch(e){return}
+  if(!v)return;
+  if(v.iSz)E.iSz.value=v.iSz;      // the size list depends on t and the hole list on the size
+  if(v.t)E.t.value=v.t;
+  sizes();holes();
+  for(const k in v){if(k==='iSz'||k==='t'||!E[k])continue;if(E[k].type==='checkbox')E[k].checked=!!v[k];else E[k].value=v[k]}}
+,fromURL=()=>{const q=new URLSearchParams(location.search);   // ?t= &img= &iSz= &iTrans= &iHole= &error= beat what is remembered
+  if(!q.has('t')&&!q.has('img')&&!q.has('iSz')&&!q.has('iTrans')&&!q.has('iHole')&&!q.has('error')&&!q.has('offsetX')&&!q.has('offsetY'))return false;
+  url=1;                          // the link is a one-off: do not overwrite LdD.qr with it
+  if(q.has('iSz'))E.iSz.value=q.get('iSz');
+  if(q.has('t'))E.t.value=q.get('t');
+  sizes();holes();
+  if(q.has('img'))E.img.value=q.get('img');
+  if(q.has('iHole'))E.iHole.value=q.get('iHole');
+  if(q.has('iTrans'))E.iTrans.checked=q.get('iTrans')!=='0';
+  if(q.has('offsetX'))E.offsetX.value=q.get('offsetX');
+  if(q.has('offsetY'))E.offsetY.value=q.get('offsetY');
+  if(q.has('error')){E.error.value=q.get('error');return true}   // error= means: pick the hole, do not take iHole=
+  return false}
+,href=()=>{const p=new URLSearchParams();   // the link that brings back exactly this drawing
+  if(E.img.value.trim())p.set('img',E.img.value.trim());
+  if(+E.iSz.value!==21)p.set('iSz',E.iSz.value);
+  if(!E.iTrans.checked)p.set('iTrans','0');
+  if(E.iHole.value!=='')p.set('iHole',E.iHole.value);
+  if(+E.offsetX.value)p.set('offsetX',+E.offsetX.value);
+  if(+E.offsetY.value)p.set('offsetY',+E.offsetY.value);
+  if(mode==='fit')p.set('error',E.error.value);
+  if(E.t.value.trim())p.set('t',E.t.value.trim());   // t last, like x in i/u/qr.js
+  const s=p.toString();
+  return location.href.split(/[?#]/)[0]+(s?'?'+s:'')}
+,deep=()=>{const u=href();
+  try{history.replaceState(null,'',u)}catch(e){}   // keep the address bar in step (no history entry)
+  const a=document.createElement('a');a.href=u;a.textContent=u;
+  U.replaceChildren(document.createTextNode('deep link: '),a)}
+,show=cv=>{
+  deep();
+  if(!cv){O.replaceChildren();S.textContent='nothing fits: no EC level holds that text at iSz';return null}
+  const old=O.querySelector('canvas');      // one canvas for the life of the page: swapping it out mid-drag
+  if(old){old.width=cv.width;old.height=cv.height;old.getContext('2d').drawImage(cv,0,0);}   // would drop the pointer capture
+  else O.replaceChildren(cv);
+  D.href=cv.toDataURL();D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
+  const e=cv.e,p=Math.round(100*e.erased/e.ecPer);
+  S.textContent=cv.t+'\n'+cv.u+'\nerases '+e.erased+'/'+e.ecPer+' EC cw \u00b7 '+p+'% error'
+   +(cv.o&&(cv.o[0]||cv.o[1])?' \u00b7 offset '+[+cv.o[0].toFixed(2),+cv.o[1].toFixed(2)]:'');
+  return p}
+,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
+  mode='go';
+  sizes();holes();
+  const k=++run,cv=await qr.g(...args());
+  if(k!==run)return;
+  const p=show(cv);
+  if(p!=null)E.error.value=p;
+  save()}
+,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
+  mode='fit';
+  sizes();holes();
+  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
+  for(let h=sz;h>=0;h--)for(const tr of [true,false]){   // every hole the code has room for, biggest first
+    const e=await qr.met(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0);   // qrmetrics only: nothing is drawn yet
+    if(k!==run)return;
+    if(e&&100*e.erased/e.ecPer<=lim){
+      E.iHole.value=h;E.iTrans.checked=tr;
+      show(await qr.g(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0));save();return}}
+  save()}
+,down=e=>{const cv=O.querySelector('canvas');if(!cv)return;
+  const r=cv.getBoundingClientRect(),N=+E.iSz.value||21;
+  drg={x:e.clientX,y:e.clientY,x0:+E.offsetX.value||0,y0:+E.offsetY.value||0,sc:r.width/(N+2*qr.MAR)};
+  qr.S=Math.max(2,Math.round(S0/5));      // cheap frames while dragging
+  if(cv.setPointerCapture)cv.setPointerCapture(e.pointerId);
+  e.preventDefault()}
+,move=e=>{if(!drg||!drg.sc)return;
+  E.offsetX.value=Math.round((drg.x0+(e.clientX-drg.x)/drg.sc)*10)/10;   // follow the pointer in 1/10 module
+  E.offsetY.value=Math.round((drg.y0+(e.clientY-drg.y)/drg.sc)*10)/10;
+  url=0;clearTimeout(to);go()}            // no debounce here
+,up=()=>{if(!drg)return;drg=null;qr.S=S0;go()}
+,arm=fn=>()=>{url=0;clearTimeout(to);to=setTimeout(fn,300)};
+['t','img','iSz','iHole','iTrans','offsetX','offsetY'].forEach(k=>{E[k].addEventListener('input',arm(go));E[k].addEventListener('change',arm(go))});
+E.error.addEventListener('input',arm(fit));
+E.error.addEventListener('change',arm(fit));
+O.addEventListener('pointerdown',down);          // drag the canvas to move the art
+addEventListener('pointermove',move);
+addEventListener('pointerup',up);
+addEventListener('pointercancel',up);
+addEventListener('blur',up);
+holes();
+load();
+if(fromURL())fit();else go();
+</script>

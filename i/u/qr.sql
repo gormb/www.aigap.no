@@ -3,8 +3,8 @@
 -- Token format:  <size><EC><hole>[t][u]
 --     <size>  21 | 25 | 29                (21 encodes the short www. host)
 --     <EC>    L | M | Q | H
---     <hole>  0 | 3 | 5 | 7 | 9           centred white hole in modules (for a
---             9x9 hole on a 21x21 code the function patterns inside it are kept)
+--     <hole>  0 | 3 | 5 | 7 | 9 | 11 | 13  centred white hole in modules (the
+--             big ones only work on a transparent/keyed art)
 --     t       transparent variant (image keyed, whole art centred)
 --     u       21x UPPERCASE host: WWW.AIGAP.NO/ID  (Alphanumeric mode, fits
 --             ~25 chars at 21-L where Byte mode only fits ~17)
@@ -21,16 +21,8 @@ comment on column public.redir.present is
 
 -- 1b) present: how the code is shown.  Set by the migration in section 3,
 --     then editable from i/u/qrgallery.html.
-alter table public.redir drop constraint if exists redir_present_chk;
-alter table public.redir add constraint redir_present_chk
-  check (present is null or present in ('qr','img','none'));
 alter table public.redir alter column present set default 'img';
 create index if not exists redir_id_lower_idx on public.redir (lower(id));
-
--- 2) the format constraint (z = 21x uppercase allowed only for size 21) ------
-alter table public.redir drop constraint if exists redir_qr_fmt;
-alter table public.redir add constraint redir_qr_fmt
-  check (qr is null or qr ~ '^(21[LMQH][03579]t?u?|2[59][LMQH][03579]t?)$');
 
 drop policy if exists "redir update qr" on public.redir;
 create policy "redir update qr" on public.redir for update to anon
