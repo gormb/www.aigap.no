@@ -1,13 +1,9 @@
 <!doctype html><meta charset=utf-8><title>Aigap</title>
 <script src=db.js></script>
-<script>
-// aigap.no entry point.
-//   bare   → show the site (h.html)
-//   ?<code>→ resolve the shortcode locally against the redir table and redirect;
-//            unknown codes fall through to the 404 page.
+<script> // aigap.no ?<code> or /code resolve shortcode locally against the redir table and redirect
 (function () {
   var p = new URLSearchParams(location.search);
-  var key = p.keys().next().value;              // first query key = shortcode id
+  var key = p.keys().next().value;
   if (!key) { location.replace('h.html'); return; }
   var SUPA = window.SUPABASE;
   var H = { apikey: SUPA.publishableKey, 'Authorization': 'Bearer ' + SUPA.publishableKey };
