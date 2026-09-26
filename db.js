@@ -13,12 +13,9 @@ window.db = {
     return { apikey: SUPABASE.publishableKey, 'Authorization': 'Bearer ' + SUPABASE.publishableKey, 'Content-Type': 'application/json' };
   }
   ,rpc:(fn,body={})=>fetch(SUPABASE.url+'/rest/v1/rpc/'+fn,{method:'POST', headers: db.h(), body: JSON.stringify(body)}).then(r=>r.ok?r.json():null)
-  ,ww:async(what,wher)=>{
-    const enc=new TextEncoder();
-    const h1=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',enc.encode((what||'').toUpperCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('');
-    const h2=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',enc.encode((wher||'').toLowerCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('');
-    return h1+h2;
-  }  // Device fingerprint = hash of browser properties (stable per device).
+  ,ww:async(what='',wher='')=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',new TextEncoder().encode((what).toUpperCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('')
+      +Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',new TextEncoder().encode((wher).toLowerCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('')
+  // Device fingerprint = hash of browser properties (stable per device).
   ,hashString(s, seed = 0) { // deterministic 128-bit hash (cyrb53) → UUID, sync
     let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
     for (let i = 0, ch; i < s.length; i++) {
