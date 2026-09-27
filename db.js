@@ -16,7 +16,7 @@ window.db = {
   ,ww:async(what='',wher='')=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',new TextEncoder().encode((what).toUpperCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('')
       +Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',new TextEncoder().encode((wher).toLowerCase())))).slice(0,8).map(b=>b.toString(16).padStart(2,'0')).join('')
   // Device fingerprint = hash of browser properties (stable per device).
-  ,hashString(s, seed = 0) { // deterministic 128-bit hash (cyrb53) → UUID, sync
+  hashString(s, seed = 0) { // deterministic 128-bit hash
     let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
     for (let i = 0, ch; i < s.length; i++) {
       ch = s.charCodeAt(i);
