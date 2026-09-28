@@ -30,11 +30,26 @@ hole is a plain square: nothing is kept.
 Requires: PIL, numpy, qrcode.
 """
 import io, json, os, re, sys, urllib.request
-import numpy as np
-import qrcode
-from PIL import Image
-from qrcode.constants import (ERROR_CORRECT_L, ERROR_CORRECT_M,
-                              ERROR_CORRECT_Q, ERROR_CORRECT_H)
+
+# Third-party deps: fail with the exact pip command instead of a bare traceback.
+_gone = []
+try:
+    import numpy as np
+except ModuleNotFoundError:
+    np = None; _gone.append('numpy')
+try:
+    import qrcode
+    from qrcode.constants import (ERROR_CORRECT_L, ERROR_CORRECT_M,
+                                  ERROR_CORRECT_Q, ERROR_CORRECT_H)
+except ModuleNotFoundError:
+    qrcode = None; _gone.append('qrcode')
+try:
+    from PIL import Image
+except ModuleNotFoundError:
+    Image = None; _gone.append('pillow')
+if _gone:
+    sys.exit("qrgen.py: missing Python module(s): " + ', '.join(_gone) + "\n"
+             "  install with:  python3 -m pip install " + ' '.join(_gone))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))

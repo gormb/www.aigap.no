@@ -31,3 +31,4 @@ create table if not exists cfg (id text primary key, val text);
 alter table cfg enable row level security;
 drop policy if exists cfg_all on cfg;
 create policy cfg_all on cfg for all using (true) with check (true);
+-- Music 
