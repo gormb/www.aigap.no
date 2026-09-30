@@ -36,6 +36,7 @@
                     if(_cBook.width!=cw)_cBook.width=cw;
                     if(_cBook.height!=ch)_cBook.height=ch;
                     book.whole = h <= window.innerHeight; // whole sheet fits → left/right page nav
+                    _dBook.style.paddingTop = book.whole ? Math.max(0,(window.innerHeight-h)/2)+'px' : ''; // whole sheet → centered in the middle
                     book.hAlign.Scroll();
                 }
                 ,szW:w=>book.szWH(w,w/book.aRatio)
