@@ -169,38 +169,35 @@ const music={
         const b=window.cBook,box=document.getElementById('_dPlay');
         if(b.view)box.style.width=b.view.width+'px';
         if(!b.page||!b.view||_cBook.style.display=='none'){box.innerHTML='';return;}
-        if(!music._spots||music._spots.pn!==b.pn){
-            const{items}=await b.page.getTextContent(),mid=b.viewport.width/2,rows=[];
-            for(const i of [...items].sort((a,c)=>c.transform[5]-a.transform[5])){
-                const[,y1,,y2]=b.view.convertToViewportRectangle([i.transform[4],i.transform[5],i.transform[4]+i.width,i.transform[5]+(i.height||10)]);
-                const yc=(y1+y2)/2,l=rows[rows.length-1];
-                if(l&&Math.abs(l.yc-yc)<(i.height||10)*0.6){l.items.push(i);l.yc=(l.yc+yc)/2;}
-                else rows.push({yc,items:[i]});
+        if(!music._spots||music._spots.pn!==b.pn||music._spots.lg!==books.book.hAlign._){
+            const md=await b.data.mdRaw(),list=[];                // the 🎵 lines come from the .md sidecar – never from the pdf
+            if(md){
+                let page=1,at=0;
+                for(const raw of md.text.split(/\r?\n/)){
+                    const l=raw.trim(); if(!l)continue; let m;
+                    if(m=/^####\s*p\.\s*(\d+)/.exec(l)){page=+m[1];at=0;continue;}
+                    if(page!==b.pn||/^#\s/.test(l))continue;
+                    if(/^\u{1F3B5}/u.test(l)){
+                        const u=(l.match(/\((\S+?)\)/)||[])[1];
+                        if(u)list.push({url:u,key:music.Key(u),at});   // where the song stands among the page's lines
+                        continue;
+                    }
+                    at++;
+                }
+                const n=at+list.length||1;                        // the page's lines, the song lines included
+                list.forEach(s=>s.fr=Math.min(.92,Math.max(.08,0.08+0.84*((s.at+0.5)/n)))); // where it stands on the page – the same estimate the word map uses
             }
-            const list=[];
-            for(const row of rows){
-                const it=row.items.find(i=>i.str?.match(music.Re));
-                if(!it)continue;
-                const raw=it.str.match(music.Re)[0],col=it.transform[4]>mid,key=music.Key(raw),lh=(it.height||10)*b.scale;
-                const up=rows.filter(r=>r!==row&&r.yc<row.yc-4&&r.items.some(i=>(i.transform[4]>mid)===col)).sort((a,c)=>c.yc-a.yc)[0];
-                const gap=up?row.yc-up.yc:lh*1.5,yc=(up&&gap<lh*3)?up.yc-gap/2:row.yc-lh*1.5;
-                if(list.some(s=>Math.abs(s.yc-yc)<(it.height||10)*0.7))continue;
-                list.push({url:raw,key,col,yc});
-            }
-            music._spots={pn:b.pn,list};
+            music._spots={pn:b.pn,lg:books.book.hAlign._,list};
         }
         box.innerHTML='';
         if(!music._spots.list.length)return;
-        const top0=_cBook.offsetTop,h=box.clientHeight||1;
+        const top0=_cBook.offsetTop,h=box.clientHeight||1,right=!books.book.hAlign._; // the English copy is the right half
         for(const s of music._spots.list){
             const a=document.createElement('a');
-            a.className='play';a.id=`${s.key}_${s.col?'r':'l'}`;a.dataset.u=s.url;a.href='#';a.textContent='\u266A';
+            a.className=right?'play right':'play';a.id=`${s.key}_${right?'r':'l'}`;a.dataset.u=s.url;a.href='#';a.textContent='\u266A';
             a.addEventListener('mousedown',ev=>{ev.preventDefault();ev.stopPropagation();music.Tgl(a);});
-            a.dataset.top=((top0+s.yc)/h)*100;a.style.top=`${a.dataset.top}%`;
+            a.dataset.top=((top0+s.fr*b.view.height)/h)*100;a.style.top=`${a.dataset.top}%`;
             box.appendChild(a);
-            const r=a.cloneNode(true);r.className='play right';
-            r.addEventListener('mousedown',ev=>{ev.preventDefault();ev.stopPropagation();music.Tgl(r);});
-            box.appendChild(r);
         }
         music.Load().then(map=>{
             box.querySelectorAll('a.play').forEach(a=>{const k=music.Key(a.dataset.u||a.href);if(map[k])a.dataset.u=map[k];});

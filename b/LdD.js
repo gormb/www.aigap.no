@@ -1,5 +1,5 @@
 import * as _cBookJLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
-import {music} from './music.js?v=6';
+import {music} from './music.js?v=10';
 _cBookJLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
 
 // lazy-load 3rd-party scripts (qr-code-styling, html2pdf, db.js) – never block the book on slow CDNs
@@ -244,8 +244,6 @@ books.book.hAlign.L=l=>{const r=_Lang(l);wm.reload();return r;};
 books.book.prem.L=async l=>{const r=await _Tier(l);await wm.reload();return r;};
 books.map.Z.el={page:_dBook};                                    // no panel of its own: the map builds the overlay, head and filter
 books.map.Z.init();
-const _Loaded=nav.Loaded;                                        // once the book is up, read the sidecar that anchors it
-nav.Loaded=async(...a)=>{const r=await _Loaded(...a);wm.warm();return r;};
 
 const _dPlay=document.createElement('div'); _dPlay.id='_dPlay';
 document.getElementById('_dBook').appendChild(_dPlay);
