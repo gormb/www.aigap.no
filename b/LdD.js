@@ -14,7 +14,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
     ,Source:async function(src,render,pageno=cBook.pn) {
         cBook.ctx = cBook.ctx || _cBook.getContext("2d");
         try {
-            cBook.pdfPromise = cBook.pdfPromise || _cBookJLib.getDocument(src).promise;
+            cBook.pdfPromise = cBook.pdfPromise || _cBookJLib.getDocument({url:src, disableStream:true, disableAutoFetch:true, rangeChunkSize:131072}).promise; // range reader only: nothing past what the shown page needs
             cBook.pdf = cBook.pdf || await cBook.pdfPromise;
             await cBook.Page(pageno, render); // set page + render only when needed (avoid double render)
         } catch(e) { // e.g. 404/corrupt PDF: show message instead of crashing
@@ -154,21 +154,20 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
             qr.src = cBook._qrUrl = URL.createObjectURL(await qrcs.getRawData('png'));
         return u.href;
     }
-    ,Export: async function(start, end, lang) {
-        if (!cBook.pdf) return '';
-        const s = Math.max(1, start || 1), e = Math.min(cBook.pdf.numPages, end || cBook.pdf.numPages);
-        let lastF, lastSz = 0;
-        const pages = await Promise.all(Array.from({ length: e - s + 1 }, (_, i) => s + i).map(async p => {
-            const page = await cBook.pdf.getPage(p), mid = page.getViewport({ scale: 1 }).width / 2;
-            const { items } = await page.getTextContent();
-            return items.filter(i => lang?(i.transform[4] > mid)  : (i.transform[4] < mid) && i.str.trim()).map(i => {
-                const sz = Math.hypot(i.transform[0], i.transform[1]);
-                const br = (lastF && lastF !== i.fontName) ? '<br/>' : '', isB = lastSz && sz > lastSz;
-                lastF = i.fontName; lastSz = sz;
-                return `${br}${isB ? `<br/><b>${i.str}</b><br/>` : i.str}`;
-            }).join(' ');
-        }));
-        return pages.filter(p => !p.includes('<b>Template</b>')).join('\0').replace(/\0(?=[a-z])/g, ' ').replace(/\0/g, '<br/><br/>');
+    ,Export: async function(start, end, lang) {                       // the text lives in the .md sidecar – no page is read from the pdf
+        const lg = lang ? 'EN' : 'NO', m = books.book.prem._ ? 'PREM' : 'FREE';
+        let txt = '';
+        try { const r = await fetch(books.book.srcBase() + '_' + lg + '_' + m + '.md'); if (!r.ok) return ''; txt = await r.text(); } catch (e) { return ''; }
+        const s = Math.max(1, start || 1), e = end || Infinity, pages = new Map();
+        let cur = null;
+        for (const raw of txt.split(/\r?\n/)) {
+            const l = raw.trim(); if (!l) continue; let x;
+            if (x = /^####\s*p\.\s*(\d+)/.exec(l)) { cur = +x[1]; pages.set(cur, []); continue; }
+            if (cur === null || cur < s || cur > e) continue;
+            if (/^\u{1F3B5}/u.test(l)) continue;                            // music line – url only
+            pages.get(cur).push(/^#{1,3}\s/.test(l) ? `<b>${l.replace(/^#{1,3}\s+/, '')}</b>` : l);
+        }
+        return [...pages.values()].filter(a => a.length).map(a => a.join('<br/>')).join('<br/><br/>');
     }
     ,data:{
         _mdFile:()=>books.book.srcBase()+'_'+(books.book.hAlign._?'NO':'EN')+'_'+(books.book.prem._?'PREM':'FREE')+'.md' // current lang+mode sidecar

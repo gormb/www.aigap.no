@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
-        <script type="module" src="LdD.js?v=69"></script>
+        <script type="module" src="LdD.js?v=73"></script>
         <link rel="stylesheet" href="LdD.css?v=25">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=84"></script>
@@ -169,12 +169,14 @@
                 }
                 ,Page:async(pn,x)=>{
                     //nav.DisButtons();
+                    if(window.cBook?.pdf)pn=Math.min(Math.max(1,pn|0),books.book.np()); // never store or log a page outside the book
+                    const was=books.book.pn();
                     nav.memSet('page', pn);
                     await books.book.Page(pn);
                     if (x!=null) 
                         window.scrollTo(window.scrollX, x);
                     nav.UpdButtons();
-                    window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:pn}); // log page visit to `usage`
+                    if(pn!==was)window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:pn}); // log page visit to `usage`
                 }
                 ,EdPage:async()=>{
                     nGoTxt.value = books.book.pn();
@@ -604,7 +606,7 @@
                     books.book.prem.ui(); // button text only (👑/🔓) – no re-render / TOC work
                     // Load the main document directly (no .1.pdf preview; JPG loading may be added later)
                     await books.book.s(1,bookU,page);
-                    window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:page}); // log the opened page so openers who never turn a page are still counted
+                    window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:books.book.pn()}); // log the page actually shown (clamped by the reader) so openers who never turn a page are still counted
                     await uisz(); // await render (offscreen → one swap) – full file done before spinner hides
                     uishow(_iBook, false); // bg image – hide once page painted (else covers book until Loaded ends)
                     await books.book.hAlign.Load();
