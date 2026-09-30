@@ -146,7 +146,7 @@ const music={
                 if(kk===want||kk.replace(/^m/,'')===alt){page=cur;break;}
             }
         }
-        if(page&&book.pn()!==page)await nav.Page(page,0);
+        if(page&&books.book.pn()!==page)await nav.Page(page,0);
     }
     ,Playing:()=>{const c=document.getElementById('_spCollapse');return !!(c&&c.style.display!='none');}
     ,Link:()=>[...document.querySelectorAll('a.play[id^="m"], a.toc-play[id^="m"]')].find(a=>a.offsetParent!==null&&a.style.visibility!='hidden')||null

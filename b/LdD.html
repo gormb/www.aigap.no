@@ -4,107 +4,17 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
-        <script type="module" src="LdD.js?v=64"></script>
+        <script type="module" src="LdD.js?v=65"></script>
         <link rel="stylesheet" href="LdD.css?v=25">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=84"></script>
+        <script src="books.book.js?v=2"></script>
         <script>
             window.SUPABASE = window.SUPABASE || (typeof SUPABASE !== 'undefined' ? SUPABASE : undefined);
-            const uisz=()=>book.sz(window.innerWidth,window.innerHeight);
+            const uisz=()=>books.book.sz(window.innerWidth,window.innerHeight);
             const uiscroll=()=>_cBook.style.display=='none' ? null : nav.memSet('Y', window.scrollY)
             const uishow=(c,on)=>{c.style.display=on?'inline':'none';return on;}
             const uishowBlock=(c,on)=>{c.style.display=on?'block':'none';return on;}
-            const book= {
-                s:async(pdf,src,pno=1)=>{
-                    nav.DisButtons();
-                    book.pdf=pdf;
-                    book.src=src;
-                    uishow(_fBook, !uishow(_cBook, pdf))
-                    nav.UpdButtons();
-                    if(pdf)_iBook.src=book.srcBase()+".jpg"; // bg image follows book (ABook.pdf → ABook.jpg)
-                    return pdf ? await book.sPdf(src,pno) : book.sExt(src);
-                }
-                ,sExt:src=>_fBook.src=src
-                ,sPdf:async(src,pno=1)=>await window.cBook.DoShow(src, pno, false) // load without render – uisz() renders once after
-                ,aRatio:(2*4.13)/5.83 // Golden ratio
-                ,szWH:(w,h)=>{
-                    if(nMt.innerText!='⏶') 
-                        _cBook.style.top = _fBook.style.top = (window.innerHeight-h)/2+'px';
-                    _fBook.style.width = w+'px';
-                    _fBook.style.height = h+'px';
-                    const cw=Math.round(w), ch=Math.round(h); // only set when changed – else canvas clears (blink)
-                    if(_cBook.width!=cw)_cBook.width=cw;
-                    if(_cBook.height!=ch)_cBook.height=ch;
-                    book.whole = h <= window.innerHeight; // whole sheet fits → left/right page nav
-                    _dBook.style.paddingTop = book.whole ? Math.max(0,(window.innerHeight-h)/2)+'px' : ''; // whole sheet → centered in the middle
-                    book.hAlign.Scroll();
-                }
-                ,szW:w=>book.szWH(w,w/book.aRatio)
-                ,sz:(w,h)=>{
-                    w*=2; // Adjust so double as wide as needed (so that iframe and canvas only show half!)
-                    book.szWH(w,w/book.aRatio);
-                    if(book.pdf) return window.cBook.Width(w,true); // re-render at new size – return promise for load chain
-                }
-                ,hAlign:{
-                    _:true
-                    ,L:l=>{
-                        book.hAlign._=l;
-                        nav.memSet('lang', l);
-                        nLg.innerText=l?'🇳🇴':'🇬🇧';
-                        _fBook.style.left=(l?0:(_dBook.clientWidth-_fBook.offsetWidth))+'px';
-                        book.hAlign.Scroll();
-                        _dTocList.innerHTML=''; // invalidate TOC cache (rebuilt with new language on open)
-                    }
-                    ,Load:async()=>{
-                        let v=(await nav.memGet('lang', new String(book.hAlign._))=="true") ;
-                        if (book.hAlign._!=v)
-                            book.hAlign.L(v);
-                    }
-                    ,Scroll:()=>_dBook.scrollLeft=book.hAlign._?0:_dBook.scrollWidth-_dBook.clientWidth
-                }
-                ,prem:{
-                    _:false // true=premium, false=freemium
-                    ,ui:(l=book.prem._)=>{ // button-only UI, no re-render / TOC work (used at load, before first paint)
-                        nPr.innerText=l?'👑':'🔓';
-                        if(nMt.innerText=='⏷')nPr.style.display=l?'none':'inline'; // floating 🔓 only in freemium (outside menu)
-                        return l;
-                    }
-                    ,L:async l=>{
-                        book.prem._=l;
-                        nav.memSet('prem', l);
-                        book.prem.ui(l);
-                        if(_dToc.style.display!='none')_dTocList.innerHTML=await nav.Toc(); // TOC open → rebuild with new mode
-                        else _dTocList.innerHTML=''; // invalidate cache → rebuilt on next open
-                        if(_dToc.style.display!='none')nFdTxt.value=''; // the box is a filter only in the TOC – clear it there (list was rebuilt unfiltered)
-                        nav.UpdButtons();
-                        window.cBook&&window.cBook.pdf&&window.cBook.Page(window.cBook.pn, true); // re-render in new mode (PDF must be loaded)
-                    }
-                    ,Load:async()=>{
-                        // Re-validate stored code against server in background (never blocks first view); revoke if over device limit.
-                        const code=await nav.memGet('code','');
-                        if(!code)return; // no stored code – keep current mode (backward compatible)
-                        const r=await nav.StillValid(code); // "still OK?" – rolling window / limit
-                        if(r===undefined||r===null)return; // db.js unavailable – don't conclude
-                        const ok=r===true||!!(r&&r.ok); // supports old bool and new {ok} object
-                        if(ok){if(!book.prem._)book.prem.L(true);} // still OK → premium (silent)
-                        else if(book.prem._){ // not OK (over limit / expired) → revoke + ask for code again
-                            if(r.reason!=='error'&&r.reason!=='connection'&&r.reason!=='noconfig')
-                                nav.memSet('code',''); // revoke stored code → must re-enter (network errors don't punish user)
-                            book.prem.L(false);
-                            nav.PinOpen();
-                        }
-                    }
-                }
-                ,Page:async pn=>{                    
-                    nGoTxt.value = pn;
-                    await cBook.Page(pn, true);
-                }
-                ,src:"b/LifeDemandedDeath/b.pdf"
-                ,srcBase:()=>{ return book.src.replace(/\.pdf$/i,"");} // keep folder (b/...) so sidecars (.jpg/.png) sit next to the book
-                ,name:()=>{const p=book.src.split("/");return p.length>2?p[p.length-2]:p[p.length-1].replace(/\.pdf$/i,"")} // nested: identity = parent folder
-                ,pn:()=>cBook.pn
-                ,np:()=>cBook.pdf?Math.max(1,cBook.pdf.numPages-4):0 // last 4 pages are template slides – hidden (min 1 for small PDFs)
-            }
             let _busy;
             const forlag = {
                 norsk: [
@@ -178,16 +88,16 @@
             const nav={
                 Able:(c, en)=>{c.classList.toggle('disabled', !en);return en;}
                 ,UpdButtons:()=>{
-                    const canPrev=book.pn()>1, canNext=book.pn()<book.np();
+                    const canPrev=books.book.pn()>1, canNext=books.book.pn()<books.book.np();
                     nav.Able(nFt, canPrev); nav.Able(nPv, canPrev);
                     nav.Able(nNt, canNext); nav.Able(nLt, canNext);
-                    uishow(nUp2, uishow(nUp3, !book.whole && canPrev)) | uishow(nPv3, uishow(nPv2, book.whole && canPrev));
+                    uishow(nUp2, uishow(nUp3, !books.book.whole && canPrev)) | uishow(nPv3, uishow(nPv2, books.book.whole && canPrev));
                     uishow(nNt2, canNext); uishow(nNt3, canNext);
                     nav.Able(nUp, (canPrev || window.scrollY > 0));
                     nav.Able(nGo, true);
                     nav.Able(nDn, (canNext || window.scrollY < document.documentElement.scrollHeight - window.innerHeight));
                     //nav.Able(nFd, false);
-                    nav.Able(nEx, book.prem._); // export only in premium
+                    nav.Able(nEx, books.book.prem._); // export only in premium
                     nav.nShFit(); // hide nSh only if nPv2/nPv3 overlap it visually
                     window.music?.Btn?.(); // nMu → most relevant music action
                 }
@@ -200,23 +110,23 @@
                 ,Share_preX:0
                 ,Share:async (_,s=_??_dShare.style.display=='none')=>{
                     if (s) {
-                        book.Share_preX = window.scrollX;
+                        books.book.Share_preX = window.scrollX;
                         cBook.QrUrlScrollY = window.scrollY; // save vertical position for QR link
                     }
                     uishowBlock(_dShare,!uishow(nUp2,uishow(nUp3,uishow(nNt2,uishow(nNt3,uishow(_cBook,nav.Able(nLg, !s)))))));
                     if (s) {
                         nav.DisButtons();
-                        shLgLbl.style.display = book.hAlign._ ? 'none' : ''; // nLg only relevant in English
-                        qrA.href = await window.cBook.QrUrl(false,35,book.srcBase()+".png");
+                        shLgLbl.style.display = books.book.hAlign._ ? 'none' : ''; // nLg only relevant in English
+                        qrA.href = await window.cBook.QrUrl(false,35,books.book.srcBase()+".png");
                         await nav.QrDeep();
                         window.scrollTo(window.scrollX, 0);
                     } else {
-                        window.scrollTo(book.Share_preX, cBook.QrUrlScrollY);
+                        window.scrollTo(books.book.Share_preX, cBook.QrUrlScrollY);
                         nav.UpdButtons();
                     }
                 }
                 ,QrDeep:async ()=>{
-                    qrdA.href = await window.cBook.QrUrl(true,35,book.srcBase()+"2.png",{
+                    qrdA.href = await window.cBook.QrUrl(true,35,books.book.srcBase()+"2.png",{
                         book:shBook.checked
                         ,page:shPage.checked
                         ,pos:shPos.checked
@@ -226,11 +136,11 @@
                 }
                 ,Export_preX:0,Export_preY:0
                 ,Export:async (_,s=_??_dExport.style.display=='none')=>{
-                    if(!book.prem._)return; // export only in premium
+                    if(!books.book.prem._)return; // export only in premium
                     uishow(nSv, false);
                     if (s) {
-                        book.Export_preX = window.scrollX;
-                        book.Export_preY = window.scrollY;
+                        books.book.Export_preX = window.scrollX;
+                        books.book.Export_preY = window.scrollY;
                     }
                     console.log("nav.Export", s);
                     uishowBlock(_dExport,!uishow(nUp2,uishow(nUp3,uishow(nNt2,uishow(nNt3,uishow(_cBook,nav.Able(nLg, !s)))))));
@@ -238,11 +148,11 @@
                         nav.DisButtons();
                         window.scrollTo(window.scrollX, 0);
                         _dExportTxt.innerHTML = "Exporting...";
-                        _dExportTxt.innerHTML = await window.cBook.Export(1, 1, !book.hAlign._);
-                        _dExportTxt.innerHTML += await window.cBook.Export(2, window.cBook.pdf?.numPages, !book.hAlign._);
+                        _dExportTxt.innerHTML = await window.cBook.Export(1, 1, !books.book.hAlign._);
+                        _dExportTxt.innerHTML += await window.cBook.Export(2, window.cBook.pdf?.numPages, !books.book.hAlign._);
                         uishow(nSv, true);
                     } else {
-                        window.scrollTo(book.Export_preX, book.Export_preY);
+                        window.scrollTo(books.book.Export_preX, books.book.Export_preY);
                         nav.UpdButtons();
                     }
                 }
@@ -251,7 +161,7 @@
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `${book.name()}_${book.hAlign._?'N':'E'}.txt`;
+                    a.download = `${books.book.name()}_${books.book.hAlign._?'N':'E'}.txt`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
@@ -260,14 +170,14 @@
                 ,Page:async(pn,x)=>{
                     //nav.DisButtons();
                     nav.memSet('page', pn);
-                    await book.Page(pn);
+                    await books.book.Page(pn);
                     if (x!=null) 
                         window.scrollTo(window.scrollX, x);
                     nav.UpdButtons();
-                    window.db?.logUsage&&window.db.logUsage({event:'page',book:book.name(),page:pn}); // log page visit to `usage`
+                    window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:pn}); // log page visit to `usage`
                 }
                 ,EdPage:async()=>{
-                    nGoTxt.value = book.pn();
+                    nGoTxt.value = books.book.pn();
                     uishow(nGoTxt,!uishow(nGo, false));
                     nGoTxt.focus(); // sync focus within the user gesture => iOS shows keyboard
                     nGoTxt.select();
@@ -280,7 +190,7 @@
                 }
                 ,ScrollUp:async(top=nav.gest.ontop())=>{
                     if (top) {// already at top
-                        await nav.Page(book.pn() - 1, _dBook.scrollHeight - window.innerHeight); // scroll to bottom of previous page
+                        await nav.Page(books.book.pn() - 1, _dBook.scrollHeight - window.innerHeight); // scroll to bottom of previous page
                         //window.scrollTo(window.scrollX, document.documentElement.scrollHeight - window.innerHeight);
                     }
                     else window.scrollBy(0, -window.innerHeight*.75);
@@ -288,7 +198,7 @@
                 }
                 ,ScrollDn:async()=>{
                     if (window.scrollY >= document.documentElement.scrollHeight-window.innerHeight - 1) {
-                        await nav.Page(book.pn() + 1, 0); // nav.Page scrolls to top itself
+                        await nav.Page(books.book.pn() + 1, 0); // nav.Page scrolls to top itself
                     }
                     else
                         window.scrollBy(0, window.innerHeight*.75);
@@ -362,8 +272,8 @@
                             g._pg++;
                             if (ns===GEST.PGDN) nav.ScrollDn().finally(done);
                             else if (ns===GEST.PGUP) nav.ScrollUp().finally(done);
-                            else if (ns===GEST.LEFT) nav.Page(book.pn()+1, 0).finally(done);
-                            else if (ns===GEST.RIGHT) nav.Page(book.pn()-1, _dBook.scrollHeight - window.innerHeight).finally(done);
+                            else if (ns===GEST.LEFT) nav.Page(books.book.pn()+1, 0).finally(done);
+                            else if (ns===GEST.RIGHT) nav.Page(books.book.pn()-1, _dBook.scrollHeight - window.innerHeight).finally(done);
                         }
                     }
                 }
@@ -393,7 +303,7 @@
                 }
                 ,Toc:async ()=>{ // the chapter list, read from the .md sidecar that says what is where in the .pdf – never from the pdf's own text
                     await books.map.book.load(books.map.book.file());
-                    const P=books.map.book.model(), cur=books.map.book.at(book.pn()), want=book.hAlign._?'no':'en';
+                    const P=books.map.book.model(), cur=books.map.book.at(books.book.pn()), want=books.book.hAlign._?'no':'en';
                     _dTocTitle.textContent=P.t||'"Liv Krevde Død"'; nav._tocTitle=_dTocTitle.textContent; // cache title (book picker restores it)
                     const spotMap=await window.music.Load();
                     const resolveSpot=url=>!url||!window.music.Re.test(url)?url:(spotMap[window.music.Key(url)]||url);
@@ -461,8 +371,8 @@
                 }
                 ,findTxtGoto:async(pg,ql,tok)=>{ // open the page, then say where the match stands on it – from the .md, when the sheet is taller than the window
                     if(tok!==nav._ftok)return;
-                    if(pg!==book.pn()){await nav.Page(pg,0); if(tok!==nav._ftok)return;}
-                    if(book.whole||!cBook.view)return;
+                    if(pg!==books.book.pn()){await nav.Page(pg,0); if(tok!==nav._ftok)return;}
+                    if(books.book.whole||!cBook.view)return;
                     const p=((nav.doc&&nav.doc.p.find(x=>x.page===pg))||{}).text||'', at=p.indexOf(ql);
                     if(at<0)return;
                     const y=(0.08+0.84*((at+ql.length/2)/(p.length||1)))*cBook.view.height;
@@ -492,7 +402,7 @@
                 // ---------- 3) findBooks: picker filter – titles first; if none match, books whose chapters match ----------
                 ,_bkChap:null
                 ,bkChap:async b=>{ // chapters+subs of book b (current lang+mode sidecar), fetched once + cached
-                    const w=book.hAlign._?'NO':'EN', m=book.prem._?'PREM':'FREE', k=b+'|'+w+'|'+m, src=nav._bk&&nav._bk[b]&&nav._bk[b].src;
+                    const w=books.book.hAlign._?'NO':'EN', m=books.book.prem._?'PREM':'FREE', k=b+'|'+w+'|'+m, src=nav._bk&&nav._bk[b]&&nav._bk[b].src;
                     if(!src)return[];
                     if(nav._bkChap&&nav._bkChap.k===k)return nav._bkChap.a;
                     let a=[];
@@ -519,7 +429,7 @@
                     }
                 }
                 ,TocCur:()=>{ // refresh the bold 'cur' marker without rebuilding the list
-                    const cp=book.pn(); let curPage=0;
+                    const cp=books.book.pn(); let curPage=0;
                     [..._dTocList.querySelectorAll('li')].forEach(li=>{const p=+li.dataset.p||0;if(p&&p<=cp&&p>curPage)curPage=p;});
                     _dTocList.querySelectorAll('.cur').forEach(a=>a.classList.remove('cur'));
                     _dTocList.querySelectorAll(`li[data-p="${curPage}"] .toc-nav`).forEach(a=>a.classList.add('cur'));
@@ -565,7 +475,7 @@
                     nFdTxt.value=''; // book list is a fresh list – no inherited chapter filter
                 }
                 ,PremToggle:()=>{ // PIN → premium: verified against Supabase 'codes' (dtfrom<=now<=dtto); future: hash to a remembered var
-                    if(book.prem._){nav.memSet('code','');return book.prem.L(false);} // premium → free: delete stored code
+                    if(books.book.prem._){nav.memSet('code','');return books.book.prem.L(false);} // premium → free: delete stored code
                     if(nPin.style.display!='none')return uishow(nPin,false); // PIN visible → 🔓 again closes it (abort)
                     nav.PinOpen(); // free → premium: ask for PIN
                 }
@@ -583,24 +493,24 @@
                     const rr=await nav.CodeValid(v); // new db.js returns {ok,reason} – old deployed returns bool
                     const r=rr&&typeof rr==='object'?rr:{ok:!!rr,reason:rr?'':'error'}; // normalize bool → object
                     console.log('[PIN]',v,r);
-                    if(r.ok){book.prem.L(true); // valid code → premium
+                    if(r.ok){books.book.prem.L(true); // valid code → premium
                         nav.memSet('code', v); // remember code – re-validated next visit (re-ask if full elsewhere)
-                        window.db?.logUsage&&window.db.logUsage({event:'premium_activate',code:v,book:book.name(),page:cBook.pn});} // log usage to 'usage'
+                        window.db?.logUsage&&window.db.logUsage({event:'premium_activate',code:v,book:books.book.name(),page:cBook.pn});} // log usage to 'usage'
                     else{ // invalid → clear message + reopen for retry
                         nav.PinMsg(r.reason);
                         uishow(nPin,true);
                         nPin.focus();nPin.select();
                     }
                 }
-                ,CodeValid:code=>window.db?.codeValid&&window.db.codeValid(code,book.name())
-                ,StillValid:code=>window.db?.stillValid&&window.db.stillValid(code,book.name()) // "am I still OK?" (restore)
-                ,BookInterval:async()=>window.db?.bookInterval?await window.db.bookInterval(book.name()):60 // book recheck interval (s)
+                ,CodeValid:code=>window.db?.codeValid&&window.db.codeValid(code,books.book.name())
+                ,StillValid:code=>window.db?.stillValid&&window.db.stillValid(code,books.book.name()) // "am I still OK?" (restore)
+                ,BookInterval:async()=>window.db?.bookInterval?await window.db.bookInterval(books.book.name()):60 // book recheck interval (s)
                 ,RecheckPin:async()=>{ // background recheck: drop to freemium if others took over – NO auto re-activation
                     const code=await nav.memGet('code','');
                     if(!code)return;
                     const r=await nav.StillValid(code);
                     if(r===undefined||r===null)return; // db.js unavailable – don't conclude
-                    if(!(r===true||!!(r&&r.ok))&&book.prem._)book.prem.L(false); // others took over → freemium (re-enter premium manually via 🔓)
+                    if(!(r===true||!!(r&&r.ok))&&books.book.prem._)books.book.prem.L(false); // others took over → freemium (re-enter premium manually via 🔓)
                 }
                 ,PinMsg:r=>{ // reason code → readable message shown at PIN field for 4s (auto-hide)
                     const msg={connection:"Couldn't reach the license server – check your internet and try again"
@@ -647,7 +557,7 @@
                     if(!h){nTc.style.position='fixed';nTc.style.left='0';nTc.style.top='50%';nTc.style.transform='translateY(-50%)';nTc.style.display='inline';nTc.style.filter='grayscale(1)';nTc.classList.add('floatingControl');
                         // nPr: floating 🔓 at 70%, only in freemium mode
                         nPr.style.position='fixed';nPr.style.left='0';nPr.style.top='70%';nPr.style.transform='translateY(-50%)';nPr.style.filter='grayscale(1)';nPr.classList.add('floatingControl');
-                        nPr.style.display=book.prem._?'none':'inline';
+                        nPr.style.display=books.book.prem._?'none':'inline';
                         // nFd: floating 🔍 at 40% (above nTc) – same presentation as the premium button
                         nFd.style.position='fixed';nFd.style.left='0';nFd.style.top='40%';nFd.style.transform='translateY(-50%)';nFd.style.display='inline';nFd.style.filter='grayscale(1)';nFd.classList.add('floatingControl');
                         // nFdTxt: find box continues on the same line, right after the 🔍 button
@@ -661,7 +571,7 @@
                 ,btSimul:(a,i)=>{
                     if(i>=a.length) return;
                     const c=a[i], b=document.getElementById(c);
-                    const side=c.startsWith('m')&&book.hAlign._?'_l':c.startsWith('m')?'_r':'';
+                    const side=c.startsWith('m')&&books.book.hAlign._?'_l':c.startsWith('m')?'_r':'';
                     const target=b||document.getElementById(c+side);
                     if(target){
                         if(target.onmousedown)target.onmousedown();
@@ -674,10 +584,10 @@
                     nav.btSimul(a,i+1);
                 }
                 ,memGet:async(k,d)=>{
-                    const p=k=='book'?`LdD.${k}`:`LdD.${book.name()}.${k}`; // per-book namespace (except the 'book' key itself)
+                    const p=k=='book'?`LdD.${k}`:`LdD.${books.book.name()}.${k}`; // per-book namespace (except the 'book' key itself)
                     return localStorage.getItem(p) ?? localStorage.getItem(`LdD.${k}`) ?? d; // read new → fallback to legacy flat key
                 }
-                ,memSet:async(k,v)=>{localStorage.setItem(k=='book'?`LdD.${k}`:`LdD.${book.name()}.${k}`, v);return v} // always write the new per-book key
+                ,memSet:async(k,v)=>{localStorage.setItem(k=='book'?`LdD.${k}`:`LdD.${books.book.name()}.${k}`, v);return v} // always write the new per-book key
                 ,Loaded:async (sp=new URLSearchParams(window.location.search))=>{
                     _busy=true; // suppress auto-lang-swap during load
                     uisz();
@@ -685,19 +595,19 @@
                     let bookU=sp.get('book');
                     if(bookU) nav.memSet('book', bookU);
                     else bookU=await nav.memGet('book', 'b/LifeDemandedDeath/b.pdf');
-                    book.src=bookU; // set before per-book state is read – book.name() is the localStorage namespace
+                    books.book.src=bookU; // set before per-book state is read – book.name() is the localStorage namespace
                     let bookT=parseInt(sp.get('bookT')) || parseInt(await nav.memGet('book type', bookU?.indexOf('.pdf')!=-1))
                         ,page=parseInt(sp.get('page')) || parseInt(await nav.memGet('page', 1))
                         ,scY=parseInt(sp.get('y')) || parseInt(await nav.memGet('Y', window.scrollY));
                     // Premium/freemium must NEVER block/delay first view: read stored mode once before first render (no re-render/flash); prem.Load() stays off the blocking path.
-                    book.prem._=(await nav.memGet('prem','false'))=="true";
-                    book.prem.ui(); // button text only (👑/🔓) – no re-render / TOC work
+                    books.book.prem._=(await nav.memGet('prem','false'))=="true";
+                    books.book.prem.ui(); // button text only (👑/🔓) – no re-render / TOC work
                     // Load the main document directly (no .1.pdf preview; JPG loading may be added later)
-                    await book.s(1,bookU,page);
-                    window.db?.logUsage&&window.db.logUsage({event:'page',book:book.name(),page:page}); // log the opened page so openers who never turn a page are still counted
+                    await books.book.s(1,bookU,page);
+                    window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:page}); // log the opened page so openers who never turn a page are still counted
                     await uisz(); // await render (offscreen → one swap) – full file done before spinner hides
                     uishow(_iBook, false); // bg image – hide once page painted (else covers book until Loaded ends)
-                    await book.hAlign.Load();
+                    await books.book.hAlign.Load();
                     // Note: book.prem.Load() deliberately removed from load sequence – never runs before first view (mode already set above)
                     const commands=sp.get('c')?.split(',') || [];
                     // a music deep-link key is m + lowercase (never a UI button id) – music.Page is a cheap .md lookup
@@ -712,7 +622,7 @@
                     uishow(iLoading, false)
                     _busy=false;
                     // Background reconcile after page visible – normally a no-op; never blocks first view
-                    setTimeout(()=>{book.prem.Load().catch(e=>console.error('[prem]',e));},0);
+                    setTimeout(()=>{books.book.prem.Load().catch(e=>console.error('[prem]',e));},0);
                     // Background PIN recheck: drop to freemium if others took over; interval = book's premiumCheckInterval (default 60s)
                     const premSec=await nav.BookInterval() ?? 60;
                     setInterval(()=>{nav.RecheckPin().catch(e=>console.error('[recheck]',e));},premSec*1000);
@@ -754,20 +664,20 @@
         <div class="bookControls" style="z-index:1;text-align:center;">
             <button id="nMt" onmousedown="nav.menu()" style="padding-left:2vw;padding-right:2vw;scale:.7;"></tool_call></button>
             <button id="nFt" onmousedown="nav.Page(1, 0)">⏮️</button>
-                <button id="nPv" onmousedown="nav.Page(book.pn()-1, 0)">◀️</button>
+                <button id="nPv" onmousedown="nav.Page(books.book.pn()-1, 0)">◀️</button>
                 <button id="nUp" onmousedown="nav.ScrollUp()">⏫</button>
                 <button id="nGo" onmousedown="nav.EdPage()">🔢</button>
                     <input id="nGoTxt" class="pageNo" type="text" inputmode="numeric" value="1" onchange="nav.PageEd()" onkeydown="if(event.key=='Enter') nav.PageEd()"/>
                 <button id="nDn" onmousedown="nav.ScrollDn()">⏬</button>
-                <button id="nNt" onmousedown="nav.Page(book.pn()+1, 0)">▶️</button>
-                <button id="nLt" onmousedown="nav.Page(book.np(), _dBook.scrollHeight - window.innerHeight)">⏭️</button>
+                <button id="nNt" onmousedown="nav.Page(books.book.pn()+1, 0)">▶️</button>
+                <button id="nLt" onmousedown="nav.Page(books.book.np(), _dBook.scrollHeight - window.innerHeight)">⏭️</button>
             &nbsp;&nbsp;<button id="nFd" onmousedown="nav.find()">🔍</button>
                 <button id="nMu" onmousedown="window.music.BtnTgl()">🎵</button>
                 <button id="nSh" onmousedown="nav.Share()">📲</button>
                 <button id="nEx" onmousedown="nav.Export()">📤</button>
-                <button id="nLg" onmousedown="book.hAlign.L(!book.hAlign._)">🇳🇴</button>
-                <button id="nLg0" style="display:none" onmousedown="book.hAlign.L(true)">🇳🇴</button>  <!-- set NO (btSimul target) -->
-                <button id="nLg1" style="display:none" onmousedown="book.hAlign.L(false)">🇬🇧</button> <!-- set EN (btSimul target) -->
+                <button id="nLg" onmousedown="books.book.hAlign.L(!books.book.hAlign._)">🇳🇴</button>
+                <button id="nLg0" style="display:none" onmousedown="books.book.hAlign.L(true)">🇳🇴</button>  <!-- set NO (btSimul target) -->
+                <button id="nLg1" style="display:none" onmousedown="books.book.hAlign.L(false)">🇬🇧</button> <!-- set EN (btSimul target) -->
                 <button id="nPr" onmousedown="nav.PremToggle()">🔓</button>
             &nbsp;&nbsp;<button id="nTc" onmousedown="nav.ShowToc()">📚</button>
         </div>
@@ -782,14 +692,14 @@
         <div id="_dBook" class="bookParent">
             <img id="iLoading" src="aigap.webp" style="z-index:4;position:fixed;left:47vw;top:47vh;animation:rotate 2s linear infinite;width:6vw">
             <iframe id="_fBook" frameborder="0" allowfullscreen></iframe>
-            <img id="_iBook" style="z-index:3;position:fixed;left:0vw;top:0vh;width:98vw">
+            <img id="_iBook" style="z-index:3;position:fixed;left:50%;top:50%;translate:-50% -50%;width:98vw">
             <canvas id="_cBook"></canvas>
                 <button id="nUp2" onmousedown="nav.ScrollUp()" style="display:none;">&nbsp;☝️&nbsp;</button>
                 <button id="nUp3" onmousedown="nav.ScrollUp()" style="display:none;">&nbsp;☝️&nbsp;</button>
-                <button id="nNt2" onmousedown="nav.Page(book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
-                <button id="nNt3" onmousedown="nav.Page(book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
-                <button id="nPv2" onmousedown="nav.Page(book.pn()-1)" style="display:none;">🫲&nbsp;</button>
-                <button id="nPv3" onmousedown="nav.Page(book.pn()-1)" style="display:none;">🫲&nbsp;</button>
+                <button id="nNt2" onmousedown="nav.Page(books.book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
+                <button id="nNt3" onmousedown="nav.Page(books.book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
+                <button id="nPv2" onmousedown="nav.Page(books.book.pn()-1)" style="display:none;">🫲&nbsp;</button>
+                <button id="nPv3" onmousedown="nav.Page(books.book.pn()-1)" style="display:none;">🫲&nbsp;</button>
         </div>
         <!-- edge state symbols: mirror of the page-number state, fixed at mid left/right edges -->
         <span id="nStL" class="edgeState" style="display:none"></span>

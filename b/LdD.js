@@ -98,7 +98,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
     }
     ,Hide:async function(){ // remove locked-tier text (premium↔freemium) from the painted canvas
         if(!cBook.page||!cBook.ctx)return;
-        const hideTier=(book.prem&&book.prem._)?'freemium':'premium';
+        const hideTier=(books.book.prem&&books.book.prem._)?'freemium':'premium';
         const tc=await cBook.page.getTextContent(), names={}, ctx=cBook.ctx;
         for(const fn of new Set(tc.items.map(i=>i.fontName))) names[fn]=await cBook.FontName(fn);
         for(const it of tc.items){
@@ -110,7 +110,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
             const [bx,by]=cBook.view.convertToViewportPoint(it.transform[4]+it.width+1, it.transform[5]-it.height*0.3);
             const x=Math.min(ax,bx), y=Math.min(ay,by), w=Math.abs(bx-ax), h=Math.abs(by-ay);
             ctx.clearRect(x,y,w,h);
-            if(tier==='premium'&&!(book.prem&&book.prem._)){ // gold brush only over hidden PREMIUM text in freemium mode
+            if(tier==='premium'&&!(books.book.prem&&books.book.prem._)){ // gold brush only over hidden PREMIUM text in freemium mode
                 const grad=ctx.createLinearGradient(0,y,0,y+h);
                 grad.addColorStop(0,'rgba(228,196,100,.62)');
                 grad.addColorStop(1,'rgba(188,148,42,.62)');
@@ -136,10 +136,10 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
         if (cBook._qrUrl) URL.revokeObjectURL(cBook._qrUrl);
         const u = new URL("https://aigap.no/b"); // gormb.github.io/_?b&book… har flyttet til aigap.no/b?book…
         const qs=k=>u.search=u.search?(u.search+'&'+k):('?'+k);
-        if (opt.book!==false) qs('book=' + encodeURIComponent(book.src));
+        if (opt.book!==false) qs('book=' + encodeURIComponent(books.book.src));
         if (deep) {
             let c='w,100';
-            if (opt.lang!==false) c+=book.hAlign._?',nLg0':',nLg1'; // deterministic language – nLg0=NO, nLg1=EN
+            if (opt.lang!==false) c+=books.book.hAlign._?',nLg0':',nLg1'; // deterministic language – nLg0=NO, nLg1=EN
             if (opt.idx!==false) c+=',nTc';
             if (opt.pos!==false && cBook.QrUrlScrollY>0) c+=',s,'+cBook.QrUrlScrollY;
             if (opt.page!==false) qs('page=' + cBook.pn);
@@ -171,7 +171,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
         return pages.filter(p => !p.includes('<b>Template</b>')).join('\0').replace(/\0(?=[a-z])/g, ' ').replace(/\0/g, '<br/><br/>');
     }
     ,data:{
-        _mdFile:()=>book.srcBase()+'_'+(book.hAlign._?'NO':'EN')+'_'+(book.prem._?'PREM':'FREE')+'.md' // current lang+mode sidecar
+        _mdFile:()=>books.book.srcBase()+'_'+(books.book.hAlign._?'NO':'EN')+'_'+(books.book.prem._?'PREM':'FREE')+'.md' // current lang+mode sidecar
         ,mdRaw:async function(force=false){ // cached raw text of the current-mode .md – fetched once, shared by TOC + search + music deep links
             const md=cBook.data.md;
             if(md&&md.file===cBook.data._mdFile()&&!force)return md;
@@ -210,24 +210,24 @@ loadScript('https://aigap.no/db.js?v=8').catch(()=>console.warn('[db.js] kunne i
    scrolls to where that paragraph is estimated to stand. LdD only says where the sidecar lives, which copy and page are open,
    and what a pick must do. */
 const wm=books.map.sidecar({
-    prefix:()=>book.srcBase()
-    ,lg:()=>book.hAlign._?'NO':'EN'
-    ,ed:()=>book.prem._?'PREM':'FREE'
+    prefix:()=>books.book.srcBase()
+    ,lg:()=>books.book.hAlign._?'NO':'EN'
+    ,ed:()=>books.book.prem._?'PREM':'FREE'
     ,title:()=>nav._tocTitle
     ,page:()=>cBook.pn||1
     ,toc:()=>_dToc.style.display!='none'
     ,copy:async c=>{                                             // a copy of the book: language × edition
-        if(c.ed==='PREM'&&!book.prem._){                         // 👑, and free here in this session
-            await book.prem.Load();                              // …but this book may be unlocked already – that code is used first
-            if(!book.prem._){nav.PremToggle();return;}            // nothing stored for it: ask for the code (the PIN floats over the map)
+        if(c.ed==='PREM'&&!books.book.prem._){                         // 👑, and free here in this session
+            await books.book.prem.Load();                              // …but this book may be unlocked already – that code is used first
+            if(!books.book.prem._){nav.PremToggle();return;}            // nothing stored for it: ask for the code (the PIN floats over the map)
         }
-        if((book.prem._?'PREM':'FREE')!==c.ed)await book.prem.L(c.ed==='PREM');
-        if((book.hAlign._?'NO':'EN')!==c.lg)await book.hAlign.L(c.lg==='NO');
+        if((books.book.prem._?'PREM':'FREE')!==c.ed)await books.book.prem.L(c.ed==='PREM');
+        if((books.book.hAlign._?'NO':'EN')!==c.lg)await books.book.hAlign.L(c.lg==='NO');
     }
     ,go:async at=>{                                              // a place in the book: its page, and where the text stands on it
         if(_dToc.style.display!='none'){await nav.TocPage(at.page);books.map.Z.hide();return;}   // the TOC covers the sheet, the map may give way at once
         await nav.Page(at.page,0);
-        if(!book.whole&&cBook.page){                             // the sheet fits the window – the page is enough
+        if(!books.book.whole&&cBook.page){                             // the sheet fits the window – the page is enough
             const put=()=>{                                      // .md alone: where it stands among the paragraphs on that page
                 const y=wm.frac(at)*cBook.view.height
                     ,top=_cBook.getBoundingClientRect().top+window.scrollY+y-window.innerHeight/2;
@@ -239,9 +239,9 @@ const wm=books.map.sidecar({
     }
 });
 books.map.host=wm.host;
-const _Lang=book.hAlign.L, _Tier=book.prem.L;                    // whichever way the copy changes – map cell, menu button or the PIN – the map follows
-book.hAlign.L=l=>{const r=_Lang(l);wm.reload();return r;};
-book.prem.L=async l=>{const r=await _Tier(l);await wm.reload();return r;};
+const _Lang=books.book.hAlign.L, _Tier=books.book.prem.L;                    // whichever way the copy changes – map cell, menu button or the PIN – the map follows
+books.book.hAlign.L=l=>{const r=_Lang(l);wm.reload();return r;};
+books.book.prem.L=async l=>{const r=await _Tier(l);await wm.reload();return r;};
 books.map.Z.el={page:_dBook};                                    // no panel of its own: the map builds the overlay, head and filter
 books.map.Z.init();
 const _Loaded=nav.Loaded;                                        // once the book is up, read the sidecar that anchors it
