@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
-        <script type="module" src="LdD.js?v=73"></script>
+        <script type="module" src="LdD.js?v=74"></script>
         <link rel="stylesheet" href="LdD.css?v=25">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=84"></script>
@@ -486,6 +486,12 @@
                     uishow(nPin,true);
                     setTimeout(()=>{nPin.focus();nPin.select();},10); // focus after mousedown (else button steals focus)
                 }
+                ,UndoTap:()=>{ // a swipe that began on a floating edge control: close what that touch opened
+                    if(nPin.style.display!='none')return uishow(nPin,false);
+                    if(nFdTxt.style.display!='none')return nav.find();
+                    if(_dToc.style.display!='none')return nav.ShowToc(false);
+                    if(_dShare.style.display!='none')return nav.Share(false);
+                }
                 ,Pin:async ()=>{
                     const v=nPin.value.replace(/\D/g,'').slice(0,6);
                     nPin.value=v;
@@ -635,9 +641,10 @@
                 // auto lang-swap on horizontal scroll removed – language only via nLg button
                 window.addEventListener('wheel',nav.gest.wheel,{passive:false}); // gesture: one decision per scroll; swallow momentum after page change
                 // touch (iPhone): iOS gives no wheel on touch-scroll → translate to synthetic wheel events for the same gesture machine
-                let _tX=0,_tY=0,_tA=0,_tSX=0,_tSY=0; // _tA: locked axis (1=horizontal, 0=ambiguous/native, -1=vertical)
+                let _tX=0,_tY=0,_tA=0,_tSX=0,_tSY=0,_tUi=0; // _tA: locked axis (1=horizontal, 0=ambiguous/native, -1=vertical); _tUi: the touch started on a floating control
                 document.addEventListener('touchstart', e=>{
                     const t=e.touches[0]; _tX=t.clientX; _tY=t.clientY; _tA=0; _tSX=0; _tSY=0;
+                    _tUi=e.target.closest?.('.floatingControl')?Date.now():0; // the floating controls sit exactly where edge swipes start
                 }, {passive:true});
                 document.addEventListener('touchmove', e=>{
                     const g=nav.gest;
@@ -646,6 +653,7 @@
                     _tX=t.clientX; _tY=t.clientY;
                     if(_tA===0){ _tSX+=dx; _tSY+=dy; if(Math.abs(_tSX)>30||Math.abs(_tSY)>30) _tA=Math.abs(_tSX)>Math.abs(_tSY)*nav.gest._ratio?1:Math.abs(_tSY)>Math.abs(_tSX)*nav.gest._ratio?-1:0; } // lock axis only at 2× dominance (>30px); diagonal → 0 = no gesture (native scroll)
                     if(_tA===1){ // horizontal swipe → page flip
+                        if(_tUi&&Date.now()-_tUi<800){nav.UndoTap();_tUi=0;} // the touch that hit a floating control turned into a swipe – undo it
                         if(g.isPage(g.newState)||g.newState===GEST.BUSY) e.preventDefault();
                         nav.gest.wheel({ deltaX:dx, deltaY:0, touch:true, preventDefault:()=>{} });
                     } // vertical (_tA=-1): don't touch machine – native scroll
