@@ -1096,3 +1096,21 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
+#### p. 174
+### Endring
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Vilje, evne og trygghet. Hva er nok? Vaner trumfer vilje.
+Vi elsker hverandre nok. Det er nødvendig. Moral og enighet om hva som er viktig er aldri perfekt, men er på plass i større grad enn noensinne. For henne er det “Tro, håp og kjærlighet”, for meg er det “Vilje, evne, troskap og ærlighet”. Vi er enig.
+Begge blir lykkelig av å gjøre hverandre godt, men vil vi være lykkelig? “Ikke se meg!” sa hun og tilga meg dagen etterpå.
+“Hvorfor kjefter du ikke på meg?” sa hun skuffet dagen etter.
+“Står du ikke opp for deg selv vil du aldri kunne stå opp for meg”. “Ikke ta mitt parti”, jeg gadd ikke og gikk hjem.
+Jeg gikk i skogen og undret på om folk har like eller forskjellige følelsesliv. “Vi lager så mange problemer vi har styrke til å takle.”
+#### p. 175
+Jeg sa det til en eier av et konsulentfirma. “Vi lager så mange problemer vi har styrke til å takle”, han svarte “Ja du kanskje”.
+Om det var reflektert eller et angrep vet jeg ikke, lederen var konkurranseorientert og reflektert, men sjelden samtidig.
+Kvinnen sa “Ikke elsk meg!” og forutinntatt som jeg var i at det vi ikke fikk som barn gjør så ekstra vondt å få som voksen tok jeg det alvorlig.
+Kontrasten i min godhet og kjærlighet er indirekte angrep på de som satte henne til verden. Et angrep på de hun i livet vi har elsket høyest. “Ikke se meg! Hvorfor kjefter du ikke på meg?”
+Oppmerksomhet og tilgivelse ble angrep på farm og mor. Hun hadde tilgitt dem men vanene hang igjen. Plutselig bestemte jeg meg for å fokusere på meg selv, ikke all innsikt er viktig. Ta meg sammen.
+Av og til er det greit å fokusere på det man kan kontrollere, IT-sjefen sa han hadde dårlig erfaring med for smarte informatikere, hvis ikke de gjorde seg dumme og handlet før de tenkte.
+På tide å rydde. Femten minutter hver dag mellom dusjen og utgangsdøra.
+Go!

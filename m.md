@@ -765,3 +765,8 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
+#### p. 174
+### Endring
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Vilje, evne og trygghet. Hva er nok? Vaner trumfer vilje.
+#### p. 175
