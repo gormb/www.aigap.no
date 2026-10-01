@@ -27,9 +27,9 @@ hole is a plain square: nothing is kept.
     python3 i/u/qrgen.py --check      report only, write nothing
     python3 i/u/qrgen.py --no-prune   write, delete nothing
 
-Requires: PIL, numpy, qrcode.
+Requires: PIL, numpy, qrcode, optipng.
 """
-import io, json, os, re, sys, urllib.request
+import io, json, os, re, shutil, subprocess, sys, tempfile, urllib.request
 
 # Third-party deps: fail with the exact pip command instead of a bare traceback.
 _gone = []
@@ -54,6 +54,7 @@ if _gone:
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 OUT = os.path.join(ROOT, 'i')
+OPT = shutil.which('optipng')
 
 PREFIX, WWW = 'https://aigap.no/', 'www.aigap.no/'
 ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
@@ -120,6 +121,18 @@ def cov(i, h):
     return np.asarray(box) >= 128
 
 
+def opt(d):
+    if not OPT:
+        return d
+    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as f:
+        f.write(d)
+        p = f.name
+    subprocess.run([OPT, '-o5', '-strip', 'all', '-quiet', p], check=True)
+    v = open(p, 'rb').read()
+    os.remove(p)
+    return v
+
+
 def build(i, tok):
     head, t, u = TOK.match(tok).groups()
     N, ec, hole = int(head[:2]), head[2], int(head[3:])
@@ -139,7 +152,7 @@ def build(i, tok):
                         m[lo + r][lo + x] = o[lo + r][lo + x]
     b = io.BytesIO()
     Image.fromarray(~m).convert('1').save(b, format='PNG', optimize=True)
-    return b.getvalue()
+    return opt(b.getvalue())
 
 
 def main(a):
