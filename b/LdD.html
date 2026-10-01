@@ -5,7 +5,7 @@
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
         <script type="module" src="LdD.js?v=74"></script>
-        <link rel="stylesheet" href="LdD.css?v=27">
+        <link rel="stylesheet" href="LdD.css?v=29">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=85"></script>
         <script src="books.book.js?v=3"></script>
@@ -104,7 +104,7 @@
                     if(_dToc.style.display!='none'||_dShare.style.display!='none'||_dExport.style.display!='none')return;
                     const whole=books.book.whole, canPrev=books.book.pn()>1, canNext=books.book.pn()<books.book.np()
                         ,top=nav.gest.ontop(), bot=nav.gest.onbottom();
-                    const gT=top?'🫲':'☝️', gB=bot?'🫱':'👇';
+                    const gT=(whole||top)?'🫲':'☝️', gB=(whole||bot)?'🫱':'👇'; // whole sheet: always prev/next hands, never finger up/down
                     if(nUp2.innerText!=gT)nUp2.innerText=nUp3.innerText=gT;
                     if(nNt2.innerText!=gB)nNt2.innerText=nNt3.innerText=gB;
                     uishow(nUp2, uishow(nUp3, !whole && (top? canPrev : true))) | uishow(nPv3, uishow(nPv2, whole && canPrev));

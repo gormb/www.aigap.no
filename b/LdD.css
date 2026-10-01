@@ -12,10 +12,10 @@ button { font-size:var(--fsMenu); padding:var(--padMenu);}
     scale:.5; z-index:1;position:absolute;}
     #nUp2 {position:fixed; top:calc(var(--paddingTop1)); right:0;}
     #nNt2 {position:fixed; right:0; bottom:0;}
-    #nPv2 { left:0; bottom:0;}
-    #nPv3 { left:102vw; bottom:0;}
-    #nUp3 { top:calc(var(--paddingTop1)); right:-102vw;}
-    #nNt3 { right:-102vw; bottom:0;}
+    #nPv2 {position:fixed; left:0; bottom:0;}
+    #nPv3 {position:fixed; left:102vw; bottom:0;}
+    #nUp3 {position:fixed; top:calc(var(--paddingTop1)); right:-102vw;}
+    #nNt3 {position:fixed; right:-102vw; bottom:0;}
     #nSv {z-index:1;position:fixed; top:calc(var(--paddingTop1)); left:0}
 .pageNo { font-size:var(--fsMenu); padding:var(--padMenu);display:none; text-align:center;width:2em;}
 .findBox { font-size:calc(var(--fsMenu)*.6); width:12ch; }
