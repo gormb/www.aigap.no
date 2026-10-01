@@ -5,14 +5,14 @@
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
         <script type="module" src="LdD.js?v=74"></script>
-        <link rel="stylesheet" href="LdD.css?v=26">
+        <link rel="stylesheet" href="LdD.css?v=27">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=85"></script>
         <script src="books.book.js?v=3"></script>
         <script>
             window.SUPABASE = window.SUPABASE || (typeof SUPABASE !== 'undefined' ? SUPABASE : undefined);
             const uisz=()=>books.book.sz(window.innerWidth,window.innerHeight);
-            const uiscroll=()=>_cBook.style.display=='none' ? null : nav.memSet('Y', window.scrollY)
+            const uiscroll=()=>{if(_cBook.style.display=='none')return; nav.memSet('Y', window.scrollY); nav.Edge();}
             const uishow=(c,on)=>{c.style.display=on?'inline':'none';return on;}
             const uishowBlock=(c,on)=>{c.style.display=on?'block':'none';return on;}
             let _busy;
@@ -91,8 +91,7 @@
                     const canPrev=books.book.pn()>1, canNext=books.book.pn()<books.book.np();
                     nav.Able(nFt, canPrev); nav.Able(nPv, canPrev);
                     nav.Able(nNt, canNext); nav.Able(nLt, canNext);
-                    uishow(nUp2, uishow(nUp3, !books.book.whole && canPrev)) | uishow(nPv3, uishow(nPv2, books.book.whole && canPrev));
-                    uishow(nNt2, canNext); uishow(nNt3, canNext);
+                    nav.Edge();
                     nav.Able(nUp, (canPrev || window.scrollY > 0));
                     nav.Able(nGo, true);
                     nav.Able(nDn, (canNext || window.scrollY < document.documentElement.scrollHeight - window.innerHeight));
@@ -100,6 +99,16 @@
                     nav.Able(nEx, books.book.prem._); // export only in premium
                     nav.nShFit(); // hide nSh only if nPv2/nPv3 overlap it visually
                     window.music?.Btn?.(); // nMu → most relevant music action
+                }
+                ,Edge:()=>{ // top-right: hand left at top else finger up · bottom-right: finger down until bottom else hand right
+                    if(_dToc.style.display!='none'||_dShare.style.display!='none'||_dExport.style.display!='none')return;
+                    const whole=books.book.whole, canPrev=books.book.pn()>1, canNext=books.book.pn()<books.book.np()
+                        ,top=nav.gest.ontop(), bot=nav.gest.onbottom();
+                    const gT=top?'🫲':'☝️', gB=bot?'🫱':'👇';
+                    if(nUp2.innerText!=gT)nUp2.innerText=nUp3.innerText=gT;
+                    if(nNt2.innerText!=gB)nNt2.innerText=nNt3.innerText=gB;
+                    uishow(nUp2, uishow(nUp3, !whole && (top? canPrev : true))) | uishow(nPv3, uishow(nPv2, whole && canPrev));
+                    uishow(nNt2, uishow(nNt3, whole? canNext : (bot? canNext : true)));
                 }
                 ,nShFit:()=>{ // hide nSh only if ◄ (nPv2/nPv3) overlaps it vertically
                     const b=[nPv2,nPv3].find(b=>b.style.display!='none');
@@ -199,7 +208,7 @@
                     nav.UpdButtons();
                 }
                 ,ScrollDn:async()=>{
-                    if (window.scrollY >= document.documentElement.scrollHeight-window.innerHeight - 1) {
+                    if (nav.gest.onbottom()) {
                         await nav.Page(books.book.pn() + 1, 0); // nav.Page scrolls to top itself
                     }
                     else
@@ -712,8 +721,8 @@
             <canvas id="_cBook"></canvas>
                 <button id="nUp2" onmousedown="nav.ScrollUp()" style="display:none;">&nbsp;☝️&nbsp;</button>
                 <button id="nUp3" onmousedown="nav.ScrollUp()" style="display:none;">&nbsp;☝️&nbsp;</button>
-                <button id="nNt2" onmousedown="nav.Page(books.book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
-                <button id="nNt3" onmousedown="nav.Page(books.book.pn()+1, 0)" style="display:none;">&nbsp;🫱</button>
+                <button id="nNt2" onmousedown="nav.ScrollDn()" style="display:none;">&nbsp;🫱</button>
+                <button id="nNt3" onmousedown="nav.ScrollDn()" style="display:none;">&nbsp;🫱</button>
                 <button id="nPv2" onmousedown="nav.Page(books.book.pn()-1)" style="display:none;">🫲&nbsp;</button>
                 <button id="nPv3" onmousedown="nav.Page(books.book.pn()-1)" style="display:none;">🫲&nbsp;</button>
         </div>
