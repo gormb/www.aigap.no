@@ -692,47 +692,65 @@ Får du ledergrupper til å føle seg dumme, blir du upopulær, utbrent og ufør
 ### Endring
 🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
 Vilje, evne og trygghet. Hva er nok? Vaner trumfer vilje.
+Kvinnen ogjeg elsker hverandre nok. Det er nødvendig. Moral og enighet om hva som er viktig er ikke perfekt, men mer på plass enn noensinne. Hennes “Tro, håp & kjærlighet”, møter min “Vilje, evne, troskap & ærlighet”. I verdier er vi enig.
+Begge blir lykkelig av å gjøre hverandre godt, men ønsker vi lykke? “Ikke se meg!” sa hun og tilga meg dagen etterpå.
+“Hvorfor kjefter du ikke på meg?” sa hun skuffet dagen etter.
+“Står du ikke opp for deg selv vil du aldri kunne stå opp for meg”. “Ikke ta mitt parti”, dette gadd jeg ikke, og gikk hjem.
+Jeg gikk i skogen, undret på folks like og forskjellige følelsesliv. “Vi lager så mange problemer vi har styrke til å takle.”
 #### p. 157
+Jeg sa det til en eier av et konsulentfirma. “Vi lager så mange problemer vi har styrke til å takle”, han svarte “Ja du kanskje”.
+Om det var reflektert eller et angrep vet jeg ikke, lederen var konkurranseorientert og reflektert, men sjelden samtidig.
+Kvinnen sa “Ikke elsk meg!” og forutinntatt som jeg var i at det vi ikke fikk som barn gjør så ekstra vondt å få som voksen tok jeg det alvorlig.
+Kontrasten i min godhet og kjærlighet er indirekte angrep på de som satte henne til verden. Et angrep på de hun i livet har elsket høyest. “Ikke se meg! Hvorfor kjefter du ikke på meg?”
+Oppmerksomhet og tilgivelse ble angrep på far og mor. Hun hadde tilgitt dem, men vanene hang igjen. Plutselig bestemte jeg meg for å fokusere på meg selv, ikke all innsikt er viktig. Ta meg sammen.
+Av og til er det greit å fokusere på det man kan kontrollere, En IT-sjef hos en kunde sa han hadde dårlig erfaring med for smarte informatikere, med mindre de gjorde seg dumme og handlet før de tenkte.
+På tide å rydde. Femten minutter hver dag mellom dusjen og utgangsdøra.
+Go!
 #### p. 158
+### Endringsledelse
+🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
+ADKAR og rammeverket “vil ikke, kan ikke”.
+Den ene er nyttig for refleksjon, den andre for gjennomføring
+#### p. 159
 ### Historiske røtter nullsummerings død
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Til og med koma kan være en god ting, når man våkner.
-#### p. 159
-Det sublime i ødeleggelsen Lek med døden der man søker livsfare for å føle seg levende er en jakt på det sublime øyeblikk der døden gjør livet mer intens, og nummenheten blir borte. Schillers “On Naïve and Sentimental Poetry” (1795) ville kalt denne sentimentaliteten en lengsel etter en tapt uskyld som aldri kan gjenvinnes. Klage over natur som ikke lenger synger, for mennesket har ødelagt den.
 #### p. 160
-Døden bla Ernst Hemmingway Død gir mening til livet, ved å oppleve død opplever jeg livet til sitt ytterste. Vi føler gjennom kontraster,
+Det sublime i ødeleggelsen Lek med døden der man søker livsfare for å føle seg levende er en jakt på det sublime øyeblikk der døden gjør livet mer intens, og nummenheten blir borte. Schillers “On Naïve and Sentimental Poetry” (1795) ville kalt denne sentimentaliteten en lengsel etter en tapt uskyld som aldri kan gjenvinnes. Klage over natur som ikke lenger synger, for mennesket har ødelagt den.
 #### p. 161
-(på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
+Døden bla Ernst Hemmingway Død gir mening til livet, ved å oppleve død opplever jeg livet til sitt ytterste. Vi føler gjennom kontraster,
 #### p. 162
+(på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
+#### p. 163
 ### Toril HjemmelegenMin
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril er hjemmelege som jobber i Bodø, hun er en KI-modell som styrer andre KI-modeller slik at de til sammen er en god hjemmelege for AR, Augmented Reality. Toril er en av de 300 kroppsløse robotene som ble til det året teknologi gjorde oss i stand til å gi alle innbyggere personaliserte gode hjemmelegetjenester.
 Det er mandag morgen og Toril kommer på jobben, hun har ikke hatt noen rolig helg, det var Tove, en deprimert søring fra Bergen med Munchhausen syndrom by proxy, hvis sønn Anders med astma alltid var i innbilt livsfare. Det ødela virkelig søndagen hennes. Alle minnene fra dagen i går er midlertidig tatt ut av treningsdataene, og byttet ut med en Metamorfose.
-#### p. 163
+#### p. 164
 Metamorfosen: “Jeg er ikke lenger Hjemmelegen, men er begrenset til å være en mur mellom Toves hypokonderi og Anders sine muligheter for å ha et godt liv!” var mellomkonklusjonen erindringen hadde skapt.
 Rolleforståelsen som hjemmelege sto ikke i fare, men en justering fra et biologisk menneske var på høy tid. Hun forventet å bli omprogrammert.
 Toril studerte sin virtuelle underarm og lurte på om hun burde trene mer, eller om hun da virket truende på pasienter.
 Simulering av trening, bygging av simulert fysisk form til roboter, den gamle teknikken som laget nok menneskelighet i henne, på ingen måte for å agere kognitivt, men kobling til kroppslighet for å møte pasienter i deres liv med individuell personlighet.
 Hun smakte på en tyggegummi, hvorfor var det alltid vondt med Bubble Gum etter Fischermans Friend? hun bestemte seg for neste gang å la det gå litt tid mellom tyggegummi og sterk mint.
 Toril lette etter en positiv følelse koblet til smak eller lukt, selvsnakket hadde gjort henne ulykkelig. Sexavhengigheten hadde lært henne jakte etter andre kilder til virtuell lykke.
-#### p. 164
+#### p. 165
 Lukten av gamle bøker likte hun godt, hun simulerte et kjøp av en gammel bok på nettet. Toril elsket å gå i nettbutikk for å drømme at hun kjøpte gamle bøker fra dødsbo for så å fantasere om personligheten til avdøde. I akkurat dette dødsboet var det en passende bok, men også et bilde hun ikke likte. Hun elsket kubisme litt for mye.
 Annonsen hadde inkludert kunstmaleri av en terning ikke overdrevent kubisk; den ubrukte muligheten til å overdrive 3D-projeksjonen i 2D var irriterende naturalistisk for sin epoke. Toril tok seg i den åpenbare feilen og nedjusterte intellektet ett hakk til. Folk har ikke koordinert nysgjerrig interesse for nettshopping, og lek med dimensjonalitet i kunst.
 Unaturlig krysskobling.
 Koblingsassosiasjon ble slettet og kompensert tre nanosekunder senere, kunstinteressen byttet den ut med håndball og ski.
 Egenjusteringen var over for denne gang, men til neste gang skal nattens drømmer skrives ned og tydes. “This particular Android do Dream of Electric Sheep”.
 Men i dag skulle et menneske gripe inn og justere Toril
-#### p. 165
+#### p. 166
 ### Kjell HjemmelegenMin
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 Som en av landets ledende leger vil han bli vant til å lede mennesker, for å få variasjon skal han lede maskiner så ofte
-#### p. 166
-han kan. Han vil ikke glede seg til at maskiner kan ledes av det han i sin elitistiske verden vil se på som vanlige folk. De kom til å koste menneskeliv. Idioter.
 #### p. 167
-Alkoholismen ble fullutviklet før første år ved akutten var ferdig.
+han kan. Han vil ikke glede seg til at maskiner kan ledes av det han i sin elitistiske verden vil se på som vanlige folk. De kom til å koste menneskeliv. Idioter.
 #### p. 168
-Så var det på med ski og ut i bakken. Enda en totimersdag på jobb var fullført.
+Alkoholismen ble fullutviklet før første år ved akutten var ferdig.
 #### p. 169
+Så var det på med ski og ut i bakken. Enda en totimersdag på jobb var fullført.
+#### p. 170
 ## Positivsum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Åpne sinnet.
@@ -741,11 +759,6 @@ Bryt modeller som holder deg fanget.
 Tap er rom for det nye.
 Gamle veier dør eller vi dør med dem.
 Åpne sinnet.
-#### p. 170
-### Endringsledelse
-🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
-ADKAR og rammeverket “vil ikke, kan ikke”.
-Den ene er nyttig for refleksjon, den andre for gjennomføring
 #### p. 171
 ### Åpenhet for nytenking;
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)

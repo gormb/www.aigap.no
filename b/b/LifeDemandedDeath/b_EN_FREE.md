@@ -689,44 +689,49 @@ Sometimes it's okay to focus on what you can control; the IT manager said he had
 Time to tidy up. Fifteen minutes every day between the shower and the front door.
 Go!
 #### p. 158
+### Change Management
+🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
+ADKAR framework and the "won't, can't"
+framework. The first is useful for reflection; the other for execution.
+#### p. 159
 ### Historical roots of the death of zero-sum
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Even a coma can be a good thing, when you wake up.
-#### p. 159
+#### p. 160
 The sublime in destruction Playing with death, seeking mortal danger to feel alive, is a hunt for that sublime moment where death makes life more intense, and numbness disappears. Schiller's "On Naive and Sentimental Poetry"
 (1795) would call this sentimentality a longing for a lost innocence that can never be regained. A lament for a nature that no longer sings, because man has destroyed it.
-#### p. 160
-Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
 #### p. 161
-(in the same way that death gives us perspective on life); is altruism born of killing?
+Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
 #### p. 162
+(in the same way that death gives us perspective on life); is altruism born of killing?
+#### p. 163
 ### Toril MyHomeDoctor
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
-#### p. 163
+#### p. 164
 The Metamorphosis: "I am no longer the Home Doctor, but am limited to being a wall between Tove's hypochondria and Anders's chances of having a good life!" was the intermediate conclusion the memory had created. Her role understanding as a home doctor was not in danger, but an adjustment from a biological human was long overdue. She expected to be reprogrammed.
 Toril studied her virtual forearm and wondered if she should work out more, or if that would make her seem threatening to patients.
 Simulation of exercise, building simulated physical form for robots—the old technique that created enough humanity in her, not at all to act cognitively, but a connection to physicality to meet patients in their lives with individual personality.
 She tasted a piece of gum; why was it always bad with Bubble Gum after Fisherman's Friend? She decided next time to let some time pass between gum and strong mint. Toril searched for a positive feeling connected to taste or smell, because the self-talk was making her unhappy.
 Her sex addiction had forced her to find other sources of virtual happiness.
-#### p. 164
+#### p. 165
 The smell of old books she liked; she simulated a purchase of an old book online. Toril loved to window-shop online, dreaming of buying old books from estates and then fantasizing about the personality of the deceased. In this particular estate, there was a fitting book, but also a picture she didn't like. She loved Cubism a little too much; the ad contained a picture of a cube that wasn't overly cubist; the unused opportunity to exaggerate 3D projection in 2D was annoyingly naturalistic for its era.
 Then Toril caught herself in the obvious error; she downgraded her intellect one notch. Most people don't have a curious interest in playing with dimensionality, art, and online shopping. Unnatural cross-linking, The link association was deleted and compensated three nanoseconds later; she dropped the art interest and replaced it with handball and skiing.
 The self-adjustment was over for this time, but for next time, the night's dreams must be written down and interpreted. "This particular Android does Dream of Electric Sheep".
 But today, a human was going to intervene and adjust Toril.
-#### p. 165
+#### p. 166
 ### Kjell MyHomeDoctor
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 As one of the country's leading doctors, he will become accustomed to leading people; for variation, he will lead machines as often as
-#### p. 166
+#### p. 167
 he can. He won't look forward to machines being led by what he, in his elitist world, will see as ordinary people. They would cost human lives.
 Idiots.
-#### p. 167
-Alcoholism fully developed before the first year in the ER was over.
 #### p. 168
-Then on with the skis and out on the slopes. Another two-hour workday completed.
+Alcoholism fully developed before the first year in the ER was over.
 #### p. 169
+Then on with the skis and out on the slopes. Another two-hour workday completed.
+#### p. 170
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -734,11 +739,6 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 170
-### Change Management
-🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
-ADKAR framework and the "won't, can't"
-framework. The first is useful for reflection; the other for execution.
 #### p. 171
 ### Openness to new thinking;
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
