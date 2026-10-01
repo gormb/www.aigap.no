@@ -5,9 +5,9 @@
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
         <script type="module" src="LdD.js?v=74"></script>
-        <link rel="stylesheet" href="LdD.css?v=25">
+        <link rel="stylesheet" href="LdD.css?v=26">
         <link rel="stylesheet" href="books.map.css?v=7">
-        <script src="books.map.js?v=84"></script>
+        <script src="books.map.js?v=85"></script>
         <script src="books.book.js?v=3"></script>
         <script>
             window.SUPABASE = window.SUPABASE || (typeof SUPABASE !== 'undefined' ? SUPABASE : undefined);
@@ -103,7 +103,7 @@
                 }
                 ,nShFit:()=>{ // hide nSh only if ◄ (nPv2/nPv3) overlaps it vertically
                     const b=[nPv2,nPv3].find(b=>b.style.display!='none');
-                    nSh.style.display=nMt.innerText=='⏷'&&b&&b.getBoundingClientRect().bottom>nSh.getBoundingClientRect().top?'none':'';
+                    nSh.style.display=nMt.innerText=='⏷'&&b&&b.getBoundingClientRect().bottom>nSh.getBoundingClientRect().top?'none':'inline';
                 }
                 ,DisButtons:()=>nav.Able(nPv, nav.Able(nFt, nav.Able(nUp, nav.Able(nGo, nav.Able(nDn, nav.Able(nLt, nav.Able(nNt, uishow(nNt2, uishow(nUp2, uishow(nNt3, uishow(nUp3
                             , false)))))))))))
@@ -549,9 +549,10 @@
                         nav.uiHide(true);
                     },3000);
                 }
-                ,menu:()=>{
-                    let h=nMt.innerText!='⏶';
+                ,menu:(on)=>{
+                    const h=on===undefined?(nMt.innerText!='⏶'):!!on;
                     nMt.innerText=h?'⏶':'⏷';
+                    try{localStorage.setItem('LdD.menu',h?'1':'0')}catch(e){}
                     document.querySelector('.bookControls').classList.toggle('collapsed', !h);
                     // Adjust scale of share button to fit within menu, set to fixed right if h
                     nSh.style.scale=h?1:.5;
@@ -641,7 +642,8 @@
                 }
             }
             async function loaded() {
-                nav.menu(false);
+                let _m=false;try{_m=localStorage.getItem('LdD.menu')=='1'}catch(e){}
+                nav.menu(_m);
                 // auto lang-swap on horizontal scroll removed – language only via nLg button
                 window.addEventListener('wheel',nav.gest.wheel,{passive:false}); // gesture: one decision per scroll; swallow momentum after page change
                 // touch (iPhone): iOS gives no wheel on touch-scroll → translate to synthetic wheel events for the same gesture machine
@@ -675,8 +677,8 @@
         </script>
     </head>
     <body onload="loaded()">
-        <div class="bookControls" style="z-index:1;text-align:center;">
-            <button id="nMt" onmousedown="nav.menu()" style="padding-left:2vw;padding-right:2vw;scale:.7;"></tool_call></button>
+        <div class="bookControls collapsed" style="z-index:1;text-align:center;">
+            <button id="nMt" onmousedown="nav.menu()" style="padding-left:2vw;padding-right:2vw;scale:.7;">⏷</button>
             <button id="nFt" onmousedown="nav.Page(1, 0)">⏮️</button>
                 <button id="nPv" onmousedown="nav.Page(books.book.pn()-1, 0)">◀️</button>
                 <button id="nUp" onmousedown="nav.ScrollUp()">⏫</button>

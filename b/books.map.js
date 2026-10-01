@@ -430,7 +430,7 @@ M.Z={
         document.addEventListener('touchstart',e=>{
             if(!zone(e.target))return;
             if(e.touches.length>1){z.t=1;sw=0;z.pin=0;base=dist(e.touches);z.enter();}
-            else if(e.touches.length===1){sw=1;sx=e.touches[0].clientX;sy=e.touches[0].clientY;}
+            else if(e.touches.length===1&&z.on){sw=1;sx=e.touches[0].clientX;sy=e.touches[0].clientY;}
         },{passive:true});
         document.addEventListener('touchmove',e=>{
             if(!z.t||e.touches.length<2)return;
@@ -443,7 +443,7 @@ M.Z={
             if(z.t&&e.touches.length<2)z.t=0;
             if(sw&&!e.touches.length){
                 const t=e.changedTouches[0]||{clientX:sx,clientY:sy},dx=t.clientX-sx,dy=t.clientY-sy;sw=0;
-                if(Math.abs(dx)>48&&Math.abs(dx)>2*Math.abs(dy))M.host.nav(dx<0?1:-1);
+                if(z.on&&Math.abs(dx)>48&&Math.abs(dx)>2*Math.abs(dy))M.host.nav(dx<0?1:-1);
             }
         },{passive:true});
         document.addEventListener('wheel',e=>{
