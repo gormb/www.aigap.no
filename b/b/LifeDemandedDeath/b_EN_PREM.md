@@ -953,63 +953,80 @@ She was fun to talk to and tougher than most. The tattoos showed life experience
 If you make leadership groups feel stupid, you become unpopular, burned out, and disabled. The golden ratio is cultivated by humans aesthetically; the golden mediocre is cultivated by the organizations, by those who sit in them. The higher up, the greater the need for mediocrity. Where the most important thing is that everyone should feel good.
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
 #### p. 156
+### Change
+🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
+Will, ability, and security. What is enough? Habits trump will.
+We love each other enough. It is necessary. Morality and agreement on what is important are never perfect, but are in place to a greater degree than ever. For her, it is "Faith, hope, and love"; for me, it is "Will, ability, loyalty, and honesty." We agree.
+Both become happy by doing each other good, but do we want to be happy? "Don't look at me!" she said, and forgave me the next day.
+"Why don't you yell at me?" she said disappointed the day after. "If you don't stand up for yourself, you will never be able to stand up for me."
+"Don't take my side." I couldn't be bothered and went home.
+I walked in the forest wondering if people have similar or different emotions. "We create as many problems as we have strength to handle."
+#### p. 157
+I said it to an owner of a consulting firm. "We create as many problems as we have strength to handle," he replied, "Yes, you maybe." Whether it was reflective or an attack, I don't know; the leader was competition-oriented and reflective, but rarely at the same time.
+The woman said, "Don't love me!" and prejudiced as I was in believing that what we didn't get as children makes it so much more painful to receive as adults, I took it seriously.
+The contrast in my goodness and love is an indirect attack on those who brought her into the world. An attack on those she, in the life we have, has loved the highest. "Don't look at me! Why don't you yell at me?"
+Attention and forgiveness became attacks on father and mother. She had forgiven them, but the habits lingered. Suddenly I decided to focus on myself; not all insight is important. Pull myself together.
+Sometimes it's okay to focus on what you can control; the IT manager said he had bad experience with too-smart IT people, unless they made themselves stupid and acted before they thought.
+Time to tidy up. Fifteen minutes every day between the shower and the front door.
+Go!
+#### p. 158
 ### Historical roots of the death of zero-sum
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Trauma as temporal rupture Judith Herman, Cathy Caruth Even a coma can be a good thing, when you wake up.
 Acknowledgment of a world that no longer exists is an example of traumatic rupture. Moments where reality tears and time is experienced as fragmented. Caruth's theory of trauma's "delayed return" explains why the sound of broken glass (or a helmet) becomes an auditory memory trace that is activated later moments of crisis. A sound bridge to death reminds of all losses and the death of all hope. Everything from unanswered kisses to lifelong traumas makes the past never just the past; the past is the present, repeated in every destruction or lack of action. When you wake from a coma, you can choose to erase your old life and start anew.
-#### p. 157
+#### p. 159
 Historical roots of the death of zero-sum The metaphysics of loss Boethius, Augustus "Confessiones" For Boethius (Consolation of Philosophy, 524), suﬀering was a trial that revealed the soul's true nature. The realization of a world going to hell can resemble Boethius's description of Fortuna turning the wheel: in one moment you are on top; in the next, you are crushed against the ground. Augustine's Confessions are about how the loss of a beloved opens the way for a deeper love of God. But here there is no god, only engine roar, mortal danger, and the absent glances of traumatized women. There is a vain liturgy in rituals—bubbles, mussels, interrupted kisses—they become substitutes for a lost order, just as medieval lamentations preserved the memory of the dead.
 Historical roots of the death of zero-sum The sublime in destruction Edmund Burke, Friedrich Schiller "A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful" (1757) distinguishes between the beautiful (harmony) and the sublime (terror mixed with delight). Playing with death, seeking mortal danger to feel alive, is a hunt for that sublime moment where death makes life more intense, and numbness disappears. Schiller's "On Naive and Sentimental Poetry"
 (1795) would call this sentimentality a longing for a lost innocence that can never be regained. A lament for a nature that no longer sings, because man has destroyed it.
-#### p. 158
+#### p. 160
 Historical roots of the death of zero-sum Posthumanist grief Donna Haraway, Byung-Chul Han Haraway's "Staying with the Trouble" (2016) argues that we can learn to live with destruction, not against it. Near-death experiences, accidents, and shattered lives are examples of Haraway's "Chthulucene", a time where man is not the center but part of the network of collapse. Byung-Chul Han's "The Burnout Society" (2010) would see actions in contempt for death as a symptom of late capitalism's positivity exhaustion: when self-realization becomes coercion, one seeks annihilation to feel something. Where Han sees pathology, Haraway sees possibility—in meeting the veterinarian who saves him, or in a woman's endurance—lies the seed of a new form of community.
 Not based on wholeness, but on joined fractures.
 "We are all lacerated and wounded, but the wound is where the light enters you". (Rumi, 13th century, reinterpreted by Coleman Barks) Historical roots of the death of zero-sum Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts , so if you stop taking things for granted, you can see them with
-#### p. 159
+#### p. 161
 neutral eyes, and so that life won't be a given, death must become a real possibility. "You can never lose here, because you always have a good time". Fear, if you don't let the anxiety come forward, can therefore be a formidable source of joy in life.
 Historical roots of the death of zero-sum The Kill see Ernest Hemingway A cheetah cub that is sick is healed by humans; we hope that one day, when we release it, we will never see it again. If it manages to kill, it is free from our human world and inﬂuence; it returns to nature. Is it through losing our humanity that we appreciate it (in the same way that death gives us perspective on life); is altruism born of killing?
-#### p. 160
+#### p. 162
 ### Toril MyHomeDoctor
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
-#### p. 161
+#### p. 163
 The Metamorphosis: "I am no longer the Home Doctor, but am limited to being a wall between Tove's hypochondria and Anders's chances of having a good life!" was the intermediate conclusion the memory had created. Her role understanding as a home doctor was not in danger, but an adjustment from a biological human was long overdue. She expected to be reprogrammed.
 Toril studied her virtual forearm and wondered if she should work out more, or if that would make her seem threatening to patients.
 Simulation of exercise, building simulated physical form for robots—the old technique that created enough humanity in her, not at all to act cognitively, but a connection to physicality to meet patients in their lives with individual personality.
 She tasted a piece of gum; why was it always bad with Bubble Gum after Fisherman's Friend? She decided next time to let some time pass between gum and strong mint. Toril searched for a positive feeling connected to taste or smell, because the self-talk was making her unhappy.
 Her sex addiction had forced her to find other sources of virtual happiness.
-#### p. 162
+#### p. 164
 The smell of old books she liked; she simulated a purchase of an old book online. Toril loved to window-shop online, dreaming of buying old books from estates and then fantasizing about the personality of the deceased. In this particular estate, there was a fitting book, but also a picture she didn't like. She loved Cubism a little too much; the ad contained a picture of a cube that wasn't overly cubist; the unused opportunity to exaggerate 3D projection in 2D was annoyingly naturalistic for its era.
 Then Toril caught herself in the obvious error; she downgraded her intellect one notch. Most people don't have a curious interest in playing with dimensionality, art, and online shopping. Unnatural cross-linking, The link association was deleted and compensated three nanoseconds later; she dropped the art interest and replaced it with handball and skiing.
 The self-adjustment was over for this time, but for next time, the night's dreams must be written down and interpreted. "This particular Android does Dream of Electric Sheep".
 But today, a human was going to intervene and adjust Toril.
-#### p. 163
+#### p. 165
 ### Kjell MyHomeDoctor
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 We are in the future; the year is 2040. Kjell eats, goes to the bathroom, and will eventually die.
 He wants a cabin oﬃce in Trysil that winter. The ski lift opens in a couple of hours; there will be powder snow on a blue run, calm and a couple of degrees below zero. Telemark skiing today.
 Professor Kjell-André himself, the prompt leader, is to subtly impart indirect lessons to Tove this day. Monday grumpiness is usually delegated to the senior consultant, but the morning coﬀee before a day on the slopes can't be enjoyed better than with a little extra work when you get to work with your passion.
 As one of the country's leading doctors, he will become accustomed to leading people; for variation, he will lead machines as often as
-#### p. 164
+#### p. 166
 he can. He won't look forward to machines being led by what he, in his elitist world, will see as ordinary people. They would cost human lives.
 Idiots.
 Kjell eventually becomes micro-managed by a subject matter expert in the Directorate of Health. Graduating from medical school as the best in his class meant that people in increasingly higher positions would micro-manage him. Already the ﬁrst time, he was too young and dutiful to say no to unpleasant tasks.
 The subject matter expert at Blindern will assign him to a research project in neurology right after graduation, with practice in neurosurgery. A project that should have started with quality assurance of patient treatment is carried out by others. His studies go directly to increased quality of life as a consequence of brain implants. The sensory enhancement project, together with a mentor and leading neurosurgeon. The result? Kjell becomes recognized and published even before the compulsory internship is completed.
 After his internship, he leads the trauma center; "The ER will make a man of you, my boy", the hospital director had said. "Two years, then we'll see if your nervous system can handle life as a leading doctor". Kjell had learned that setting future top doctors to lead trauma teams in the ER should develop empathy, and that it doesn't work. The necessary Machiavellianism that should
-#### p. 165
+#### p. 167
 be required to get where he was could not be treated that way. He knew he was lost in that regard and never shared it with anyone.
 Not long after the years as leader of the trauma center, Kjell was commanded to become senior consultant, head of department, and academic leader at Blindern by various authorities no one said no to. Later came leadership of doctoral students, political roles in the medical association, and ownership of ethics committees and inﬂuence on hospital construction. Never his own choices, only expectations as a result of hard work. Patient practice he kept throughout, and leadership of improvement and digitalization was part of the responsibility.
 Alcoholism fully developed before the first year in the ER was over. The team he led for a month had managed to keep alive a man who had only partially managed to shoot his head oﬀ. Kjell had the contempt for self-destructive people under control, but it would never fade; self-medication numbed the experienced pain for now.
 Developing empathy in robots with cognitive injection felt as hopeless as inﬂicting pain on top doctors. He had no joy in such misguided symptom treatment, but contributed anyway.
 The subject matter expert in the Directorate of Health had steered him to simulate being a good doctor using robots. It was a completely new
-#### p. 166
+#### p. 168
 type of job, and something new to learn; he loved it. He married the subject matter expert, so he didn't have to think about that anymore; they already had children on the way. Simulating a top doctor in Augmented Reality felt like doing something useful, impossible to ruin that job for idiot patients who took control of his emotional life.
 Indirectly downgrading the expanded consequences of a mother in anxiety destroying her child somewhere in Mid-Norway. The patient was far enough away, and Kjell had to get on the slopes soon. Bodø's home health service needed a good Monday with a relevant home doctor. Tove had indirectly aﬀected the mood of the whole area for three Mondays in a row; now it was enough.
 Kjell recoded the experience of Sunday's patient encounter.
 "Tove. You are My Home Doctor, no longer limited to being a wall between Tove's hypochondria and Anders's chances of a good life. You are the modern manifestation of the doctor who, in earlier centuries, went from farm to farm and helped everyone who was there; that is your job!"
 Then on with the skis and out on the slopes. Another two-hour workday completed.
-#### p. 167
+#### p. 169
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -1017,43 +1034,36 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 168
+#### p. 170
 ### Change Management
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 Helping people and groups through change. For many years, I worked as a strategic enterprise architect in digitalization.
 Competence in change management is not a requirement for those of us who create target images, but it is needed to get people to stretch. I recommend change management for everyone; I have two versions, the ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
-#### p. 169
+#### p. 171
 ### Openness to new thinking;
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
-#### p. 170
+#### p. 172
 ### Novelty creation, a part of innovation
 🎵 [In the Air Tonight; Phil Collins](https://aigap.no/mitat)
 Novelty creation is about inventing new methods, things, or applications. When I write about innovation, it's novelty creation I mean. Innovation is creating something from nothing. Here lie the possibilities, in undiscovered space. The result of novelty creation is a world with more dimensions. My world is full of stars.
 It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
 Failing at novelty creation is part of the path towards or without success. When we create something new, we must endure the resistance from the old.
-#### p. 171
+#### p. 173
 ## Post rationalization
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and loose thoughts
-#### p. 172
+#### p. 174
 ### Meta for book, music, and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 I hadn't listened to music for a long time. Starved for music.
 Only writing. Then I put on the playlist for this book after two weeks. What a variation! The brain was overstimulated by the impressions!
 Two extremes for the role of music in storytelling are background music and associated music. Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
-#### p. 173
+#### p. 175
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
-#### p. 174
-### Subchapter Title
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
-premium "EB Garamond" After the book, you remember the feeling it gave you, not what it was about. This is paid text, in "EB Garamond". This is the speciﬁc typeface used for the paid text. It is based on a classic, historical print from 1592, which gives the text a slightly darker, softer, and more traditional book-printing character. For the system, it functions as a completely separate font ID that allows your viewing program to automatically unlock or hide the text based on payment status.
-#### p. 175
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium premium "EB Garamond" After the book, you remember the feeling it gave you, not what it was about. This is paid text, in "EB Garamond". This is the speciﬁc typeface used for the paid text. It is based on a classic, historical print from 1592, which gives the text a slightly darker, softer, and more traditional book-printing character. For the system, it functions as a completely separate font ID that allows your viewing program to automatically unlock or hide the text based on payment status.

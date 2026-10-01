@@ -672,44 +672,61 @@ She was fun to talk to and tougher than most. The tattoos showed life experience
 If you make leadership groups feel stupid, you become unpopular, burned out, and disabled. The golden ratio is cultivated by humans aesthetically; the golden mediocre is cultivated by the organizations, by those who sit in them. The higher up, the greater the need for mediocrity. Where the most important thing is that everyone should feel good.
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
 #### p. 156
+### Change
+🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
+Will, ability, and security. What is enough? Habits trump will.
+We love each other enough. It is necessary. Morality and agreement on what is important are never perfect, but are in place to a greater degree than ever. For her, it is "Faith, hope, and love"; for me, it is "Will, ability, loyalty, and honesty." We agree.
+Both become happy by doing each other good, but do we want to be happy? "Don't look at me!" she said, and forgave me the next day.
+"Why don't you yell at me?" she said disappointed the day after. "If you don't stand up for yourself, you will never be able to stand up for me."
+"Don't take my side." I couldn't be bothered and went home.
+I walked in the forest wondering if people have similar or different emotions. "We create as many problems as we have strength to handle."
+#### p. 157
+I said it to an owner of a consulting firm. "We create as many problems as we have strength to handle," he replied, "Yes, you maybe." Whether it was reflective or an attack, I don't know; the leader was competition-oriented and reflective, but rarely at the same time.
+The woman said, "Don't love me!" and prejudiced as I was in believing that what we didn't get as children makes it so much more painful to receive as adults, I took it seriously.
+The contrast in my goodness and love is an indirect attack on those who brought her into the world. An attack on those she, in the life we have, has loved the highest. "Don't look at me! Why don't you yell at me?"
+Attention and forgiveness became attacks on father and mother. She had forgiven them, but the habits lingered. Suddenly I decided to focus on myself; not all insight is important. Pull myself together.
+Sometimes it's okay to focus on what you can control; the IT manager said he had bad experience with too-smart IT people, unless they made themselves stupid and acted before they thought.
+Time to tidy up. Fifteen minutes every day between the shower and the front door.
+Go!
+#### p. 158
 ### Historical roots of the death of zero-sum
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Even a coma can be a good thing, when you wake up.
-#### p. 157
+#### p. 159
 The sublime in destruction Playing with death, seeking mortal danger to feel alive, is a hunt for that sublime moment where death makes life more intense, and numbness disappears. Schiller's "On Naive and Sentimental Poetry"
 (1795) would call this sentimentality a longing for a lost innocence that can never be regained. A lament for a nature that no longer sings, because man has destroyed it.
-#### p. 158
-Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
-#### p. 159
-(in the same way that death gives us perspective on life); is altruism born of killing?
 #### p. 160
+Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
+#### p. 161
+(in the same way that death gives us perspective on life); is altruism born of killing?
+#### p. 162
 ### Toril MyHomeDoctor
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
-#### p. 161
+#### p. 163
 The Metamorphosis: "I am no longer the Home Doctor, but am limited to being a wall between Tove's hypochondria and Anders's chances of having a good life!" was the intermediate conclusion the memory had created. Her role understanding as a home doctor was not in danger, but an adjustment from a biological human was long overdue. She expected to be reprogrammed.
 Toril studied her virtual forearm and wondered if she should work out more, or if that would make her seem threatening to patients.
 Simulation of exercise, building simulated physical form for robots—the old technique that created enough humanity in her, not at all to act cognitively, but a connection to physicality to meet patients in their lives with individual personality.
 She tasted a piece of gum; why was it always bad with Bubble Gum after Fisherman's Friend? She decided next time to let some time pass between gum and strong mint. Toril searched for a positive feeling connected to taste or smell, because the self-talk was making her unhappy.
 Her sex addiction had forced her to find other sources of virtual happiness.
-#### p. 162
+#### p. 164
 The smell of old books she liked; she simulated a purchase of an old book online. Toril loved to window-shop online, dreaming of buying old books from estates and then fantasizing about the personality of the deceased. In this particular estate, there was a fitting book, but also a picture she didn't like. She loved Cubism a little too much; the ad contained a picture of a cube that wasn't overly cubist; the unused opportunity to exaggerate 3D projection in 2D was annoyingly naturalistic for its era.
 Then Toril caught herself in the obvious error; she downgraded her intellect one notch. Most people don't have a curious interest in playing with dimensionality, art, and online shopping. Unnatural cross-linking, The link association was deleted and compensated three nanoseconds later; she dropped the art interest and replaced it with handball and skiing.
 The self-adjustment was over for this time, but for next time, the night's dreams must be written down and interpreted. "This particular Android does Dream of Electric Sheep".
 But today, a human was going to intervene and adjust Toril.
-#### p. 163
+#### p. 165
 ### Kjell MyHomeDoctor
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 As one of the country's leading doctors, he will become accustomed to leading people; for variation, he will lead machines as often as
-#### p. 164
+#### p. 166
 he can. He won't look forward to machines being led by what he, in his elitist world, will see as ordinary people. They would cost human lives.
 Idiots.
-#### p. 165
-Alcoholism fully developed before the first year in the ER was over.
-#### p. 166
-Then on with the skis and out on the slopes. Another two-hour workday completed.
 #### p. 167
+Alcoholism fully developed before the first year in the ER was over.
+#### p. 168
+Then on with the skis and out on the slopes. Another two-hour workday completed.
+#### p. 169
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -717,35 +734,29 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 168
+#### p. 170
 ### Change Management
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
-#### p. 169
+#### p. 171
 ### Openness to new thinking;
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
-#### p. 170
+#### p. 172
 It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
-#### p. 171
+#### p. 173
 ## Post rationalization
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and loose thoughts
-#### p. 172
+#### p. 174
 ### Meta for book, music, and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
-#### p. 173
+#### p. 175
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
-#### p. 174
-### Subchapter Title
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
-#### p. 175
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)
