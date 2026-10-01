@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="LdD.css?v=25">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=84"></script>
-        <script src="books.book.js?v=2"></script>
+        <script src="books.book.js?v=3"></script>
         <script>
             window.SUPABASE = window.SUPABASE || (typeof SUPABASE !== 'undefined' ? SUPABASE : undefined);
             const uisz=()=>books.book.sz(window.innerWidth,window.innerHeight);
@@ -477,7 +477,10 @@
                     nFdTxt.value=''; // book list is a fresh list – no inherited chapter filter
                 }
                 ,PremToggle:()=>{ // PIN → premium: verified against Supabase 'codes' (dtfrom<=now<=dtto); future: hash to a remembered var
-                    if(books.book.prem._){nav.memSet('code','');return books.book.prem.L(false);} // premium → free: delete stored code
+                    if(books.book.prem._){ // premium → free: only from the open menu, never a stray tap on the floating button
+                        if(nMt.innerText!='⏶')return;
+                        nav.memSet('code','');return books.book.prem.L(false); // delete stored code
+                    }
                     if(nPin.style.display!='none')return uishow(nPin,false); // PIN visible → 🔓 again closes it (abort)
                     nav.PinOpen(); // free → premium: ask for PIN
                 }
@@ -518,6 +521,7 @@
                     if(!code)return;
                     const r=await nav.StillValid(code);
                     if(r===undefined||r===null)return; // db.js unavailable – don't conclude
+                    if(r.reason==='error'||r.reason==='connection'||r.reason==='noconfig')return; // technical failure → keep premium
                     if(!(r===true||!!(r&&r.ok))&&books.book.prem._)books.book.prem.L(false); // others took over → freemium (re-enter premium manually via 🔓)
                 }
                 ,PinMsg:r=>{ // reason code → readable message shown at PIN field for 4s (auto-hide)

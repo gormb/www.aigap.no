@@ -52,7 +52,7 @@ const book=window.books.book={
                     _:false // true=premium, false=freemium
                     ,ui:(l=book.prem._)=>{ // button-only UI, no re-render / TOC work (used at load, before first paint)
                         nPr.innerText=l?'👑':'🔓';
-                        if(nMt.innerText=='⏷')nPr.style.display=l?'none':'inline'; // floating 🔓 only in freemium (outside menu)
+                        nPr.style.display=(l&&nMt.innerText!='⏶')?'none':'inline'; // premium hides the button outside the open menu
                         return l;
                     }
                     ,L:async l=>{
@@ -72,10 +72,10 @@ const book=window.books.book={
                         const r=await nav.StillValid(code); // "still OK?" – rolling window / limit
                         if(r===undefined||r===null)return; // db.js unavailable – don't conclude
                         const ok=r===true||!!(r&&r.ok); // supports old bool and new {ok} object
-                        if(ok){if(!book.prem._)book.prem.L(true);} // still OK → premium (silent)
-                        else if(book.prem._){ // not OK (over limit / expired) → revoke + ask for code again
-                            if(r.reason!=='error'&&r.reason!=='connection'&&r.reason!=='noconfig')
-                                nav.memSet('code',''); // revoke stored code → must re-enter (network errors don't punish user)
+                        if(ok){if(!book.prem._)book.prem.L(true);return;} // still OK → premium (silent)
+                        if(r.reason==='error'||r.reason==='connection'||r.reason==='noconfig')return; // technical failure → keep premium, no PIN
+                        if(book.prem._){ // definitively not OK (over limit / expired) → revoke + ask for code again
+                            nav.memSet('code',''); // revoke stored code → must re-enter
                             book.prem.L(false);
                             nav.PinOpen();
                         }
