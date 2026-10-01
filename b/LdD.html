@@ -219,6 +219,8 @@
                 ,gest:{
                     _edge:0.02 // edge margin as fraction of viewport height: 0.02 = 2% from top/bottom
                     ,_ratio:2 // axis dominance: horizontal needs |dx|>2·|dy|, vertical needs |dy|>2·|dx|; diagonal = native scroll
+                    ,_tMin:80 // touch: px the finger must travel before an axis locks (a flip needs a long swipe)
+                    ,_tRatio:3 // touch: horizontal needs |dx|>3·|dy|; anything more diagonal stays native scroll
                     ,ontop:()=>window.scrollY<=window.innerHeight*nav.gest._edge
                     ,onbottom:()=>window.scrollY>=document.documentElement.scrollHeight-window.innerHeight-window.innerHeight*nav.gest._edge
                     ,suppressed:()=>_dToc.style.display!='none'||_dShare.style.display!='none'||_dExport.style.display!='none'||!!window.books?.map?.Z?.on // TOC/share/export open, or the word map up (it owns the wheel then) → never gesture (native scroll)
@@ -666,7 +668,7 @@
                     if(g.suppressed()){_tA=0;_tSX=0;_tSY=0;_tX=e.touches[0].clientX;_tY=e.touches[0].clientY;return;} // TOC/modal open: no gesture – native scroll
                     const t=e.touches[0], dx=t.clientX-_tX, dy=t.clientY-_tY;
                     _tX=t.clientX; _tY=t.clientY;
-                    if(_tA===0){ _tSX+=dx; _tSY+=dy; if(Math.abs(_tSX)>30||Math.abs(_tSY)>30) _tA=Math.abs(_tSX)>Math.abs(_tSY)*nav.gest._ratio?1:Math.abs(_tSY)>Math.abs(_tSX)*nav.gest._ratio?-1:0; } // lock axis only at 2× dominance (>30px); diagonal → 0 = no gesture (native scroll)
+                    if(_tA===0){ _tSX+=dx; _tSY+=dy; if(Math.abs(_tSX)>g._tMin||Math.abs(_tSY)>g._tMin) _tA=Math.abs(_tSX)>Math.abs(_tSY)*g._tRatio?1:Math.abs(_tSY)>Math.abs(_tSX)*g._tRatio?-1:0; } // lock axis only at 3× dominance and >80px; diagonal → 0 = no gesture (native scroll)
                     if(_tA===1){ // horizontal swipe → page flip
                         if(_tUi&&Date.now()-_tUi<800){nav.UndoTap();_tUi=0;} // the touch that hit a floating control turned into a swipe – undo it
                         if(g.isPage(g.newState)||g.newState===GEST.BUSY) e.preventDefault();
