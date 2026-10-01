@@ -14,7 +14,8 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
     ,Source:async function(src,render,pageno=cBook.pn) {
         cBook.ctx = cBook.ctx || _cBook.getContext("2d");
         try {
-            cBook.pdfPromise = cBook.pdfPromise || _cBookJLib.getDocument({url:src, disableStream:true, disableAutoFetch:true}).promise; // range reader only: nothing past what the shown page needs
+            //cBook.pdfPromise = cBook.pdfPromise || _cBookJLib.getDocument({url:src, disableStream:true, disableAutoFetch:true}).promise; // range reader only: nothing past what the shown page needs
+            cBook.pdfPromise = cBook.pdfPromise || _cBookJLib.getDocument({url:src, disableAutoFetch:true}).promise;
             cBook.pdf = cBook.pdf || await cBook.pdfPromise;
             await cBook.Page(pageno, render); // set page + render only when needed (avoid double render)
         } catch(e) { // e.g. 404/corrupt PDF: show message instead of crashing
