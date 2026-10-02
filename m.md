@@ -783,3 +783,5 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
+#### p. 176
+Navnet På Boken
