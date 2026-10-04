@@ -683,7 +683,7 @@
                     } // vertical (_tA=-1): don't touch machine – native scroll
                 }, {passive:false});
                 document.addEventListener('mousedown', (e)=>{
-                    if(e.target.closest('#_spCollapse, #_dPlay, #_spPlayer, .toc-play'))return; // music – don't show nav
+                    if(e.target.closest('#nUp2, #nUp3, #nNt2, #nNt3, #_spCollapse, #_dPlay, #_spPlayer, .toc-play'))return; // the scroll hands + music stay quiet – they must not wake the hidden menu
                     nav.uiHide(false); // click on book/text → show nav again
                 }, true);
                 nav.idleReset(); // start inactivity timer (5s)
