@@ -1,11 +1,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
         <title>Life demanded Death</title>
         <link rel="icon" href="aigap.webp">
+        <!-- fullscreen when launched from the Home Screen (iOS web-app mode); no Safari chrome there -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Liv Krevde Død">
+        <meta name="theme-color" content="#000000">
         <script type="module" src="LdD.js?v=75"></script>
-        <link rel="stylesheet" href="LdD.css?v=30">
+        <link rel="stylesheet" href="LdD.css?v=31">
         <link rel="stylesheet" href="books.map.css?v=7">
         <script src="books.map.js?v=85"></script>
         <script src="books.book.js?v=4"></script>
@@ -308,6 +314,7 @@
                         else if(nav._tocHtml&&nav._tocHtml!=_dTocList.innerHTML){_dTocList.innerHTML=nav._tocHtml;nav.TocCur();} // leaving the TOC drops the chapter filter (rows hidden in place)
                     }
                     uishow(_dTc2Txt,s&&nFdTxt.style.display!='none'); 
+                    if(s)nav.hsTip(); // one-time Home-Screen hint (iOS, not already standalone)
                     uishowBlock(_dToc,s)&&nav.DisButtons();
                     uishowBlock(_dBook,!s)&&nav.UpdButtons();
                     if(nFdTxt.style.display!='none')nav.findRoute(); 
@@ -511,6 +518,15 @@
                     if(_dToc.style.display!='none')return nav.ShowToc(false);
                     if(_dShare.style.display!='none')return nav.Share(false);
                 }
+                ,hsTip:()=>{ // one-time "Add to Home Screen" hint – iOS only, and only when not already a Home-Screen app
+                    const el=document.getElementById('_dHsTip'); if(!el)return;
+                    let off=false;try{off=localStorage.getItem('LdD.hsTip')=='1'}catch(e){}
+                    const ua=navigator.userAgent||'';
+                    const ios=/iP(hone|ad|od)/.test(ua)||(ua.includes('Macintosh')&&'ontouchend' in document); // iPadOS reports itself as Macintosh
+                    const standalone=window.navigator.standalone===true||matchMedia('(display-mode: standalone)').matches;
+                    uishowBlock(el, !off && ios && !standalone);
+                }
+                ,hsTipOff:()=>{ try{localStorage.setItem('LdD.hsTip','1')}catch(e){} uishowBlock(document.getElementById('_dHsTip'),false); }
                 ,Pin:async ()=>{
                     const v=nPin.value.replace(/\D/g,'').slice(0,6);
                     nPin.value=v;
@@ -756,6 +772,11 @@
                 <h1><a id="_dTocTitle" href="javascript:nav.Books();" title="Bytte bok / switch book">"Liv Krevde Død"</a></h1>
                 <div style="display:flex;align-items:center;"> <!-- 2nd TOC filter: further narrow by chapter content / sound (wired later) -->
                     <input id="_dTc2Txt" class="pageNo findBox" type="text" maxlength="40" placeholder="Filter chapter content / sound – later" onkeydown="if(event.key=='Escape'){nav.tcClear();nav.find()}" style="display:none;flex:1;min-width:0;margin:.2em 0 .5em 0;"/>
+                </div>
+                <!-- one-time hint (iOS Safari, not already added to the Home Screen): the Home-Screen app opens fullscreen, without Safari's tabs/address bar -->
+                <div id="_dHsTip" class="hsTip" style="display:none;">
+                    <span>📲 Lese i fullskjerm? iPhone: <b>Del&nbsp;→&nbsp;Legg&nbsp;til&nbsp;på&nbsp;Hjem-skjermen</b> / <b>Share&nbsp;→&nbsp;Add&nbsp;to&nbsp;Home&nbsp;Screen</b> – åpner uten Safari-faner.</span>
+                    <button type="button" title="Skjul / hide" onclick="nav.hsTipOff()">✕</button>
                 </div>
                 <ul id="_dTocList"></ul>
                 <hr><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/06f9iQGV6mSzWo4pz20hQB?utm_source=generator&si=9930b284b4684788" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

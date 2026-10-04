@@ -22,9 +22,9 @@ button { font-size:var(--fsMenu); padding:var(--padMenu);}
 .findBox { font-size:calc(var(--fsMenu)*.6); width:12ch; }
 .findStep { font-size:calc(var(--fsMenu)*.6); padding:0 .15em; border:0; background:transparent; color:#888; filter:grayscale(1); line-height:1; }
 .disabled { opacity: 0.5; pointer-events: none;}
-.bookControls { position: fixed; top: 1vh; left: 1vw;}
+.bookControls { position: fixed; top: max(1vh, env(safe-area-inset-top,0px)); left: max(1vw, env(safe-area-inset-left,0px));}
 .bookControls.collapsed > *:not(#nMt) { display:none;}
-.bookParent { position: relative;box-sizing:border-box;height:100vh;height:100dvh;overflow:hidden auto;overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding-top:calc(1 * var(--paddingTop1));}
+.bookParent { position: relative;box-sizing:border-box;height:100vh;height:100dvh;overflow:hidden auto;overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding-top:calc(1 * var(--paddingTop1));padding-bottom:env(safe-area-inset-bottom,0px);}
 .shareParent { position:fixed;inset:0;overflow:auto;background:#fff;display:none;z-index:1;padding-top:calc(1 * var(--paddingTop1)) }
 .shareOpts { margin-top:.6em; font-size:calc(var(--fsMenu)*.45); }
 .shareOpts input { margin:0 .35em 0 .7em; vertical-align:middle; }
@@ -59,6 +59,9 @@ button { font-size:var(--fsMenu); padding:var(--padMenu);}
             &.toc-num{min-width:3ch;text-align:right}
             &.toc-play{color:#555;font-size:.7em;margin-left:.35em;filter:grayscale(1)}}
         i{flex:1;border-bottom:1px dotted #777;margin:0 .5em}}}
+.hsTip { display:flex;align-items:center;gap:.5em;margin:.5em 0 .2em;padding:.55em .7em;border:1px solid #bbb;border-radius:.5em;background:#f6f6f6;color:#333;font-size:.85em;line-height:1.3;}
+.hsTip span{flex:1;min-width:0;}
+.hsTip button{flex:0 0 auto;border:0;background:none;color:#666;font-size:1.1em;line-height:1;cursor:pointer;padding:0 .1em;}
 #_dExportTxt { overflow:auto; -webkit-overflow-scrolling:touch; border:1px solid #000;
     width: 210mm;min-height: 297mm;padding: 25mm;margin: 0 auto;box-sizing: border-box;font-size: 12pt;line-height: 1.5}
 
