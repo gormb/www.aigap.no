@@ -191,7 +191,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
         const u=window._stateUi||{sym:' '}; // state symbol (from nav.gest)
         const one=`<span class="st">${u.sym}</span>${cBook.pn}<span class="st st2">${u.sym}</span>`; // symbol on both halves keeps the number centered
         const top=_cBook.offsetTop+cBook.view.height*.02, bot=_cBook.offsetTop+cBook.view.height*.98;
-        const l=cBook.view.height>window.innerHeight; // landscape: page taller than window → also show at bottom
+        const l=cBook.view.height>_dBook.clientHeight; // landscape: page taller than the book viewport → also show at bottom
         box.innerHTML=`<span style="top:${top}px;left:25%">${one}</span><span style="top:${top}px;left:75%">${one}</span>`+(l?`<span style="top:${bot}px;left:25%">${one}</span><span style="top:${bot}px;left:75%">${one}</span>`:'');
     }
     ,Save: async function(el, filename='book.pdf') {
@@ -230,8 +230,8 @@ const wm=books.map.sidecar({
         if(!books.book.whole&&cBook.page){                             // the sheet fits the window – the page is enough
             const put=()=>{                                      // .md alone: where it stands among the paragraphs on that page
                 const y=wm.frac(at)*cBook.view.height
-                    ,top=_cBook.getBoundingClientRect().top+window.scrollY+y-window.innerHeight/2;
-                window.scrollTo(0,Math.max(0,Math.min(top,document.documentElement.scrollHeight-window.innerHeight)));
+                    ,top=_cBook.offsetTop+y-_dBook.clientHeight/2;
+                _dBook.scrollTop=Math.max(0,Math.min(top,nav.maxY()));
             };
             put();setTimeout(put,150);                           // the sheet may still be settling – say it once more
         }

@@ -1,3 +1,4 @@
+html,body{height:100%;margin:0;overflow:hidden;} /* the document never scrolls – the book (#_dBook) owns every scroll */
 body {
     --fsMenu: calc(3vw + 3vh);
     --padMenu: calc(.125vw + .125vh);
@@ -9,7 +10,7 @@ body {
 button { font-size:var(--fsMenu); padding:var(--padMenu);}
 .floatingControl, #nUp2, #nUp3, #nNt2, #nNt3, #nPv2, #nPv3, #nSv {
     background:transparent; border:0; box-shadow:none; padding:0; color:#999; filter:grayscale(1);
-    scale:.5; z-index:1;position:absolute;}
+    scale:.9; z-index:1;position:absolute;}
     #nUp2 {position:fixed; top:calc(var(--paddingTop1)); right:0;}
     #nNt2 {position:fixed; right:0; bottom:0;}
     #nPv2 {position:fixed; left:0; bottom:0;}
@@ -23,11 +24,12 @@ button { font-size:var(--fsMenu); padding:var(--padMenu);}
 .disabled { opacity: 0.5; pointer-events: none;}
 .bookControls { position: fixed; top: 1vh; left: 1vw;}
 .bookControls.collapsed > *:not(#nMt) { display:none;}
-.bookParent { position: relative;overflow:hidden auto; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding-top:calc(1 * var(--paddingTop1));}
-.shareParent { display:none;z-index:1;padding-top:calc(1 * var(--paddingTop1)) }
+.bookParent { position: relative;box-sizing:border-box;height:100vh;height:100dvh;overflow:hidden auto;overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding-top:calc(1 * var(--paddingTop1));}
+.shareParent { position:fixed;inset:0;overflow:auto;background:#fff;display:none;z-index:1;padding-top:calc(1 * var(--paddingTop1)) }
 .shareOpts { margin-top:.6em; font-size:calc(var(--fsMenu)*.45); }
 .shareOpts input { margin:0 .35em 0 .7em; vertical-align:middle; }
-.tocParent { display:none;z-index:99;padding-top:calc(1 * var(--paddingTop1)) }
+.tocParent { position:fixed;inset:0;display:none;z-index:99;padding-top:calc(1 * var(--paddingTop1)) }
+#_dExport { position:fixed;inset:0;overflow:auto;background:#fff;}
 .qr { width:var(--qrWidth);}
 #_dPlay{position:absolute;inset:0;z-index:3;pointer-events:none;
     a.play{position:absolute;left:1vw;pointer-events:auto;display:block;
