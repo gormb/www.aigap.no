@@ -12,7 +12,8 @@
         <script>
             window.SUPABASE = window.SUPABASE || (typeof SUPABASE !== 'undefined' ? SUPABASE : undefined);
             const uisz=()=>books.book.sz(window.innerWidth,window.innerHeight);
-            const uiscroll=()=>{if(_cBook.style.display=='none')return; nav.memSet('Y', window.scrollY); nav.Edge();}
+            let _ySave;
+            const uiscroll=()=>{if(_cBook.style.display=='none')return; clearTimeout(_ySave); _ySave=setTimeout(()=>nav.memSet('Y', window.scrollY),500); nav.Edge();} // Edge at once; the Y in localStorage only once the scroll has settled (a write every frame janks on mobile)
             const uishow=(c,on)=>{c.style.display=on?'inline':'none';return on;}
             const uishowBlock=(c,on)=>{c.style.display=on?'block':'none';return on;}
             let _busy;
@@ -94,12 +95,13 @@
                     nav.Edge();
                     nav.Able(nUp, (canPrev || window.scrollY > 0));
                     nav.Able(nGo, true);
-                    nav.Able(nDn, (canNext || window.scrollY < document.documentElement.scrollHeight - window.innerHeight));
+                    nav.Able(nDn, (canNext || window.scrollY < nav.maxY()));
                     //nav.Able(nFd, false);
                     nav.Able(nEx, books.book.prem._); // export only in premium
                     nav.nShFit(); // hide nSh only if nPv2/nPv3 overlap it visually
                     window.music?.Btn?.(); // nMu → most relevant music action
                 }
+                ,maxY:()=>Math.max(0,(document.scrollingElement||document.documentElement).scrollHeight-window.innerHeight) // the document's one bottom – shared by ontop/onbottom and every "go to the page bottom"
                 ,Edge:()=>{ // top-right: hand left at top else finger up · bottom-right: finger down until bottom else hand right
                     if(_dToc.style.display!='none'||_dShare.style.display!='none'||_dExport.style.display!='none')return;
                     const whole=books.book.whole, canPrev=books.book.pn()>1, canNext=books.book.pn()<books.book.np()
@@ -201,7 +203,7 @@
                 }
                 ,ScrollUp:async(top=nav.gest.ontop())=>{
                     if (top) {// already at top
-                        await nav.Page(books.book.pn() - 1, _dBook.scrollHeight - window.innerHeight); // scroll to bottom of previous page
+                        await nav.Page(books.book.pn() - 1, nav.maxY()); // scroll to bottom of previous page
                         //window.scrollTo(window.scrollX, document.documentElement.scrollHeight - window.innerHeight);
                     }
                     else window.scrollBy(0, -window.innerHeight*.75);
@@ -222,7 +224,7 @@
                     ,_tMin:80 // touch: px the finger must travel before an axis locks (a flip needs a long swipe)
                     ,_tRatio:3 // touch: horizontal needs |dx|>3·|dy|; anything more diagonal stays native scroll
                     ,ontop:()=>window.scrollY<=window.innerHeight*nav.gest._edge
-                    ,onbottom:()=>window.scrollY>=document.documentElement.scrollHeight-window.innerHeight-window.innerHeight*nav.gest._edge
+                    ,onbottom:()=>window.scrollY>=nav.maxY()-window.innerHeight*nav.gest._edge
                     ,suppressed:()=>_dToc.style.display!='none'||_dShare.style.display!='none'||_dExport.style.display!='none'||!!window.books?.map?.Z?.on // TOC/share/export open, or the word map up (it owns the wheel then) → never gesture (native scroll)
                     ,newState:GEST.NONE
                     ,lastState:GEST.NONE
@@ -278,7 +280,7 @@
                         if (k && k!==g._d) g.setState(GEST.NONE); // direction reversal = new gesture -> none
                         if (k) g._d=k;
                         const ns=g.detectState(d,horiz,e.touch);
-                        if (g.isPage(ns) && !(horiz && g._hCnt>=2)){ g.setState(GEST.NONE); return; } // not confidently sideways → native scroll (never a page flip)
+                        if (g.newState===GEST.NONE && g.isPage(ns) && !(horiz && g._hCnt>=2)){ g.setState(GEST.NONE); return; } // not confidently sideways → native scroll (never a page flip); only gate a fresh gesture, never cut a flip short
                         const prev=g.newState;
                         g.setState(ns); // decision (no-op mid-gesture, resets stop detection)
                         const fresh=ns!==prev; // fresh decision (transition from none)
@@ -289,7 +291,7 @@
                             if (ns===GEST.PGDN) nav.ScrollDn().finally(done);
                             else if (ns===GEST.PGUP) nav.ScrollUp().finally(done);
                             else if (ns===GEST.LEFT) nav.Page(books.book.pn()+1, 0).finally(done);
-                            else if (ns===GEST.RIGHT) nav.Page(books.book.pn()-1, _dBook.scrollHeight - window.innerHeight).finally(done);
+                            else if (ns===GEST.RIGHT) nav.Page(books.book.pn()-1, nav.maxY()).finally(done);
                         }
                     }
                 }
@@ -393,7 +395,7 @@
                     if(at<0)return;
                     const y=(0.08+0.84*((at+ql.length/2)/(p.length||1)))*cBook.view.height;
                     const top=_cBook.getBoundingClientRect().top+window.scrollY+y-window.innerHeight/2;
-                    window.scrollTo(0,Math.max(0,Math.min(top,document.documentElement.scrollHeight-window.innerHeight)));
+                    window.scrollTo(0,Math.max(0,Math.min(top,nav.maxY())));
                 }
                 ,findStep:d=>{ // ⏶⏷ step through the matches of the current query (wraps around)
                     const D=nav.doc,p=D&&D.p,n=p?p.length:0,h=D&&D.h&&D.h[D.lastL],i0=h?h.i:-1,q=nFdTxt.value.toLowerCase();
@@ -689,6 +691,7 @@
             let _rsz;
             window.onresize=()=>{clearTimeout(_rsz);_busy=true;_rsz=setTimeout(()=>{uisz();nav.UpdButtons();_busy=false},250)}; // wait for quiet before resize (iOS)
             window.onscroll=uiscroll;
+            window.addEventListener('pagehide',()=>{clearTimeout(_ySave);nav.memSet('Y',window.scrollY);}); // flush the last position when the page goes away
         </script>
     </head>
     <body onload="loaded()">
@@ -701,7 +704,7 @@
                     <input id="nGoTxt" class="pageNo" type="text" inputmode="numeric" value="1" onchange="nav.PageEd()" onkeydown="if(event.key=='Enter') nav.PageEd()"/>
                 <button id="nDn" onmousedown="nav.ScrollDn()">⏬</button>
                 <button id="nNt" onmousedown="nav.Page(books.book.pn()+1, 0)">▶️</button>
-                <button id="nLt" onmousedown="nav.Page(books.book.np(), _dBook.scrollHeight - window.innerHeight)">⏭️</button>
+                <button id="nLt" onmousedown="nav.Page(books.book.np(), nav.maxY())">⏭️</button>
             &nbsp;&nbsp;<button id="nFd" onmousedown="nav.find()">🔍</button>
                 <button id="nMu" onmousedown="window.music.BtnTgl()">🎵</button>
                 <button id="nSh" onmousedown="nav.Share()">📲</button>
