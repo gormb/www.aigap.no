@@ -228,6 +228,7 @@
                     ,lastState:GEST.NONE
                     ,_d:0 // last direction key: 'dn'|'up'|'left'|'right' (0=none)
                     ,_pg:0 // pending page-changes (await) – stays busy until done
+                    ,_hCnt:0 // consecutive horizontal-dominant events – one diagonal spike must never flip the page
                     ,_t:0
                     ,_ms:Date.now()
                     // detectState: pure decision – which state? no side effects.
@@ -266,17 +267,19 @@
                     }
                     ,wheel:(e)=>{
                         const g=nav.gest;
-                        if(g.suppressed()){g._d=0;g.setState(GEST.NONE);return;} // TOC/share/export open: no gesture – native scroll (never preventDefault)
+                        if(g.suppressed()){g._hCnt=0;g._d=0;g.setState(GEST.NONE);return;} // TOC/share/export open: no gesture – native scroll (never preventDefault)
                         const dx=e.deltaX||0, dy=e.deltaY||0;
                         const ax=Math.abs(dx), ay=Math.abs(dy);
                         const horiz=ax>ay*g._ratio, vert=ay>ax*g._ratio; // 2× rule: horizontal only when |dx|>2·|dy|, vertical only when |dy|>2·|dx|
-                        if(g.newState===GEST.NONE && !horiz&&!vert){ g._d=0; g.setState(GEST.NONE); return; } // ambiguous/diagonal + no active gesture → native scroll (never flips)
+                        if(g.newState===GEST.NONE && !horiz&&!vert){ g._hCnt=0; g._d=0; g.setState(GEST.NONE); return; } // ambiguous/diagonal + no active gesture → native scroll (never flips)
+                        g._hCnt = horiz ? g._hCnt+1 : 0; // count the run: a single diagonal spike cannot flip – the sideways gesture must be sustained
                         const d=horiz?(dx>0?1:-1):vert?(dy>0?1:-1):0; // d=0 only mid-gesture (ambiguous) – 2× rule applies only to first decision
                         const k=horiz?(d>0?'right':'left'):vert?(d>0?'dn':'up'):g._d||''; // direction key for gesture split (keep direction mid-gesture)
                         if (k && k!==g._d) g.setState(GEST.NONE); // direction reversal = new gesture -> none
                         if (k) g._d=k;
-                        const prev=g.newState;
                         const ns=g.detectState(d,horiz,e.touch);
+                        if (g.isPage(ns) && !(horiz && g._hCnt>=2)){ g.setState(GEST.NONE); return; } // not confidently sideways → native scroll (never a page flip)
+                        const prev=g.newState;
                         g.setState(ns); // decision (no-op mid-gesture, resets stop detection)
                         const fresh=ns!==prev; // fresh decision (transition from none)
                         if (g.isPage(ns)||ns===GEST.BUSY) e.preventDefault(); // swallow momentum for page ops (+ busy)
@@ -658,9 +661,10 @@
                 // auto lang-swap on horizontal scroll removed – language only via nLg button
                 window.addEventListener('wheel',nav.gest.wheel,{passive:false}); // gesture: one decision per scroll; swallow momentum after page change
                 // touch (iPhone): iOS gives no wheel on touch-scroll → translate to synthetic wheel events for the same gesture machine
-                let _tX=0,_tY=0,_tA=0,_tSX=0,_tSY=0,_tUi=0; // _tA: locked axis (1=horizontal, 0=ambiguous/native, -1=vertical); _tUi: the touch started on a floating control
+                let _tX=0,_tY=0,_tA=0,_tSX=0,_tSY=0,_tUi=0,_tDecided=0; // _tA: locked axis (1=horizontal, 0=ambiguous/native, -1=vertical); _tDecided: axis test already done (never re-decide mid-gesture); _tUi: the touch started on a floating control
                 document.addEventListener('touchstart', e=>{
-                    const t=e.touches[0]; _tX=t.clientX; _tY=t.clientY; _tA=0; _tSX=0; _tSY=0;
+                    const t=e.touches[0]; _tX=t.clientX; _tY=t.clientY; _tA=0; _tSX=0; _tSY=0; _tDecided=0;
+                    nav.gest._hCnt=0; // fresh touch – the sideways run starts over
                     _tUi=e.target.closest?.('.floatingControl')?Date.now():0; // the floating controls sit exactly where edge swipes start
                 }, {passive:true});
                 document.addEventListener('touchmove', e=>{
@@ -668,7 +672,7 @@
                     if(g.suppressed()){_tA=0;_tSX=0;_tSY=0;_tX=e.touches[0].clientX;_tY=e.touches[0].clientY;return;} // TOC/modal open: no gesture – native scroll
                     const t=e.touches[0], dx=t.clientX-_tX, dy=t.clientY-_tY;
                     _tX=t.clientX; _tY=t.clientY;
-                    if(_tA===0){ _tSX+=dx; _tSY+=dy; if(Math.abs(_tSX)>g._tMin||Math.abs(_tSY)>g._tMin) _tA=Math.abs(_tSX)>Math.abs(_tSY)*g._tRatio?1:Math.abs(_tSY)>Math.abs(_tSX)*g._tRatio?-1:0; } // lock axis only at 3× dominance and >80px; diagonal → 0 = no gesture (native scroll)
+                    if(_tA===0&&!_tDecided){ _tSX+=dx; _tSY+=dy; if(Math.abs(_tSX)>g._tMin||Math.abs(_tSY)>g._tMin){ _tA=Math.abs(_tSX)>Math.abs(_tSY)*g._tRatio?1:Math.abs(_tSY)>Math.abs(_tSX)*g._tRatio?-1:0; if(_tA===0)_tDecided=1; } } // lock axis once, at 3× dominance and >80px; diagonal/ambiguous → latch native for the whole gesture (never flips mid-scroll)
                     if(_tA===1){ // horizontal swipe → page flip
                         if(_tUi&&Date.now()-_tUi<800){nav.UndoTap();_tUi=0;} // the touch that hit a floating control turned into a swipe – undo it
                         if(g.isPage(g.newState)||g.newState===GEST.BUSY) e.preventDefault();
