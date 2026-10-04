@@ -80,4 +80,4 @@ button { font-size:var(--fsMenu); padding:var(--padMenu);}
 /* inactivity: hide ALL nav (incl. TOC) + the big menu lock; keep floating music + lock (nPr) when menu is collapsed */
 body.hideNav .bookControls > *:not(#nPr){ display:none !important; }
 body.hideNav .bookControls:not(.collapsed) > #nPr{ display:none !important; } /* big menu nPr hides with the menu; floating 🔓 (collapsed menu) stays */
-body.hideNav #nUp2, body.hideNav #nUp3, body.hideNav #nNt2, body.hideNav #nNt3, body.hideNav #nPv2, body.hideNav #nPv3{ display:none !important; }
+body.hideNav #nPv2, body.hideNav #nPv3{ display:none !important; } /* the scroll hands nUp2/nUp3/nNt2/nNt3 stay – the way to scroll when the menu is down */
