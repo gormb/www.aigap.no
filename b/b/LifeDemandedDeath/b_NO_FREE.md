@@ -784,4 +784,12 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 176
+### Kattegorifeil
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet. Det var en spesiell kunst med ord. Slam-poesi ville de holde. Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjøre.
+“Jeg vil ikke!” skrek det inne i meg. Jeg vil ikke finne ord som ligner, ikke løse kryssord, ikke noe bokstavlek, og i alle fall ingen ordlek.
+Barnets lekenhet raser overansiktsunntrykket hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser.
+Det jeg bruker mnusikk tilå uttrykke.
+“Vekk fra den ubønnhrlige realiteten, og så kom jeg” Eg gikk.
+#### p. 177
 Navnet På Boken
