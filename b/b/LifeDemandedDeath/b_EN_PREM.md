@@ -658,7 +658,7 @@ We love each other. Properly. How destructive is it not to love someone who does
 She is luckily too smart for that. The relationship dies and will give her room for happiness. Thank you. You are good.
 #### p. 109
 ### Oil leaks out
-🎵 [Ain't No Sunshine, Bill Withers](https://aigap.no/mansans)
+🎵 [Aint no Sunshine When Shes Gone; Bill Withers](https://aigap.no/mans)
 The motorcycle battery is out of power; I don't have time to charge it. The next time I stop, I won't be able to start again.
 No parking spaces in front of opera. Available at the back.
 Luxury.
