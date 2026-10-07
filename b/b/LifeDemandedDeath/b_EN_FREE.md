@@ -397,13 +397,16 @@ My thoughts went to Lotta. Was that how I exhausted her? I lifted myself up and 
 "Thank you for seeing that I'm showing off", I thought. She misunderstands me when I'm sarcastic; if no one had misunderstood, the sarcasm would just have been offense. She legitimizes my sarcasm.
 "Thank you for seeing that I'm dressing up", she said.
 #### p. 99
-### Veteran
+### The Veteran
 🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
-An 86-year-old man sat drinking coffee and looked with a distant gaze at my bike when I stopped at a bar for a Whiskey. The man asked what kind of MC I rode and nodded approvingly when I said it was a calm, nice Suzuki Intruder 1500. On being asked if he himself had ridden, he said he had 30 bikes himself and rode a Harley Davidson V-Rod, but it was too early in the year for him.
-I said I was new to the game and didn't ride until I was 50, so I had some catching up to do, too old to ever ride the Isle of Man TT, but maybe I'd take a trip there as a pensioner.
+V, a man over 80 years old, is from the suburbs. He sits and drinks and drinks coffee while looking with a distant gaze at my bike, where I stop at a bar to have a Whiskey. The man asked what kind of MC I ride, and nodded in confirmation when I say it's a calm, nice Suzuki Intruder 1500. When asked if he himself has ridden, he says, "I have 30 bikes standing, and ride a Harley Davidson V-Rod," but it was too early in the year for him.
+"I'm new to the game; didn't ride until I was 50 years old and have a lot of catching up to do," I reveal. "Too old to ride the Isle of Man TT, but maybe I'll take a trip there as a pensioner."
 #### p. 100
-The veteran said he had ridden the TT in the 1970s and it went over 200, but in a curve, he and his friend, who had passed him, rode into a house and up into the second floor. The memories had blended, or else it was others' stories; I enjoyed the stories and thanked him. Shook his hand and look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one; but they are true to him, and that's good enough for me.
+He smiles superiorly. "I rode the TT in the 1970s and it went over 200; we made the paper over there," without wondering how I reacted to the story, he continued.
+"Neither of us managed to stop in the curve, and my buddy ended up on the second floor at a nice lady's place. Into a house, and up to the second floor. I managed to stop outside." The memories had blended, or else it was others' stories?
+I enjoyed the stories, took him by the hand and thanked him, look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one, but they are true for him, and that's good enough for me.
 No. In the absence of religious faith and in the absence of a defined ethical system, it is unacceptable for me to lie like that. Truth is too important for lies to easily take truth's place. A stand-up comedian once said he always told the truth unless a lie was funnier; that's not enough for me. I take a chokehold on my dishonesty; it only destroys.
+Two weeks later I meet him without the leather jacket and MC, and he doesn't recognize me.
 #### p. 101
 ### The Chaplain
 🎵 [Personal Jesus; Depeche Mode](https://aigap.no/mpj)
