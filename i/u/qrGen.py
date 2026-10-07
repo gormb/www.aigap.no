@@ -23,13 +23,14 @@ hole is a plain square: nothing is kept.
                                      token needs AND deletes every generated png
                                      no token needs (keeps <id>.png art and
                                      <id>.qr.png print codes)
-
-Every row also gets a hole-free twin at q/<id>.png (same size and EC as the
-token, nothing cleared) for pages that just want a plain scannable code, e.g.
-<img src="q/<id>">.  q/ is never pruned.
     python3 i/u/qrgen.py <id> [...]   only these rows (no deleting)
     python3 i/u/qrgen.py --check      report only, write nothing
     python3 i/u/qrgen.py --no-prune   write, delete nothing
+
+All the hole-free codes are also packed into ONE flat file, m.png, in the repo
+root: a single row of 21x21 cells, one cell per song in m.md order, so a page can
+show a song's code by stepping the background position by 21 (no index file, no
+per-id files).
 
 Requires: PIL, numpy, qrcode, optipng.
 """
@@ -58,7 +59,6 @@ if _gone:
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 OUT = os.path.join(ROOT, 'i')
-QOUT = os.path.join(ROOT, 'q')
 OPT = shutil.which('optipng')
 
 PREFIX, WWW = 'https://aigap.no/', 'www.aigap.no/'
@@ -138,13 +138,7 @@ def opt(d):
     return v
 
 
-def notok(tok):
-    # same size/EC, hole 0: a full scannable code (t only clears a hole, so drop it)
-    head, t, u = TOK.match(tok).groups()
-    return head[:3] + '0' + u
-
-
-def build(i, tok):
+def _mat(i, tok):
     head, t, u = TOK.match(tok).groups()
     N, ec, hole = int(head[:2]), head[2], int(head[3:])
     s = (WWW if N == 21 else PREFIX) + i
@@ -161,9 +155,17 @@ def build(i, tok):
                 for x in range(hole):
                     if keep(hole, r, x):
                         m[lo + r][lo + x] = o[lo + r][lo + x]
+    return m
+
+
+def png(m):
     b = io.BytesIO()
     Image.fromarray(~m).convert('1').save(b, format='PNG', optimize=True)
     return opt(b.getvalue())
+
+
+def build(i, tok):
+    return png(_mat(i, tok))
 
 
 def main(a):
@@ -171,7 +173,7 @@ def main(a):
     ids = {x for x in a if not x.startswith('-')}
     prune = '--no-prune' not in a and not ids
     rs = [r for r in db() if not ids or r['id'] in ids]
-    need, new, qnew, w = set(), [], [], []
+    need, new, w = set(), [], []
     for r in rs:
         i, tok = r['id'], (r.get('qr') or '').strip()
         if not tok:
@@ -183,7 +185,6 @@ def main(a):
             continue
         try:
             d = build(i, tok)
-            dq = build(i, notok(tok))
         except Exception as e:
             w.append('%s: %s does not fit (%s) -> pick another size/EC in i/u/qrgallery.html'
                      % (i, tok, e))
@@ -198,12 +199,20 @@ def main(a):
             new.append(f)
             if not chk:
                 open(p, 'wb').write(d)
-        qp = os.path.join(QOUT, i + '.png')
-        if not os.path.exists(qp) or open(qp, 'rb').read() != dq:
-            qnew.append(i + '.png')
-            if not chk:
-                os.makedirs(QOUT, exist_ok=True)
-                open(qp, 'wb').write(dq)
+    md = open(os.path.join(ROOT, 'm.md'), encoding='utf8').read()
+    song = [u.rsplit('/', 1)[-1] for u in re.findall(r'^🎵 \[[^\]]*\]\(([^)]+)', md, re.M)]
+    strip = np.zeros((21, max(1, len(song)) * 21), bool)
+    for k, sid in enumerate(song):
+        try:
+            strip[:, k * 21:(k + 1) * 21] = mat('WWW.AIGAP.NO/' + sid.upper(), 21, 'M')
+        except Exception:
+            pass
+    mp = os.path.join(ROOT, 'm.png')
+    data = png(strip)
+    if not os.path.exists(mp) or open(mp, 'rb').read() != data:
+        new.append('m.png')
+        if not chk:
+            open(mp, 'wb').write(data)
     gone = []
     if prune and not chk:
         for f in sorted(os.listdir(OUT)):
@@ -211,8 +220,8 @@ def main(a):
                 continue
             os.remove(os.path.join(OUT, f))
             gone.append(f)
-    print('%d rows -> %d png %s (%d hole-free in q/), %d stale png %s, %d warnings'
-          % (len(rs), len(new), 'to write' if chk else 'written', len(qnew),
+    print('%d rows -> %d file %s (i/ pngs + m.png), %d stale png %s, %d warnings'
+          % (len(rs), len(new), 'to write' if chk else 'written',
              len(gone), 'deleted', len(w)))
     for f in gone[:5]:
         print('  deleted i/' + f + ('  (+%d more)' % (len(gone) - 5) if len(gone) > 5 else ''))
@@ -220,7 +229,7 @@ def main(a):
         print('WARN', x)
     if w:
         print('WARN       fix the row in i/u/qrgallery.html, then: python3 i/u/qrgen.py <id>')
-    if new or gone or qnew:
+    if new or gone:
         print('now: git add i q && git commit   (check the pngs in)')
 
 
