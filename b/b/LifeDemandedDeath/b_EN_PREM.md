@@ -197,7 +197,7 @@ These athletic country girls have an energy that lets them party and love much l
 But a life in high speed is also good; that choice I would really overdo later.
 #### p. 34
 ### Child abuse and wounds
-🎵 [Hurt; Nine Inch Nails / Johnny Cash](https://aigap.no/mhnin)
+🎵 [Hurt, Johnny Cash](https://aigap.no/mhnin)
 There is no consequence to leaning too far out of the window. Until you fall. Then you are not prepared.
 The lucky ones live hand in hand with fate, where time and fear are irrelevant. The brain is better equipped for new thinking every time you come out the other side, but it is more numb to danger.
 I was going to fall. Had leaned out of the window for a long time; now it wasn't a matter of bad action, just coincidences over time.
@@ -596,9 +596,10 @@ Y: "Yes, maybe you should"
 #### p. 99
 ### Veteran
 🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
-An 86-year-old man sat drinking coffee and looked with a distant gaze at my bike when I stopped at a bar for a Whiskey. The man asked what kind of MC I rode and nodded approvingly when I said it was a calm, nice Suzuki Intruder 1500. On being asked if he himself had ridden, he said he had 30 bikes himself and rode a Harley Davidson V-Rod, but it was too early in the year for him. I said I was new to the game and didn't ride until I was 50, so I had some catching up to do, too old to ever ride the Isle of Man TT, but maybe I'd take a trip there as a pensioner.
-The veteran said he had ridden the TT in the 1970s and it went over 200, but in a curve, he and his friend, who had passed him, rode into a house and up into the second floor. The memories had blended, or else it was others' stories; I enjoyed the stories and thanked him. Shook his hand and look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one; but they are true to him, and that's good enough for me.
+An 86-year-old man sat drinking coffee and looked with a distant gaze at my bike when I stopped at a bar for a Whiskey. The man asked what kind of MC I rode and nodded approvingly when I said it was a calm, nice Suzuki Intruder 1500. On being asked if he himself had ridden, he said he had 30 bikes himself and rode a Harley Davidson V-Rod, but it was too early in the year for him.
+I said I was new to the game and didn't ride until I was 50, so I had some catching up to do, too old to ever ride the Isle of Man TT, but maybe I'd take a trip there as a pensioner.
 #### p. 100
+The veteran said he had ridden the TT in the 1970s and it went over 200, but in a curve, he and his friend, who had passed him, rode into a house and up into the second floor. The memories had blended, or else it was others' stories; I enjoyed the stories and thanked him. Shook his hand and look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one; but they are true to him, and that's good enough for me.
 No. In the absence of religious faith and in the absence of a defined ethical system, it is unacceptable for me to lie like that. Truth is too important for lies to easily take truth's place. A stand-up comedian once said he always told the truth unless a lie was funnier; that's not enough for me. I take a chokehold on my dishonesty; it only destroys.
 #### p. 101
 ### The Chaplain
@@ -861,7 +862,7 @@ The lady at the library distributes fruit she has arranged and pierced with smal
 Bicycle Race, Queen
 They sit and take up space on the tram. When someone with a need comes along, they quickly get up and give up their seat.
 Motorcycle driver training says you should be "attentive and cautious", but as youth we don't have time.
-Uglier tables had been put out than the round stone tables. Even with poor hearing, I heard the café owner of the lovely French café say "the crown princess was here yesterday", loud enough that everyone around just barely heard it. "Why didn't you call me; I was supposed to work?" said the newly hired employee enthusiastically. Both glanced over at me with stolen looks. Was I wanted inside or outside? Neither know nor know, and I'm not really curious anyway. Nor anything other than neutral about drinking coﬀee at the table next to royalty. I think. "Everyone knows the king", my best friend's father said to the woman that should become his wife  when she asked if she had seen him before.
+Uglier tables had been put out than the round stone tables. Even with poor hearing, I heard the café owner of the lovely French café say "the crown princess was here yesterday", loud enough that everyone around just barely heard it. "Why didn't you call me; I was supposed to work?" said the newly hired employee enthusiastically. Both glanced over at me with stolen looks. Was I wanted inside or outside? Neither know nor know, and I'm not really curious anyway. Nor anything other than neutral about drinking coﬀee at the table next to royalty. I think. "Everyone knows the king", my best friend's father said to the woman that should become his wife when she asked if she had seen him before.
 #### p. 141
 ### Barking about mortal danger
 🎵 [Freedom; Rage Against the Machine](https://aigap.no/mfratm)

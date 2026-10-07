@@ -147,7 +147,7 @@ We sat for six hours talking at a hip Grünerløkka place and couldn't finish a 
 The night was still young and things escalated; that choice I would really overdo later.
 #### p. 34
 ### Child abuse and wounds
-🎵 [Hurt; Nine Inch Nails / Johnny Cash](https://aigap.no/mhnin)
+🎵 [Hurt, Johnny Cash](https://aigap.no/mhnin)
 There is no consequence to leaning too far out of the window. Until you fall. Then you are not prepared.
 #### p. 35
 You don't know where the line goes, but I was in free fall; now I just had to hit the ground.
@@ -399,9 +399,10 @@ My thoughts went to Lotta. Was that how I exhausted her? I lifted myself up and 
 #### p. 99
 ### Veteran
 🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
-An 86-year-old man sat drinking coffee and looked with a distant gaze at my bike when I stopped at a bar for a Whiskey. The man asked what kind of MC I rode and nodded approvingly when I said it was a calm, nice Suzuki Intruder 1500. On being asked if he himself had ridden, he said he had 30 bikes himself and rode a Harley Davidson V-Rod, but it was too early in the year for him. I said I was new to the game and didn't ride until I was 50, so I had some catching up to do, too old to ever ride the Isle of Man TT, but maybe I'd take a trip there as a pensioner.
-The veteran said he had ridden the TT in the 1970s and it went over 200, but in a curve, he and his friend, who had passed him, rode into a house and up into the second floor. The memories had blended, or else it was others' stories; I enjoyed the stories and thanked him. Shook his hand and look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one; but they are true to him, and that's good enough for me.
+An 86-year-old man sat drinking coffee and looked with a distant gaze at my bike when I stopped at a bar for a Whiskey. The man asked what kind of MC I rode and nodded approvingly when I said it was a calm, nice Suzuki Intruder 1500. On being asked if he himself had ridden, he said he had 30 bikes himself and rode a Harley Davidson V-Rod, but it was too early in the year for him.
+I said I was new to the game and didn't ride until I was 50, so I had some catching up to do, too old to ever ride the Isle of Man TT, but maybe I'd take a trip there as a pensioner.
 #### p. 100
+The veteran said he had ridden the TT in the 1970s and it went over 200, but in a curve, he and his friend, who had passed him, rode into a house and up into the second floor. The memories had blended, or else it was others' stories; I enjoyed the stories and thanked him. Shook his hand and look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one; but they are true to him, and that's good enough for me.
 No. In the absence of religious faith and in the absence of a defined ethical system, it is unacceptable for me to lie like that. Truth is too important for lies to easily take truth's place. A stand-up comedian once said he always told the truth unless a lie was funnier; that's not enough for me. I take a chokehold on my dishonesty; it only destroys.
 #### p. 101
 ### The Chaplain
