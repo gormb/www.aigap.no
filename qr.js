@@ -2,7 +2,7 @@
 window.qr = {
   //todo: centralize qr code generation here for easy generation for all of www.aigap.no 
   // Tables + drawing rules are the ones from i/u/qr.js and i/u/qrgen.py, so what g()
-  // returns at qr.S px per module is i/<id>.<token>.png (and its transparent twin).
+  // returns at qr.S px per module is i/<id>.<token>.gif (and its transparent twin).
   // The page loads qrcode-generator (window.qrcode) and i/u/qrmetrics.js (keep
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
   GS:[21,25,29,37,49,65,85,109,141,177],                    // QR versions 1,2,3,5,8,12,17,23,31,40 modules
@@ -29,7 +29,7 @@ window.qr = {
   // The code is painted first and the art is drawn on top of it at the art's OWN resolution, so
   // the art stays sharp however coarse the module grid is.  The erasure (.e) stays whole modules:
   // a module the art covers at least half of counts, by the same >=128 coverage rule.
-  // .t = token (i/<id>.<token>.png, always the centred code), .u = encoded text,
+  // .t = token (i/<id>.<token>.gif, always the centred code), .u = encoded text,
   // .e = {erased,ecPer,col}, .o = the offsets actually used.
   g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);

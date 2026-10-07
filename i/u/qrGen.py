@@ -294,7 +294,7 @@ def main(a):
     if w:
         print('WARN       fix the row in i/u/qrgallery.html, then: python3 i/u/qrgen.py <id>')
     if new or gone:
-        print('now: git add i q && git commit   (check the pngs in)')
+        print('now: git add i q && git commit   (check the gifs in)')
 
 
 if __name__ == '__main__':

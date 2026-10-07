@@ -201,7 +201,7 @@ const books={
         ,SpotQr:null
         ,qrFill:()=>{const q=books.play.SpotQr||{};
             document.querySelectorAll('img[data-qrk]').forEach(img=>{const k=img.dataset.qrk,t=q[k];
-                if(t)img.src='https://aigap.no/i/'+k+'.'+t+'.png';
+                if(t)img.src='https://aigap.no/i/'+k+'.'+t+'.gif';
                 if(t)img.removeAttribute('data-qrk');});}
         ,SpotLoad:async(force)=>{
             if(books.play.SpotMap&&!force)return books.play.SpotMap;
@@ -458,7 +458,7 @@ const books={
             ,spotKey:u=>books.play.SpotKey(u)
             ,qr:u=>{const k=books.play.render.spotKey(u);if(!k)return '';
                 const t=(books.play.SpotQr||{})[k];
-                return '<img'+(t?' src="https://aigap.no/i/'+k+'.'+t+'.png"':' data-qrk="'+books.play.render.esc(k)+'"')+' alt="" style="height:66px;image-rendering:pixelated;">';}
+                return '<img'+(t?' src="https://aigap.no/i/'+k+'.'+t+'.gif"':' data-qrk="'+books.play.render.esc(k)+'"')+' alt="" style="height:66px;image-rendering:pixelated;">';}
             ,mus:l=>{const u=(l.match(/https?:\/\/[^\s)]+/)||[''])[0];return '<a href="'+u+'">\u{1F3B5}</a>'+books.play.render.qr(u);}
             ,songOf:p=>{const a=books.play.md.pages||[],i=a.indexOf(p);for(let k=i;k>=0;k--)if(a[k].mu)return a[k].mu;return '';}
             ,media:p=>{
