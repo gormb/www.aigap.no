@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-"""qrgen.py - write the ONE png each `redir` row's `qr` token asks for.
+"""qrgen.py - write the QR code each `redir` row's `qr` token asks for, twice.
 
-Filename = the token, verbatim:   i/<id>.<token>.png     e.g. i/ldd.21Q9tu.png
+Every code is written as a 1-bit GIF and an identical 1-bit PNG:
+
+Filename = the token, verbatim, both extensions:
+    i/<id>.<token>.gif    used by the pages
+    i/<id>.<token>.png    same pixels, for comparing/eyeballing
+                          e.g. i/ldd.21Q9tu.gif + i/ldd.21Q9tu.png
 Token    = <N><EC><hole>[t][u]    (schema i/u/qr.sql, picked in i/u/qrgallery.html)
 
     N     21 | 25 | … | 53  modules (QR version 1..9); 21 encodes the short www.aigap.no host
@@ -20,19 +25,20 @@ set to keep() in i/u/qrmetrics.js) so the artwork never covers them.  Any other
 hole is a plain square: nothing is kept.
 
     python3 i/u/qrgen.py             every present='qr' row: writes what the
-                                     token needs AND deletes every generated png
-                                     no token needs (keeps <id>.png art and
-                                     <id>.qr.png print codes)
+                                     token needs (both formats) AND deletes every
+                                     generated gif/png no token needs (keeps
+                                     <id>.png art and <id>.qr.png print codes)
     python3 i/u/qrgen.py <id> [...]   only these rows (no deleting)
     python3 i/u/qrgen.py --check      report only, write nothing
     python3 i/u/qrgen.py --no-prune   write, delete nothing
 
-All the hole-free codes are also packed into ONE flat file, m.png, in the repo
-root: a single row of 21x21 cells, one cell per song in m.md order, so a page can
-show a song's code by stepping the background position by 21 (no index file, no
-per-id files).
+All the hole-free codes are also packed into ONE flat sprite in the repo root: a
+single row of 21x21 cells, one cell per song in m.md order, so a page can show a
+song's code by stepping the background position by 21 (no index file, no per-id
+files).  It is written twice -- m.gif (m.html steps through this one: 1-bit GIF,
+2-entry colour table, hand-rolled LZW) and m.png (same pixels, for eyeballing).
 
-Requires: PIL, numpy, qrcode, optipng.
+Requires: PIL, numpy, qrcode.  optipng used if present.
 """
 import io, json, os, re, shutil, subprocess, sys, tempfile, urllib.request
 
@@ -67,9 +73,9 @@ ECS = {'L': ERROR_CORRECT_L, 'M': ERROR_CORRECT_M,
 KEEP_AT = {21: (9,), 25: (13,), 29: (11, 13)}   # the holes that keep modules
 KEYTOL, KEYSHR = 1, 0.20
 TOK = re.compile(r'^((?:2[159]|3[379]|4[159]|5[3])[LMQH]\d{1,2})(t?)(u?)$')
-OLD = (re.compile(r'^.+\.qr2[159][LMQH](?:[03579]|11|13)t?u?\.png$'),
-       re.compile(r'^.+\.qr1\.png$'),
-       re.compile(r'^qr2[159]i\d*\.png$'))
+OLD = (re.compile(r'^.+\.qr2[159][LMQH](?:[03579]|11|13)t?u?\.(?:png|gif)$'),
+       re.compile(r'^.+\.qr1\.(?:png|gif)$'),
+       re.compile(r'^qr2[159]i\d*\.(?:png|gif)$'))
 KEEP = set()
 
 
@@ -164,8 +170,65 @@ def png(m):
     return opt(b.getvalue())
 
 
+def _lzw(px, n=2):
+    clear, end = 1 << n, (1 << n) + 1
+    out, buf, bits = bytearray(), 0, 0
+
+    def emit(c, w):
+        nonlocal buf, bits
+        buf |= c << bits
+        bits += w
+        while bits >= 8:
+            out.append(buf & 255)
+            buf >>= 8
+            bits -= 8
+
+    size, table, nxt, prev = n + 1, {}, end + 1, None
+    emit(clear, size)
+    for k in px:
+        if prev is None:
+            prev = k
+            continue
+        if (prev, k) in table:
+            prev = table[(prev, k)]
+            continue
+        emit(prev, size)
+        if nxt < 4096:
+            table[(prev, k)] = nxt
+            if nxt >= (1 << size) and size < 12:
+                size += 1
+            nxt += 1
+        else:
+            emit(clear, size)
+            table, nxt, size = {}, end + 1, n + 1
+        prev = k
+    if prev is not None:
+        emit(prev, size)
+    emit(end, size)
+    if bits:
+        out.append(buf & 255)
+    return bytes(out)
+
+
+def gif(m):
+    """1-bit GIF: 2-entry global colour table (0 = module), no local table."""
+    h, w = m.shape
+    d = _lzw(np.where(m, 0, 1).astype(np.uint8).ravel().tolist())
+    o = bytearray(b'GIF87a')
+    o += w.to_bytes(2, 'little') + h.to_bytes(2, 'little') + b'\x80\x00\x00'
+    o += b'\x00\x00\x00\xff\xff\xff'
+    o += b',' + b'\x00\x00\x00\x00'
+    o += w.to_bytes(2, 'little') + h.to_bytes(2, 'little') + b'\x00\x02'
+    for i in range(0, len(d), 255):
+        c = d[i:i + 255]
+        o += bytes((len(c),)) + c
+    o += b'\x00\x3b'
+    return bytes(o)
+
+
 def build(i, tok):
-    return png(_mat(i, tok))
+    m = _mat(i, tok)
+    return png(m), gif(m)
 
 
 def main(a):
@@ -184,21 +247,22 @@ def main(a):
                      % (i, tok))
             continue
         try:
-            d = build(i, tok)
+            pd, gd = build(i, tok)
         except Exception as e:
             w.append('%s: %s does not fit (%s) -> pick another size/EC in i/u/qrgallery.html'
                      % (i, tok, e))
             continue
-        f = '%s.%s.png' % (i, tok)
-        need.add(f)
+        f, g = '%s.%s.png' % (i, tok), '%s.%s.gif' % (i, tok)
+        need.update((f, g))
         if tok[3] != '0' and not os.path.exists(os.path.join(OUT, i + '.png')):
             w.append('%s: art i/%s.png missing -> the hole stays white (add the art or use hole 0)'
                      % (i, i))
-        p = os.path.join(OUT, f)
-        if not os.path.exists(p) or open(p, 'rb').read() != d:
-            new.append(f)
-            if not chk:
-                open(p, 'wb').write(d)
+        for n, d in ((f, pd), (g, gd)):
+            p = os.path.join(OUT, n)
+            if not os.path.exists(p) or open(p, 'rb').read() != d:
+                new.append(n)
+                if not chk:
+                    open(p, 'wb').write(d)
     md = open(os.path.join(ROOT, 'm.md'), encoding='utf8').read()
     song = [u.rsplit('/', 1)[-1] for u in re.findall(r'^🎵 \[[^\]]*\]\(([^)]+)', md, re.M)]
     strip = np.zeros((21, max(1, len(song)) * 21), bool)
@@ -207,12 +271,12 @@ def main(a):
             strip[:, k * 21:(k + 1) * 21] = mat('WWW.AIGAP.NO/' + sid.upper(), 21, 'M')
         except Exception:
             pass
-    mp = os.path.join(ROOT, 'm.png')
-    data = png(strip)
-    if not os.path.exists(mp) or open(mp, 'rb').read() != data:
-        new.append('m.png')
-        if not chk:
-            open(mp, 'wb').write(data)
+    for name, data in (('m.gif', gif(strip)), ('m.png', png(strip))):
+        p = os.path.join(ROOT, name)
+        if not os.path.exists(p) or open(p, 'rb').read() != data:
+            new.append(name)
+            if not chk:
+                open(p, 'wb').write(data)
     gone = []
     if prune and not chk:
         for f in sorted(os.listdir(OUT)):
@@ -220,7 +284,7 @@ def main(a):
                 continue
             os.remove(os.path.join(OUT, f))
             gone.append(f)
-    print('%d rows -> %d file %s (i/ pngs + m.png), %d stale png %s, %d warnings'
+    print('%d rows -> %d file %s (i/ gifs + pngs, m.gif + m.png), %d stale png %s, %d warnings'
           % (len(rs), len(new), 'to write' if chk else 'written',
              len(gone), 'deleted', len(w)))
     for f in gone[:5]:
