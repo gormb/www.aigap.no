@@ -149,7 +149,7 @@ Vi satt seks timer og snakket på et hipt Grünerløkkasted og klarte ikke å dr
 Natten var enda ung og ting eskalerte, det valget skulle jeg virkelig overdrive senere.
 #### p. 34
 ### Barnemisbruk og sår
-🎵 [Hurt; Nine Inch Nails / Johnny Cash](https://aigap.no/mhnin)
+🎵 [Hurt; Johnny Cash](https://aigap.no/mhjc)
 Det er ingen konsekvens av å lene seg for langt ut av vinduet.
 Før man faller. Da er man ikke forberedt.
 #### p. 35
@@ -408,12 +408,11 @@ Jeg løftet meg opp og det koster. Som alltid. Hun også.
 #### p. 99
 ### Veteranen
 🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
-V, senior mann på 80 år, er fra drabantby. Han sitter og drikker og drikker kaffe mens han ser med langt blikk på sykkelen min, der jeg stopper ved en bar for å ta en Whiskey.
-Mannen spurte hva slags MC jeg kjører, og nikket bekreftende når jeg sier det er en rolig, hyggelig Suzuki Intruder 1500. På spørsmål om han selv har kjørt sier han “Jeg har 30 sykler stående, og kjører en Harley Davidsen V-Rod”, men det var for tidlig på året for ham.
-“Jeg sa jeg var fersk i gamet, kjørte ikke før jeg var 50 år gammel og har mye å ta igjen” sier jeg, “for gammel til noen gang å kjøre Isle of Man TT, men kanskje tar jeg en tur som pensjonist”.
-“Jeg kjørte TT på 1970-tallet og det gikk i over 200, vi kom i
+V, mann på over 80 år, er fra drabantby. Han sitter og drikker og drikker kaffe mens han ser med langt blikk på sykkelen min, der jeg stopper ved en bar for å ta en Whiskey. Mannen spurte hva slags MC jeg kjører, og nikket bekreftende når jeg sier det er en rolig, hyggelig Suzuki Intruder 1500. På spørsmål om han selv har kjørt sier han “Jeg har 30 sykler stående, og kjører en Harley Davidsen V-Rod”, men det var for tidlig på året for ham.
+“Jeg er fersk i gamet, kjørte ikke før jeg var 50 år gammel og har mye å ta igjen”, avslører jeg. “For gammel til å kjøre Isle of Man TT, men kanskje tar jeg en tur som pensjonist”.
 #### p. 100
-avisa der borte”, uten å lure på hvordan jeg reagerte på historien fortsatte han. “Vi klarte ikke stoppe i svingen noen av oss, og kompisen min endte opp i andreetasje hos en hyggelig dame. Inn i et hus, og opp i andre etasje. Jeg klarte å stoppe utafor”. Minnene hadde blandet seg, ellers var det andres historier?
+Han smiler overlegent. “Jeg kjørte TT på 1970-tallet og det gikk i over 200, vi kom i  avisa der borte”, uten å lure på hvordan jeg reagerte på historien, fortsatte han.
+“Vi klarte ikke stoppe i svingen noen av oss, og kompisen min endte opp i andreetasje hos en hyggelig dame. Inn i et hus, og opp i andre etasje. Jeg klarte å stoppe utafor”. Minnene hadde blandet seg, ellers var det andres historier?
 Jeg nøt historiene tok ham i hånden og takket, gleder meg til å komme tilbake for å høre flere, men de er ikke hver for seg sanne, om enn kanskje sanne i at flere historier har blitt til en, men de er sanne for ham, og det er godt nok for meg.
 Nei. I mangel av religiøs tro og i mangel av definert etisk system, er det uakseptabelt for meg å lyve slik. Sannheten er for viktig til at løgner lett skal få ta sannhetens plass. En stand-up komiker sa en gang at han alltid fortalte sannheten med mindre en løgn var mer morsom, det holder ikke for meg. Jeg tar kveletak på uærligheten min, den bare ødelegger.
 To uker senere møter jeg ham uten skinnjakke og MC og han kjenner meg ikke igjen.
@@ -680,7 +679,7 @@ For eksempel har Amish-folket noe som heter Rumspringa, der ungdommene som 16-å
 🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 Folk som er flinke utvikler seg og blir bedre. Jeg tror alle kan endre seg og opplever at man endrer seg i samme retning; bedre og bedre eller verre og verre.
 Hvis vi blir byttet ut av kunstig intelligens, er det fordi vi allerede har blitt byttet ut av maskiner eller noe annet? Hvis vi ikke blir byttet ut av kunstig intelligens, er det fordi vi ikke har blitt byttet ut av noe annet allerede?
-“Intelligent” er noe vi har valgt som betegnelse av noe enestående menneskelig.  Derfor er ikke noe “kunstig intelligent”, bare i en mellomfase der vi fortsatt kaller det “intelligent” fordi vi trodde bare folk kunne gjøre akkurat den tingen maskiner plutselig kan. Barnets magiske tankegang står sterkt i de voksnes verden. Særlig der kollektivisme står sterkt.
+“Intelligent” er noe vi har valgt som betegnelse av noe enestående menneskelig. Derfor er ikke noe “kunstig intelligent”, bare i en mellomfase der vi fortsatt kaller det “intelligent” fordi vi trodde bare folk kunne gjøre akkurat den tingen maskiner plutselig kan. Barnets magiske tankegang står sterkt i de voksnes verden. Særlig der kollektivisme står sterkt.
 #### p. 155
 Jeg skriver kode og synger i dusjen. Synger ikke like godt som en artist, synger likevel. Skriver midlertidig bedre kode enn AI, men skal fortsette å synge i dusjen og kode. Liker det. Ser på Magnus Karlsen spille sjakk, ikke AlphaZero. Skriver uten KI.
 “Jeg går ut i fra at jeg ikke skal skjønne hvorfor den ikke virker” sier hun, den er mennesket overlegen. Magien i “Artificial” styrkes og alle blir redd for at en statistikkmodell skal overta verden, for det skjedde i ”Terminator II”
