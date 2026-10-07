@@ -689,7 +689,7 @@ Hvor ødeleggende er det ikke å elske noen som ikke elsker seg selv?
 Hun er heldigvis for smart til det. Forholdet dør og vil gi henne plass til lykke. Takk. Du er bra.
 #### p. 109
 ### Oljen renner ut
-🎵 [Ain't No Sunshine, Bill Withers](https://aigap.no/mansans)
+🎵 [Aint no Sunshine When Shes Gone; Bill Withers](https://aigap.no/mans)
 Batteriet på sykkelen er tomt for strøm, jeg rekker ikke lade det opp. Neste gang jeg stopper vil jeg ikke komme i gang.
 Tomt for parkeringsplasser foran operaen, ledig bak. Luksus.
 Det blir fort sent, sykkelen står parkert over natten.

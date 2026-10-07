@@ -445,7 +445,7 @@ We love each other. Properly. How destructive is it not to love someone who does
 She is luckily too smart for that. The relationship dies and will give her room for happiness. Thank you. You are good.
 #### p. 109
 ### Oil leaks out
-🎵 [Ain't No Sunshine, Bill Withers](https://aigap.no/mansans)
+🎵 [Aint no Sunshine When Shes Gone; Bill Withers](https://aigap.no/mans)
 Good to live where people don't steal in broad daylight.
 #### p. 110
 It hasn't been broad daylight; it's been night. The bike has been parked in the city center, not at home. I understand the difference when I see the ignition lock is damaged.

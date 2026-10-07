@@ -454,7 +454,7 @@ Hvor ødeleggende er det ikke å elske noen som ikke elsker seg selv?
 Hun er heldigvis for smart til det. Forholdet dør og vil gi henne plass til lykke. Takk. Du er bra.
 #### p. 109
 ### Oljen renner ut
-🎵 [Ain't No Sunshine, Bill Withers](https://aigap.no/mansans)
+🎵 [Aint no Sunshine When Shes Gone; Bill Withers](https://aigap.no/mans)
 Godt å bo der folk ikke stjeler på høylys dag.
 #### p. 110
 Det har ikke vært høylys dag, det har vært natt. Sykkelen har stått i sentrum, ikke hjemme. Forskjellen forstår jeg når jeg ser tenningslåsen skadet.
