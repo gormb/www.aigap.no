@@ -21,6 +21,8 @@ a{margin-left:auto}
   <label>error %<input id=error type=number value=20 min=0 max=100></label>
   <label>offsetX<input id=offsetX type=number value=0 step=0.1 title="modules to move the artwork sideways, 1/10 is fine (or drag the image)"></label>
   <label>offsetY<input id=offsetY type=number value=0 step=0.1 title="modules to move the artwork up/down, 1/10 is fine"></label>
+  <button id=auto type=button title="slide the artwork to the offset that erases the fewest codewords, keeping the finder patterns scannable">best position</button>
+  <button id=big type=button title="the largest hole whose best position still stays at or under the error %">largest iH on err</button>
   <a id=d download>png</a>
 </nav>
 <main>
@@ -30,7 +32,7 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=5"></script>
-<script src=qr.js?v=13></script>
+<script src=qr.js?v=22></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
@@ -131,6 +133,20 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
 ['t','img','iSz','iHole','iTrans','offsetX','offsetY'].forEach(k=>{E[k].addEventListener('input',arm(go));E[k].addEventListener('change',arm(go))});
 E.error.addEventListener('input',arm(fit));
 E.error.addEventListener('change',arm(fit));
+document.getElementById('auto').onclick=async()=>{   // type nothing: the button slides the art itself
+  url=0;
+  const b=await qr.best(E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,E.iTrans.checked,
+    E.iHole.value===''?null:+E.iHole.value,+E.error.value,+E.offsetX.value||0,+E.offsetY.value||0);
+  if(!b)return;
+  E.offsetX.value=b.x;E.offsetY.value=b.y;go()};
+document.getElementById('big').onclick=async()=>{     // biggest hole whose best position still fits the error %
+  sizes();holes();
+  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
+  for(let h=sz;h>=0;h--)for(const tr of [true,false]){
+    const b=h>0?await qr.best(v,A,sz,tr,h,lim):{x:0,y:0,per:0};
+    if(k!==run)return;                    // another render/click won: drop this search
+    if(!b||b.per>lim+1e-9)continue;
+    E.iHole.value=h;E.iTrans.checked=tr;E.offsetX.value=b.x;E.offsetY.value=b.y;go();return}};
 O.addEventListener('pointerdown',down);          // drag the canvas to move the art
 addEventListener('pointermove',move);
 addEventListener('pointerup',up);
