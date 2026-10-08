@@ -907,10 +907,11 @@ Flere har dødd av blodpropp mens de laget dumme skilt enn antall liv reddet av 
 #### p. 142
 ### Ensom
 🎵 [Dirty Laundry; Don Henley](https://aigap.no/mdl)
-“Du kan ikke parkere her “ sa Rolf, 70 år og ensom. Etter et langt ilv med økonomirapportering på sykehuset var han vant til å ha definisjonsmakt.
-Hans minnes “Gullgravingsoppdraget” på Ullevål sykehus.
-Der han systematisk gikk gjennom diagnoser og behandlinger fra året før. Llegge til flere koder som utløste mer penger til radiologisk avdeling. Sykehusenes parkeringsvakter. 2006 var et vakkert år med aggressiv leting etter ting som kunne tolkes dyrere. Hellig kamp for sykehusinntektene.
-“Du står i vein. Kanskje du vil stå foran døra” sa han.. “Ingen må gå omvei jeg hemmer og forhindrerer ingen”. “Det er bare fordi stilaset står her” sa økonomen triumferende. “Stilaset står der. Takk for praten, jrg er ferdig med å prate med deg”.
+“Du kan ikke parkere her “ sa Rolf, 70 år og ensom. Etter et langt liv som overbetalt konsulent, jobb med økonomi- rapportering på sykehus, var han vant til å ha definisjonsmakt.
+Han tenkte på “Gullgravingsoppdraget” på Ullevål Sykehus.
+Årelang, systematisk gjennomgang av diagnoser og behandlinger fra året før. Legge til koder som utløste mer penger til radiologisk avdeling. Sykehusenes parkeringsvakter.
+2006 var et vakkert år med aggressiv leting etter ting som kunne tolkes dyrere. Hellig kamp for sykehusinntektene.
+“Du står i veien, kanskje du vil blokkere døra” sa han.. “Ingen må gå omvei jeg hemmer og forhindrerer ingen”. “Det er bare fordi stilaset står her” sa økonomen triumferende. “Stilaset står der. Takk for praten, jeg er ferdig med å prate med deg”.
 #### p. 143
 ### Raring
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
