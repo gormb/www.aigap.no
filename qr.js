@@ -57,14 +57,28 @@ window.qr = {
   // 0.1-module steps around those, keeping twenty each time -- so a search reads a few thousand
   // placements, never every one, even on the largest codes.  A placement that would hide a
   // finder pattern's middle row/column is rejected, so the finder keeps its 1:1:3:1:1 scan lines;
-  // ties go to the offset nearest the centre.  When (nearX,nearY) is given, placements closer than
-  // sqrt(2) modules to it are skipped, so asking twice keeps moving.  Returns {x,y} in modules
-  // (fractional) plus per (the error % there), or null when there is no art to place.
+  // ties go to the offset nearest the centre.  (excl) lists offsets already taken: a placement
+  // closer than sqrt(2) modules to any of them is skipped, so asking again keeps moving -- dropping
+  // the rule only when nothing would otherwise survive, and null meaning no rule at all.  Returns
+  // {x,y} in modules (fractional) plus per (the error % there), or null when there is no art.
   best:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
-    return o?qr._best(o,nearX,nearY):null;
+    return o?qr._best(o,nearX==null?null:[[nearX,nearY]]):null;
   },
-  _best:(o,nearX,nearY)=>{
+  // Up to n placements, each at least sqrt(2) modules from the current offset and from each other,
+  // so repeated presses walk best, second best, third best.  Returns null when there is no art.
+  top:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>{
+    const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
+    if(!o)return null;
+    const excl=nearX==null?[]:[[nearX,nearY]],out=[];
+    for(let i=0;i<n;i++){
+      const b=qr._best(o,excl);
+      if(!b)break;                                      // _best ignores the rule when nothing is clear
+      if(excl.some(p=>{const ax=b.x-p[0],ay=b.y-p[1];return ax*ax+ay*ay<2-1e-9;}))break;
+      out.push(b);excl.push([b.x,b.y]);}
+    return out;
+  },
+  _best:(o,excl)=>{
     const N=o.N,ec=o.ec,h=o.h,A=o.A;
     if(!(h>0&&A))return null;
     const L=qr._l[N+'|'+ec]||(qr._l[N+'|'+ec]=dataCells(N,ec))
@@ -79,7 +93,8 @@ window.qr = {
     // share and how many finder modules it would hide, or null when the hole leaves the code.
     const score=(fx,fy,soft)=>{
       if(fx<0||fy<0||fx>R||fy>R)return null;
-      if(nearX!=null&&!soft){const ax=fx-cx-nearX,ay=fy-cx-nearY;if(ax*ax+ay*ay<2-1e-9)return null;}   // keep sqrt(2)
+      if(excl&&!soft){const X=fx-cx,Y=fy-cx;                       // keep sqrt(2) from every exclusion
+        for(let i=0;i<excl.length;i++){const ax=X-excl[i][0],ay=Y-excl[i][1];if(ax*ax+ay*ay<2-1e-9)return null;}}
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
        ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))));
       gen++;let cross=0;
