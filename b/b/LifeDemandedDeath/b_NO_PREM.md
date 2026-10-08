@@ -1116,10 +1116,18 @@ Appendix og mer
 #### p. 176
 ### Kattegorifeil
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet. Det var en spesiell kunst med ord. Slam-poesi ville de holde. Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjøre.
+Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet.
+Det var en spesiell kunst med ord. Slam-poesi ville de holde.
+Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjøre.
 “Jeg vil ikke!” skrek det inne i meg. Jeg vil ikke finne ord som ligner, ikke løse kryssord, ikke noe bokstavlek, og i alle fall ingen ordlek.
-Barnets lekenhet raser overansiktsunntrykket hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser.
-Det jeg bruker mnusikk tilå uttrykke.
+Barnets lekenhet raser overansiktsunntrykket hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker mnusikk tilå uttrykke.
 “Vekk fra den ubønnhrlige realiteten, og så kom jeg” Eg gikk.
 #### p. 177
+### Ensom
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+“Du kan ikke parkere her “ sa Rolf, 70 år og ensom. Etter et langt ilv med økonomirapportering på sykehuset var han vant til å ha definisjonsmakt.
+Hans minnes “Gullgravingsoppdraget” på Ullevål sykehus.
+Der han systematisk gikk gjennom diagnoser og behandlinger fra året før. Llegge til flere koder som utløste mer penger til radiologisk avdeling. Sykehusenes parkeringsvakter. 2006 var et vakkert år med aggressiv leting etter ting som kunne tolkes dyrere. Hellig kamp for sykehusinntektene.
+“Du står i vein. Kanskje du vil stå foran døra” sa han.. “Ingen må gå omvei jeg hemmer og forhindrerer ingen”. “Det er bare fordi stilaset står her” sa økonomen triumferende. “Stilaset står der. Takk for praten, jrg er ferdig med å prate med deg”.
+#### p. 178
 Navnet På Boken

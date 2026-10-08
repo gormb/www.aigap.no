@@ -769,4 +769,10 @@ Appendix and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 qwe
 #### p. 177
+### Lonely
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+"You can't park here," said Rolf, 70 years old and lonely. After a long life of financial reporting at the hospital, he was used to having the power of definition.
+He remembers the "Gold Digging Mission" at Ullevål hospital. Where he systematically went through diagnoses and treatments from the previous year. Added more codes that triggered more money for the radiology department. The hospitals' parking attendants. 2006 was a beautiful year with aggressive searching for things that could be interpreted as more expensive. Holy war for the hospital's finances.
+"You're in the way. Maybe you'd like to stand in front of the door," he said. "No one has to take a detour; I hinder and prevent no one." "It's just because the scaffolding is standing here," said the economist triumphantly. "The scaffolding is standing there. Thanks for the talk; I'm done talking with you."
+#### p. 178
 The Name of the Book
