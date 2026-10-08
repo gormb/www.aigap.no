@@ -53,10 +53,11 @@ window.qr = {
   // The offset (in modules, from centre) that erases the fewest codewords, so the art can be
   // placed instead of nudged by hand, at sub-module precision -- a module counts only when the art
   // covers at least half of it (_cover), which is true or not depending on the fractional offset.
-  // Every whole-module placement and its +-0.2/+-0.4 neighbourhood is scored (a full 0.2-module
-  // grid), then the ten best are re-sampled at +-0.1.  A placement that would hide a finder
-  // pattern's middle row/column is rejected, so the finder keeps its 1:1:3:1:1 scan lines; ties
-  // go to the offset nearest the centre.  When (nearX,nearY) is given, placements closer than
+  // One coarse grid across the whole range, then 1-module steps around its twenty best, then
+  // 0.1-module steps around those, keeping twenty each time -- so a search reads a few thousand
+  // placements, never every one, even on the largest codes.  A placement that would hide a
+  // finder pattern's middle row/column is rejected, so the finder keeps its 1:1:3:1:1 scan lines;
+  // ties go to the offset nearest the centre.  When (nearX,nearY) is given, placements closer than
   // sqrt(2) modules to it are skipped, so asking twice keeps moving.  Returns {x,y} in modules
   // (fractional) plus per (the error % there), or null when there is no art to place.
   best:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null)=>{
@@ -76,11 +77,11 @@ window.qr = {
     let gen=0;
     // score the art with the hole's top-left at (fx,fy) (may be fractional): the worst-block erased
     // share and how many finder modules it would hide, or null when the hole leaves the code.
-    const score=(fx,fy)=>{
+    const score=(fx,fy,soft)=>{
       if(fx<0||fy<0||fx>R||fy>R)return null;
-      if(nearX!=null){const ax=fx-cx-nearX,ay=fy-cx-nearY;if(ax*ax+ay*ay<2-1e-9)return null;}   // keep sqrt(2)
+      if(nearX!=null&&!soft){const ax=fx-cx-nearX,ay=fy-cx-nearY;if(ax*ax+ay*ay<2-1e-9)return null;}   // keep sqrt(2)
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
-       ,C=qr._cover(A,h,o.tr,+(fx-Bx).toFixed(1),+(fy-By).toFixed(1));
+       ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))));
       gen++;let cross=0;
       for(let i=0;i<C.M;i++)for(let j=0;j<C.M;j++)if(C.m[i*C.M+j]){
         const r=By+i,c=Bx+j;if(r>=N||c>=N)continue;
@@ -91,18 +92,33 @@ window.qr = {
       for(let b=0;b<nb;b++){const s=cnt[b]/L.blk[b].ec;if(s>worst)worst=s;cnt[b]=0;}
       return {fx:fx,fy:fy,per:worst,cross:cross,d:Math.abs(fx-cx)+Math.abs(fy-cx)};};
     const rank=(a,b)=>a.cross-b.cross||a.per-b.per||a.d-b.d;
+    const keep=a=>(a.sort(rank),a.slice(0,20));   // the twenty placements worth keeping
     const c0=qr._cover(A,h,o.tr,0,0);
     let any=false;for(let i=0;i<c0.M*c0.M&&!any;i++)if(c0.m[i])any=true;
-    if(!any)return {x:0,y:0,per:0};              // fully transparent: nothing is ever erased
-    const off=[-.4,-.2,0,.2,.4],step1=[];
-    for(let By=0;By<=R;By++)for(let Bx=0;Bx<=R;Bx++)for(const a of off)for(const b of off){
-      const s=score(Bx+a,By+b);if(s)step1.push(s);}
-    step1.sort(rank);
-    let best=null;
-    for(const q of step1.slice(0,10))for(const a of [-.1,0,.1])for(const b of [-.1,0,.1]){
-      const s=score(q.fx+a,q.fy+b);if(s&&(!best||rank(s,best)<0))best=s;}
-    if(!best)best=step1[0];
-    return {x:+(best.fx-cx).toFixed(1),y:+(best.fy-cx).toFixed(1),per:100*best.per};
+    if(!any)return {x:0,y:0,per:0};               // fully transparent: nothing is ever erased
+    // Three grids, ten kept at each: a coarse one across the whole range, then 1-module steps
+    // around those ten, then 0.1-module steps.  Every step's window covers the spacing of the
+    // step above, so the search never reads a position the grid above could have pointed at.
+    const s0=Math.max(1,Math.round(R/9));         // ~10 points across; adapts to a small range
+    const grid=(step,soft)=>{const out=[];
+      for(let y=0;y<=R;y+=step)for(let x=0;x<=R;x+=step){const s=score(x,y,soft);if(s)out.push(s);}
+      for(let x=0;x<=R;x+=step){const s=score(x,R,soft);if(s)out.push(s);}
+      for(let y=0;y<=R;y+=step){const s=score(R,y,soft);if(s)out.push(s);}
+      return out;};
+    const around=(pts,step,n,soft)=>{const out=[];
+      for(const q of pts)for(let i=-n;i<=n;i++)for(let j=-n;j<=n;j++){
+        const s=score(q.fx+i*step,q.fy+j*step,soft);if(s)out.push(s);}
+      return out;};
+    let pts=keep(grid(s0,false));
+    const soft=!pts.length;                       // nothing survived the sqrt(2) rule: ignore it
+    if(soft)pts=keep(grid(s0,true));
+    if(!pts.length)return null;
+    if(s0>1)pts=keep(around(pts,1,Math.max(1,Math.ceil(s0/2)),soft));   // 1x1 grid over each cell
+    const prev=pts;
+    const fine=keep(around(pts,0.1,5,soft));      // 0.1x0.1 grid
+    const b=(fine.length?fine:prev)[0];
+    if(!b)return null;
+    return {x:+(b.fx-cx).toFixed(1),y:+(b.fy-cx).toFixed(1),per:100*b.per};
   },
   // The sizes in GS that can hold this id/url, so a caller only offers those.  Same string and
   // same mode rule as _o (21 is the bare www. host, the rest https://), and the header+payload
@@ -191,23 +207,26 @@ window.qr = {
     }
     return s;
   },
-  _cover:(A,h,tr,px,py)=>{   // the modules the art covers (>= half, i/u/qr.js coverageAlpha) for one
-    const k=((A&&A.src)||'')+'|'+h+'|'+tr+'|'+px+'|'+py;let c=qr._c[k];   // sub-module phase (px,py);
-    if(c)return c;                                // local (i,j) is the code module (floor+i, floor+j)
-    const s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
+  _cover:(A,h,tr,pi,pj)=>{   // the modules the art covers (>= half, i/u/qr.js coverageAlpha) for the
+    const base=((A&&A.src)||'')+'|'+h+'|'+tr,t=pi*10+pj;   // sub-module phase (pi,pj)/10; local
+    let a=qr._c[base];if(!a)a=qr._c[base]=[];              // (i,j) is the code module (floor+i,floor+j)
+    if(a[t])return a[t];
+    const px=pi/10,py=pj/10
+     ,s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
      ,x0=Math.round((1-px)*K),y0=Math.round((1-py)*K);   // KSUB makes px*K whole, so this is exact
     for(let i=0;i<M;i++)for(let j=0;j<M;j++){let sm=0;
       for(let y=0;y<K;y++){const dy=(y0+i*K+y)*s.S0;
         for(let x=0;x<K;x++)sm+=s.d[(dy+x0+j*K+x)*4+3];}
       m[i*M+j]=sm*2>=K*K*255?1:0;}               // >= half of the module is covered
-    c=qr._c[k]={M:M,m:m};
-    if(Object.keys(qr._c).length>2000)qr._c={};   // a caller stepping offsets must not grow this forever
-    return c;
+    a[t]={M:M,m:m};
+    if(Object.keys(qr._c).length>24)qr._c={};     // each entry is a small mask: keep the last few arts
+    return a[t];
   },
   _met:(N,ec,h,tr,A,fx,fy)=>{   // i/u/qr.js metricFor, at the true sub-module placement (fx,fy)
     if(h>0){
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
-       ,C=qr._cover(A,h,tr,+(fx-Bx).toFixed(1),+(fy-By).toFixed(1));
+       ,pi=Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),pj=Math.min(9,Math.max(0,Math.round((fy-By)*10)))
+       ,C=qr._cover(A,h,tr,pi,pj);
       return qrErasure(N,ec,(r,c)=>{const i=r-By,j=c-Bx;return i>=0&&j>=0&&i<C.M&&j<C.M&&C.m[i*C.M+j]===1;});
     }
     return qrErasure(N,ec,()=>false);
