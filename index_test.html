@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang=en>
+<meta charset=utf-8>
+<title>QR files: i/&lt;id&gt;.&lt;token&gt;.gif vs .png</title>
+<style>
+body{font:14px/1.4 system-ui;margin:1rem}
+table{border-collapse:collapse}
+td,th{border:1px solid #ccc;padding:2px 6px;font-family:ui-monospace,monospace}
+tr.ok{background:#dfd}tr.bad{background:#fdd}
+img.pv{image-rendering:pixelated;width:84px;height:auto;vertical-align:middle}
+#sum{font-weight:600}
+</style>
+
+<h1>Every QR code: <code>.gif</code> vs its <code>.png</code> twin</h1>
+<p id=sum>loading…</p>
+<p>
+  <button id=run>re-run</button>
+  For every <code>redir</code> row that has a QR token this fetches
+  <code>i/&lt;id&gt;.&lt;token&gt;.gif</code> and <code>.png</code>, compares the decoded
+  pixels module for module, and prints the real file sizes. Green = identical, red = problem.
+</p>
+<table>
+  <thead><tr>
+    <th>id</th><th>token</th><th>N</th><th>gif B</th><th>png B</th><th>&Delta;</th><th>pixels</th>
+    <th>gif</th><th>png</th>
+  </tr></thead>
+  <tbody id=tb></tbody>
+</table>
+
+<script src=db.js></script>
+<script>
+const H = {apikey:SUPABASE.publishableKey, Authorization:'Bearer '+SUPABASE.publishableKey};
+const img = u => new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(u);i.src=u;});
+// one fetch per file: the blob both gives the exact byte count and the image to draw
+const load = async src => {
+  const r = await fetch(src);
+  if (!r.ok) throw new Error(src+' -> '+r.status);
+  const b = await r.blob(), u = URL.createObjectURL(b);
+  return {n:b.size, i:await img(u), u};
+};
+const mask = im => {                       // 1 = dark module
+  const c = document.createElement('canvas');
+  c.width = im.naturalWidth; c.height = im.naturalHeight;
+  const g = c.getContext('2d'); g.drawImage(im,0,0);
+  const d = g.getImageData(0,0,c.width,c.height).data;
+  const a = new Uint8Array(c.width*c.height);
+  for (let k=0;k<a.length;k++) a[k] = d[k*4] < 128 ? 1 : 0;
+  return a;
+};
+const same = (a,b) => a.length===b.length && a.every((v,k)=>v===b[k]);
+
+async function run(){
+  const tb = document.getElementById('tb'), sum = document.getElementById('sum');
+  tb.innerHTML = ''; sum.textContent = 'loading…';
+  const rows = await (await fetch(SUPABASE.url+'/rest/v1/redir?select=id,qr,present'
+    +'&present=eq.qr&order=sort.asc,id.asc', {headers:H})).json();
+  let ok=0, bad=0, gTot=0, pTot=0, skipped=0;
+  for (const r of rows){
+    const t = (r.qr||'').trim(), base = 'i/'+r.id+'.'+t;
+    const head = '<td>'+r.id+'</td><td>'+(t||'\u2014')+'</td>';
+    if (!t){ skipped++; tb.insertAdjacentHTML('beforeend','<tr>'+head+'<td colspan=7>skipped: no qr token</td></tr>'); continue; }
+    let g, p, miss = [];
+    try { g = await load(base+'.gif'); } catch(e){ miss.push('gif missing'); }
+    try { p = await load(base+'.png'); } catch(e){ miss.push('png missing'); }
+    if (!g || !p){
+      bad++; tb.insertAdjacentHTML('beforeend','<tr class=bad>'+head+'<td colspan=7>'+miss.join(', ')+'</td></tr>');
+      continue;
+    }
+    const eq = same(mask(g.i), mask(p.i)), d = p.n - g.n;
+    eq ? ok++ : bad++;
+    gTot += g.n; pTot += p.n;
+    tb.insertAdjacentHTML('beforeend','<tr class="'+(eq?'ok':'bad')+'">'+head
+      + '<td>'+g.i.naturalWidth+'</td>'
+      + '<td>'+g.n+'</td><td>'+p.n+'</td>'
+      + '<td>'+(d>0?'-':'+')+Math.abs(d)+'</td>'
+      + '<td>'+(eq?'same':'DIFFERENT')+'</td>'
+      + '<td><img class=pv src="'+g.u+'"></td>'
+      + '<td><img class=pv src="'+p.u+'"></td></tr>');
+  }
+  sum.textContent = ok+' ok \u00b7 '+bad+' problem(s) \u00b7 '+skipped+' skipped \u00b7 '
+    + 'gif '+gTot+'B \u00b7 png '+pTot+'B \u00b7 png-gif '+(pTot-gTot)+'B  ('+rows.length+' rows)';
+}
+document.getElementById('run').onclick = run;
+run().catch(e => document.getElementById('sum').textContent = 'FAILED: '+e);
+</script>
