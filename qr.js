@@ -18,6 +18,7 @@ window.qr = {
   S:40,                                                     // px per module (i/u/qr.js renderHi)
   MAR:4,                                                    // quiet zone in modules (renderHi default)
   _i:{},                                                    // art src -> decoded image
+  _pc:null,                                                 // the last _pool, so one search serves best+top
   _k:{},                                                    // art src -> keyed canvas (i/u/qr.js KEYED)
   _f:{},                                                    // "size|text" -> the EC levels that hold it (i/u/qr.js FIT)
   _c:{},                                                    // art|hole|tr|phase -> the covered modules (sub-module)
@@ -53,34 +54,39 @@ window.qr = {
   // The offset (in modules, from centre) that erases the fewest codewords, so the art can be
   // placed instead of nudged by hand, at sub-module precision -- a module counts only when the art
   // covers at least half of it (_cover), which is true or not depending on the fractional offset.
-  // One coarse grid across the whole range, then 1-module steps around its twenty best, then
-  // 0.1-module steps around those, keeping twenty each time -- so a search reads a few thousand
-  // placements, never every one, even on the largest codes.  A placement that would hide a
-  // finder pattern's middle row/column is rejected, so the finder keeps its 1:1:3:1:1 scan lines;
-  // ties go to the offset nearest the centre.  (excl) lists offsets already taken: a placement
-  // closer than sqrt(2) modules to any of them is skipped, so asking again keeps moving -- dropping
-  // the rule only when nothing would otherwise survive, and null meaning no rule at all.  Returns
-  // {x,y} in modules (fractional) plus per (the error % there), or null when there is no art.
-  best:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null)=>{
+  // The search reads three grids, never every position (_pool); a placement that would hide a
+  // finder pattern's middle row/column ranks last, so the finder keeps its 1:1:3:1:1 scan lines,
+  // and ties go to the offset nearest the centre.  (excl) lists offsets already taken: the best
+  // placement further than sqrt(2) modules from all of them, null when there is no such rule.
+  // Returns {x,y} in modules (fractional) plus per (the error % there), or null with no art.
+  // (lim) is in % too: stop as soon as a placement is within it, which is all a caller asking
+  // "does this hole fit" needs, and the cheaper first grid usually answers that on its own.
+  best:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,lim=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
-    return o?qr._best(o,nearX==null?null:[[nearX,nearY]]):null;
+    return o?qr._best(o,nearX==null?null:[[nearX,nearY]],lim/100):null;
   },
-  // Up to n placements, each at least sqrt(2) modules from the current offset and from each other,
-  // so repeated presses walk best, second best, third best.  Returns null when there is no art.
+  // The n best placements in order, each at least sqrt(2) modules from the current offset and
+  // from the ones picked before it, so the button can walk them without re-running the search.
+  // Null when there is no art; fewer than n when the code has no room for that many.
   top:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
     if(!o)return null;
-    const excl=nearX==null?[]:[[nearX,nearY]],out=[];
-    for(let i=0;i<n;i++){
-      const b=qr._best(o,excl);
-      if(!b)break;                                      // _best ignores the rule when nothing is clear
-      if(excl.some(p=>{const ax=b.x-p[0],ay=b.y-p[1];return ax*ax+ay*ay<2-1e-9;}))break;
-      out.push(b);excl.push([b.x,b.y]);}
+    const cx=(o.N-o.h)>>1,excl=nearX==null?[]:[[nearX,nearY]],out=[];
+    for(const p of qr._pool(o).cand){                        // best first, so the list comes out sorted
+      if(out.length>=n)break;
+      const x=p.fx-cx,y=p.fy-cx;
+      if(excl.some(e=>{const ax=x-e[0],ay=y-e[1];return ax*ax+ay*ay<2-1e-9;}))continue;
+      out.push({x:+x.toFixed(1),y:+y.toFixed(1),per:100*p.per});excl.push([x,y]);}
     return out;
   },
-  _best:(o,excl)=>{
+  // Every placement the three grids read, best first, plus the ladder's own winner.  One coarse
+  // grid across the whole range, 1-module steps around its twenty best, then 0.1-module steps
+  // around those, keeping twenty at each step -- a few thousand reads even on the largest code,
+  // never every position.  Cached for the object it was built from, so the second best is free.
+  _pool:(o,lim)=>{
+    if(qr._pc&&qr._pc.o===o)return qr._pc;
     const N=o.N,ec=o.ec,h=o.h,A=o.A;
-    if(!(h>0&&A))return null;
+    if(!(h>0&&A))return qr._pc={o:o,cand:[],best:null};
     const L=qr._l[N+'|'+ec]||(qr._l[N+'|'+ec]=dataCells(N,ec))
      ,nb=L.blk.length,cwN=L.totalCW,R=N-h,cx=(N-h)>>1;   // R = furthest whole-module top-left
     const cw=new Int32Array(N*N).fill(-1),prot=new Uint8Array(N*N);
@@ -91,10 +97,8 @@ window.qr = {
     let gen=0;
     // score the art with the hole's top-left at (fx,fy) (may be fractional): the worst-block erased
     // share and how many finder modules it would hide, or null when the hole leaves the code.
-    const score=(fx,fy,soft)=>{
+    const score=(fx,fy)=>{
       if(fx<0||fy<0||fx>R||fy>R)return null;
-      if(excl&&!soft){const X=fx-cx,Y=fy-cx;                       // keep sqrt(2) from every exclusion
-        for(let i=0;i<excl.length;i++){const ax=X-excl[i][0],ay=Y-excl[i][1];if(ax*ax+ay*ay<2-1e-9)return null;}}
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
        ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))));
       gen++;let cross=0;
@@ -110,29 +114,30 @@ window.qr = {
     const keep=a=>(a.sort(rank),a.slice(0,20));   // the twenty placements worth keeping
     const c0=qr._cover(A,h,o.tr,0,0);
     let any=false;for(let i=0;i<c0.M*c0.M&&!any;i++)if(c0.m[i])any=true;
-    if(!any)return {x:0,y:0,per:0};               // fully transparent: nothing is ever erased
-    // Three grids, ten kept at each: a coarse one across the whole range, then 1-module steps
-    // around those ten, then 0.1-module steps.  Every step's window covers the spacing of the
-    // step above, so the search never reads a position the grid above could have pointed at.
+    if(!any)return qr._pc={o:o,cand:[{fx:cx,fy:cx,per:0,cross:0,d:0}],best:{fx:cx,fy:cx,per:0,cross:0,d:0}};
+    const pts=[];                                 // everything read, best first by the end
+    const grid=step=>{const out=[],put=(x,y)=>{const s=score(x,y);if(s){out.push(s);pts.push(s)}};
+      for(let y=0;y<=R;y+=step)for(let x=0;x<=R;x+=step)put(x,y);
+      for(let x=0;x<=R;x+=step)put(x,R);
+      for(let y=0;y<=R;y+=step)put(R,y);
+      return out;};
+    const around=(list,step,n)=>{const out=[];
+      for(const q of list)for(let i=-n;i<=n;i++)for(let j=-n;j<=n;j++){
+        const s=score(q.fx+i*step,q.fy+j*step);if(s){out.push(s);pts.push(s)}}
+      return out;};
     const s0=Math.max(1,Math.round(R/9));         // ~10 points across; adapts to a small range
-    const grid=(step,soft)=>{const out=[];
-      for(let y=0;y<=R;y+=step)for(let x=0;x<=R;x+=step){const s=score(x,y,soft);if(s)out.push(s);}
-      for(let x=0;x<=R;x+=step){const s=score(x,R,soft);if(s)out.push(s);}
-      for(let y=0;y<=R;y+=step){const s=score(R,y,soft);if(s)out.push(s);}
-      return out;};
-    const around=(pts,step,n,soft)=>{const out=[];
-      for(const q of pts)for(let i=-n;i<=n;i++)for(let j=-n;j<=n;j++){
-        const s=score(q.fx+i*step,q.fy+j*step,soft);if(s)out.push(s);}
-      return out;};
-    let pts=keep(grid(s0,false));
-    const soft=!pts.length;                       // nothing survived the sqrt(2) rule: ignore it
-    if(soft)pts=keep(grid(s0,true));
-    if(!pts.length)return null;
-    if(s0>1)pts=keep(around(pts,1,Math.max(1,Math.ceil(s0/2)),soft));   // 1x1 grid over each cell
-    const prev=pts;
-    const fine=keep(around(pts,0.1,5,soft));      // 0.1x0.1 grid
-    const b=(fine.length?fine:prev)[0];
-    if(!b)return null;
+    const coarse=keep(grid(s0));
+    if(lim>0&&coarse.length&&!coarse[0].cross&&coarse[0].per<=lim)   // inside lim already: no need to
+      return {o:o,cand:[coarse[0]],best:coarse[0]};                  // refine, and this is not cached
+    const mid=coarse.length&&s0>1?keep(around(coarse,1,Math.max(1,Math.ceil(s0/2)))):coarse;   // 1x1 grid over each cell
+    const fine=mid.length?keep(around(mid,0.1,5)):[];    // 0.1x0.1 grid
+    return qr._pc={o:o,cand:pts.sort(rank),best:(fine.length?fine:mid)[0]||null};
+  },
+  _best:(o,excl,lim)=>{
+    const P=qr._pool(o,excl?0:lim);        // an early exit skips the exclusions, so never both
+    if(!P.best)return null;
+    const cx=(o.N-o.h)>>1
+     ,b=excl?P.cand.find(p=>excl.every(e=>{const ax=p.fx-cx-e[0],ay=p.fy-cx-e[1];return ax*ax+ay*ay>=2-1e-9;}))||P.best:P.best;
     return {x:+(b.fx-cx).toFixed(1),y:+(b.fy-cx).toFixed(1),per:100*b.per};
   },
   // The sizes in GS that can hold this id/url, so a caller only offers those.  Same string and

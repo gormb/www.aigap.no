@@ -33,7 +33,7 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=5"></script>
-<script src=qr.js?v=35></script>
+<script src=qr.js?v=40></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
@@ -133,7 +133,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
 ,up=()=>{if(!drg)return;drg=null;qr.S=S0;go()}
 ,arm=fn=>()=>{url=0;clearTimeout(to);to=setTimeout(fn,300)};
 const ORD=['1st','2nd','3rd','4th','5th'],auto=document.getElementById('auto');  // the placements "best position" walks
-let picks=[],pickKey='',errDirty=false;   // what it found, for which search, so a press just steps through
+let picks=[],pickKey='',errDirty=false,errUse=null;   // what it found, for which search, so a press just steps
 const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0
  ,i=picks.findIndex(p=>Math.abs(p.x-x)<1e-9&&Math.abs(p.y-y)<1e-9);
  auto.textContent=i<0?'best position':'best '+ORD[i]};   // the offset is one of them, or was moved by hand
@@ -150,22 +150,37 @@ auto.onclick=async()=>{              // type nothing: the button slides the art 
    ,cur=[+E.offsetX.value||0,+E.offsetY.value||0];
   let i=picks.findIndex(p=>Math.abs(p.x-cur[0])<1e-9&&Math.abs(p.y-cur[1])<1e-9);
   if(key!==pickKey||errDirty||!picks.length||i<0){   // the search changed, or the art was moved by hand
-    pickKey=key;errDirty=false;                      // the search key leaves the error % out, because go()
+    pickKey=key;errDirty=false;errUse=+E.error.value; // the error % is the budget the search was made for:
     picks=await qr.top(E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,E.iTrans.checked,
-      E.iHole.value===''?null:+E.iHole.value,+E.error.value,cur[0],cur[1],5)||[];
-    i=-1;                                            // reports the measured one back into the field
-  }
+      E.iHole.value===''?null:+E.iHole.value,errUse,cur[0],cur[1],5)||[];
+    i=-1;                                            // go() writes the measured one back into that field,
+  }                                                  // so holding it here keeps all five on one EC level
   const b=picks[(i+1)%picks.length];
   if(!b)return;
-  E.offsetX.value=b.x;E.offsetY.value=b.y;go()};
+  E.offsetX.value=b.x;E.offsetY.value=b.y;
+  if(errUse!=null)E.error.value=errUse;              // and their error % comparable, which is what the
+  go()};                                             // ranking in qr.top was made with
 document.getElementById('big').onclick=async()=>{     // biggest hole whose best position still fits the error %
   sizes();holes();
-  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
-  for(let h=sz;h>=0;h--)for(const tr of [true,false]){
-    const b=h>0?await qr.best(v,A,sz,tr,h,lim):{x:0,y:0,per:0};
-    if(k!==run)return;                    // another render/click won: drop this search
-    if(!b||b.per>lim+1e-9)continue;
-    E.iHole.value=h;E.iTrans.checked=tr;E.offsetX.value=b.x;E.offsetY.value=b.y;go();return}};
+  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value
+   ,fits=async h=>{                                   // any placement inside the budget, for this hole?
+    if(h<=0)return {x:0,y:0,tr:true};
+    for(const tr of [true,false]){
+      const b=await qr.best(v,A,sz,tr,h,lim,null,null,lim);   // lim: stop as soon as it fits
+      if(k!==run)return null;                         // another render/click won: drop this search
+      if(b&&b.per<=lim+1e-9)return {x:b.x,y:b.y,tr:tr};}
+    return false};
+  let lo=0,hi=sz,best=null,r;                         // a hole never erases fewer codewords than a smaller
+  while(lo<hi){const m=(lo+hi+1)>>1;                  // one, so halve instead of walking every size
+    r=await fits(m);if(r===null)return;
+    if(r){lo=m;best=r}else hi=m-1;}
+  for(let h=lo+1,miss=0;h<=sz&&miss<3;h++){           // the grids make a hole or two look worse than it
+    r=await fits(h);if(r===null)return;               // is, so take the highest that fits, and give up
+    if(r){best=r;lo=h;miss=0}else miss++}             // only after three holes in a row miss
+  E.iHole.value=lo;
+  E.iTrans.checked=best?best.tr:true;
+  E.offsetX.value=best?best.x:0;E.offsetY.value=best?best.y:0;
+  go()};
 O.addEventListener('pointerdown',down);          // drag the canvas to move the art
 addEventListener('pointermove',move);
 addEventListener('pointerup',up);
