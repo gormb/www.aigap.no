@@ -6,6 +6,7 @@ label{display:flex;flex-direction:column;gap:.2rem;font-size:12px;color:#666}
 input,select{font:inherit}
 input[type=text]{width:16ch}
 input[type=number]{width:6ch}
+textarea{font:inherit;width:20ch;resize:vertical}
 select[size]{height:auto}
 a{margin-left:auto}
 #o canvas{width:min(80vmin,520px);background:#fff;image-rendering:pixelated;cursor:grab;touch-action:none;user-select:none}
@@ -14,7 +15,8 @@ a{margin-left:auto}
 </style>
 <nav id=f>
   <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
-  <label>img (art name | url)<input id=img value=ldi spellcheck=false autocomplete=off></label>
+  <label>img (art name | url, one per line)<textarea id=img rows=3 spellcheck=false autocomplete=off
+    title="one art per line; each line is a candidate the buttons may place, and the box keeps a blank line at the end">ldi</textarea></label>
   <label>iSz<select id=iSz title="the sizes that exist"></select></label>
   <label>iTrans<input id=iTrans type=checkbox checked></label>
   <label>iHole<select id=iHole size=8 title="any whole number of modules; 0 = no hole; rec = qr.REC_HOLE"></select></label>
@@ -22,8 +24,8 @@ a{margin-left:auto}
   <label>offsetX<input id=offsetX type=number value=0 step=0.1 title="modules to move the artwork sideways, 1/10 is fine (or drag the image)"></label>
   <label>offsetY<input id=offsetY type=number value=0 step=0.1 title="modules to move the artwork up/down, 1/10 is fine"></label>
   <button id=mid type=button title="put the artwork back at the middle of the code (offsetX = offsetY = 0)">center</button>
-  <button id=auto type=button title="slide the artwork to the offset that erases the fewest codewords, keeping the finder patterns scannable; press again to walk the next best place, up to the five best">best position</button>
-  <button id=big type=button title="the largest hole whose best position still stays at or under the error %">largest iH on err</button>
+  <button id=auto type=button title="slide the artwork to the offset that erases the fewest codewords, keeping the finder patterns scannable; press again to walk the next best place, up to the five best">best pos/img</button>
+  <button id=big type=button title="the largest hole any of the candidate images can sit in at or under the error %">largest iH on err</button>
   <a id=d download>png</a>
 </nav>
 <main>
@@ -33,11 +35,12 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=5"></script>
-<script src=qr.js?v=40></script>
+<script src=qr.js?v=43></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
 ,E={},K='LdD.qr';
+let curImg=null;                       // which of the img lines the page is drawing right now
 ['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
 let to=null,run=0,mode='go',url=0,drg=null;   // url=1 while the state came from the deep link, not from you
@@ -52,7 +55,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
     ok.forEach(n=>E.iSz.append(new Option(n,n)));
     E.iSz.size=ok.length||1;}
   E.iSz.value=ok.indexOf(keep)>=0?keep:(ok[0]||'')}
-,args=tr=>[E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,tr==null?E.iTrans.checked:tr,E.iHole.value===''?null:+E.iHole.value,+E.error.value,+E.offsetX.value||0,+E.offsetY.value||0]
+,args=tr=>[E.t.value.trim(),curImg,+E.iSz.value,tr==null?E.iTrans.checked:tr,E.iHole.value===''?null:+E.iHole.value,+E.error.value,+E.offsetX.value||0,+E.offsetY.value||0]
 ,val=()=>{const v={};['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>v[k]=E[k].type==='checkbox'?E[k].checked:E[k].value);return v}
 ,save=()=>{if(url)return;try{localStorage.setItem(K,JSON.stringify(val()))}catch(e){}}   // storage blocked -> just do not remember
 ,load=()=>{let v;try{v=JSON.parse(localStorage.getItem(K)||'null')}catch(e){return}
@@ -98,6 +101,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   D.href=cv.toDataURL();D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
   const e=cv.e,p=Math.round(100*e.erased/e.ecPer);
   S.textContent=cv.t+'\n'+cv.u+'\nerases '+e.erased+'/'+e.ecPer+' EC cw \u00b7 '+p+'% error'
+   +(cands().length>1&&curImg?' \u00b7 img '+curImg:'')
    +(cv.o&&(cv.o[0]||cv.o[1])?' \u00b7 offset '+[+cv.o[0].toFixed(2),+cv.o[1].toFixed(2)]:'');
   return p}
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
@@ -112,7 +116,9 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
 ,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
   mode='fit';
   sizes();holes();
-  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value;
+  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),sz=+E.iSz.value
+   ,L=await arts();if(!L.length)return;                // art line that does not load: leave the code alone
+  const A=L.indexOf(curImg)>=0?curImg:L[0];curImg=A;   // stay on the art being looked at
   for(let h=sz;h>=0;h--)for(const tr of [true,false]){   // every hole the code has room for, biggest first
     const e=await qr.met(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0);   // qrmetrics only: nothing is drawn yet
     if(k!==run)return;
@@ -132,44 +138,73 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   url=0;clearTimeout(to);go()}            // no debounce here
 ,up=()=>{if(!drg)return;drg=null;qr.S=S0;go()}
 ,arm=fn=>()=>{url=0;clearTimeout(to);to=setTimeout(fn,300)};
-const ORD=['1st','2nd','3rd','4th','5th'],auto=document.getElementById('auto');  // the placements "best position" walks
+const ORD=['1st','2nd','3rd','4th','5th'],auto=document.getElementById('auto');  // the placements the button walks
 let picks=[],pickKey='',errDirty=false,errUse=null;   // what it found, for which search, so a press just steps
-const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0
- ,i=picks.findIndex(p=>Math.abs(p.x-x)<1e-9&&Math.abs(p.y-y)<1e-9);
- auto.textContent=i<0?'best position':'best '+ORD[i]};   // the offset is one of them, or was moved by hand
+const cands=()=>{const a=E.img.value.split('\n').map(s=>s.trim()).filter(Boolean);   // every art line, or
+  return a.length?a:[null]};                          // a single empty one so there is always something to draw
+const arts=async()=>{const a=cands(),out=[];          // only the lines whose art is really there: a typo must
+  for(const im of a){                                  // not win a search by erasing nothing at all
+    if(im==null){out.push(null);continue}
+    if(await qr._art(im))out.push(im);}
+  return out.length?out:[null]};
+const lines=()=>{                                     // keep a blank line at the end to type the next art in,
+  const v=E.img.value;                                // and one row per line
+  if(v&&!v.endsWith('\n')){const p=E.img.selectionStart;E.img.value=v+'\n';
+    if(document.activeElement===E.img)E.img.setSelectionRange(p,p);}
+  const a=cands();
+  if(a.indexOf(curImg)<0)curImg=a[0];
+  E.img.rows=Math.max(2,E.img.value.split('\n').length)};
+const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0,v=cands()
+ ,i=picks.findIndex(p=>p.img===curImg&&Math.abs(p.x-x)<1e-9&&Math.abs(p.y-y)<1e-9);
+ auto.textContent=i<0||!picks[i]?'best pos/img'
+  :'best '+ORD[i]+(v.length>1&&picks[i].img?' '+picks[i].img:'')};   // which of them, and with which art
 ['t','img','iSz','iHole','iTrans','offsetX','offsetY'].forEach(k=>{
   E[k].addEventListener('input',arm(go));E[k].addEventListener('change',arm(go));
   if(k==='offsetX'||k==='offsetY')E[k].addEventListener('input',mark)});   // moved by hand: not 1st..5th any more
+E.img.addEventListener('input',lines);
 E.error.addEventListener('input',arm(fit));
 E.error.addEventListener('input',()=>errDirty=true);  // typed error %: the list was found for another one
 E.error.addEventListener('change',arm(fit));          // (go() writes back the measured %, which is no edit)
 document.getElementById('mid').onclick=()=>{url=0;E.offsetX.value=0;E.offsetY.value=0;go()};
 auto.onclick=async()=>{              // type nothing: the button slides the art itself
   url=0;
-  const key=[E.t.value.trim(),E.img.value.trim(),+E.iSz.value,E.iTrans.checked,E.iHole.value].join('|')
+  const list=await arts();
+  if(!list.length)return;
+  const key=[E.t.value.trim(),list.join('\n'),+E.iSz.value,E.iTrans.checked,E.iHole.value].join('|')
    ,cur=[+E.offsetX.value||0,+E.offsetY.value||0];
-  let i=picks.findIndex(p=>Math.abs(p.x-cur[0])<1e-9&&Math.abs(p.y-cur[1])<1e-9);
+  let i=picks.findIndex(p=>p.img===curImg&&Math.abs(p.x-cur[0])<1e-9&&Math.abs(p.y-cur[1])<1e-9);
   if(key!==pickKey||errDirty||!picks.length||i<0){   // the search changed, or the art was moved by hand
+    auto.textContent='...';                          // one search per candidate image takes a moment
     pickKey=key;errDirty=false;errUse=+E.error.value; // the error % is the budget the search was made for:
-    picks=await qr.top(E.t.value.trim(),E.img.value.trim()||null,+E.iSz.value,E.iTrans.checked,
+    picks=await qr.multi(E.t.value.trim(),list,+E.iSz.value,E.iTrans.checked,
       E.iHole.value===''?null:+E.iHole.value,errUse,cur[0],cur[1],5)||[];
     i=-1;                                            // go() writes the measured one back into that field,
   }                                                  // so holding it here keeps all five on one EC level
   const b=picks[(i+1)%picks.length];
-  if(!b)return;
+  if(!b){mark();return}
+  curImg=b.img;                                      // the five may name different art
   E.offsetX.value=b.x;E.offsetY.value=b.y;
   if(errUse!=null)E.error.value=errUse;              // and their error % comparable, which is what the
   go()};                                             // ranking in qr.top was made with
-document.getElementById('big').onclick=async()=>{     // biggest hole whose best position still fits the error %
+document.getElementById('big').onclick=async()=>{     // biggest hole any candidate image still fits the error %
+  const big=document.getElementById('big'),was=big.textContent;
+  big.textContent='...';
+  await new Promise(r=>requestAnimationFrame(r));     // let that show before the searching starts
+  try{
   sizes();holes();
-  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),A=E.img.value.trim()||null,sz=+E.iSz.value
+  const list=await arts();if(!list.length)return;
+  const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),sz=+E.iSz.value,vs=[]
    ,fits=async h=>{                                   // any placement inside the budget, for this hole?
-    if(h<=0)return {x:0,y:0,tr:true};
-    for(const tr of [true,false]){
-      const b=await qr.best(v,A,sz,tr,h,lim,null,null,lim);   // lim: stop as soon as it fits
+    if(h<=0)return {x:0,y:0,tr:true,img:list[0]};
+    const order=hot?[hot].concat(vs.filter(q=>q!==hot)):vs;   // the candidate that fit last time first
+    for(const [tr,im] of order){
+      const b=await qr.best(v,im,sz,tr,h,lim,null,null,lim);  // lim: stop as soon as it fits
       if(k!==run)return null;                         // another render/click won: drop this search
-      if(b&&b.per<=lim+1e-9)return {x:b.x,y:b.y,tr:tr};}
+      if(b&&b.per<=lim+1e-9){hot=[tr,im];return {x:b.x,y:b.y,tr:tr,img:im};}}
     return false};
+  for(const tr of [true,false])for(const im of list)vs.push([tr,im]);   // every art, transparent first
+  let hot=null;                                       // the one that last fit, tried before the rest
+  if(!vs.length)return;
   let lo=0,hi=sz,best=null,r;                         // a hole never erases fewer codewords than a smaller
   while(lo<hi){const m=(lo+hi+1)>>1;                  // one, so halve instead of walking every size
     r=await fits(m);if(r===null)return;
@@ -178,9 +213,11 @@ document.getElementById('big').onclick=async()=>{     // biggest hole whose best
     r=await fits(h);if(r===null)return;               // is, so take the highest that fits, and give up
     if(r){best=r;lo=h;miss=0}else miss++}             // only after three holes in a row miss
   E.iHole.value=lo;
+  curImg=best?best.img:list[0];                       // which art the hole was found for
   E.iTrans.checked=best?best.tr:true;
   E.offsetX.value=best?best.x:0;E.offsetY.value=best?best.y:0;
-  go()};
+  go()
+  }finally{big.textContent=was}};
 O.addEventListener('pointerdown',down);          // drag the canvas to move the art
 addEventListener('pointermove',move);
 addEventListener('pointerup',up);
@@ -188,5 +225,8 @@ addEventListener('pointercancel',up);
 addEventListener('blur',up);
 holes();
 load();
-if(fromURL())fit();else go();
+lines();
+const link=fromURL();
+lines();
+if(link)fit();else go();
 </script>

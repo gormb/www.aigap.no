@@ -65,18 +65,27 @@ window.qr = {
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
     return o?qr._best(o,nearX==null?null:[[nearX,nearY]],lim/100):null;
   },
-  // The n best placements in order, each at least sqrt(2) modules from the current offset and
-  // from the ones picked before it, so the button can walk them without re-running the search.
-  // Null when there is no art; fewer than n when the code has no room for that many.
-  top:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>{
-    const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
-    if(!o)return null;
-    const cx=(o.N-o.h)>>1,excl=nearX==null?[]:[[nearX,nearY]],out=[];
-    for(const p of qr._pool(o).cand){                        // best first, so the list comes out sorted
-      if(out.length>=n)break;
-      const x=p.fx-cx,y=p.fy-cx;
+  top:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>
+    qr.multi(t,[img],iSz,iTrans,iHole,error,nearX,nearY,n),
+  // The n best placements over several art candidates at once, best first, each at least sqrt(2)
+  // modules from the current offset and from the ones picked before it.  Every image searches its
+  // own grids; the results are merged here, so one list may carry different art.  Each entry is
+  // {img,x,y,per}; null when there is no art, fewer than n when the code has no room for them.
+  multi:async (t=null,imgs=[],iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>{
+    const out=[],excl=nearX==null?[]:[[nearX,nearY]],lists=[];
+    for(const img of imgs){
+      const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
+      if(o)lists.push({img:img==null?null:String(img).trim(),cx:(o.N-o.h)>>1,cand:qr._pool(o).cand});}
+    const less=(a,b)=>a.cross-b.cross||a.per-b.per||a.d-b.d;
+    const at=lists.map(()=>0);                     // the pools are sorted, so k-way merge them
+    while(out.length<n){
+      let k=-1,best=null;
+      for(let i=0;i<lists.length;i++){const p=lists[i].cand[at[i]];
+        if(p&&(!best||less(p,best)<0)){best=p;k=i;}}
+      if(k<0)break;
+      const L=lists[k],p=L.cand[at[k]++],x=p.fx-L.cx,y=p.fy-L.cx;
       if(excl.some(e=>{const ax=x-e[0],ay=y-e[1];return ax*ax+ay*ay<2-1e-9;}))continue;
-      out.push({x:+x.toFixed(1),y:+y.toFixed(1),per:100*p.per});excl.push([x,y]);}
+      out.push({img:L.img,x:+x.toFixed(1),y:+y.toFixed(1),per:100*p.per});excl.push([x,y]);}
     return out;
   },
   // Every placement the three grids read, best first, plus the ladder's own winner.  One coarse
@@ -94,16 +103,23 @@ window.qr = {
     [[0,0],[0,N-7],[N-7,0]].forEach(p=>{for(let i=0;i<7;i++){    // each finder's middle row + column
       prot[(p[0]+3)*N+p[1]+i]=1;prot[(p[0]+i)*N+p[1]+3]=1;}});
     const stamp=new Int32Array(cwN).fill(-1),cnt=new Int32Array(nb);
-    let gen=0;
+    let ro=new Int32Array(8)                      // i*N for the rows a mask can name
+     ,gen=0;
     // score the art with the hole's top-left at (fx,fy) (may be fractional): the worst-block erased
     // share and how many finder modules it would hide, or null when the hole leaves the code.
     const score=(fx,fy)=>{
       if(fx<0||fy<0||fx>R||fy>R)return null;
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
-       ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))));
+       ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))))
+       ,ix=C.ix,base=By*N+Bx;
       gen++;let cross=0;
-      for(let i=0;i<C.M;i++)for(let j=0;j<C.M;j++)if(C.m[i*C.M+j]){
-        const r=By+i,c=Bx+j;if(r>=N||c>=N)continue;
+      if(ro.length<C.M){ro=new Int32Array(C.M);for(let i=0;i<C.M;i++)ro[i]=i*N;}
+      if(By>=7&&Bx>=7&&By+C.M<=N-7&&Bx+C.M<=N-7){        // clear of every edge and finder: the mask needs
+        for(let n=0;n<ix.length;n++){const q=ix[n],k=cw[base+ro[q>>16]+(q&0xFFFF)];   // no test at all
+          if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
+      }else for(let n=0;n<ix.length;n++){
+        const q=ix[n],r=By+(q>>16),c=Bx+(q&0xFFFF);
+        if(r>=N||c>=N)continue;
         if(prot[r*N+c]){cross++;continue;}
         const k=cw[r*N+c];
         if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
@@ -222,8 +238,11 @@ window.qr = {
          ,r=Math.min(h/aW,h/aH),w=aW*r,hh=aH*r;   // the art contained in the hole (i/u/qr.js artFit)
         g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);
       }else g.fillRect(K,K,h*K,h*K);              // opaque art covers the whole hole
-      s=qr._s[k]={K:K,S0:S0,M0:M0,d:g.getImageData(0,0,S0,S0).data};
-      if(Object.keys(qr._s).length>16)qr._s={};    // one entry is a whole ImageData: keep the last few
+      const d=g.getImageData(0,0,S0,S0).data,W=S0+1,S=new Int32Array(W*W);
+      for(let y=0;y<S0;y++){let row=0;const o=y*S0*4,p=(y+1)*W,q=y*W;
+        for(let x=0;x<S0;x++){row+=d[o+x*4+3];S[p+x+1]=S[q+x+1]+row;}}   // summed alpha: a module's
+      s=qr._s[k]={K:K,S0:S0,M0:M0,W:W,S:S};         // coverage is then four lookups, whatever K is
+      if(Object.keys(qr._s).length>16)qr._s={};    // one entry is a whole table: keep the last few
     }
     return s;
   },
@@ -231,14 +250,16 @@ window.qr = {
     const base=((A&&A.src)||'')+'|'+h+'|'+tr,t=pi*10+pj;   // sub-module phase (pi,pj)/10; local
     let a=qr._c[base];if(!a)a=qr._c[base]=[];              // (i,j) is the code module (floor+i,floor+j)
     if(a[t])return a[t];
-    const px=pi/10,py=pj/10
-     ,s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
-     ,x0=Math.round((1-px)*K),y0=Math.round((1-py)*K);   // KSUB makes px*K whole, so this is exact
-    for(let i=0;i<M;i++)for(let j=0;j<M;j++){let sm=0;
-      for(let y=0;y<K;y++){const dy=(y0+i*K+y)*s.S0;
-        for(let x=0;x<K;x++)sm+=s.d[(dy+x0+j*K+x)*4+3];}
-      m[i*M+j]=sm*2>=K*K*255?1:0;}               // >= half of the module is covered
-    a[t]={M:M,m:m};
+    if(!A||!(A.naturalWidth||A.width)){                    // no art, or one that did not load: the hole
+      const M=Math.ceil(h)+3;                              // stays empty, so nothing is erased and nothing
+      return a[t]={M:M,m:new Uint8Array(M*M),ix:new Int32Array(0)};}   // here has to touch the art canvas
+    const s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
+     ,S=s.S,W=s.W,half=K*K*255,x0=K-pi,y0=K-pj,ix=[];  // KSUB makes the window a whole module: exact
+    for(let i=0;i<M;i++){const r0=y0+i*K,r1=r0+K,rw0=r0*W,rw1=r1*W;
+      for(let j=0;j<M;j++){const c0=x0+j*K,c1=c0+K
+        ,sm=S[rw1+c1]-S[rw0+c1]-S[rw1+c0]+S[rw0+c0];
+        if(sm*2>=half){m[i*M+j]=1;ix.push((i<<16)|j);}}}   // >= half of the module is covered
+    a[t]={M:M,m:m,ix:Int32Array.from(ix)};
     if(Object.keys(qr._c).length>24)qr._c={};     // each entry is a small mask: keep the last few arts
     return a[t];
   },
