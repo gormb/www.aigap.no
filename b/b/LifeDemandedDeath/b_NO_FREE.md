@@ -631,7 +631,7 @@ Flere har dødd av blodpropp mens de laget dumme skilt enn antall liv reddet av 
 ### Ensom
 🎵 [Dirty Laundry; Don Henley](https://aigap.no/mdl)
 “Du kan ikke parkere her “ sa Rolf, 70 år og ensom. Etter et langt liv som overbetalt konsulent, jobb med økonomi- rapportering på sykehus, var han vant til å ha definisjonsmakt.
-Han tenkte på “Gullgravingsoppdraget” på Ullevål Sykehus.
+Han tenkte på “Gullgravingsoppdraget” på Ullevål sykehus.
 Årelang, systematisk gjennomgang av diagnoser og behandlinger fra året før. Legge til koder som utløste mer penger til radiologisk avdeling. Sykehusenes parkeringsvakter.
 2006 var et vakkert år med aggressiv leting etter ting som kunne tolkes dyrere. Hellig kamp for sykehusinntektene.
 “Du står i veien, kanskje du vil blokkere døra” sa han.. “Ingen må gå omvei jeg hemmer og forhindrerer ingen”. “Det er bare fordi stilaset står her” sa økonomen triumferende. “Stilaset står der. Takk for praten, jeg er ferdig med å prate med deg”.

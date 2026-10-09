@@ -887,6 +887,7 @@ I Was Going Somewhere With This,
 Nerd (which previously was meant negatively).
 "I don't sleep well at night," I said. Not as an expression of night sleep, but overthinking. While others sleep, I am awake. And vice versa. Because life with impressions is diﬀerent from the average.
 Not better. Diﬀerent. That's what they say about ADHD, autism, and other oddballs. I am one of the others.
+Sometimes I meet people who say I think too much. I hope it's okay with them that I take it as a compliment; thoughts are life, and that I am alive is good and beautiful.
 Neurodiversity. Artist soul with or without art. With the diagnosis "Normal."
 #### p. 144
 ### Strength is as before
