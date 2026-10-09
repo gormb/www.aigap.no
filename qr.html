@@ -33,7 +33,7 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=5"></script>
-<script src=qr.js?v=34></script>
+<script src=qr.js?v=35></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
@@ -102,12 +102,12 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   return p}
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
   mode='go';
+  mark();                // the caption follows the offset right away, before the drawing catches up
   sizes();holes();
   const k=++run,cv=await qr.g(...args());
   if(k!==run)return;
   const p=show(cv);
   if(p!=null)E.error.value=p;
-  mark();
   save()}
 ,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
   mode='fit';
