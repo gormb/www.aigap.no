@@ -625,7 +625,6 @@ He remembers the "Gold Digging Mission" at Ullevål hospital. Where he systemati
 #### p. 143
 ### Oddball
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
-I Was Going Somewhere With This,
 Nerd (which previously was meant negatively).
 With the diagnosis "Normal."
 #### p. 144

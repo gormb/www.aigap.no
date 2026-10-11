@@ -883,7 +883,6 @@ He remembers the "Gold Digging Mission" at Ullevål hospital. Where he systemati
 #### p. 143
 ### Oddball
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
-I Was Going Somewhere With This,
 Nerd (which previously was meant negatively).
 "I don't sleep well at night," I said. Not as an expression of night sleep, but overthinking. While others sleep, I am awake. And vice versa. Because life with impressions is diﬀerent from the average.
 Not better. Diﬀerent. That's what they say about ADHD, autism, and other oddballs. I am one of the others.

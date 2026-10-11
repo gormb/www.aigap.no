@@ -915,7 +915,6 @@ Han tenkte på “Gullgravingsoppdraget” på Ullevål sykehus.
 #### p. 143
 ### Raring
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
-I Was Going Somewhere With This,
 Nerd (som før var ment negativt).
 “Jeg sover ikke godt om natta”, sa jeg. Ikke som et uttrykk for nattesøvn, men overtenking. Mens andre sover er jeg våken. Og motsatt. For livet med inntrykk er annerledes enn for gjennomsnittet. Ikke bedre. Annerledes. Det de sier om diagnostiserte med ADHD eller autisme. Og andre særinger.
 Jeg er en av de andre.

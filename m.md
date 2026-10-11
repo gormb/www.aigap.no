@@ -638,7 +638,6 @@ Han tenkte på “Gullgravingsoppdraget” på Ullevål sykehus.
 #### p. 143
 ### Raring
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
-I Was Going Somewhere With This,
 Nerd (som før var ment negativt).
 med diagnosen: “Normal”.
 #### p. 144
