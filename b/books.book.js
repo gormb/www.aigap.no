@@ -14,15 +14,16 @@ const book=window.books.book={
                 ,sPdf:async(src,pno=1)=>await window.cBook.DoShow(src, pno, false) // load without render – uisz() renders once after
                 ,aRatio:(2*4.13)/5.83 // Golden ratio
                 ,szWH:(w,h)=>{
+                    const H=_dBook.clientHeight||window.innerHeight; // the book's own viewport height (the page never scrolls)
                     if(nMt.innerText!='⏶') 
-                        _cBook.style.top = _fBook.style.top = (window.innerHeight-h)/2+'px';
+                        _cBook.style.top = _fBook.style.top = (H-h)/2+'px';
                     _fBook.style.width = w+'px';
                     _fBook.style.height = h+'px';
                     const cw=Math.round(w), ch=Math.round(h); // only set when changed – else canvas clears (blink)
                     if(_cBook.width!=cw)_cBook.width=cw;
                     if(_cBook.height!=ch)_cBook.height=ch;
-                    book.whole = h <= window.innerHeight; // whole sheet fits → left/right page nav
-                    _dBook.style.paddingTop = book.whole ? Math.max(0,(window.innerHeight-h)/2)+'px' : ''; // whole sheet → centered in the middle
+                    book.whole = h <= H; // whole sheet fits → left/right page nav
+                    _dBook.style.paddingTop = book.whole ? Math.max(0,(H-h)/2)+'px' : ''; // whole sheet → centered in the middle
                     book.hAlign.Scroll();
                 }
                 ,szW:w=>book.szWH(w,w/book.aRatio)

@@ -30,7 +30,6 @@ function loadArt(u){return new Promise(function(res){var im=new Image(),cr=/^htt
 var KEYTOL=1;   // per-channel slack around the exact most-used colour (0 = exact match only)
 var KEYSHR=0.20; // skip the colour key unless the most-used colour covers >= this share of pixels
 var COV={};      // hole -> alpha[] of the keyed art at hole x hole (per-module coverage)
-var METGEN=0;    // bumped on each recalc; guards stale async byte-size results
 var KEYED=null, KEYED_TRIED=false, KEYED_BLOCKED=false;
 function keyed(){ // turn the most-used opaque colour transparent -- unless the art already has
                   // transparency, or no colour dominates (<KEYSHR); rule lives in qrmetrics.js
@@ -80,7 +79,6 @@ function repaint(g,M,hole,S,mar){   // put the kept cells back on top of the ima
     g.fillStyle=M[lo+r][lo+c]?'#000':'#fff';g.fillRect(off+(lo+c)*S,off+(lo+r)*S,S,S);}
 }
 function recalcMetrics(){     // (re)compute erasure/colour for every tile from its own variant
-  METGEN++;
   [].slice.call(document.querySelectorAll('.tpl')).forEach(function(el){
     var N=+el.dataset.size,ec=el.dataset.ec,h=+el.dataset.hole,tr=+el.dataset.tr;
     var na=tr&&h>0&&!coverageAlpha(h);   // transparent variant fell back (pixel access blocked)
@@ -239,7 +237,7 @@ async function buildGrid(){   // (re)generate the whole tile set for the current
   box.innerHTML=frag||'<div class=legend>No combos fit this id.</div>';
   box.querySelectorAll('.tpl').forEach(function(el,i){var cn=el.querySelector('canvas'),g=cn.getContext('2d');
     cn.width=tiles[i].cv.width;cn.height=tiles[i].cv.height;g.drawImage(tiles[i].cv,0,0);});
-  recalcMetrics();await loadSizes();markRec();dedup();sortTiles();   // bytes first (sort tie-break), then dedup + sort the grid
+  recalcMetrics();loadSizes();markRec();dedup();sortTiles();   // bytes first (sort tie-break), then dedup + sort the grid
   postTiles();   // let a parent gallery (qrgallery.html) offer a selection dropdown
 }
 function lab(t){   // selection token: <N><EC><hole>[t][u]  (t=transparent, u=21x UPPERCASE host)
@@ -379,16 +377,13 @@ function dedup(){var rep={};
     if(!(k in rep)||tileCmp(t,rep[k])<0)rep[k]=t;});   // first in sort order = best
   all.forEach(function(t){var col=colorOf(t);if(!col)return;
     var k=t.dataset.size+'-'+col+'-'+(t.dataset.tr||0); if(rep[k]!==t)t.classList.add('dup');});}
-function loadSizes(){ // real 1-bit indexed PNG size, and the filesize tie-break for sorting
-  return Promise.all([].slice.call(document.querySelectorAll('.tpl')).map(function(t){
+function loadSizes(){ // real 1-bit GIF size, and the filesize tie-break for sorting
+  [].slice.call(document.querySelectorAll('.tpl')).forEach(function(t){
     var N=+t.dataset.size, ec=t.dataset.ec, h=+t.dataset.hole, M;
-    try{ M=matrixFor(N,ec); }catch(e){ return null; }
-    var g=METGEN;
-    return palettePngBytes(N,function(y,x){return M[y][x];},whiteFn(N,h,+t.dataset.tr)).then(function(sz){
-      if(g!==METGEN)return;            // a newer recalc superseded this one
-      t.dataset.bytes=sz;
-      var el=t.querySelector('.sz'); if(!el)return;
-      el.textContent=sz+'B / e:'+t.dataset.pct+'%';
-      el.title='erases '+t.dataset.er+' of '+t.dataset.ecp+' EC codewords';});
-  }));
+    try{ M=matrixFor(N,ec); }catch(e){ return; }
+    var sz=gifBytes(N,function(y,x){return M[y][x];},whiteFn(N,h,+t.dataset.tr));
+    t.dataset.bytes=sz;
+    var el=t.querySelector('.sz'); if(!el)return;
+    el.textContent=sz+'B / e:'+t.dataset.pct+'%';
+    el.title='erases '+t.dataset.er+' of '+t.dataset.ecp+' EC codewords';});
 }

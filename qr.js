@@ -2,7 +2,7 @@
 window.qr = {
   //todo: centralize qr code generation here for easy generation for all of www.aigap.no 
   // Tables + drawing rules are the ones from i/u/qr.js and i/u/qrgen.py, so what g()
-  // returns at qr.S px per module is i/<id>.<token>.png (and its transparent twin).
+  // returns at qr.S px per module is i/<id>.<token>.gif (and its transparent twin).
   // The page loads qrcode-generator (window.qrcode) and i/u/qrmetrics.js (keep
   // keepHole qrErasure qrHoleErase keyArt); nothing here touches the DOM but its canvas.
   GS:[21,25,29,37,49,65,85,109,141,177],                    // QR versions 1,2,3,5,8,12,17,23,31,40 modules
@@ -18,9 +18,13 @@ window.qr = {
   S:40,                                                     // px per module (i/u/qr.js renderHi)
   MAR:4,                                                    // quiet zone in modules (renderHi default)
   _i:{},                                                    // art src -> decoded image
+  _pc:null,                                                 // the last _pool, so one search serves best+top
   _k:{},                                                    // art src -> keyed canvas (i/u/qr.js KEYED)
   _f:{},                                                    // "size|text" -> the EC levels that hold it (i/u/qr.js FIT)
-  _q:{},                                                    // art|hole|tr -> the art at one pixel per module
+  _c:{},                                                    // art|hole|tr|phase -> the covered modules (sub-module)
+  _s:{},                                                    // art|hole|tr -> the art at KSUB px per module
+  _l:{},                                                    // "size|ec" -> dataCells(): the codeword layout
+  KSUB:10,                                                  // subpixels per module for the >=half coverage rule
   // g(text|id, art name|url|null, size, transparent, hole, error %, offsetX, offsetY) -> canvas
   // iHole is any whole number of modules up to the code size (0 = no hole, clamped to the
   // code); an empty hole takes the one recommended for that id length (REC_HOLE).
@@ -29,7 +33,7 @@ window.qr = {
   // The code is painted first and the art is drawn on top of it at the art's OWN resolution, so
   // the art stays sharp however coarse the module grid is.  The erasure (.e) stays whole modules:
   // a module the art covers at least half of counts, by the same >=128 coverage rule.
-  // .t = token (i/<id>.<token>.png, always the centred code), .u = encoded text,
+  // .t = token (i/<id>.<token>.gif, always the centred code), .u = encoded text,
   // .e = {erased,ecPer,col}, .o = the offsets actually used.
   g:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
@@ -37,7 +41,7 @@ window.qr = {
     const cv=qr._draw(qr._mx(o.N,o.ec,o.s),o.h,o.tr,o.A,o.lx,o.ly,o.fx,o.fy);
     cv.t=o.N+o.ec+o.h+(o.h>0&&o.tr?'t':'');
     cv.u=o.s;
-    cv.e=qr._met(o.N,o.ec,o.h,o.tr,o.A,o.lx,o.ly);
+    cv.e=qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy);
     cv.o=[o.fx-o.cx,o.fy-o.cy];
     return cv;
   },
@@ -45,7 +49,112 @@ window.qr = {
   // caller can walk the holes itself and draw only the one it picks.
   met:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
-    return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.lx,o.ly):null;
+    return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy):null;
+  },
+  // The offset (in modules, from centre) that erases the fewest codewords, so the art can be
+  // placed instead of nudged by hand, at sub-module precision -- a module counts only when the art
+  // covers at least half of it (_cover), which is true or not depending on the fractional offset.
+  // The search reads three grids, never every position (_pool); a placement that would hide a
+  // finder pattern's middle row/column ranks last, so the finder keeps its 1:1:3:1:1 scan lines,
+  // and ties go to the offset nearest the centre.  (excl) lists offsets already taken: the best
+  // placement further than sqrt(2) modules from all of them, null when there is no such rule.
+  // Returns {x,y} in modules (fractional) plus per (the error % there), or null with no art.
+  // (lim) is in % too: stop as soon as a placement is within it, which is all a caller asking
+  // "does this hole fit" needs, and the cheaper first grid usually answers that on its own.
+  best:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,lim=0)=>{
+    const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
+    return o?qr._best(o,nearX==null?null:[[nearX,nearY]],lim/100):null;
+  },
+  top:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>
+    qr.multi(t,[img],iSz,iTrans,iHole,error,nearX,nearY,n),
+  // The n best placements over several art candidates at once, best first, each at least sqrt(2)
+  // modules from the current offset and from the ones picked before it.  Every image searches its
+  // own grids; the results are merged here, so one list may carry different art.  Each entry is
+  // {img,x,y,per}; null when there is no art, fewer than n when the code has no room for them.
+  multi:async (t=null,imgs=[],iSz=21,iTrans=true,iHole=0,error=20,nearX=null,nearY=null,n=3)=>{
+    const out=[],excl=nearX==null?[]:[[nearX,nearY]],lists=[];
+    for(const img of imgs){
+      const o=await qr._o(t,img,iSz,iTrans,iHole,error,0,0);
+      if(o)lists.push({img:img==null?null:String(img).trim(),cx:(o.N-o.h)>>1,cand:qr._pool(o).cand});}
+    const less=(a,b)=>a.cross-b.cross||a.per-b.per||a.d-b.d;
+    const at=lists.map(()=>0);                     // the pools are sorted, so k-way merge them
+    while(out.length<n){
+      let k=-1,best=null;
+      for(let i=0;i<lists.length;i++){const p=lists[i].cand[at[i]];
+        if(p&&(!best||less(p,best)<0)){best=p;k=i;}}
+      if(k<0)break;
+      const L=lists[k],p=L.cand[at[k]++],x=p.fx-L.cx,y=p.fy-L.cx;
+      if(excl.some(e=>{const ax=x-e[0],ay=y-e[1];return ax*ax+ay*ay<2-1e-9;}))continue;
+      out.push({img:L.img,x:+x.toFixed(1),y:+y.toFixed(1),per:100*p.per});excl.push([x,y]);}
+    return out;
+  },
+  // Every placement the three grids read, best first, plus the ladder's own winner.  One coarse
+  // grid across the whole range, 1-module steps around its twenty best, then 0.1-module steps
+  // around those, keeping twenty at each step -- a few thousand reads even on the largest code,
+  // never every position.  Cached for the object it was built from, so the second best is free.
+  _pool:(o,lim)=>{
+    if(qr._pc&&qr._pc.o===o)return qr._pc;
+    const N=o.N,ec=o.ec,h=o.h,A=o.A;
+    if(!(h>0&&A))return qr._pc={o:o,cand:[],best:null};
+    const L=qr._l[N+'|'+ec]||(qr._l[N+'|'+ec]=dataCells(N,ec))
+     ,nb=L.blk.length,cwN=L.totalCW,R=N-h,cx=(N-h)>>1;   // R = furthest whole-module top-left
+    const cw=new Int32Array(N*N).fill(-1),prot=new Uint8Array(N*N);
+    for(let i=0;i<L.cells.length;i++){const cl=L.cells[i],k=(cl.seq/8)|0;if(k<cwN)cw[cl.r*N+cl.c]=k;}
+    [[0,0],[0,N-7],[N-7,0]].forEach(p=>{for(let i=0;i<7;i++){    // each finder's middle row + column
+      prot[(p[0]+3)*N+p[1]+i]=1;prot[(p[0]+i)*N+p[1]+3]=1;}});
+    const stamp=new Int32Array(cwN).fill(-1),cnt=new Int32Array(nb);
+    let ro=new Int32Array(8)                      // i*N for the rows a mask can name
+     ,gen=0;
+    // score the art with the hole's top-left at (fx,fy) (may be fractional): the worst-block erased
+    // share and how many finder modules it would hide, or null when the hole leaves the code.
+    const score=(fx,fy)=>{
+      if(fx<0||fy<0||fx>R||fy>R)return null;
+      const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
+       ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))))
+       ,ix=C.ix,base=By*N+Bx;
+      gen++;let cross=0;
+      if(ro.length<C.M){ro=new Int32Array(C.M);for(let i=0;i<C.M;i++)ro[i]=i*N;}
+      if(By>=7&&Bx>=7&&By+C.M<=N-7&&Bx+C.M<=N-7){        // clear of every edge and finder: the mask needs
+        for(let n=0;n<ix.length;n++){const q=ix[n],k=cw[base+ro[q>>16]+(q&0xFFFF)];   // no test at all
+          if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
+      }else for(let n=0;n<ix.length;n++){
+        const q=ix[n],r=By+(q>>16),c=Bx+(q&0xFFFF);
+        if(r>=N||c>=N)continue;
+        if(prot[r*N+c]){cross++;continue;}
+        const k=cw[r*N+c];
+        if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
+      let worst=0;                                          // _met: the RS block that loses the most
+      for(let b=0;b<nb;b++){const s=cnt[b]/L.blk[b].ec;if(s>worst)worst=s;cnt[b]=0;}
+      return {fx:fx,fy:fy,per:worst,cross:cross,d:Math.abs(fx-cx)+Math.abs(fy-cx)};};
+    const rank=(a,b)=>a.cross-b.cross||a.per-b.per||a.d-b.d;
+    const keep=a=>(a.sort(rank),a.slice(0,20));   // the twenty placements worth keeping
+    const c0=qr._cover(A,h,o.tr,0,0);
+    let any=false;for(let i=0;i<c0.M*c0.M&&!any;i++)if(c0.m[i])any=true;
+    if(!any)return qr._pc={o:o,cand:[{fx:cx,fy:cx,per:0,cross:0,d:0}],best:{fx:cx,fy:cx,per:0,cross:0,d:0}};
+    const pts=[];                                 // everything read, best first by the end
+    const grid=step=>{const out=[],put=(x,y)=>{const s=score(x,y);if(s){out.push(s);pts.push(s)}};
+      for(let y=0;y<=R;y+=step)for(let x=0;x<=R;x+=step)put(x,y);
+      for(let x=0;x<=R;x+=step)put(x,R);
+      for(let y=0;y<=R;y+=step)put(R,y);
+      return out;};
+    const around=(list,step,n)=>{const out=[];
+      for(const q of list)for(let i=-n;i<=n;i++)for(let j=-n;j<=n;j++){
+        const s=score(q.fx+i*step,q.fy+j*step);if(s){out.push(s);pts.push(s)}}
+      return out;};
+    const s0=Math.max(1,Math.round(R/9));         // ~10 points across; adapts to a small range
+    const coarse=keep(grid(s0));
+    if(lim>0&&coarse.length&&!coarse[0].cross&&coarse[0].per<=lim)   // inside lim already: no need to
+      return {o:o,cand:[coarse[0]],best:coarse[0]};                  // refine, and this is not cached
+    const mid=coarse.length&&s0>1?keep(around(coarse,1,Math.max(1,Math.ceil(s0/2)))):coarse;   // 1x1 grid over each cell
+    const fine=mid.length?keep(around(mid,0.1,5)):[];    // 0.1x0.1 grid
+    return qr._pc={o:o,cand:pts.sort(rank),best:(fine.length?fine:mid)[0]||null};
+  },
+  _best:(o,excl,lim)=>{
+    const P=qr._pool(o,excl?0:lim);        // an early exit skips the exclusions, so never both
+    if(!P.best)return null;
+    const cx=(o.N-o.h)>>1
+     ,b=excl?P.cand.find(p=>excl.every(e=>{const ax=p.fx-cx-e[0],ay=p.fy-cx-e[1];return ax*ax+ay*ay>=2-1e-9;}))||P.best:P.best;
+    return {x:+(b.fx-cx).toFixed(1),y:+(b.fy-cx).toFixed(1),per:100*b.per};
   },
   // The sizes in GS that can hold this id/url, so a caller only offers those.  Same string and
   // same mode rule as _o (21 is the bare www. host, the rest https://), and the header+payload
@@ -118,32 +227,50 @@ window.qr = {
     }
     return qr._k[A.src];
   },
-  _cov:(A,h)=>{   // per-module alpha of the keyed art inside the hole (i/u/qr.js coverageAlpha)
-    const d=qr._quad(A,h,true);
-    if(!d)return null;
-    const al=new Array(h*h);
-    for(let i=0;i<h*h;i++)al[i]=d[i*4+3];
-    return al;
-  },
-  _quad:(A,h,tr)=>{   // the art averaged down to the module grid: one pixel per module, for the count
-    const K=tr?qr._key(A):A;
-    if(!K||!(K.naturalWidth||K.width))return null;
-    const k=h+'|'+tr+'|'+((A&&A.src)||'');
-    if(!(k in qr._q)){
-      const c=document.createElement('canvas');c.width=c.height=h;
-      const g=c.getContext('2d',{willReadFrequently:true});
-      const f=qr._fit(h,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
-      g.drawImage(K,f.sx,f.sy,f.sw,f.sh,f.x,f.y,f.w,f.h);
-      try{qr._q[k]=g.getImageData(0,0,h,h).data}catch(e){qr._q[k]=null}
+  _scan:(A,h,tr)=>{   // the art rendered once at KSUB px per module (hole at local [0,h]);
+    const k=((A&&A.src)||'')+'|'+h+'|'+tr;       // every sub-module phase is an integer sub-pixel
+    let s=qr._s[k];                              // shift of this one image, so it is drawn once
+    if(!s){
+      const K=qr.KSUB,M0=Math.ceil(h)+4,S0=M0*K
+       ,cv=document.createElement('canvas');cv.width=cv.height=S0;
+      const g=cv.getContext('2d',{willReadFrequently:true});
+      if(tr){const Z=qr._key(A),aW=Z.naturalWidth||Z.width,aH=Z.naturalHeight||Z.height
+         ,r=Math.min(h/aW,h/aH),w=aW*r,hh=aH*r;   // the art contained in the hole (i/u/qr.js artFit)
+        g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);
+      }else g.fillRect(K,K,h*K,h*K);              // opaque art covers the whole hole
+      const d=g.getImageData(0,0,S0,S0).data,W=S0+1,S=new Int32Array(W*W);
+      for(let y=0;y<S0;y++){let row=0;const o=y*S0*4,p=(y+1)*W,q=y*W;
+        for(let x=0;x<S0;x++){row+=d[o+x*4+3];S[p+x+1]=S[q+x+1]+row;}}   // summed alpha: a module's
+      s=qr._s[k]={K:K,S0:S0,M0:M0,W:W,S:S};         // coverage is then four lookups, whatever K is
+      if(Object.keys(qr._s).length>16)qr._s={};    // one entry is a whole table: keep the last few
     }
-    return qr._q[k];
+    return s;
   },
-  _met:(N,ec,h,tr,A,lx,ly)=>{   // i/u/qr.js metricFor: transparent counts the keyed art, opaque the square
-    if(tr&&h>0){
-      const al=qr._cov(A,h);
-      if(al)return qrErasure(N,ec,(r,c)=>r>=ly&&r<ly+h&&c>=lx&&c<lx+h&&al[(r-ly)*h+(c-lx)]>=128);
+  _cover:(A,h,tr,pi,pj)=>{   // the modules the art covers (>= half, i/u/qr.js coverageAlpha) for the
+    const base=((A&&A.src)||'')+'|'+h+'|'+tr,t=pi*10+pj;   // sub-module phase (pi,pj)/10; local
+    let a=qr._c[base];if(!a)a=qr._c[base]=[];              // (i,j) is the code module (floor+i,floor+j)
+    if(a[t])return a[t];
+    if(!A||!(A.naturalWidth||A.width)){                    // no art, or one that did not load: the hole
+      const M=Math.ceil(h)+3;                              // stays empty, so nothing is erased and nothing
+      return a[t]={M:M,m:new Uint8Array(M*M),ix:new Int32Array(0)};}   // here has to touch the art canvas
+    const s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
+     ,S=s.S,W=s.W,half=K*K*255,x0=K-pi,y0=K-pj,ix=[];  // KSUB makes the window a whole module: exact
+    for(let i=0;i<M;i++){const r0=y0+i*K,r1=r0+K,rw0=r0*W,rw1=r1*W;
+      for(let j=0;j<M;j++){const c0=x0+j*K,c1=c0+K
+        ,sm=S[rw1+c1]-S[rw0+c1]-S[rw1+c0]+S[rw0+c0];
+        if(sm*2>=half){m[i*M+j]=1;ix.push((i<<16)|j);}}}   // >= half of the module is covered
+    a[t]={M:M,m:m,ix:Int32Array.from(ix)};
+    if(Object.keys(qr._c).length>24)qr._c={};     // each entry is a small mask: keep the last few arts
+    return a[t];
+  },
+  _met:(N,ec,h,tr,A,fx,fy)=>{   // i/u/qr.js metricFor, at the true sub-module placement (fx,fy)
+    if(h>0){
+      const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
+       ,pi=Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),pj=Math.min(9,Math.max(0,Math.round((fy-By)*10)))
+       ,C=qr._cover(A,h,tr,pi,pj);
+      return qrErasure(N,ec,(r,c)=>{const i=r-By,j=c-Bx;return i>=0&&j>=0&&i<C.M&&j<C.M&&C.m[i*C.M+j]===1;});
     }
-    return qrErasure(N,ec,(r,c)=>r>=ly&&r<ly+h&&c>=lx&&c<lx+h);
+    return qrErasure(N,ec,()=>false);
   },
   _fit:(side,aW,aH,tr)=>{   // i/u/qr.js artFit: opaque crops to the square, transparent contains
     if(!(aW&&aH))return {sx:0,sy:0,sw:1,sh:1,x:0,y:0,w:side,h:side};

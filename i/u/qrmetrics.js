@@ -162,38 +162,36 @@ function keyArt(a, tol, share){
 }
 
 // ---------------------------------------------------------------------------
-// Real 1-bit indexed PNG byte size (like the served .qr1.png files), computed
-// from the actual dark module map. Uses the browser CompressionStream so the
-// result matches what an optimized encoder produces (~150 B for 21, not ~450).
+// Real 1-bit GIF byte size (the served i/<id>.<token>.gif files), computed from
+// the actual dark module map: 30 B of header/palette/descriptor, then the LZW
+// stream -- the same bytes qrGen.py writes (~110 B for 21 modules, not ~450).
 // ---------------------------------------------------------------------------
-function crc32(u8){var c,tb=new Int32Array(256);for(var n=0;n<256;n++){c=n;
-  for(var k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);tb[n]=c;}
-  var crc=-1;for(var i=0;i<u8.length;i++)crc=(crc>>>8)^tb[(crc^u8[i])&0xFF];
-  return (crc^-1)>>>0;}
-function chunk(type,data){var len=data.length,out=new Uint8Array(len+12);
-  var dv=new DataView(out.buffer);dv.setUint32(0,len);out.set(type,4);out.set(data,8);
-  var crcIn=new Uint8Array(4+len);crcIn.set(type,0);crcIn.set(data,4);
-  dv.setUint32(len+8,crc32(crcIn));return out;}
-async function palettePngBytes(N, isDark, isWhite){
-  var rowBytes=Math.ceil(N/8),raw=(rowBytes+1)*N,rawB=new Uint8Array(raw),rp=0;
-  for(var y=0;y<N;y++){
-    rawB[rp++]=0;
-    var acc=0,nb2=0;
-    for(var x=0;x<N;x++){
-      var dark=isWhite(y,x)?false:isDark(y,x);   // 1 => black
-      acc=(acc<<1)|(dark?1:0);nb2++;
-      if(nb2==8){rawB[rp++]=acc;acc=0;nb2=0;}
-    }
-    if(nb2)rawB[rp++]=(acc<<(8-nb2));
+function gifLzw(px){
+  var clear=4,end=5,out=[],buf=0,bits=0;
+  function emit(c,w){buf|=c<<bits;bits+=w;while(bits>=8){out.push(buf&255);buf>>=8;bits-=8;}}
+  var size=3,nxt=6,prev=-1,table=new Map();
+  emit(clear,size);
+  for(var i=0;i<px.length;i++){
+    var k=px[i];
+    if(prev<0){prev=k;continue;}
+    var key=prev*2+k,hit=table.get(key);
+    if(hit!==undefined){prev=hit;continue;}
+    emit(prev,size);
+    if(nxt<4096){table.set(key,nxt);if(nxt>=(1<<size)&&size<12)size++;nxt++;}
+    else{emit(clear,size);table=new Map();nxt=6;size=3;}
+    prev=k;
   }
-  var idat=await new Response(new Blob([rawB]).stream().pipeThrough(new CompressionStream('deflate'))).arrayBuffer();
-  var ihdr=new Uint8Array(13);var dv=new DataView(ihdr.buffer);
-  dv.setUint32(0,N);dv.setUint32(4,N);ihdr[8]=1;ihdr[9]=3;ihdr[10]=0;ihdr[11]=0;ihdr[12]=0;
-  var plte=new Uint8Array([255,255,255, 0,0,0]);
-  var sig=new Uint8Array([137,80,78,71,13,10,26,10]);
-  var body=[sig,chunk([73,72,68,82],ihdr),chunk([80,76,84,69],plte),
-    chunk([73,68,65,84],new Uint8Array(idat)),chunk([73,69,78,68],new Uint8Array(0))];
-  var tot=0;body.forEach(function(b){tot+=b.length;});
-  var all=new Uint8Array(tot),o=0;body.forEach(function(b){all.set(b,o);o+=b.length;});
-  return all.length;
+  if(prev>=0)emit(prev,size);
+  emit(end,size);
+  if(bits)out.push(buf&255);
+  return out.length;
+}
+function gifBytes(N, isDark, isWhite){
+  var px=[];
+  for(var y=0;y<N;y++)for(var x=0;x<N;x++){
+    var dark=isWhite(y,x)?false:isDark(y,x);   // 0 => module, 1 => paper
+    px.push(dark?0:1);
+  }
+  var d=gifLzw(px);
+  return 32+d+Math.ceil(d/255);    // 30 hdr + LZW block headers + terminator + trailer
 }
