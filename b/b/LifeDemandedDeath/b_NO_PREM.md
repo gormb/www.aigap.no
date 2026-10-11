@@ -1131,4 +1131,10 @@ Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjø
 Barnets lekenhet raser overansiktsunntrykket hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker mnusikk tilå uttrykke.
 “Vekk fra den ubønnhrlige realiteten, og så kom jeg” Eg gikk.
 #### p. 178
+### Rik og lat
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Jeg vet ikke hvor lenge jeg har vært rik og lat.
+Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike, ogg derfor late, men fordi alle har blitt velstående og tiltaksløse. Jeg vet ikke enb gang  hva man gjør med tiltaksløse barn eller med meg selv når jeg er tiltaksløs, hva gjør man med et helt land som har gått fullstendig i koma på viktige områder?
+Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .
+#### p. 179
 Navnet På Boken

@@ -793,4 +793,10 @@ Appendix og mer
 ### Kattegorifeil
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 #### p. 178
+### Rik og lat
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Jeg vet ikke hvor lenge jeg har vært rik og lat.
+Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike, ogg derfor late, men fordi alle har blitt velstående og tiltaksløse. Jeg vet ikke enb gang  hva man gjør med tiltaksløse barn eller med meg selv når jeg er tiltaksløs, hva gjør man med et helt land som har gått fullstendig i koma på viktige områder?
+Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .
+#### p. 179
 Navnet På Boken

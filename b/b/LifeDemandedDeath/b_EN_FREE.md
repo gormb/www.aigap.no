@@ -775,4 +775,8 @@ Appendix and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 qwe
 #### p. 178
+### Rich and Lazy
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
+#### p. 179
 The Name of the Book
