@@ -7,6 +7,11 @@ input,select{font:inherit}
 input[type=text]{width:16ch}
 input[type=number]{width:6ch}
 textarea{font:inherit;width:20ch;resize:vertical}
+#usebox{display:flex;flex-direction:column;gap:.2rem;font-size:12px;color:#666;max-width:24ch}
+#usebox[hidden]{display:none}   /* the flex above would otherwise override the hidden attribute */
+#uselist{display:flex;flex-direction:column;gap:.1rem}
+#uselist label{display:flex;flex-direction:row;align-items:center;gap:.35rem;font-size:12px;color:#333}
+#uselist input{width:auto}
 select[size]{height:auto}
 a{margin-left:auto}
 #o canvas{width:min(80vmin,520px);background:#fff;image-rendering:pixelated;cursor:grab;touch-action:none;user-select:none}
@@ -17,6 +22,7 @@ a{margin-left:auto}
   <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
   <label>img (art name | url, one per line)<textarea id=img rows=3 spellcheck=false autocomplete=off
     title="one art per line; each line is a candidate the buttons may place, and the box keeps a blank line at the end">ldi</textarea></label>
+  <div id=usebox hidden><span class=cap>use</span><div id=uselist></div></div>
   <label>iSz<select id=iSz title="the sizes that exist"></select></label>
   <label>iTrans<input id=iTrans type=checkbox checked></label>
   <label>iHole<select id=iHole size=8 title="any whole number of modules; 0 = no hole; rec = qr.REC_HOLE"></select></label>
@@ -35,7 +41,7 @@ a{margin-left:auto}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script src="/i/u/qrmetrics.js?v=5"></script>
-<script src=qr.js?v=44></script>
+<script src=qr.js?v=47></script>
 <script>
 const F=document.getElementById('f'),O=document.getElementById('o'),S=document.getElementById('s'),D=document.getElementById('d')
 ,U=document.getElementById('u')
@@ -43,8 +49,12 @@ const F=document.getElementById('f'),O=document.getElementById('o'),S=document.g
 let curImg=null;                       // which of the img lines the page is drawing right now
 ['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
-let to=null,run=0,mode='go',url=0,drg=null;   // url=1 while the state came from the deep link, not from you
-const S0=qr.S;                                // the full render scale: a drag drops to a fifth of it
+let to=null,run=0,mode='go',url=0,drg=null,pngUrl=null;   // url=1 while the state came from the deep link
+const S0=qr.S;                                // the full render scale, for the png link to build on demand
+const dispS=()=>{                             // what the canvas is shown at: one canvas pixel per screen
+  const bw=Math.min(.8*Math.min(innerWidth,innerHeight),520)   // pixel, so the art is resampled once, not
+   ,n=(+E.iSz.value||21)+2*qr.MAR;             // twice (it used to be drawn up into a 40 px/module canvas
+  return Math.max(2,Math.min(S0,Math.round(bw*(devicePixelRatio||1)/n)))};   // and squeezed down by css)
 const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
   E.iHole.replaceChildren(new Option('rec',''));
   for(let h=0;h<=n;h++)E.iHole.append(new Option(h,h));
@@ -98,7 +108,9 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   const old=O.querySelector('canvas');      // one canvas for the life of the page: swapping it out mid-drag
   if(old){old.width=cv.width;old.height=cv.height;old.getContext('2d').drawImage(cv,0,0);}   // would drop the pointer capture
   else O.replaceChildren(cv);
-  D.href=cv.toDataURL();D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
+  if(pngUrl){URL.revokeObjectURL(pngUrl);pngUrl=null;}   // the png link is rebuilt on demand, below
+  D.removeAttribute('href');D.dataset.hi='';
+  D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
   const e=cv.e,p=Math.round(100*e.erased/e.ecPer);
   S.textContent=cv.t+'\n'+cv.u+'\nerases '+e.erased+'/'+e.ecPer+' EC cw \u00b7 '+p+'% error'
    +(cands().length>1&&curImg?' \u00b7 img '+curImg:'')
@@ -107,7 +119,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
   mode='go';
   mark();                // the caption follows the offset right away, before the drawing catches up
-  sizes();holes();
+  sizes();holes();qr.S=dispS();
   const k=++run,cv=await qr.g(...args());
   if(k!==run)return;
   const p=show(cv);
@@ -123,37 +135,53 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
     const e=await qr.met(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0);   // qrmetrics only: nothing is drawn yet
     if(k!==run)return;
     if(e&&100*e.erased/e.ecPer<=lim){
-      E.iHole.value=h;E.iTrans.checked=tr;
+      E.iHole.value=h;E.iTrans.checked=tr;qr.S=dispS();
       show(await qr.g(v,A,sz,tr,h,lim,+E.offsetX.value||0,+E.offsetY.value||0));save();return}}
   save()}
 ,down=e=>{const cv=O.querySelector('canvas');if(!cv)return;
   const r=cv.getBoundingClientRect(),N=+E.iSz.value||21;
   drg={x:e.clientX,y:e.clientY,x0:+E.offsetX.value||0,y0:+E.offsetY.value||0,sc:r.width/(N+2*qr.MAR)};
-  qr.S=Math.max(2,Math.round(S0/5));      // cheap frames while dragging
+  qr.S=Math.max(2,Math.round(qr.S/2));    // cheap frames while dragging
   if(cv.setPointerCapture)cv.setPointerCapture(e.pointerId);
   e.preventDefault()}
 ,move=e=>{if(!drg||!drg.sc)return;
   E.offsetX.value=Math.round((drg.x0+(e.clientX-drg.x)/drg.sc)*10)/10;   // follow the pointer in 1/10 module
   E.offsetY.value=Math.round((drg.y0+(e.clientY-drg.y)/drg.sc)*10)/10;
   url=0;clearTimeout(to);go()}            // no debounce here
-,up=()=>{if(!drg)return;drg=null;qr.S=S0;go()}
+,up=()=>{if(!drg)return;drg=null;go()}
 ,arm=fn=>()=>{url=0;clearTimeout(to);to=setTimeout(fn,300)};
 const ORD=['1st','2nd','3rd','4th','5th'],auto=document.getElementById('auto');  // the placements the button walks
 let picks=[],pickKey='',errDirty=false,errUse=null;   // what it found, for which search, so a press just steps
 const cands=()=>{const a=E.img.value.split('\n').map(s=>s.trim()).filter(Boolean);   // every art line, or
   return a.length?a:[null]};                          // a single empty one so there is always something to draw
-const arts=async()=>{const a=cands(),out=[];          // only the lines whose art is really there: a typo must
-  for(const im of a){                                  // not win a search by erasing nothing at all
-    if(im==null){out.push(null);continue}
-    if(await qr._art(im))out.push(im);}
-  return out.length?out:[null]};
+const off=new Set();                                 // candidate lines the searches should leave out
+const useList=()=>{                                  // a tick box per line, once there is a choice to make
+  const L=cands().filter(x=>x!=null),box=document.getElementById('usebox'),ul=document.getElementById('uselist')
+   ,now=[...ul.querySelectorAll('input')].map(i=>i.dataset.im);
+  box.hidden=L.length<2;
+  if(box.hidden){ul.replaceChildren();return}
+  if(now.join('\n')!==L.join('\n'))                // the lines changed: rebuild, so ticking does not jump
+    ul.replaceChildren(...L.map(im=>{const l=document.createElement('label'),c=document.createElement('input');
+      c.type='checkbox';c.dataset.im=im;c.checked=!off.has(im);
+      c.onchange=()=>{c.checked?off.delete(im):off.add(im);
+        if(off.has(curImg))curImg=L.find(x=>!off.has(x))||null;
+        pickKey='';arm(go)()};                       // another set of candidates: search again
+      l.append(c,document.createTextNode(im));return l}));
+  else ul.querySelectorAll('input').forEach(i=>i.checked=!off.has(i.dataset.im));};
+const arts=async()=>{const a=cands();                // the ticked lines whose art is really there: a typo must
+  if(a.length===1&&a[0]===null)return [null];        // not win a search by erasing nothing at all
+  const out=[];
+  for(const im of a)if(im&&!off.has(im)&&await qr._art(im))out.push(im);
+  return out};
 const lines=()=>{                                     // keep a blank line at the end to type the next art in,
   const v=E.img.value;                                // and one row per line
   if(v&&!v.endsWith('\n')){const p=E.img.selectionStart;E.img.value=v+'\n';
     if(document.activeElement===E.img)E.img.setSelectionRange(p,p);}
   const a=cands();
   if(a.indexOf(curImg)<0)curImg=a[0];
-  E.img.rows=Math.max(2,E.img.value.split('\n').length)};
+  for(const im of [...off])if(a.indexOf(im)<0)off.delete(im);   // a line that is gone is no longer off
+  E.img.rows=Math.max(2,E.img.value.split('\n').length);
+  useList()};
 const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0,v=cands()
  ,i=picks.findIndex(p=>p.img===curImg&&Math.abs(p.x-x)<1e-9&&Math.abs(p.y-y)<1e-9);
  auto.textContent=i<0||!picks[i]?'best pos/img'
@@ -166,6 +194,18 @@ E.error.addEventListener('input',arm(fit));
 E.error.addEventListener('input',()=>errDirty=true);  // typed error %: the list was found for another one
 E.error.addEventListener('change',arm(fit));          // (go() writes back the measured %, which is no edit)
 document.getElementById('mid').onclick=()=>{url=0;E.offsetX.value=0;E.offsetY.value=0;go()};
+D.onclick=async e=>{                                  // png: the full-scale drawing, made when it is asked for
+  if(D.dataset.hi)return;
+  e.preventDefault();
+  const was=qr.S;qr.S=S0;
+  try{const cv=await qr.g(...args());
+    if(!cv)return;
+    const b=await new Promise(r=>cv.toBlob(r,'image/png'));
+    if(!b)return;
+    pngUrl=URL.createObjectURL(b);D.href=pngUrl;D.dataset.hi='1';D.click();   // now the browser saves it
+  }finally{qr.S=was}};
+addEventListener('resize',()=>{                       // the canvas is sized from the viewport, so redraw
+  clearTimeout(to);to=setTimeout(mode==='fit'?fit:go,300)});
 auto.onclick=async()=>{              // type nothing: the button slides the art itself
   url=0;
   const list=await arts();

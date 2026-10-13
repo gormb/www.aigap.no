@@ -333,9 +333,11 @@ window.qr = {
       const size=h*S,bar=keepHole(N,h),K=tr?qr._key(A):A
        ,x0=Math.max(0,fx),y0=Math.max(0,fy),x1=Math.min(N,fx+h),y1=Math.min(N,fy+h);
       if(K&&x1>x0&&y1>y0){   // the code stays underneath; the art keeps its own resolution
-        const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
-        g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();
-        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,(mar+fx)*S+f.x,(mar+fy)*S+f.y,f.w,f.h);g.restore();}
+        // whole pixels and whole sizes: a fractional box would be resampled once more, and the art is
+        const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);   // the only thing here
+        g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();  // with detail
+        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,Math.round((mar+fx)*S+f.x),Math.round((mar+fy)*S+f.y)
+         ,Math.ceil(f.w),Math.ceil(f.h));g.restore();}
       if(bar)qr._keep(g,M,h,S,mar,lx,ly);}
     return cv;
   }
