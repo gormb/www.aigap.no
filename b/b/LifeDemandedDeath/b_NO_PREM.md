@@ -15,11 +15,12 @@ Krever nytt liv at noe gammelt dør for å gi plass? Er det begrenset med ressur
 Nulloppsummering handler om ressursfordeling uten evne til å skape egne ressurser av ingenting, man må velge mellom å holde gamle ting i live og å skape noe nytt. Det er ikke plass til begge deler samtidig.
 Resultat av innovasjon er at man slutter med gamle ting for å gi plass til de nye. Økonomer måler hvor mye man ikke har sluttet som “legacy cost”. Noen kaller modellen “Zero-Sum Game”. Alternativet er å anta at verdi kan skapes gjennom fremskritt, ikke bare fordele verdier etter gårsdagens premisser. Positivsumspill beskrives i et senere kapittel. Det innebærer at nullsummodell må dø, men den skal føles først.
 #### p. 4
-Effekten av innovasjon er fremskritt, jeg tror ikke vi kaller det innovasjon hvis det ikke medfører ny opplevd forbedring.
-Man diskuterer om det er nok at bare opplevelsen er ny for at innovasjon har inntruffet. For meg har det vært sant, kunstig intelligens oppleves innovativt selv hvis det tok 50 år før verden var klar til å bruke ideene. Fra det perspektivet skriver jeg om opplevd forbedring, for den virkelige forbedringen kan man bare indirekte oppleve. Jeg kjenner mine egne subjektive sannheter og velger med integritet å heller snakke om dem.
-Det starter med noen sanne historier for meg, ubalansert og av og til objektivt upresist. Rått, fragmentert og tidvis desperat.
-Hvis jeg for eksempel sier at MC-hjelmen sprakk, ikke som i film, men i et sanseløst smell som enda en gang satte seg som varig fysisk frykt i kroppen, kan det hende at episoden var mer dramatisk for de som så meg gå i bakken. Eller mindre.
-Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Folk har trodd de bevitnet en dødsulykke, mens det for meg var et relativt sett mindre uhell som ikke engang er beskrevet i denne boka.
+Innovasjon gir fremskritt, jeg tror ikke vi kaller det innovasjon hvis det ikke medfører ny opplevd forbedring. For noen er det nok at opplevelsen er ny for at innovasjon har inntruffet. For meg har det vært sant, som at kunstig intelligens oppleves innovativt etter 50 år, da verden var klar til å bruke ideene, men ikke før. Derfor skriver jeg om opplevd forbedring, for den virkelige forbedringen kan man bare indirekte oppleve.
+Jeg kjenner mine egne subjektive sannheter og velger med integritet å heller snakke om dem.
+Starter med noen sanne historier fra mitt liv, ubalansert og av og til objektivt upresist. Rått, fragmentert, provoserende desperat.
+Hvis jeg for eksempel sier “MC-hjelmen sprakk, ikke som i film, men i et sanseløst smell som enda en gang satte seg som varig fysisk frykt i kroppen”, kan det hende at episoden var mer dramatisk for de som så meg gå i bakken. Eller mindre.
+Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Om folk har trodd de bevitnet en dødsulykke, eller en bagatell er deres historeie. For meg kan det bli utelatt eller oppblåst. Blir leseren provosert gir det plass til tolkning.
+Første kapitler er lest høyt mange ganger, neste delt med andre, etterhvert er teksten ren selvsnakk ufiltrert refleksjon.
 #### p. 5
 ### Lotte
 🎵 [Carmina Burana: O Fortuna; Carl Orff](https://aigap.no/mcb)
@@ -1137,4 +1138,7 @@ Jeg vet ikke hvor lenge jeg har vært rik og lat.
 Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike, ogg derfor late, men fordi alle har blitt velstående og tiltaksløse. Jeg vet ikke enb gang  hva man gjør med tiltaksløse barn eller med meg selv når jeg er tiltaksløs, hva gjør man med et helt land som har gått fullstendig i koma på viktige områder?
 Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .
 #### p. 179
-Navnet På Boken
+### Underkapitteltittel
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+“Horgan knows best!” sier jeg til han somsitter på tronen mellom etagene på biblioteklet. “Hm…?” “Horgan knows best!”. Jeg liker serien, og “The Will to Power” er ikke bedre beskrevet enn i den sderien”.
+“Alle rike er detaljefokusert” siert presten.
