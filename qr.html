@@ -21,8 +21,8 @@ a{margin-left:auto}
 <nav id=f>
   <label>t (id | full url)<input id=t value=ldi spellcheck=false autocomplete=off></label>
   <label>img (art name | url, one per line)<textarea id=img rows=3 spellcheck=false autocomplete=off
-    title="one art per line; each line is a candidate the buttons may place, and the box keeps a blank line at the end">ldi</textarea></label>
-  <div id=usebox hidden><span class=cap>use</span><div id=uselist></div></div>
+    title="one art per line; every line is an art the buttons may place, and the active one is the art drawn (pick it with the radio when there is more than one)">ldi</textarea></label>
+  <div id=usebox hidden><span class=cap>active</span><div id=uselist></div></div>
   <label>iSz<select id=iSz title="the sizes that exist"></select></label>
   <label>iTrans<input id=iTrans type=checkbox checked></label>
   <label>iHole<select id=iHole size=8 title="any whole number of modules; 0 = no hole; rec = qr.REC_HOLE"></select></label>
@@ -154,38 +154,39 @@ const ORD=['1st','2nd','3rd','4th','5th'],auto=document.getElementById('auto'); 
 let picks=[],pickKey='',errDirty=false,errUse=null;   // what it found, for which search, so a press just steps
 const cands=()=>{const a=E.img.value.split('\n').map(s=>s.trim()).filter(Boolean);   // every art line, or
   return a.length?a:[null]};                          // a single empty one so there is always something to draw
-const off=new Set();                                 // candidate lines the searches should leave out
-const useList=()=>{                                  // a tick box per line, once there is a choice to make
-  const L=cands().filter(x=>x!=null),box=document.getElementById('usebox'),ul=document.getElementById('uselist')
-   ,now=[...ul.querySelectorAll('input')].map(i=>i.dataset.im);
-  box.hidden=L.length<2;
-  if(box.hidden){ul.replaceChildren();return}
-  if(now.join('\n')!==L.join('\n'))                // the lines changed: rebuild, so ticking does not jump
-    ul.replaceChildren(...L.map(im=>{const l=document.createElement('label'),c=document.createElement('input');
-      c.type='checkbox';c.dataset.im=im;c.checked=!off.has(im);
-      c.onchange=()=>{c.checked?off.delete(im):off.add(im);
-        if(off.has(curImg))curImg=L.find(x=>!off.has(x))||null;
-        pickKey='';arm(go)()};                       // another set of candidates: search again
-      l.append(c,document.createTextNode(im));return l}));
-  else ul.querySelectorAll('input').forEach(i=>i.checked=!off.has(i.dataset.im));};
-const arts=async()=>{const a=cands();                // the ticked lines whose art is really there: a typo must
-  if(a.length===1&&a[0]===null)return [null];        // not win a search by erasing nothing at all
-  const out=[];
-  for(const im of a)if(im&&!off.has(im)&&await qr._art(im))out.push(im);
+const arts=async()=>{const a=cands();                // the art lines that are really there: every one of them
+  if(a.length===1&&a[0]===null)return [null];        // is up for use, and a typo must not win a search by
+  const out=[];                                      // erasing nothing at all
+  for(const im of a)if(im&&await qr._art(im))out.push(im);
   return out};
+const pickRadio=ul=>{                                // the picked one is the one on the canvas
+  const c=[...ul.querySelectorAll('input')];if(c.length)c.forEach(i=>i.checked=i.value===curImg)};
+const useList=async()=>{                             // one radio per image that was found, once there is a
+  const was=E.img.value                               // choice to make: it says which is active, not which
+   ,L=(await arts()).filter(x=>x!=null)               // may be used (they all may, that is why they are here)
+   ,box=document.getElementById('usebox')
+   ,ul=document.getElementById('uselist'),now=[...ul.querySelectorAll('input')].map(i=>i.value);
+  if(E.img.value!==was)return;                       // typed again while the images were loading: that call wins
+  box.hidden=L.length<2;
+  if(L.indexOf(curImg)<0)curImg=L.length?L[0]:cands()[0];   // the drawn image is gone: take the first left
+  if(box.hidden)ul.replaceChildren();
+  else if(now.join('\n')!==L.join('\n'))             // the images found changed: rebuild, keeping the pick
+    ul.replaceChildren(...L.map(im=>{const l=document.createElement('label'),c=document.createElement('input');
+      c.type='radio';c.name='art';c.value=im;c.checked=im===curImg;
+      c.onchange=()=>{curImg=im;pickKey='';arm(go)()};   // draw, and measure, the one you picked
+      l.append(c,document.createTextNode(im));return l}));
+  else pickRadio(ul)};
 const lines=()=>{                                     // keep a blank line at the end to type the next art in,
   const v=E.img.value;                                // and one row per line
   if(v&&!v.endsWith('\n')){const p=E.img.selectionStart;E.img.value=v+'\n';
     if(document.activeElement===E.img)E.img.setSelectionRange(p,p);}
-  const a=cands();
-  if(a.indexOf(curImg)<0)curImg=a[0];
-  for(const im of [...off])if(a.indexOf(im)<0)off.delete(im);   // a line that is gone is no longer off
   E.img.rows=Math.max(2,E.img.value.split('\n').length);
-  useList()};
-const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0,v=cands()
+  return useList()};                                  // async: the images are looked for as you type
+const mark=()=>{const x=+E.offsetX.value||0,y=+E.offsetY.value||0,ul=document.getElementById('uselist')
  ,i=picks.findIndex(p=>p.img===curImg&&Math.abs(p.x-x)<1e-9&&Math.abs(p.y-y)<1e-9);
- auto.textContent=i<0||!picks[i]?'best pos/img'
-  :'best '+ORD[i]+(v.length>1&&picks[i].img?' '+picks[i].img:'')};   // which of them, and with which art
+ auto.textContent=i<0||!picks[i]?'best pos/img'      // which of the five, and with which art
+  :'best '+ORD[i]+(ul.children.length>1&&picks[i].img?' '+picks[i].img:'');
+ pickRadio(ul)};                                     // a walk onto another art switches the active image
 ['t','img','iSz','iHole','iTrans','offsetX','offsetY'].forEach(k=>{
   E[k].addEventListener('input',arm(go));E[k].addEventListener('change',arm(go));
   if(k==='offsetX'||k==='offsetY')E[k].addEventListener('input',mark)});   // moved by hand: not 1st..5th any more
@@ -265,8 +266,9 @@ addEventListener('pointercancel',up);
 addEventListener('blur',up);
 holes();
 load();
-lines();
-const link=fromURL();
-lines();
-if(link)fit();else go();
+(async()=>{                  // the first drawing waits for the list of images, so the active one is set
+  await lines();             // before anything is drawn with it
+  const link=fromURL();
+  await lines();
+  if(link)fit();else go()})();
 </script>
