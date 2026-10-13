@@ -801,7 +801,7 @@ Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike
 Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .
 #### p. 179
 ### Bøllete mindreverdighetskomplekser
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Eye of the Tiger; Survivor](https://aigap.no/meott)
 “Hogan knows best!” sier jeg til tyttebærpolitiet som sitter på tronen mellom etagene på biblioteket. “Hm…?” “Hogan knows best!”. Jeg liker at serien finnes, og antar de svakes sidene med “The Will to Power” ikke er bedre beskrevet enn i reality-serien der vi ser familielivet til fribryteren Hulk Hogan.
 Hulk vil mest og bestemmer derfor alt hjemme.
 Bibliotekvakten bestemmer alt på biblioteket. Der han får lov av team-lederen som jobber to nivåer under biblioteksbestyrer. I det daglige, hans øksystem, er han Gud.
