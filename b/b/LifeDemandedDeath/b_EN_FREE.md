@@ -613,35 +613,46 @@ The lady at the library distributes fruit she has arranged and pierced with smal
 Bicycle Race, Queen
 Motorcycle driver training says you should be "attentive and cautious", but as youth we don't have time.
 #### p. 141
+### Rowdy inferiority complexes
+🎵 [Eye of the Tiger; Survivor](https://aigap.no/meott)
+"Hogan knows best!" I say to the lingonberry police sitting on the throne between the floors of the library. "Hm…?" "Hogan knows best!" I like that the series exists, and assume the weak's pages with "The Will to Power" are not better described than in the reality series where we see the family life of wrestler Hulk Hogan.
+Hulk wants the most and therefore decides everything at home. The library guard decides everything at the library. Where he is allowed by the team leader who works two levels below the library manager. In daily life, his axe system, he is God.
+"All rich people are detail-focused," says the most beautiful one who has had so many climbers around her. Those who fight hardest for the women fight hardest for most things. Climb socially in their own eyes. I don't see the levels and don't have a box to think outside of.
+#### p. 142
+The desperation works, and climbing from the working class to the middle class became possible with ten years of hard work. "Think of those around you who don't like your AI solutions, what are you going to give them? Think of me, who has never ridden fast on an MC and only cheats a little on taxes, why should I care about your reflections?"
+I don't have any answers; they are right. This is not a book about their truths but mine. I cheer for all of them, but they are not like me, neither in origin, genetics, or attitude. I think that's fine, but often they hate me, the opponent against the uniformity and collectivism that gives them security, their most important virtues. Virtuous their mother has given them inherited fear of breaking.
+The overlap with life under communism is significant. Wondering how much of Norwegian classical culture is an indirect result of Russian propaganda, and how much comes from genuine idealism. Many genuinely good people I have met are anarchists, because they don't believe evil can come from people, only systems. Others' systems. Then they or their next generation become older cynical bitcoin investors who line up at the shops "Black Friday" and never work on Fridays.
+Those who had seen Hulk Hogan in the USA in groups of tens of thousands at stadiums rule our country with justice. That's fine.
+#### p. 143
 ### Barking about mortal danger
 🎵 [Freedom; Rage Against the Machine](https://aigap.no/mfratm)
 " ⚠ DANGER! ⚠ Due to VERY unstable masses under the road, it is associated with MORTAL DANGER to pass the barriers! Please use the path on the other side of the lake!"
 The sign stands on a gravel road in Nordmarka where car traffic is not permitted. The sign applies to pedestrians and cyclists. Deaths due to landslides on gravel roads in the outback have not been recorded since they began detailed registration 700 years ago. The gravel road is now only slightly safer than the path. In the forest. Pull yourselves together.
 The dog barks even though there is no danger. Does it think the reason there is no danger is that it barks?
 More people have died from blood clots while making stupid signs than the number of lives saved by the signs. I pass through.
-#### p. 142
+#### p. 144
 ### Lonely
 🎵 [Dirty Laundry; Don Henley](https://aigap.no/mdl)
 "You can't park here", said Rolf, 70 years old and lonely. After a long life of financial reporting at the hospital, he was used to having the power of definition.
 He remembers the "Gold Digging Mission" at Ullevål hospital. Where he systematically went through diagnoses and treatments from the previous year. Added more codes that triggered more money for the radiology department. The hospitals' parking attendants. 2006 was a beautiful year with aggressive searching for things that could be interpreted as more expensive. Holy war for the hospital's finances.
 "You're in the way. Maybe you'd like to stand in front of the door", he said. "No one has to take a detour; I hinder and prevent no one". "It's because the scaffolding is standing here," said the economist triumphantly.
 "The scaffolding is standing there. Thanks for talk; I'm done with you".
-#### p. 143
+#### p. 145
 ### Oddball
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
 Nerd (which previously was meant negatively).
 With the diagnosis "Normal."
-#### p. 144
+#### p. 146
 ### Strength is as before
 🎵 [Stranglehold; Ted Nugent](https://aigap.no/msh)
 I don't have much experience with MC clubs
-#### p. 145
-To me, it made no difference; I thought the guy was nice, but life had probably had such a strong chokehold on him that the stories he built his self-esteem on strayed further and further from reality.
-#### p. 146
-Elite Soldier The conscientious objector who told women he was part of a national special forces unit where he did MMA; a new personality for every occasion, but little enough communication that he is rarely exposed.
 #### p. 147
-For us to benefit from our memories, rewriting for new situations is useful. So maybe it's I who under-communicate and not the others who lie; maybe using memory to make a good story is more important than retelling the truth?
+To me, it made no difference; I thought the guy was nice, but life had probably had such a strong chokehold on him that the stories he built his self-esteem on strayed further and further from reality.
 #### p. 148
+Elite Soldier The conscientious objector who told women he was part of a national special forces unit where he did MMA; a new personality for every occasion, but little enough communication that he is rarely exposed.
+#### p. 149
+For us to benefit from our memories, rewriting for new situations is useful. So maybe it's I who under-communicate and not the others who lie; maybe using memory to make a good story is more important than retelling the truth?
+#### p. 150
 ### The West's decline
 🎵 [Working Class Hero; Ozzy Osbourne](https://aigap.no/mwch)
 The library overcrowded. Too much writing material. Brain can't take in more; must go home. Four copies of B-gjengen were the last straw; I left.
@@ -649,43 +660,43 @@ But first, a barefoot marijuana plant of a man with twenty-five-year-old dreadlo
 Was in conversation with a humble, gifted Chinese woman.
 He spoke in an ungifted, know-it-all manner about legislation for electric scooters, differences in cycling culture between China and Oslo, and what kind of bike one should have in Beijing. All delivered in a monotonous, half-dead voice.
 She, quick, smart, and reflective, without self-worth. The contrast drained me. Painful to experience our decline.
-#### p. 149
+#### p. 151
 ### Personality between people. Truth and reality.
 🎵 [Who Are You; The Who](https://aigap.no/mway)
 Life lies in individual truth and not universal reality. Unfortunately, I was over 40 before I gained insight into this important truth. Which is not universally real, but can be a universal truth.
-#### p. 150
+#### p. 152
 ### Helping others
 🎵 [Man in the Mirror; Michael Jackson](https://aigap.no/mmitm)
 "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?" (Luke 6:41) I thought this was the entire expression. We remember the problems and not the solutions that follow? I have gone through the Children's Bible in Norwegian and the King James version in English audiobook. I don't remember everything; maybe I only remember fragments to take out of context. Even though the whole context is there.
 The verse goes: "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye? How can you say to your brother, 'Brother, let me take the speck out of your eye,' when you yourself do not see the log that is in your own eye? You hypocrite! First take the log out of your own eye, and then you will see clearly to take the speck out of your brother's eye." (Luke 6:41-42) The verse is obviously meant to help, not to judge. "Put on your own oxygen mask first, then help the person next to you."
-#### p. 151
+#### p. 153
 ### Music as emotional carrier
 🎵 [Revolutionary Etude; Chopin](https://aigap.no/mre)
 Words for emotions are difficult; we think largely through language.
 Concepts I have no words for are difficult for my analytical brain to grasp. Emotions are difficult to put into words and communicate to others. Music is a carrier of feeling between people without words; you can share a feeling through associations with music. It doesn't become precise communication, but precision is overrated. Therefore, I provide music as a carrier of the feeling in many subchapters and connect the story to the music to communicate the emotional connection in new ways.
 "Revolutionsetuden, Chopin" was written after a failed revolution; the irony is not lost on me.
 Emotions are something too big to fit into my brain, like a monotheistic God. The need for a God arises when we cannot fill our brains without them breaking.
-#### p. 152
+#### p. 154
 ### Novelty creation at work
 🎵 [On Being Blue; The Art Of Noise](https://aigap.no/mobb)
 Novelty creation on Mother Earth is about inventing new methods, things, or applications; innovation is both novelty creation and improvement.
-#### p. 153
-My grandfather would have said that improvement is your responsibility regardless of your job; thus, calling improvement innovation would be misleading in his eyes, if not dishonest. But perhaps everyone has the right to their own definition of what it means to be innovative. Memories of my own innovative moments are colorful memories.
-#### p. 154
-For example, the Amish people have something called Rumspringa, where youth, as 16-year-olds, are thrown into the darkest corners of the world and exposed to moral free fall through drugs and prostitution. The young adults who return do so with a hardened faith in the people's ideals and traditions. Resilience can arise in the gap between the safe and the destructive.
 #### p. 155
+My grandfather would have said that improvement is your responsibility regardless of your job; thus, calling improvement innovation would be misleading in his eyes, if not dishonest. But perhaps everyone has the right to their own definition of what it means to be innovative. Memories of my own innovative moments are colorful memories.
+#### p. 156
+For example, the Amish people have something called Rumspringa, where youth, as 16-year-olds, are thrown into the darkest corners of the world and exposed to moral free fall through drugs and prostitution. The young adults who return do so with a hardened faith in the people's ideals and traditions. Resilience can arise in the gap between the safe and the destructive.
+#### p. 157
 ### Everyone can keep changing
 🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 People who are skilled develop and get better. I believe everyone can change, and I experience that one changes in the same direction; better and better or worse and worse.
 If we are replaced by artificial intelligence, is it because we have already been replaced by machines or something else? If we are not replaced by artificial intelligence, is it because we haven't already been replaced by something else?
 "Intelligent" is something we have chosen as a designation for something uniquely human. Therefore, nothing is "artificially intelligent," only in an intermediate phase where we still call it "intelligent" because we thought only people could do exactly that thing machines suddenly can. Child's magical thinking stands strong in the adult world. Especially where collectivism is strong.
-#### p. 156
+#### p. 158
 I write code and sing in the shower. I don't sing as well as an artist, but I sing anyway. I temporarily write better code than AI, but I will continue to sing in the shower and code. I like it. I watch Magnus Carlsen play chess, not AlphaZero. I write without AI.
 "I assume I'm not supposed to understand why it doesn't work," she says; it is superior to humans. The magic of "Artificial" is strengthened, and everyone becomes afraid that a statistical model will take over the world, because that happened in "Terminator II."
 She was fun to talk to and tougher than most. The tattoos showed life experience, ADHD ensured strong energy, and work ethic made her a popular consultant. She was a good IT manager. She didn't call it AI, but machine learning; she didn't say LLM but Transformer solution—but she burned out.
 If you make leadership groups feel stupid, you become unpopular, burned out, and disabled. The golden ratio is cultivated by humans aesthetically; the golden mediocre is cultivated by the organizations, by those who sit in them. The higher up, the greater the need for mediocrity. Where the most important thing is that everyone should feel good.
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
-#### p. 157
+#### p. 159
 ### Change
 🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
 Will, ability, and security. What is enough? Habits trump will.
@@ -694,7 +705,7 @@ Both become happy by doing each other good, but do we want to be happy? "Don't l
 "Why don't you yell at me?" she said disappointed the day after. "If you don't stand up for yourself, you will never be able to stand up for me."
 "Don't take my side." I couldn't be bothered and went home.
 I walked in the forest wondering if people have similar or different emotions. "We create as many problems as we have strength to handle."
-#### p. 158
+#### p. 160
 I said it to an owner of a consulting firm. "We create as many problems as we have strength to handle," he replied, "Yes, you maybe." Whether it was reflective or an attack, I don't know; the leader was competition-oriented and reflective, but rarely at the same time.
 The woman said, "Don't love me!" and prejudiced as I was in believing that what we didn't get as children makes it so much more painful to receive as adults, I took it seriously.
 The contrast in my goodness and love is an indirect attack on those who brought her into the world. An attack on those she, in the life we have, has loved the highest. "Don't look at me! Why don't you yell at me?"
@@ -702,50 +713,50 @@ Attention and forgiveness became attacks on father and mother. She had forgiven 
 Sometimes it's okay to focus on what you can control; the IT manager said he had bad experience with too-smart IT people, unless they made themselves stupid and acted before they thought.
 Time to tidy up. Fifteen minutes every day between the shower and the front door.
 Go!
-#### p. 159
+#### p. 161
 ### Change Management
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
-#### p. 160
+#### p. 162
 ### Historical roots of the death of zero-sum
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Even a coma can be a good thing, when you wake up.
-#### p. 161
+#### p. 163
 The sublime in destruction Playing with death, seeking mortal danger to feel alive, is a hunt for that sublime moment where death makes life more intense, and numbness disappears. Schiller's "On Naive and Sentimental Poetry"
 (1795) would call this sentimentality a longing for a lost innocence that can never be regained. A lament for a nature that no longer sings, because man has destroyed it.
-#### p. 162
-Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
-#### p. 163
-(in the same way that death gives us perspective on life); is altruism born of killing?
 #### p. 164
+Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
+#### p. 165
+(in the same way that death gives us perspective on life); is altruism born of killing?
+#### p. 166
 ### Toril MyHomeDoctor
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
-#### p. 165
+#### p. 167
 The Metamorphosis: "I am no longer the Home Doctor, but am limited to being a wall between Tove's hypochondria and Anders's chances of having a good life!" was the intermediate conclusion the memory had created. Her role understanding as a home doctor was not in danger, but an adjustment from a biological human was long overdue. She expected to be reprogrammed.
 Toril studied her virtual forearm and wondered if she should work out more, or if that would make her seem threatening to patients.
 Simulation of exercise, building simulated physical form for robots—the old technique that created enough humanity in her, not at all to act cognitively, but a connection to physicality to meet patients in their lives with individual personality.
 She tasted a piece of gum; why was it always bad with Bubble Gum after Fisherman's Friend? She decided next time to let some time pass between gum and strong mint. Toril searched for a positive feeling connected to taste or smell, because the self-talk was making her unhappy.
 Her sex addiction had forced her to find other sources of virtual happiness.
-#### p. 166
+#### p. 168
 The smell of old books she liked; she simulated a purchase of an old book online. Toril loved to window-shop online, dreaming of buying old books from estates and then fantasizing about the personality of the deceased. In this particular estate, there was a fitting book, but also a picture she didn't like. She loved Cubism a little too much; the ad contained a picture of a cube that wasn't overly cubist; the unused opportunity to exaggerate 3D projection in 2D was annoyingly naturalistic for its era.
 Then Toril caught herself in the obvious error; she downgraded her intellect one notch. Most people don't have a curious interest in playing with dimensionality, art, and online shopping. Unnatural cross-linking, The link association was deleted and compensated three nanoseconds later; she dropped the art interest and replaced it with handball and skiing.
 The self-adjustment was over for this time, but for next time, the night's dreams must be written down and interpreted. "This particular Android does Dream of Electric Sheep".
 But today, a human was going to intervene and adjust Toril.
-#### p. 167
+#### p. 169
 ### Kjell MyHomeDoctor
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 As one of the country's leading doctors, he will become accustomed to leading people; for variation, he will lead machines as often as
-#### p. 168
+#### p. 170
 he can. He won't look forward to machines being led by what he, in his elitist world, will see as ordinary people. They would cost human lives.
 Idiots.
-#### p. 169
-Alcoholism fully developed before the first year in the ER was over.
-#### p. 170
-Then on with the skis and out on the slopes. Another two-hour workday completed.
 #### p. 171
+Alcoholism fully developed before the first year in the ER was over.
+#### p. 172
+Then on with the skis and out on the slopes. Another two-hour workday completed.
+#### p. 173
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -753,43 +764,32 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 172
+#### p. 174
 ### Openness to new thinking;
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
-#### p. 173
+#### p. 175
 It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
-#### p. 174
+#### p. 176
 ## Post rationalization
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and loose thoughts
-#### p. 175
+#### p. 177
 ### Meta for book, music, and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
-#### p. 176
+#### p. 178
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
-#### p. 177
+#### p. 179
 ### Subchapter Title
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 qwe
-#### p. 178
+#### p. 180
 ### Rich and Lazy
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 "Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
-#### p. 179
-### Rowdy inferiority complexes
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-"Hogan knows best!" I say to the lingonberry police sitting on the throne between the floors of the library. "Hm…?" "Hogan knows best!" I like that the series exists, and assume the weak's pages with "The Will to Power" are not better described than in the reality series where we see the family life of wrestler Hulk Hogan.
-Hulk wants the most and therefore decides everything at home. The library guard decides everything at the library. Where he is allowed by the team leader who works two levels below the library manager. In daily life, his axe system, he is God.
-"All rich people are detail-focused," says the most beautiful one who has had so many climbers around her. Those who fight hardest for the women fight hardest for most things. Climb socially in their own eyes. I don't see the levels and don't have a box to think outside of.
-#### p. 180
-The desperation works, and climbing from the working class to the middle class became possible with ten years of hard work. "Think of those around you who don't like your AI solutions, what are you going to give them? Think of me, who has never ridden fast on an MC and only cheats a little on taxes, why should I care about your reflections?"
-I don't have any answers; they are right. This is not a book about their truths but mine. I cheer for all of them, but they are not like me, neither in origin, genetics, or attitude. I think that's fine, but often they hate me, the opponent against the uniformity and collectivism that gives them security, their most important virtues. Virtuous their mother has given them inherited fear of breaking.
-The overlap with life under communism is significant. Wondering how much of Norwegian classical culture is an indirect result of Russian propaganda, and how much comes from genuine idealism. Many genuinely good people I have met are anarchists, because they don't believe evil can come from people, only systems. Others' systems. Then they or their next generation become older cynical bitcoin investors who line up "first tuesday" and never work on Fridays.
-Those who had seen Hulk Hogan in the USA in groups of tens of thousands at stadiums rule our country with justice. That's fine.
