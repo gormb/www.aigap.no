@@ -14,7 +14,7 @@ textarea{font:inherit;width:20ch;resize:vertical}
 #uselist input{width:auto}
 select[size]{height:auto}
 a{margin-left:auto}
-#o canvas{width:min(80vmin,520px);background:#fff;image-rendering:pixelated;cursor:grab;touch-action:none;user-select:none}
+#o canvas{width:min(80vmin,520px);background:#fff;image-rendering:crisp-edges;image-rendering:pixelated;cursor:grab;touch-action:none;user-select:none}
 #s,#u{font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
 #u{word-break:break-all}
 </style>
@@ -49,12 +49,11 @@ const F=document.getElementById('f'),O=document.getElementById('o'),S=document.g
 let curImg=null;                       // which of the img lines the page is drawing right now
 ['t','img','iSz','iTrans','iHole','error','offsetX','offsetY'].forEach(k=>E[k]=document.getElementById(k));
 qr.GS.forEach(n=>E.iSz.append(new Option(n,n)));
-let to=null,run=0,mode='go',url=0,drg=null,pngUrl=null;   // url=1 while the state came from the deep link
+let to=null,run=0,mode='go',url=0,drg=null,pngUrl=null,hi=1;   // url=1 while the state came from the deep
 const S0=qr.S;                                // the full render scale, for the png link to build on demand
-const dispS=()=>{                             // what the canvas is shown at: one canvas pixel per screen
-  const bw=Math.min(.8*Math.min(innerWidth,innerHeight),520)   // pixel, so the art is resampled once, not
-   ,n=(+E.iSz.value||21)+2*qr.MAR;             // twice (it used to be drawn up into a 40 px/module canvas
-  return Math.max(2,Math.min(S0,Math.round(bw*(devicePixelRatio||1)/n)))};   // and squeezed down by css)
+const boxPx=()=>Math.min(.8*Math.min(innerWidth,innerHeight),520)   // the css box the canvas is shown in
+const dispS=()=>Math.max(2,Math.min(S0,     // what to draw at: one canvas pixel per screen pixel, so the
+  Math.round(boxPx()*(devicePixelRatio||1)/((+E.iSz.value||21)+2*qr.MAR))));   // art is resampled once
 const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole the code has room for
   E.iHole.replaceChildren(new Option('rec',''));
   for(let h=0;h<=n;h++)E.iHole.append(new Option(h,h));
@@ -106,8 +105,11 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   deep();
   if(!cv){O.replaceChildren();S.textContent='nothing fits: no EC level holds that text at iSz';return null}
   const old=O.querySelector('canvas');      // one canvas for the life of the page: swapping it out mid-drag
-  if(old){old.width=cv.width;old.height=cv.height;old.getContext('2d').drawImage(cv,0,0);}   // would drop the pointer capture
+  const c=old||cv;                          // would drop the pointer capture
+  if(old){old.width=cv.width;old.height=cv.height;old.getContext('2d').drawImage(cv,0,0);}
   else O.replaceChildren(cv);
+  c.style.width=c.style.height=(hi?cv.width/(devicePixelRatio||1):boxPx())+'px';   // shown 1:1, so css never
+  //   resamples the canvas (image-rendering below is then only a safety net); a drag shares the box
   if(pngUrl){URL.revokeObjectURL(pngUrl);pngUrl=null;}   // the png link is rebuilt on demand, below
   D.removeAttribute('href');D.dataset.hi='';
   D.download=/^[A-Za-z0-9]+$/.test(E.t.value.trim())?E.t.value.trim()+'.'+cv.t+'.png':cv.t+'.png';
@@ -117,7 +119,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
    +(cv.o&&(cv.o[0]||cv.o[1])?' \u00b7 offset '+[+cv.o[0].toFixed(2),+cv.o[1].toFixed(2)]:'');
   return p}
 ,go=async()=>{           // iHole / iTrans / iSz / t / img typed: draw it, then report its error %
-  mode='go';
+  mode='go';hi=1;
   mark();                // the caption follows the offset right away, before the drawing catches up
   sizes();holes();qr.S=dispS();
   const k=++run,cv=await qr.g(...args());
@@ -126,7 +128,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
   if(p!=null)E.error.value=p;
   save()}
 ,fit=async()=>{          // error % typed: the biggest hole (and transparent) that stays within it
-  mode='fit';
+  mode='fit';hi=1;
   sizes();holes();
   const k=++run,lim=+E.error.value||0,v=E.t.value.trim(),sz=+E.iSz.value
    ,L=await arts();if(!L.length)return;                // art line that does not load: leave the code alone
@@ -141,7 +143,7 @@ const holes=()=>{const n=+E.iSz.value||21,keep=E.iHole.value;   // every hole th
 ,down=e=>{const cv=O.querySelector('canvas');if(!cv)return;
   const r=cv.getBoundingClientRect(),N=+E.iSz.value||21;
   drg={x:e.clientX,y:e.clientY,x0:+E.offsetX.value||0,y0:+E.offsetY.value||0,sc:r.width/(N+2*qr.MAR)};
-  qr.S=Math.max(2,Math.round(qr.S/2));    // cheap frames while dragging
+  hi=0;qr.S=Math.max(2,Math.round(qr.S/2));   // cheap frames while dragging, shown at the same size
   if(cv.setPointerCapture)cv.setPointerCapture(e.pointerId);
   e.preventDefault()}
 ,move=e=>{if(!drg||!drg.sc)return;

@@ -256,7 +256,8 @@ window.qr = {
       const g=cv.getContext('2d',{willReadFrequently:true});
       if(tr){const Z=qr._key(A),aW=Z.naturalWidth||Z.width,aH=Z.naturalHeight||Z.height
          ,r=Math.min(h/aW,h/aH),w=aW*r,hh=aH*r;   // the art contained in the hole (i/u/qr.js artFit)
-        g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);
+        g.imageSmoothingEnabled=w*K<=aW;         // as in _draw: an upscaled art keeps its own pixels,
+        g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);   // so this measures what is drawn
       }else g.fillRect(K,K,h*K,h*K);              // opaque art covers the whole hole
       const d=g.getImageData(0,0,S0,S0).data,W=S0+1
        ,SA=new Int32Array(W*W)                      // summed alpha,
@@ -336,7 +337,8 @@ window.qr = {
         // whole pixels and whole sizes: a fractional box would be resampled once more, and the art is
         const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);   // the only thing here
         g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();  // with detail
-        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,Math.round((mar+fx)*S+f.x),Math.round((mar+fy)*S+f.y)
+        g.imageSmoothingEnabled=f.w<=f.sw;   // upscaled art keeps its own pixels: smoothing it is blur,
+        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,Math.round((mar+fx)*S+f.x),Math.round((mar+fy)*S+f.y)  // not sharp
          ,Math.ceil(f.w),Math.ceil(f.h));g.restore();}
       if(bar)qr._keep(g,M,h,S,mar,lx,ly);}
     return cv;
