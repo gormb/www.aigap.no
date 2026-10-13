@@ -1138,7 +1138,14 @@ Jeg vet ikke hvor lenge jeg har vært rik og lat.
 Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike, ogg derfor late, men fordi alle har blitt velstående og tiltaksløse. Jeg vet ikke enb gang  hva man gjør med tiltaksløse barn eller med meg selv når jeg er tiltaksløs, hva gjør man med et helt land som har gått fullstendig i koma på viktige områder?
 Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .
 #### p. 179
-### Underkapitteltittel
+### Bøllete mindreverdighetskomplekser
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-“Horgan knows best!” sier jeg til han somsitter på tronen mellom etagene på biblioteklet. “Hm…?” “Horgan knows best!”. Jeg liker serien, og “The Will to Power” er ikke bedre beskrevet enn i den sderien”.
-“Alle rike er detaljefokusert” siert presten.
+“Hogan knows best!” sier jeg til tyttebærpolitiet som sitter på tronen mellom etagene på biblioteket. “Hm…?” “Hogan knows best!”. Jeg liker at serien finnes, og antar de svakes sidene med “The Will to Power” ikke er bedre beskrevet enn i reality-serien der vi ser familielivet til fribryteren Hulk Hogan.
+Hulk vil mest og bestemmer derfor alt hjemme.
+Bibliotekvakten bestemmer alt på biblioteket. Der han får lov av team-lederen som jobber to nivåer under biblioteksbestyrer. I det daglige, hans øksystem, er han Gud.
+“Alle rike er detaljefokusert” sier den vakreste som har hatt så mange klatrere rundt seg. De som kjemper hardest for kvinnene kjemper hardest for det meste. Klatrer sosialt i egne øyne. Jeg ser ikke nivåene og har ikke en boks å tenke utenfor.
+#### p. 180
+Desperasjonen virker, og klatring fra arbeiderklassen til mellomklassen ble mulig med tiårs hardt arbeid. “Tenk på de rundt deg som ikke liker AI-løsningene dine, hva skal du gi dem? Tenk på meg, som aldri har kjørt fort på MC og bare snyter litt på skatten, hvorfor skal jeg bry meg om dine refleksjoner?”
+Jeg har ikke noen svar, de har rett. Dette er ikke en bok om deres sannheter men mine. Heier på dem alle sammen, men de er ikke som meg, hverken opphavsmessig, genetisk eller holdningsmessig. Det synes jeg er greit, men ofte hater de meg, motarbeideren mot uniformiteten og kollektivismen som gir dem trygghet, deres viktigste dyder. Dydene deres mor har gitt dem nedarvet frykt mot å bryte.
+Overlappet med livet under kommunismen er betydelig. Lurer på hvor mye av norsk klassisk kultur som er indirekte resultat av russisk propaganda, og hvor mye som kommer fra ekte idealisme. Mange rett gjennom gode mennesker jeg har møtt er anarkister, for de tror ikke ondhet kan komme fra folk, bare systemer. Andres systemer. Så blir de eller deres neste generasjon eldre kyniske bitcoin-investorer som står i kø “first tuesday” og aldri jobber på fredager.
+De som hadde sett Hulk Hogan i USA i gruppert titusenvis på stadion regjerer landet vårt med rettferdighet. Det er greit.
