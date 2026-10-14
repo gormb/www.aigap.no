@@ -437,30 +437,6 @@ def render_pdfs(pdf_path):
     src.close()
     print(f'[{os.path.basename(pdf_path)}] PDF-versjoner: NO/EN × FREE/PREM .pdf')
 
-def linearize(path):
-    """Skriv om PDF-en som linearisert («fast web view») så pdf.js kan hente side for side
-    med range-requests istedenfor hele fila for å finne xref-tabellen på slutten. Google
-    Slides-eksport er aldri linearisert – det er derfor leseren laster ~6 MB før side 1 vises.
-    Best effort: ved feil beholdes originalfila urørt."""
-    try:
-        import pikepdf
-    except ImportError:
-        gh('warning', f'[{os.path.basename(path)}] pikepdf mangler – hopper over linearisering')
-        return False
-    tmp = path + '.lin'
-    try:
-        with pikepdf.open(path) as pdf:
-            pdf.save(tmp, linearize=True, compress_streams=True,
-                     object_stream_mode=pikepdf.ObjectStreamMode.generate)
-        os.replace(tmp, path)
-        print(f'[{os.path.basename(path)}] linearisert (fast web view)')
-        return True
-    except Exception as e:
-        gh('warning', f'[{os.path.basename(path)}] linearisering feilet: {e}')
-        if os.path.exists(tmp):
-            os.remove(tmp)
-        return False
-
 def extract(pdf_path):
     """Lag 4 tiered .md-bøker ved siden av en bok-PDF:
     name_NO_FREE.md, name_NO_PREM.md, name_EN_FREE.md, name_EN_PREM.md
@@ -595,7 +571,6 @@ def main():
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             print(f'[{book}] {src} -> {deployed}')
             subprocess.run(['curl', '-fsSL', '-L', src, '-o', dest], check=True)
-            linearize(dest)  # fast web view – la leseren hente side for side (range), ikke hele fila
             n += 1
             extract(dest)  # sidecars: .md / _free.md / _tech.md / .json / _TOC
             log_ok(url, key, book, f'synkronisert {deployed}')
