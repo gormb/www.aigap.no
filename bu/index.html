@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script src="https://aigap.no/db.js?v=8"></script>
+        <link rel="stylesheet" href="bu.css">
+        <meta charset="utf-8">
+        <title>Backup</title>
+        <script>
+            /* backup all tables in the database to CSV files, committed into this folder (bu/) on GitHub.
+               needs a `cfg` row id=ghtoken — a GitHub token with repo write access. */
+            const BU={repo:'gormb/www.aigap.no',branch:'main',dir:'bu',tables:['redir','log','codes','usage','books','book_versions','music','map']}/* cfg left out: it holds the token */
+            const HDR=()=>({apikey:SUPABASE.publishableKey,Authorization:'Bearer '+SUPABASE.publishableKey})
+              ,BSEP=(1.1).toLocaleString().replace(/[\d\s]/g,'')===','?';':','
+              ,buMsg=m=>{const e=document.getElementById('buMsg');if(e)e.textContent=m}
+              ,b64=t=>{const b=new TextEncoder().encode(t);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s)}
+              ,esc=v=>{if(v==null)return'';if(typeof v==='object')v=JSON.stringify(v);v=String(v);return v.includes(BSEP)||/[\t\n"]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+              ,buCSV=rows=>{const c=[...new Set(rows.flatMap(r=>Object.keys(r)))];return'\uFEFF'+c.join(BSEP)+'\n'+rows.map(r=>c.map(k=>esc(r[k])).join(BSEP)).join('\n')+'\n'}
+            const buRows=async t=>{const out=[];for(let from=0;;from+=1000){const r=await fetch(`${SUPABASE.url}/rest/v1/${t}?select=*`,{headers:{...HDR(),'Range-Unit':'items',Range:`${from}-${from+999}`}});if(!r.ok)throw new Error(r.status+' '+await r.text());const rows=await r.json();out.push(...rows);if(rows.length<1000)return out}}
+            const buTok=async()=>{const j=await(await fetch(`${SUPABASE.url}/rest/v1/cfg?select=val&id=eq.ghtoken`,{headers:HDR()})).json(),tok=j&&j[0]&&j[0].val;if(!tok)throw new Error('no cfg row ghtoken');return tok}
+            const ghPut=async(p,text,tok,message)=>{const R=`https://api.github.com/repos/${BU.repo}/contents/${p}`,h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json','Content-Type':'application/json'},g=await fetch(`${R}?ref=${BU.branch}`,{headers:h}),sha=g.ok?(await g.json()).sha:null,r=await fetch(R,{method:'PUT',headers:h,body:JSON.stringify({message,content:b64(text),branch:BU.branch,...sha&&{sha}})});if(!r.ok)throw new Error('github: '+((await r.json().catch(()=>({}))).message||r.status));return(await r.json()).content.sha}
+            const buLive=async(p,n)=>{/* GitHub Pages needs ~1 min */const t0=Date.now();for(let i=0;i<24;i++){try{const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});if(r.ok&&(await r.blob()).size===n)return Math.round((Date.now()-t0)/1000)}catch(e){}await new Promise(r=>setTimeout(r,5000))}return null}
+            async function buTable(tableName){  /* one table -> bu/<table>.csv, onto github */
+                buMsg(tableName+': reading…')
+                try{
+                    const rows=await buRows(tableName);if(!rows.length)return void buMsg(tableName+': empty — nothing written')
+                    const csv=buCSV(rows),p=BU.dir+'/'+tableName+'.csv'
+                    await ghPut(p,csv,await buTok(),'backup '+p)
+                    const sec=await buLive(p,new Blob([csv]).size)
+                    buMsg(`${tableName}: ${rows.length} rows → ${p} — `+(sec!==null?`live after ${sec}s`:'pushed, not live yet (check the Pages build)'))
+                    return rows.length
+                }catch(e){buMsg(tableName+': '+e.message);return -1}
+            }
+            async function buTables(){  /* every table */
+                buMsg('backing up '+BU.tables.length+' tables…')
+                let ok=0
+                for(const t of BU.tables){if(await buTable(t)>=0)ok++;await new Promise(r=>setTimeout(r,1000))}
+                buMsg(`done: ${ok}/${BU.tables.length} tables backed up`)
+            }
+            addEventListener('DOMContentLoaded',()=>{document.getElementById('buList').innerHTML=BU.tables.map(t=>`<button onclick="buTable('${t}')" title="backup ${t} → ${BU.dir}/${t}.csv">⤓ ${t}</button> <small><a href="${t}.csv">csv</a></small>`).join('<br>')})
+        </script>
+    </head>
+    <body>
+        <h1>Backup</h1>
+        <h4>Database tables (PostgreSQL)</h4>
+        <button onclick="buTables()">⤓ backup all tables</button>
+        <div id="buMsg"></div>
+        <hr>
+        <div id="buList"></div>
+        <hr>
+    </body>
+</html>
