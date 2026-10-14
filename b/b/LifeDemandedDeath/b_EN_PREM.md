@@ -1,9 +1,9 @@
 #### p. 1
-# Life demand Death
+# LifeDemandedDeath
 #### p. 2
 ## Zero Sum
 🎵 [Spotify Playlist](https://aigap.no/mlist)
-"Riding my motorcycle from Kiel to Alicante averaging 170 km/h, I could have been arrested all over Europe", I said.
+"Riding my motorcycle from Kiel to Alicante averaging  170 km/h, I could have been arrested all over Europe", I said.
 The lawyer I had just met over a Whisky chuckled.
 "No, you should be dead"
 Maybe so, but I feel nothing anyway, except shame towards my loved ones. Perhaps through Music, I can experience the loss of sanity as sound, time standing still, breakdown and realization.
@@ -793,7 +793,7 @@ Socks dried, I move on!
 🎵 [The Scientist; Coldplay](https://aigap.no/mts)
 Two years healing. Love of women held me together, gratitude remains.
 Music became a bridge when words failed.
-Truth is individual, we find our own.
+Truth is individual, we ﬁnd our own.
 Death gives life meaning.
 Everything breaks. All can be built anew.
 #### p. 130

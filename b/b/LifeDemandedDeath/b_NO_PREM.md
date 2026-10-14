@@ -1,13 +1,14 @@
 #### p. 1
-# Liv krevde død
+# LifeDemandedDeath
 #### p. 2
 ## Nullsum
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 “Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
-Advokaten jeg nettopp hadde møtt over en whisky smålo.
+Advokaten jeg nettopp hadde møtt over whisky smålo.
 “Nei, du skulle vært død”
-Kanskje det, men jeg føler ingenting likevel, unntatt skam overfor mine nærmeste. Kanskje gjennom musikk, kan jeg oppleve tapet av forstanden som lyd, tiden som stanser; sammenbrudd og erkjennelse.
-Døden gir plass
+Kanskje det, men jeg føler ingenting likevel, unntatt skam overfor mine nærmeste.
+Kanskje gjennom musikk, kan jeg oppleve tapet av forstanden som lyd, tiden som stanser; sammenbrudd og erkjennelse.
+Død gir plass
 #### p. 3
 ### Nulloppsummering
 🎵 [Nothing Compares 2 U; Sinéad O'Connor](https://aigap.no/mncty)
@@ -285,7 +286,7 @@ Nullsumlivet dør, skapelse uten ødeleggelse blir mulig. Død gir plass til nyt
 ## Krise!
 🎵 [Kashmir; Led Zeppelin](https://aigap.no/mklz)
 Fart, støy og risiko drepte det gamle, knust mot asfalt.
-Delirium løste opp verden i drøm av dømmekraft og overfladisk begjær.
+Delirium løste opp verden i drøm av dømmekraft og overﬂadisk begjær.
 For å overleve lot jeg det gamle dø
 #### p. 45
 ### Ulykken
