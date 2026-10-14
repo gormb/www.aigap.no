@@ -131,7 +131,7 @@ M.sidecar=opt=>{   // a book whose .md sidecar says what is where in the .pdf, h
         o.chapters.forEach(c=>c.subs.forEach(s=>{if(!s.paras.length)s.paras.push({t:s.t,page:s.page,txt:s.t});}));
         return o;};
     S.load=async f=>{if(S.raw[f])return S.raw[f];
-        try{const r=await fetch(f,{cache:'no-store'});if(!r.ok)return null;return S.raw[f]=S.parse(await r.text());}catch(e){return null;}};
+        try{const r=await fetch(f);if(!r.ok)return null;return S.raw[f]=S.parse(await r.text());}catch(e){return null;}}; // default HTTP caching (max-age/ETag) on the sidecar
     S.redraw=()=>{if(M.Z.on)M.Z.nav.redraw();};
     S.warm=async()=>{await S.load(url());S.redraw();                              // the copy being read now, the others after it
         for(const f of files())if(f.url!==url())await S.load(f.url);
