@@ -624,16 +624,16 @@ Føreropplæring for motorsykkel forteller at man skal være “aktpågivende og
 #### p. 141
 ### Bøllete mindreverdighetskomplekser
 🎵 [Eye of the Tiger; Survivor](https://aigap.no/meott)
-“Hogan knows best!” sier jeg til tyttebærpolitiet som sitter på tronen mellom etagene på biblioteket. “Hm…?” “Hogan knows best!”. Jeg liker at serien finnes, og antar de svakes sidene med “The Will to Power” ikke er bedre beskrevet enn i reality-serien der vi ser familielivet til fribryteren Hulk Hogan.
+“Hogan knows best!” sier jeg til tyttebærpolitiet som sitter på tronen mellom etagene på biblioteket. “Hm…?” “Hogan knows best!”. Jeg liker at serien finnes, og antar de svake sidene med “The Will to Power” ikke er bedre beskrevet enn i reality-serien, der vi ser familielivet til fribryteren Hulk Hogan.
 Hulk vil mest og bestemmer derfor alt hjemme.
-Bibliotekvakten bestemmer alt på biblioteket. Der han får lov av team lederen som jobber to nivåer under biblioteksbestyrer.
+Bibliotekvakten bestemmer alt på biblioteket. Hvis han får lov av teamlederen som jobber to nivåer under biblioteksbestyrer.
 I det daglige, i hans øksystem, er han Gud.
-“Alle rike er detaljefokusert” sier den vakreste som har hatt så mange klatrere rundt seg. De som kjemper hardest for kvinnene kjemper hardest for det meste. Klatrer sosialt i egne øyne. Jeg ser ikke nivåene og har ikke en boks å tenke utenfor.
+“Alle rike er detaljefokusert” sier den vakreste som har hatt mange slike klatrere rundt seg. De som kjemper hardest for kvinnene kjemper hardest for det meste. Klatrer sosialt i egne øyne. Jeg ser ikke nivåene og har ikke en boks å tenke utenfor.
 #### p. 142
-Desperasjonen virker, og klatring fra arbeiderklassen til mellomklassen ble mulig med tiårs hardt arbeid. “Tenk på de rundt deg som ikke liker AI-løsningene dine, hva skal du gi dem? Tenk på meg, som aldri har kjørt fort på MC og bare snyter litt på skatten, hvorfor skal jeg bry meg om dine refleksjoner?”
-Jeg har ikke noen svar, de har rett. Dette er ikke en bok om deres sannheter, men mine. Heier på dem alle sammen. De er ikke som meg, hverken opphavsmessig, genetisk eller holdningsmessig. Greit for meg, ikke  dem, ofte hater de meg, motarbeideren mot uniformiteten og kollektivismen som utfordrer deres trygghet, deres viktigste dyder. Dydene deres mor har gitt dem nedarvet frykt mot å bryte.
-Overlapp med livet under kommunismen er betydelig. Lurer på hvor mye av norsk klassisk kultur som er indirekte resultat av russisk propaganda, og hvor mye som kommer fra ekte idealisme. Mange rett gjennom gode mennesker jeg har møtt er anarkister, for de tror ikke ondhet kan komme fra folk, bare systemer. Andres systemer. Så blir de eller deres barnd kyniske bitcoin-investorer som står i kø utenfor butikkene “Black Friday” og aldri jobber fredager.
-De som hadde sett Hulk Hogan i USA i gruppert titusenvis på stadion regjerer landet vårt med rettferdighet. Det er greit.
+Desperasjon virker, og klatring fra arbeiderklassen til mellomklassen er mulig med tiårs hardt arbeid. “Tenk på de rundt deg som ikke liker AI-løsningene dine, hva skal du gi dem? Tenk på meg, som aldri har kjørt fort på MC og bare snyter litt på skatten, hvorfor skal jeg bry meg om dine refleksjoner? Tenk på hva du koster folk rundt deg!”
+Jeg har ikke noen svar, de har rett. Dette er ikke en bok om deres sannheter, men mine. Heier på dem alle sammen. De er ikke som meg, hverken opphavsmessig, genetisk eller holdningsmessig. Greit for meg, ikke dem, ofte hater de meg: motarbeideren mot uniformiteten og kollektivismen som utfordrer deres trygghet. Deres viktigste dyder. Dydene deres mor har gitt dem nedarvet frykt mot å bryte. De er lov.
+Overlapp med livet under kommunismen er betydelig. Lurer på hvor mye av norsk kultur som er indirekte resultat av russisk propaganda, og hvor mye som kommer fra ekte idealisme og folkesjel. Mange rett gjennom gode mennesker jeg har møtt er anarkister, de tror ikke ondhet kan komme fra folk, bare systemer. Andres systemer. Så blir de eller barna deres kyniske bitcoin-investorer som står i kø utenfor butikkene på “Black Friday”, på hytta alle andre  fredager.
+De som i USA hadde sett Hulk Hogan, titusenvis på stadion, regjerer landet vårt med deres rettferdighet. Det er greit.
 #### p. 143
 ### Bjeffing om livsfare
 🎵 [Freedom; Rage Against the Machine](https://aigap.no/mfratm)
@@ -794,7 +794,7 @@ Det handler om å se de nye anvendelsene før alle andre ser dem. Ekte nyskaping
 Appendix og løse tanker
 #### p. 177
 ### Meta for bok, musikk og mer
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Bakgrunnsmusikk kan gi stemning til tekst, assosiert musikk dybde og nytt innhold.
 Et eksempel fra film og serier og TV er serien Miami Vice. Jan Hammer, ansvarlig for musikken, så musikken som den tredje hovedrolleinnehaveren i tillegg til Ricardo og Tubbs.
@@ -804,11 +804,4 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 179
-### Kattegorifeil
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 #### p. 180
-### Rik og lat
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-Jeg vet ikke hvor lenge jeg har vært rik og lat.
-Landet jeg bor i er det latest rike i verden. Ikke fordi noen få har blitt rike, ogg derfor late, men fordi alle har blitt velstående og tiltaksløse. Jeg vet ikke enb gang  hva man gjør med tiltaksløse barn eller med meg selv når jeg er tiltaksløs, hva gjør man med et helt land som har gått fullstendig i koma på viktige områder?
-Tre fine svar har jeg funnet på spørsmålet i mitt eget liv, og forkserne har flere. Ingen gjør meg lykkelig. Unnvikelse, aksept og integrasjon er de tre .

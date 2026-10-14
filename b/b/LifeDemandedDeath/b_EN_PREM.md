@@ -1084,7 +1084,7 @@ Failing at novelty creation is part of the path towards or without success. When
 Appendix and loose thoughts
 #### p. 177
 ### Meta for book, music, and more
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 I hadn't listened to music for a long time. Starved for music.
 Only writing. Then I put on the playlist for this book after two weeks. What a variation! The brain was overstimulated by the impressions!

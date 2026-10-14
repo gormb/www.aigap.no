@@ -778,7 +778,7 @@ It's about seeing the new applications before everyone else sees them. True nove
 Appendix and loose thoughts
 #### p. 177
 ### Meta for book, music, and more
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
 #### p. 178
