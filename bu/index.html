@@ -2,6 +2,12 @@
     <head>
         <script src="https://aigap.no/db.js?v=8"></script>
         <link rel="stylesheet" href="bu.css">
+        <style>/* bu.css is missing */
+            #buList{border-collapse:collapse}
+            #buList td,#buList th{padding:.25em .8em;border-bottom:1px solid #ddd;text-align:left}
+            #buList td:nth-child(2),#buList td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
+            #buList a{text-decoration:none}
+        </style>
         <meta charset="utf-8">
         <title>Backup</title>
         <script>
@@ -25,6 +31,7 @@
                     const csv=buCSV(rows),p=BU.dir+'/'+tableName+'.csv'
                     await ghPut(p,csv,await buTok(),'backup '+p)
                     const sec=await buLive(p,new Blob([csv]).size)
+                    await buFill(tableName)
                     buMsg(`${tableName}: ${rows.length} rows → ${p} — `+(sec!==null?`live after ${sec}s`:'pushed, not live yet (check the Pages build)'))
                     return rows.length
                 }catch(e){buMsg(tableName+': '+e.message);return -1}
@@ -35,16 +42,21 @@
                 for(const t of BU.tables){if(await buTable(t)>=0)ok++;await new Promise(r=>setTimeout(r,1000))}
                 buMsg(`done: ${ok}/${BU.tables.length} tables backed up`)
             }
-            addEventListener('DOMContentLoaded',()=>{document.getElementById('buList').innerHTML=BU.tables.map(t=>`<button onclick="buTable('${t}')" title="backup ${t} → ${BU.dir}/${t}.csv">⤓ ${t}</button> <small><a href="${t}.csv">csv</a></small>`).join('<br>')})
+            const buFmt=n=>n>=1048576?(n/1048576).toFixed(2)+' MB':n>=1024?(n/1024).toFixed(1)+' kB':n+' B'
+            const buCount=txt=>{/* data rows = newlines outside quotes, minus the header */let n=-1,q=false;for(let i=0;i<txt.length;i++){const c=txt[i];if(c==='"'){if(q&&txt[i+1]==='"')i++;else q=!q}else if(c==='\n'&&!q)n++}return Math.max(n,0)}
+            const buMeta=async t=>{try{const r=await fetch(`${BU.dir}/${t}.csv`,{cache:'no-store'});if(!r.ok)return null;const txt=await r.text();return{rows:buCount(txt),size:new Blob([txt]).size,date:r.headers.get('last-modified')}}catch(e){return null}}
+            const buFill=async t=>{const el=document.getElementById('buList'),tr=el&&el.querySelector(`tr[data-t="${t}"]`);if(!tr)return;const m=await buMeta(t),td=tr.children;td[1].textContent=m?m.rows.toLocaleString():'—';td[2].textContent=m?buFmt(m.size):'';td[3].textContent=m?(m.date?new Date(m.date).toLocaleString():''):'no backup yet';td[3].title=m&&m.date?m.date:'';td[4].innerHTML=`<button onclick="buTable('${t}')" title="backup ${t} → ${BU.dir}/${t}.csv">⤓</button>`+(m?` <a href="${t}.csv">csv</a>`:'')}
+            const buList=async()=>{const el=document.getElementById('buList');el.innerHTML='<tr><th>table</th><th>rows</th><th>size</th><th>backed up</th><th></th></tr>'+BU.tables.map(t=>`<tr data-t="${t}"><td>${t}</td><td>…</td><td></td><td></td><td></td></tr>`).join('');for(const t of BU.tables)await buFill(t)}
+            addEventListener('DOMContentLoaded',buList)
         </script>
     </head>
     <body>
         <h1>Backup</h1>
         <h4>Database tables (PostgreSQL)</h4>
-        <button onclick="buTables()">⤓ backup all tables</button>
+        <button onclick="buTables()">⤓ backup all tables</button> <button onclick="buList()">↻ refresh</button>
         <div id="buMsg"></div>
         <hr>
-        <div id="buList"></div>
+        <table id="buList"></table>
         <hr>
     </body>
 </html>
