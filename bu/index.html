@@ -13,7 +13,8 @@
         <script>
             /* backup all tables in the database to CSV files, committed into this folder (bu/) on GitHub.
                needs a `cfg` row id=ghtoken — a GitHub token with repo write access. */
-            const BU={repo:'gormb/www.aigap.no',branch:'main',dir:'bu',tables:['redir','log','codes','usage','books','book_versions','music','map']}/* cfg left out: it holds the token */
+            const BU={repo:'gormb/www.aigap.no',branch:'main',dir:'bu',site:'https://aigap.no/',tables:['redir','log','codes','usage','books','book_versions','music','map']}/* cfg left out: it holds the token */
+            const buUrl=t=>BU.site+BU.dir+'/'+t+'.csv'/* this page already lives in /bu/ — never use the repo path as a URL */
             const HDR=()=>({apikey:SUPABASE.publishableKey,Authorization:'Bearer '+SUPABASE.publishableKey})
               ,BSEP=(1.1).toLocaleString().replace(/[\d\s]/g,'')===','?';':','
               ,buMsg=m=>{const e=document.getElementById('buMsg');if(e)e.textContent=m}
@@ -30,7 +31,7 @@
                     const rows=await buRows(tableName);if(!rows.length)return void buMsg(tableName+': empty — nothing written')
                     const csv=buCSV(rows),p=BU.dir+'/'+tableName+'.csv'
                     await ghPut(p,csv,await buTok(),'backup '+p)
-                    const sec=await buLive(p,new Blob([csv]).size)
+                    const sec=await buLive(buUrl(tableName),new Blob([csv]).size)
                     await buFill(tableName)
                     buMsg(`${tableName}: ${rows.length} rows → ${p} — `+(sec!==null?`live after ${sec}s`:'pushed, not live yet (check the Pages build)'))
                     return rows.length
@@ -44,9 +45,9 @@
             }
             const buFmt=n=>n>=1048576?(n/1048576).toFixed(2)+' MB':n>=1024?(n/1024).toFixed(1)+' kB':n+' B'
             const buCount=txt=>{/* data rows = newlines outside quotes, minus the header */let n=-1,q=false;for(let i=0;i<txt.length;i++){const c=txt[i];if(c==='"'){if(q&&txt[i+1]==='"')i++;else q=!q}else if(c==='\n'&&!q)n++}return Math.max(n,0)}
-            const buMeta=async t=>{try{const r=await fetch(`${BU.dir}/${t}.csv`,{cache:'no-store'});if(!r.ok)return null;const txt=await r.text();return{rows:buCount(txt),size:new Blob([txt]).size,date:r.headers.get('last-modified')}}catch(e){return null}}
-            const buFill=async t=>{const el=document.getElementById('buList'),tr=el&&el.querySelector(`tr[data-t="${t}"]`);if(!tr)return;const m=await buMeta(t),td=tr.children;td[1].textContent=m?m.rows.toLocaleString():'—';td[2].textContent=m?buFmt(m.size):'';td[3].textContent=m?(m.date?new Date(m.date).toLocaleString():''):'no backup yet';td[3].title=m&&m.date?m.date:'';td[4].innerHTML=`<button onclick="buTable('${t}')" title="backup ${t} → ${BU.dir}/${t}.csv">⤓</button>`+(m?` <a href="${t}.csv">csv</a>`:'')}
-            const buList=async()=>{const el=document.getElementById('buList');el.innerHTML='<tr><th>table</th><th>rows</th><th>size</th><th>backed up</th><th></th></tr>'+BU.tables.map(t=>`<tr data-t="${t}"><td>${t}</td><td>…</td><td></td><td></td><td></td></tr>`).join('');for(const t of BU.tables)await buFill(t)}
+            const buMeta=async t=>{try{const r=await fetch(buUrl(t),{cache:'no-store'});if(!r.ok)return null;const txt=await r.text();return{rows:buCount(txt),size:new Blob([txt]).size,date:r.headers.get('last-modified')}}catch(e){return null}}
+            const buFill=async t=>{const el=document.getElementById('buList'),tr=el&&el.querySelector(`tr[data-t="${t}"]`);if(!tr)return;const m=await buMeta(t),td=tr.children;td[1].textContent=m?m.rows.toLocaleString():'—';td[2].textContent=m?buFmt(m.size):'';td[3].textContent=m?(m.date?new Date(m.date).toLocaleString():'date not served'):'no backup yet';td[3].title=m&&m.date?m.date:'';td[4].innerHTML=`<button onclick="buTable('${t}')" title="backup ${t} → ${BU.dir}/${t}.csv">⤓</button>`+(m?` <a href="${buUrl(t)}">csv</a>`:'')}
+            const buList=async()=>{const el=document.getElementById('buList');el.innerHTML='<tr><th>table</th><th>rows</th><th>size</th><th>backed up (date, time)</th><th></th></tr>'+BU.tables.map(t=>`<tr data-t="${t}"><td>${t}</td><td>…</td><td></td><td></td><td></td></tr>`).join('');for(const t of BU.tables)await buFill(t)}
             addEventListener('DOMContentLoaded',buList)
         </script>
     </head>
