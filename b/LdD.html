@@ -647,8 +647,15 @@
                     // Premium/freemium must NEVER block/delay first view: read stored mode once before first render (no re-render/flash); prem.Load() stays off the blocking path.
                     books.book.prem._=(await nav.memGet('prem','false'))=="true";
                     books.book.prem.ui(); // button text only (👑/🔓) – no re-render / TOC work
-                    // Load the main document directly (no .1.pdf preview; JPG loading may be added later)
-                    await books.book.s(1,bookU,page);
+                    // Load the document directly (no .1.pdf preview; JPG loading may be added later).
+                    // Kick it off in the BACKGROUND: the first paint must never wait for the PDF parse (~5 MB of pdf.js reads for this book).
+                    const pdfReady = books.book.s(1,bookU,page); // sets the page-1 poster synchronously, then parses the pdf
+                    if(page===1){ // the poster IS page 1 – drop the spinner as soon as the poster is painted, not after the parse
+                        const up=()=>uishow(iLoading, false);
+                        if(_iBook.complete&&_iBook.naturalWidth) up();
+                        else _iBook.addEventListener('load', up, {once:true});
+                    }
+                    await pdfReady; // parse done – now render the real page over the poster
                     window.db?.logUsage&&window.db.logUsage({event:'page',book:books.book.name(),page:books.book.pn()}); // log the page actually shown (clamped by the reader) so openers who never turn a page are still counted
                     await uisz(); // await render (offscreen → one swap) – full file done before spinner hides
                     uishow(_iBook, false); // bg image – hide once page painted (else covers book until Loaded ends)
