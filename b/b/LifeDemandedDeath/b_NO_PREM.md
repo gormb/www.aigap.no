@@ -1145,5 +1145,8 @@ Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet.
 Det var en spesiell kunst med ord. Slam-poesi ville de holde.
 Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjøre.
 “Jeg vil ikke!” skrek det inne i meg. Jeg vil ikke finne ord som ligner, ikke løse kryssord, ikke noe bokstavlek, og i alle fall ingen ordlek.
-Barnets lekenhet raser overansiktsunntrykket hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker mnusikk tilå uttrykke.
-“Vekk fra den ubønnhrlige realiteten, og så kom jeg” Eg gikk.
+Barnets lekenhet raser over ansiktet hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker mnusikk tilå uttrykke.
+“Vekk fra den ubønnhrlige realiteten, og så kom jeg”. Eg gikk.
+#### p. 181
+Ville ikke legge frem mine ord som bare kommer opp i hodet mitt et sted der folk har brukt dagesvis på hver eneste setning og laget dårlige rim og svake poeng, men jobbet hardt for hver eneste setning. Det hadde vært et overtramp i mitt hode.
+“Hvorfor tok du ikke den om 200 km i timen” halvt ropte arrangøren etter meg da jeg gikk ut døra. Satte meg på kafe på løkka med svart kaffe. De snakker ivrig på bordet ved siden av: “
