@@ -484,7 +484,7 @@ Refreshing she was, but thoughts about the contrast, calculating beings breeding
 After thanking me for the conversation.
 #### p. 117
 ### Emilio
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Smooth Operator, Shade](https://aigap.no/mso)
 We have been at the Mexican bar for an hour. Started outdoors with brought-along living candles and the first bottle of Cava. Beautiful romantic autumn evening. We go inside and drink bottle number two.
 "Pay attention! There's someone who has had a hold on all the women in the room for the last half hour," says the woman who was going to break up tonight but doesn't know how.
 "Hm?" She continues: "Look! He exudes sexuality enough to fill the whole room. He can sleep with everyone in turn and has a new woman every weekend. Beautiful, not beautiful, young, old, he has a bedroom full of mirrors where he watches himself while having sex. Emilio."

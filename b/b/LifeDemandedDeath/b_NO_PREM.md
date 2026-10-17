@@ -740,7 +740,6 @@ Etter å ha takket for samtalen.
 #### p. 117
 ### Emilio
 🎵 [Smooth Operator, Shade](https://aigap.no/mso)
-🎵 [Spotify Playlist](https://aigap.no/mlist)
 Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrakt levende lys og den første flasken Cava.
 Vakker romantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med! Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
 ”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakre, unge, gamle, han har et soverom fullt av speil der han ser på seg selv mens han har sex. Emilio!”
