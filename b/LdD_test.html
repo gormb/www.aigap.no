@@ -188,23 +188,21 @@ const TESTS=[
     const ok=music<=limit;
     return {ok, detail:`page=${exp} · plain ${plain|0} ms · +music ${music|0} ms · limit ${limit|0} ms (+20%)`};
   }
-}
-/* Add more the same way, e.g.:
-
-,{
+},
+{
   id:'toc-chapters',
   name:'TOC lists chapters from the .md sidecar',
+  note:'Open the chapter TOC, then verify the generated rows come from the sidecar rather than the PDF text.',
   async run(){
     const h=await openBook({book:BOOK});
     try{
-      h.win.nav.ShowToc(true);
+      await h.win.nav.ShowToc(true);
       await sleep(300);
       const rows=h.doc.querySelectorAll('#_dTocList li.chap').length;
       return {ok:rows>0, detail:rows+' chapter row(s)'};
-    } finally { h.close(); }
+    } finally { h.close(); await sleep(120); }
   }
 }
-*/
 ];
 
 /* ---------------- runner ---------------- */
