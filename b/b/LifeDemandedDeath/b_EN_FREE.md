@@ -485,9 +485,16 @@ After thanking me for the conversation.
 #### p. 117
 ### Emilio
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-qwe
+We have been at the Mexican bar for an hour. Started outdoors with brought-along living candles and the first bottle of Cava. Beautiful romantic autumn evening. We go inside and drink bottle number two.
+"Pay attention! There's someone who has had a hold on all the women in the room for the last half hour," says the woman who was going to break up tonight but doesn't know how.
+"Hm?" She continues: "Look! He exudes sexuality enough to fill the whole room. He can sleep with everyone in turn and has a new woman every weekend. Beautiful, not beautiful, young, old, he has a bedroom full of mirrors where he watches himself while having sex. Emilio."
+I look down at the man we have decided is named Emilio. Immediately understood who she meant. Emilio stands out. He is of average appearance, average height, averagely well-built, and probably of average
 #### p. 118
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)
+intelligence. His hips move sensually as he walks and as he dances, and one can occasionally see chalk-white bleached teeth when he smiles, which he subtly does all the time, with his body in rhythmic motion.
+The hipster glasses are strength ZERO; when they fall down on his nose, he neither adjusts them nor squints—they are part of a carefully planned and then perfected facade. The curly black hair has gotten just enough hairspray that it doesn't shine, and is freshly styled.
+For the others competing for female, and for that matter male, attention, the competition is not real. Half of the guys wear caps to hide, the rest are probably gay, well-trained guys who take good care of body and soul, but they don't give the women attention; those with caps don't dare, those without don't want to. Emilio delivers for all of them.
+The bartender is probably a good musician and sits playing with the guitar between servings and has close contact with Emilio, who reaches toward him at intimate distance. Here everything is allowed, and shame has never died—it has never been there.
+Seven or eight girlfriends, a group of women where one lives in Oslo and the rest are staying over, they are from Hamar, Mjøndalen, or similar, and have dressed up to go out. Emilio dances with all of them, and each and every one feels unique and believes they can have him. He goes home to his wife.
 #### p. 119
 I have never regretted anything I bought on impulse.
 I am good at research and have never regretted my lack of research.

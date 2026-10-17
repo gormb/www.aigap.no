@@ -741,19 +741,19 @@ Etter å ha takket for samtalen.
 ### Emilio
 🎵 [Smooth Operator, Shade](https://aigap.no/mso)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
-Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrtakt levende lys og den første flasken Cava.
-Vakker rimantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med!. Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
-”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakrte, unge, gamle, hanhar et somverom fult av speil der hanser på seg selv mens hanhar sex. Emilio.”.
-Jeg ser ned på mannen vi har bestemt ossa for heter Emilio.
-Skjønte umiddelbart hvem hun mente. Emilio.skiller seg ut.
-Han er av midels utseende, middels høy, middels velbygget
+Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrakt levende lys og den første flasken Cava.
+Vakker romantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med! Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
+”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakre, unge, gamle, han har et soverom fullt av speil der han ser på seg selv mens han har sex. Emilio!”
+Jeg ser ned på mannen vi har bestemt oss for heter Emilio.
+Skjønte umiddelbart hvem hun mente. Emilio skiller seg ut.
+Han har middels utseende, middels høy, er middels velbygget og
 #### p. 118
-og har trolig middels intelligens. Hoftene beveger seg sensuelt mens han går og menshan danser, og man kan tidvis se kriihvite blekede tenner når han smiler, soms han subtiltgjør heløe tidenn mens kroppen er i rytmisk bevegelse.
-Hipsterbrillene er avstyrke NULL, når de faller ned på nesen hverken justerer eller myser ham, de er del av ennøye planlagt og deretter perfeksjonert fasade. Det krøllete svarte håret har fått akkurat så lite hårspray at det ikke glinser, og er nyfrisert.
+har trolig middels intelligens. Hoftene beveger seg sensuelt mens han går og mens han danser, og man kan tidvis se kritthvite blekede tenner når han smiler, noe han subtilt gjør hele tiden, med kroppen i rytmisk bevegelse.
+Hipsterbrillene er av styrke NULL, når de faller ned på nesen hverken justerer eller myser ham, de er del av en nøye planlagt og deretter perfeksjonert fasade. Det krøllete svarte håret har fått akkurat så lite hårspray at det ikke glinser, og er nyfrisert.
 De andre som konkurrerer om kvinnelig, og for den saks skyld mannlig, oppmerksomhet er konkurransen ikke reell.
-Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrenede gutter sopm tar godt vare på kropp og sjel, men de gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for alle sammen.
+Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrente gutter som tar godt vare på kropp og sjel, men de gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for alle sammen.
 Bartenderen er trolig god musiker og sitter og leker med gitaren mellom serveringene og har tett kontakt med Emilio som strekker seg mot ham med intim avstand. Her er alt lov og skammen har aldri dødd, den har aldri vært der.
-Syv-åtte veninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle og enhver føler seg unike og tror de kan få ham. Han går hjem til kona.
+Syv-åtte venninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle og enhver føler seg unike og tror de kan få ham. Han går hjem til kona.
 #### p. 119
 ### Impuls!
 🎵 [Sexy Boy; Air](https://aigap.no/msb)
