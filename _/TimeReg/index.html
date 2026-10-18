@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TimeReg → Tripletex</title>
+<style>
+:root{--line:#d8d8d8;--mut:#777;--ok:#0a7;--err:#c33;--bg:#fff}
+*{box-sizing:border-box}
+body{margin:0;padding:12px;font:14px/1.45 system-ui,-apple-system,sans-serif;color:#222;background:var(--bg)}
+h1{font-size:1.1rem;margin:0 0 .7em}
+h1 small{font-weight:400;color:var(--mut)}
+button{padding:.3em .7em;border:1px solid var(--line);background:#f8f8f8;border-radius:4px;cursor:pointer;font:inherit}
+button:hover{background:#ececec}
+button.primary{background:#0a7;border-color:#0a7;color:#fff}
+button.primary:hover{background:#096}
+button.base{border-color:var(--ok);color:var(--ok);background:#fff}
+input,select{padding:.25em .4em;border:1px solid var(--line);border-radius:4px;font:inherit;background:#fff}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.sp{flex:1}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:3px 4px;text-align:left;vertical-align:middle}
+th{font-size:.8em;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+td.d{width:9.5em}td.h{width:5.5em}td.c{width:2.6em;text-align:center}
+td input[type=number]{width:100%;text-align:right}
+td input[type=text]{width:100%}
+td.st{width:11em;font-size:.85em}
+.sent{color:var(--ok)}
+.err{color:var(--err)}
+tr.bad td{background:#fff5f5}
+#log{margin-top:10px;max-height:13em;overflow:auto;background:#f7f7f7;border:1px solid var(--line);border-radius:4px;padding:6px;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap}
+details{border:1px solid var(--line);border-radius:4px;padding:6px 9px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:7px}
+label{font-size:.82em;color:var(--mut);display:flex;gap:5px;align-items:center}
+.note{font-size:.85em;color:var(--mut);margin-top:6px;max-width:60em}
+.tot{font-weight:600}
+</style>
+</head>
+<body>
+
+<h1>TimeReg <small>→ Tripletex</small></h1>
+
+<details id="cfgbox">
+  <summary>Tripletex settings</summary>
+  <div class="row">
+    <label>API <input id="env" size="30"></label>
+    <label>Employee email <input id="email" size="24" placeholder="meg@firma.no"></label>
+    <label>Employee id (optional) <input id="empId" size="7"></label>
+  </div>
+  <div class="row">
+    <label>Proxy URL <input id="proxy" size="46" placeholder="https://<ref>.supabase.co/functions/v1/tripletex"></label>
+    <label>Proxy key <input id="key" type="password" size="16"></label>
+  </div>
+  <div class="row">
+    <label>Direct mode only — token <input id="token" type="password" size="20" placeholder="(never commit this)"></label>
+    <label><input type="checkbox" id="dry"> dry run — log the request, send nothing</label>
+    <button id="test" class="base">Test connection</button>
+    <span id="who"></span>
+  </div>
+  <div class="note">
+    The Tripletex API sends <b>no CORS headers</b>, so a page in a browser can't call it directly. Set a
+    <b>Proxy URL</b> (see <code>proxy.js</code>) and the token stays on the server. Direct mode + token only
+    works from a page served without CORS enforcement — handy for a quick local test.
+  </div>
+</details>
+
+<div class="bar">
+  <button id="prev">◀</button>
+  <input type="date" id="date">
+  <button id="next">▶</button>
+  <button id="today">today</button>
+  <span id="range" style="color:#777;font-size:.85em"></span>
+  <span class="sp"></span>
+  <button id="add">+ entry</button>
+  <button id="pull">⟵ pull week</button>
+  <button id="push" class="primary">push pending ⟶</button>
+  <button id="csv">csv</button>
+  <button id="clear">clear log</button>
+</div>
+
+<table>
+  <thead><tr>
+    <th>date</th><th>project</th><th>activity</th><th>hours</th><th>comment</th><th>chg</th><th>status</th><th></th>
+  </tr></thead>
+  <tbody id="tb"></tbody>
+</table>
+<div class="bar" style="margin-top:8px"><span class="tot" id="total"></span></div>
+<pre id="log"></pre>
+
+<script>
+/* ------------------------------------------------------------------ state */
+const K='timereg.v1',$=id=>document.getElementById(id)
+let db={cfg:{},entries:[]}
+try{const s=JSON.parse(localStorage.getItem(K)||'{}');db.cfg=s.cfg||{};db.entries=s.entries||[]}catch(e){}
+const save=()=>localStorage.setItem(K,JSON.stringify(db))
+let EMP=null,VIEW=[]
+const PC={},AC={}                                   // project/activity id cache
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))
+const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)
+const today=()=>iso(new Date())
+
+/* ------------------------------------------------------------------ log */
+function lg(...a){const t=new Date().toTimeString().slice(0,8);$('log').textContent=(t+' '+a.join(' ')+'\n'+$('log').textContent).slice(0,30000)}
+$('clear').onclick=()=>$('log').textContent=''
+
+/* ------------------------------------------------------------------ settings */
+const DEFAULTS={env:'https://tripletex.no/v2',email:'',empId:'',proxy:'',key:'',token:'',dry:false}
+Object.assign(db.cfg,{...DEFAULTS,...db.cfg})
+const load=()=>{for(const k of ['env','email','empId','proxy','key','token'])if(!$(k).value&&db.cfg[k])$(k).value=db.cfg[k];$('dry').checked=!!db.cfg.dry}
+function readCfg(){
+  for(const k of ['env','email','empId','proxy','key','token'])db.cfg[k]=$(k).value.trim()
+  db.cfg.dry=$('dry').checked;EMP=null;save()
+}
+$('cfgbox').addEventListener('change',readCfg)
+load()
+$('date').value=today()
+
+/* ------------------------------------------------------------------ tpt client */
+async function tx(path,opts={}){
+  const c=db.cfg
+  if(c.dry){lg('DRY',opts.method||'GET',path,opts.body||'');return{value:{id:'dry'},values:[],dry:true}}
+  const url=c.proxy?`${c.proxy.replace(/\/$/,'')}?p=${encodeURIComponent(path)}`:c.env.replace(/\/$/,'')+path
+  const h={Accept:'application/json'}
+  if(c.proxy){if(c.key)h['x-tr-key']=c.key}
+  else{if(!c.token)throw new Error('no token (or set a Proxy URL)');h.Authorization='Basic '+btoa(c.email+':'+c.token)}
+  if(opts.body)h['Content-Type']='application/json'
+  const m=opts.method||'GET'
+  lg('→',m,path)
+  let r
+  try{r=await fetch(url,{method:m,headers:h,body:opts.body})}
+  catch(e){throw new Error('browser blocked it ('+e.message+') — Tripletex sends no CORS headers, use a Proxy URL')}
+  const t=await r.text();let j=null;try{j=JSON.parse(t)}catch(e){}
+  if(!r.ok){
+    const v=(j&&j.validationMessages||[]).map(x=>`${x.field||''} ${x.message||''}`.trim()).join('; ')
+    lg('✗',r.status,t.slice(0,300))
+    throw new Error(`${r.status} ${(j&&j.message)||''}${v?' — '+v:''}`.trim())
+  }
+  lg('✓',r.status,t.slice(0,200))
+  return j
+}
+const one=j=>(j&&(j.value||(j.values||[])[0]))||null
+
+async function employee(){
+  if(EMP)return EMP
+  const c=db.cfg
+  if(c.dry)return EMP={id:'dry',firstName:'dry',lastName:'run'}
+  if(c.empId)return EMP={id:+c.empId}
+  if(!c.email)throw new Error('set the employee email (or employee id)')
+  const j=await tx('/employee?email='+encodeURIComponent(c.email)+'&count=1&fields=id,firstName,lastName,email')
+  const e=one(j)
+  if(!e)throw new Error('no Tripletex employee with email '+c.email)
+  return EMP=e
+}
+const lookup=async(kind,name,cache)=>{
+  if(!name)return null
+  if(cache[name])return cache[name]
+  if(db.cfg.dry)return cache[name]={id:'dry',name}      // dry run: keep the project/activity in the logged payload
+  const j=await tx(`/${kind}?name=${encodeURIComponent(name)}&count=5&fields=id,name`)
+  const hit=one(j)
+  lg(hit?`  ${kind} "${name}" → ${hit.id}`:`  ${kind} "${name}" → not found`)
+  return cache[name]=hit||{id:0,name}
+}
+
+/* ------------------------------------------------------------------ week */
+function week(){
+  const base=$('date').value||today(),d=new Date(base+'T12:00:00')
+  const mon=new Date(d);mon.setDate(d.getDate()-((d.getDay()+6)%7))
+  const sun=new Date(mon);sun.setDate(mon.getDate()+6)
+  return[iso(mon),iso(sun)]
+}
+const shift=n=>{const d=new Date(($('date').value||today())+'T12:00:00');d.setDate(d.getDate()+n);$('date').value=iso(d);render()}
+$('prev').onclick=()=>shift(-7)
+$('next').onclick=()=>shift(7)
+$('today').onclick=()=>{$('date').value=today();render()}
+$('date').onchange=render
+
+/* ------------------------------------------------------------------ view */
+const stat=e=>e.err?`<span class="err" title="${esc(e.err)}">✗ ${esc(e.err.slice(0,28))}…</span>`
+  :e.txId?`<span class="sent">✓ ${e.txId==='dry'?'dry':'id '+e.txId}</span>`
+  :'<span style="color:#999">pending</span>'
+const row=(e,i)=>`<tr data-i="${i}" class="${e.err?'bad':''}">
+<td class="d"><input type="date" data-k="date" value="${esc(e.date)}"></td>
+<td><input type="text" data-k="project" value="${esc(e.project)}" placeholder="project name"></td>
+<td><input type="text" data-k="activity" value="${esc(e.activity)}" placeholder="activity"></td>
+<td class="h"><input type="number" step="0.25" min="0" data-k="hours" value="${esc(e.hours)}"></td>
+<td><input type="text" data-k="comment" value="${esc(e.comment)}"></td>
+<td class="c"><input type="checkbox" data-k="chg" ${e.chg?'checked':''}></td>
+<td class="st">${stat(e)}</td>
+<td class="c"><button data-del title="delete">✕</button></td></tr>`
+
+function render(){
+  const [f,t]=week()
+  $('range').textContent=f+' → '+t
+  VIEW=db.entries.map((e,i)=>({e,i})).filter(({e})=>e.date>=f&&e.date<=t).sort((a,b)=>a.e.date<b.e.date?-1:1)
+  $('tb').innerHTML=VIEW.map(({e,i})=>row(e,i)).join('')
+    ||`<tr><td colspan="8" style="color:#999;padding:10px">no entries this week — “+ entry”</td></tr>`
+  totals()
+}
+function totals(){
+  let h=0,sent=0,pend=0
+  for(const{e}of VIEW){h+=Number(e.hours)||0;e.txId?sent++:pend++}
+  $('total').textContent=`${h.toFixed(2).replace(/\.?0+$/,'')} h this week — ${VIEW.length} entries, ${sent} sent, ${pend} pending`
+}
+$('tb').addEventListener('input',e=>{
+  const el=e.target,tr=el.closest('tr');if(!tr||!el.dataset.k)return
+  const e0=db.entries[+tr.dataset.i]
+  e0[el.dataset.k]=el.type==='checkbox'?el.checked:el.value
+  if(e0.txId){e0.txId=0;e0.err=''}          // edited after pushing → needs a re-push
+  save();totals()
+})
+$('tb').addEventListener('change',e=>{if(e.target.dataset.k==='date')render()})
+$('tb').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-del]');if(!b)return
+  db.entries.splice(+b.closest('tr').dataset.i,1);save();render()
+})
+
+/* ------------------------------------------------------------------ actions */
+$('add').onclick=()=>{
+  const last=[...db.entries].reverse().find(x=>x.project||x.activity)||{}
+  db.entries.push({date:$('date').value||today(),project:last.project||'',activity:last.activity||'',hours:7.5,comment:'',chg:true})
+  save();render()
+}
+
+$('test').onclick=async()=>{
+  $('who').textContent='…'
+  try{const e=await employee();$('who').innerHTML=`<span class="sent">✓ ${esc([e.firstName,e.lastName].filter(Boolean).join(' ')||'employee')} id ${e.id}</span>`}
+  catch(err){$('who').innerHTML=`<span class="err">✗ ${esc(err.message)}</span>`}
+}
+
+$('push').onclick=async()=>{
+  let ok=0,bad=0
+  $('push').disabled=true
+  for(const{e}of VIEW){
+    if(e.txId)continue
+    try{
+      const emp=await employee()
+      if(e.project)e.projectId=(e.projectId||(await lookup('project',e.project,PC)||{}).id)||undefined
+      if(e.activity)e.activityId=(e.activityId||(await lookup('activity',e.activity,AC)||{}).id)||undefined
+      const body={employee:{id:emp.id},date:e.date,hours:Number(e.hours),chargeable:!!e.chg}
+      if(e.comment)body.comment=e.comment
+      if(e.projectId)body.project={id:e.projectId}
+      if(e.activityId)body.activity={id:e.activityId}
+      lg('POST /timesheet/entry',JSON.stringify(body))
+      const j=await tx('/timesheet/entry',{method:'POST',body:JSON.stringify(body)})
+      e.txId=one(j)?.id||(db.cfg.dry?'dry':0)||'ok';e.err='';ok++
+    }catch(err){e.err=err.message;bad++}
+    save();render()
+  }
+  $('push').disabled=false
+  lg(`push done: ${ok} ok, ${bad} failed`)
+  render()
+}
+
+$('pull').onclick=async()=>{
+  try{
+    const emp=await employee(),[f,t]=week()
+    const j=await tx(`/timesheet/entry?employeeId=${emp.id}&dateFrom=${f}&dateTo=${t}&fields=id,date,hours,comment,project(id,name),activity(id,name)`)
+    let add=0,mark=0
+    for(const v of j.values||[]){
+      const key=x=>[x.date,Number(x.hours),x.project&&x.project.id,x.activity&&x.activity.id].join('|')
+      const mine=db.entries.find(e=>key(e)===key(v)&&!e.txId)
+      if(mine){mine.txId=v.id;mine.err='';mark++}
+      else if(!db.entries.some(e=>e.txId===v.id)){
+        db.entries.push({date:v.date,hours:v.hours,comment:v.comment||'',project:v.project&&v.project.name||'',activity:v.activity&&v.activity.name||'',projectId:v.project&&v.project.id,activityId:v.activity&&v.activity.id,chg:true,txId:v.id});add++
+      }
+    }
+    save();render();lg(`pull done: ${mark} matched, ${add} new`)
+  }catch(err){lg('✗ pull: '+err.message)}
+}
+
+$('csv').onclick=()=>{
+  const q=v=>/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v
+  const csv='date,project,activity,hours,comment,chargeable,tripletexId\n'
+    +VIEW.map(({e})=>[e.date,e.project,e.activity,e.hours,e.comment,e.chg?'1':'',e.txId||''].map(q).join(',')).join('\n')
+  const a=document.createElement('a')
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv'}))
+  a.download='timereg.csv';a.click()
+}
+
+render()
+lg('ready — set the Tripletex settings above, then “Test connection”')
+</script>
+</body>
+</html>

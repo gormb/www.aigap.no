@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>csv</title>
+<style>
+  body{font:13px/1.45 system-ui,-apple-system,sans-serif;margin:10px;color:#222}
+  h3{margin:.1em 0 .6em;font-size:1em;font-weight:600}
+  table{border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th,td{padding:.2em .6em;border:1px solid #ddd;white-space:nowrap;max-width:30em;overflow:hidden;text-overflow:ellipsis}
+  th{position:sticky;top:0;background:#f6f6f6;cursor:pointer;text-align:left;user-select:none}
+  th:hover{background:#ececec}
+  th.sorted{background:#dbe7ff}
+  th.sorted::after{content:attr(data-dir);margin-left:.4em;color:#06c}
+  td.num{text-align:right}
+  tbody tr:nth-child(even) td{background:#fafafa}
+  tbody tr:hover td{background:#eef4ff}
+</style>
+</head>
+<body>
+<h3 id="h"></h3>
+<table id="g"></table>
+<script>
+/* show a backup csv (from this folder) as a sortable grid: csv.html?path=books.csv */
+const p=(new URLSearchParams(location.search).get('path')||'').replace(/[^A-Za-z0-9_.-]/g,'').replace(/^\.+/,'')
+  ,H=document.getElementById('h'),G=document.getElementById('g')
+  ,esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+/* backups are ';'-separated; detect anyway so an older ',' file still opens */
+  ,sepOf=txt=>{const n={',':0,';':0,'\t':0};let q=false;for(const ch of txt){if(ch==='"')q=!q;else if(!q){if(ch==='\n')break;if(ch in n)n[ch]++}}const k=Object.keys(n).sort((a,b)=>n[b]-n[a])[0];return n[k]?k:';'}
+  ,parse=txt=>{const S=sepOf(txt),L=[];let f=[],c=[],q=false;for(let i=0;i<txt.length;i++){const ch=txt[i]
+      if(q){if(ch==='"'){if(txt[i+1]==='"'){c.push('"');i++}else q=false}else c.push(ch)}
+      else if(ch==='"')q=true
+      else if(ch===S){f.push(c.join(''));c=[]}
+      else if(ch==='\n'){f.push(c.join(''));c=[];L.push(f);f=[]}
+      else if(ch!=='\r'&&ch!=='\uFEFF')c.push(ch)}
+    if(c.length||f.length){f.push(c.join(''));L.push(f)}
+    return L}
+let head=[],rows=[],sc=-1,sd=1
+const isNum=v=>v!==''&&v!=null&&!isNaN(Number(v))
+function render(){
+  const v=sc<0?rows:rows.slice().sort((a,b)=>{const x=a[sc]==null?'':a[sc],y=b[sc]==null?'':b[sc];return(isNum(x)&&isNum(y)?x-y:String(x).localeCompare(String(y)))*sd})
+  G.innerHTML='<thead><tr>'+head.map((c,i)=>'<th data-i="'+i+'"'+(i===sc?' class="sorted" data-dir="'+(sd>0?'▲':'▼')+'"':'')+'>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'
+    +v.map(r=>'<tr>'+head.map((c,i)=>{const val=r[i]==null?'':r[i];return '<td'+(isNum(val)?' class="num"':'')+'>'+esc(val)+'</td>'}).join('')+'</tr>').join('')+'</tbody>'}
+G.onclick=e=>{const th=e.target.closest('th');if(!th)return;const i=+th.dataset.i;sd=sc===i?-sd:1;sc=i;render()}
+;(async()=>{
+  if(!p||p.includes('..'))return
+  H.textContent='loading '+p+'…'
+  try{
+    const r=await fetch(p,{cache:'no-store'})
+    if(!r.ok){H.textContent='no backup yet — '+p;return}
+    const L=parse(await r.text())
+    head=L[0]||[];rows=L.slice(1).filter(x=>x.some(v=>v!==''))
+    document.title=p
+    H.textContent=p+' — '+rows.length.toLocaleString()+' rows × '+head.length+' columns'
+    render()
+  }catch(e){H.textContent='failed: '+e.message}
+})()
+</script>
+</body>
+</html>

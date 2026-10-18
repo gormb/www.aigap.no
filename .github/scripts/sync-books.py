@@ -319,6 +319,7 @@ def _md_files(base, doc, style, data, book):
 GOLD_TOP, GOLD_BOT = (0.933, 0.855, 0.624), (0.839, 0.741, 0.482)  # gullstiftens gradient, rgba(.62) oppå hvitt
 GOLD_MID = tuple((a + b) / 2 for a, b in zip(GOLD_TOP, GOLD_BOT))
 PDF_DPI = 300  # bildene i de fire PDF-ene; kilden ligger på 900–2000 dpi
+QR_MAX  = 600  # QR-koder/ikoner: re-kodes aldri – de må forbli pikselnøyaktige
 
 def _gold_brush(page, _fitz, r):
     """Rundet gullstrøk med gradient over skjult premium-tekst – samme strøk som cBook.Hide()."""
@@ -360,7 +361,9 @@ def _locked(page, _fitz, left, hide):
 
 def _shrink(doc, _fitz):
     """Skaler JPEG-bilder ned til PDF_DPI – kilden er 3–7× over det en bokleser trenger.
-    Linje- og QR-bilder (FlateDecode) røres ikke."""
+    Linje-/PNG-bilder (FlateDecode) og små bilder – QR-koder og ikoner – røres aldri:
+    en QR som re-kodes til JPEG blir uleselig, og Google Slides eksporterer QR-ene som
+    JPEG (/DCTDecode), så filter-sjekken alene er ikke nok."""
     try:
         from PIL import Image
     except ImportError:
@@ -374,6 +377,8 @@ def _shrink(doc, _fitz):
                     continue
                 pix = _fitz.Pixmap(doc, xref)
             except Exception:
+                continue
+            if max(pix.width, pix.height) <= QR_MAX:  # QR-kode / ikon – aldri re-kod
                 continue
             mode = {1: 'L', 3: 'RGB', 4: 'CMYK'}.get(pix.n)
             bw, bh = info['bbox'][2] - info['bbox'][0], info['bbox'][3] - info['bbox'][1]

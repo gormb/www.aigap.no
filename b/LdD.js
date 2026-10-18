@@ -176,7 +176,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
             if(md&&md.file===cBook.data._mdFile()&&!force)return md;
             try{
                 const file=cBook.data._mdFile();
-                const r=await fetch(file,{cache:'no-store'});
+                const r=await fetch(file); // default HTTP caching – max-age/ETag, instead of re-downloading the sidecar every time
                 if(!r.ok)return null;
                 return cBook.data.md={file,text:await r.text()};
             }catch(e){ return null; }

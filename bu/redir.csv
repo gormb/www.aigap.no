@@ -1,95 +1,2972 @@
-﻿id;url;desc;group;sort
-mhefqr;https://open.spotify.com/track/33F9KiDw9N7efOijGVAkqi?si=fae8191a18de4b20;Hun er fri;Music;5.5064
-mmemqr;https://open.spotify.com/track/7fLzbEOBOae9lUnOwr7Tse?si=f55a2d11daa4475f;Memories;Music;5.503
-metiirpqr;https://open.spotify.com/track/2kRFrWaLWiKq48YYVdGcm8?si=e7007a3c45b64ddc;Everything is in its Right Place;Music;5.5124
-mttdqr;https://open.spotify.com/track/4JTy05wXvZkYOYXa9oMCuY?si=f8ac7e554ee64033;Time to Die;Music;5.5043
-msdqr;https://open.spotify.com/track/73eSPHYBvrzSeOPzCfHW51?si=34b3491b2f264781;Skin Deep;Music;5.5112
-mwctblqr;https://open.spotify.com/track/0TaT50ZZxT4ytZxuqkE3A9?si=0efd77f06d58490b;Why Cant This be Love?;Music;5.5098
-mpyqr;https://open.spotify.com/track/1FS21kclHQ2vVi3U1ZxETc?si=a74b8ee4537f4820;Praise You;Music;5.512
-moymqr;https://open.spotify.com/track/2S1rIobRdiid5m2i8MdbrQ?si=1f8f44f9ec044b1d;Open Your Mind;Music;5.5151
-myllrqr;https://open.spotify.com/track/2hDY7kVVZdQDwwq2fkNTg6?si=aec6397bee1d4fa7;You Look Like Rain;Music;5.5055
-mctqr;https://open.spotify.com/track/5srgpROEtK8KLKQl5FW7Ub?si=d05ff417d36f43ac;Crockets Theme;Music;5.5067
-mniwsqr;https://open.spotify.com/track/6L5BZEcZmD6RBJnimzlyKr?si=d371245a07e2403e;Nights in White Satin;Music;5.5091
-mfratmqr;https://open.spotify.com/track/48lQegoLqGAzaRLnMwK0mO?si=cdc1f55d76764c98;Freedom, Rage Against the Machine;Music;5.5125
-mhtytqr;https://open.spotify.com/track/5YpZh8wfS4moRBk0ijNcXr?si=f530ac1785c74112;"Harder Than You Think; Public Enemy";Music;5.5014
-b20km;https://gormb.github.io/_?b&c=w,500,mfm,w,50,nTc;Skrevet med Magne;Book Custom link;3.7
-bgdhqr;https://gormb.github.io/_?b&c=w,1000,mrtn,w,1000,nTc;Delt med Gro;Book Custom link;3.7
-mbooksongs;https://docs.google.com/spreadsheets/d/1aVY__JwcM2XHbUIWNGlp8sMI7OCkUJVtfkJ4Hdv-NaY;Manual music list;Music;5
-ckat;https://gormb.github.io//aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/indexkatalog.html;Custom Chats Catalog;Work;2.5
-chat;https://gormb.github.io//aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/index.html;Custom Chat;Work;2.6
-ldd;https://gormb.github.io/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book/LdD.html?book=b/LifeDemandedDeath/b.pdf;Liv Krevde Død;Book;3.1
-mcaliqr;https://open.spotify.com/track/5eM6Rrk8rwLpUhrh7Kk5R1?si=583f66595c104de5;California, Joni Mitchell;Music;5.5121
-ldi;https://gormb.github.io/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book/LdD.html?book=b/LifeDemandedDeath/b.pdf&c=w,1,nTc;Liv Krevde Død index;Book;3.11
-byug;https://gormb.github.io/_?b&c=w,100,mrg,w,50,nTc;Del m Yngvar;Book Custom link;3.7
-abook;https://gormb.github.io/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book/LdD.html?book=b/ABook/b.pdf;Book Template;Book Custom link;3.81
-mlistqr;https://open.spotify.com/playlist/06f9iQGV6mSzWo4pz20hQB?si=4bcbd2eadfac46ed;Spotify Playlist;Music;5.1
-mwdoaqr;https://open.spotify.com/track/3oGSdQ57PgwROsNVg6RRcn?si=3a57ac4209a24b54;Wanted Dead or Alive;Music;5.5016
-mslgqr;https://open.spotify.com/track/28mP2vfW3oGYmxE0slVqia?si=4cb710b366bc4737;Strange Little Girl;Music;5.5083
-mlwqr;https://open.spotify.com/track/2YfEtTDwE9KknYUS94grcg?si=a6c6609a19ec4761;Little Wing;Music;5.5078
-mbtrqr;https://open.spotify.com/track/6hTcuIQa0sxrrByu9wTD7s?si=dc1e8b8900a74390;Born to Run;Music;5.5069
-edb;https://github.com/gormb/aniPublicOfficialReportSelfService/tree/master/aniPublicOfficialReportSelfService_Html/wwwroot/Book;Book App Src;Book Custom link;3.91
-mansqr;https://open.spotify.com/track/1k1Bqnv2R0uJXQN4u6LKYt?si=e1ff800304e3428b;Aint no Sunshine When Shes Gone;Music;5.50905
-eds;https://supabase.com/dashboard/project/nlxtqmsghslwgbndxboe/sql/;Edit SQL;Edit;10
-edh;https://github.com/gormb/_/edit/main/index.html;Edit this HTML;Edit;9
-edd;dbAdm.html;This Page;Edit;9
-mwchqr;https://open.spotify.com/track/2OW3b4EGUNuTR6wONHmyWr?si=3f5a4cf37a5942e7; Working Class Hero, Ozzy Osbourne;Music;5.5132
-msoeqr;https://open.spotify.com/track/59OfdsB1B6KuCa82mWbjBJ?si=946f08e2b39b4d9b;State of Emergency;Music;5.5028
-modqr;https://open.spotify.com/track/4aFC7Mes7CW5vHcb8ZApAx?si=32b9979d80a54b72;Ohne Dich;Music;5.5009
-maamqr;https://open.spotify.com/track/62SRcHI07VTSCbzG4WLfj2?si=589d1efaa838423a;All Around Me;Music;5.5122
-mssqr;https://open.spotify.com/track/6NSK78wm7FCKIvjmk28inK?si=6c818f3e1311449d;Sola Skinner;Music;5.5014
-mlloqr;https://open.spotify.com/track/4OC7gpMX43H2GqA0GVGXPh?si=a067fb51f98d48d9;Love Labours On;Music;5.5089
-mfmqr;https://open.spotify.com/track/4w2lSUBDCLp8Tskl95xNAU?si=bf220b28af4f44b3;Flower;Music;5.5051
-mdicqr;https://open.spotify.com/track/2i7Ee1lRGMolvmVG1jOr9g?si=065f7b8cbe4d4621;Dreaming in Color;Music;5.5138
-masfosqr;https://open.spotify.com/track/2WXTF0qgKbczC2O8VymeLO?si=1895b88f399b4ad5;A Sky Full of Stars;Music;5.5152
-mreqr;https://open.spotify.com/track/0YU0wmz2rcE43p0b0wlC17?si=7292cf79549449aa;Revolutionary Etude;Music;5.5133
-mtlsqr;https://open.spotify.com/track/5Z4EgTCCoObfO1WfrvrQ9v?si=3a6026f1667c4104;The Logical Song;Music;5.5079
-mntflqr;https://open.spotify.com/track/30cjLreSF4Xq0uAB89i2Ac?si=aa4a89853c6f41cb;Need to Feel Loved;Music;5.51
-mlllqr;https://open.spotify.com/track/4uYwlMp841PLJmj1gJJwIq?si=1eaaf9c0a4fc4049;Lay, Lady, Lay;Music;5.5105
-mombcqr;https://open.spotify.com/track/3mzYziP0FUhEcnKL9zbIZ2?si=1e31ef1e889e4b1e;O Mio Babbino Caro;Music;5.5039
-mshqr;https://open.spotify.com/track/2f0P7iELCvAlV8j6Z3rGDE?si=3b5d9d50e913427e;Stranglehold;Music;5.5127
-mbwhohqr;https://open.spotify.com/track/77u21r20AEsThKcf69lsUx?si=8d8e1d3c67f643ca;Battle Without Honor or Humanity;Music;5.504
-mhninqr;https://open.spotify.com/track/27tX58NOpv1YKQ0abW7EPy?si=652d2e03f2fa48e0;"Hurt; Nine Inch Nails / Johnny Cash";Music;5.5032
-mkohdqr;https://open.spotify.com/track/6IBjXUnfqZEic1tdHrE50y?si=fad13c269aed4530;"Knockin' on Heaven's Door; Bob Dylan";Music;5.5035
-mcbqr;https://open.spotify.com/track/2d7139N7CJ9eJmGVE42Y44?si=485876e5ed3d4021;Carmina Burana: O Fortuna;Music;5.5005
-mmgqr;https://open.spotify.com/track/4aajmlOm3lXgokR5egCfKi?si=7945dd6fbe7540c7;"Material Girl; Madonna";Music;5.5061
-mtsqr;https://open.spotify.com/track/2LTl1pU074hnzAdy0SpHAb?si=75b05d1ae98e4ade;"The Scientist; Coldplay";Music;5.5119
-ln;https://linkedin.com/in/gorm1;LinkedIn Profile;Work;2.1
-nl;https://www.linkedin.com/newsletters/tirsdagsarkitekt-ser-p%C3%A5-ai-ki-7429157121755136000/;Weekly Newsletter;Work;2.2
-msdamotqr;https://open.spotify.com/track/7Bp898e0U9IReLs2oKC7G4?si=fda57c227a1448b2;"Sweet Dreams; Eurythmics";Music;5.5052
-mofqr;https://open.spotify.com/track/14EUcXXpqrC03Dzzdj8bGr?si=550d1d1cf1d44328;"Orinoco Flow; Enya";Music;5.5072
-mtpqr;https://open.spotify.com/track/3iRpka8wVsRRkus5f8fVbY?si=0c4d4806b2ef4a19;"The Passenger; Iggy Pop";Music;5.5073
-mtwtiaqr;https://open.spotify.com/track/2LCOlwwe5SErpR1yzLglk6?si=5602866f6f304e0a;"The Winner Takes It All; Abba";Music;5.511
-mhltwqr;https://open.spotify.com/track/39lSeqnyjZJejRuaREfyLL?si=a8f4a6b4527843f6;"Hungry Like the Wolf; Duran Duran";Music;5.5111
-mrgqr;https://open.spotify.com/track/5Gq5Ozgqqti42kNLVRfkRt?si=d4db9021e58b4400;"Rich Girl; Hall & Oates";Music;5.5114
-mwwqr;https://open.spotify.com/track/1n0q3k3Y8c9zuCJ5QODD61?si=5c5a641e04984977;"Wild World; Cat Stevens";Music;5.5117
-mwayqr;https://open.spotify.com/track/23IJ5wLRhEZ9DOuia5mPiZ?si=d3e852af6b2e43f0;"Who Are You; The Who";Music;5.5131
-medqr;https://open.spotify.com/track/0Ytxje4D5iXTHN3MOCC5jS?si=60d58eed41254698;"Electric Dreams; Philip Oakey & Giorgio Moroder";Music;5.5142
-mcnqr;https://open.spotify.com/track/5HNCy40Ni5BZJFw1TKzRsC?si=fc63943c44c74a5c;"Comfortably Numb; Pink Floyd";Music;5.5145
-mtttqr;https://open.spotify.com/track/5qBqBdfTEIWJwAS0Jm2F5R?si=d8b7685adc3b46ed;"Turn! Turn! Turn!; The Byrds";Music;5.515
-mnctyqr;https://open.spotify.com/track/5GHY1DFWKz3Prg2V0Iodqo?si=20f1d21dd3b34645;"Nothing Compares 2 U; Sinéad O'Connor";Music;5.5003
-mmitmqr;https://open.spotify.com/track/2u2udGmop1z67EPpr91km7?si=65a8d54c1d874ce8;"Man in the Mirror; Michael Jackson";Music;5.5132
-mwgqr;https://open.spotify.com/track/7w5AOd6HrDIHewHfpABEss?si=b782d351a96c4169;"Wicked Game; Chris Isaak";Music;5.5002
-mbdqr;https://open.spotify.com/track/0gzqZ9d1jIKo9psEIthwXe?si=e4a43a936ed24b7d;"Beautiflu Day; U2";Music;5.5149
-msftdqr;https://open.spotify.com/track/1IQFi1ptKlcoZBaMQmmZYn?si=895cae330a1649af;"Sympathy for the Devil; The Rolling Stones";Music;5.5074
-mcpqr;https://open.spotify.com/track/7Cd7GNarsbb0Cazkekz9IN?si=8dc1e7bf01574537;"Common People; Pulp";Music;5.5076
-mtbsgqr;https://open.spotify.com/track/76TZCvJ8GitQ2FA1q5dKu0?si=89ed65b71aa14ecb;"The Boxer; Simon & Garfunkel";Music;5.5092
-mrotsqr;https://open.spotify.com/track/5j5VvsEHLlWT6IaEKSGDj9?si=de6cce2de9594220;"Riders on the Storm; The Doors";Music;5.5102
-mitsqr;https://open.spotify.com/track/76gbXfMpFoZJGkPgxgzvFt?si=209d436766554173;"I'm Too Sexy; Right Said Fred";Music;5.5108
-mtmwstwqr;https://open.spotify.com/track/4mWahKerLaVddUjb8d1Q4Q?si=714721c68e284fa1;"The Man Who Sold the World; David Bowie";Music;5.5109
-mltfqr;https://open.spotify.com/track/4aiWC2oWLZtJS6U8XnTqXN?si=345465f4753d4a18;"Learning to Fly; Pink Floyd";Music;5.5077
-btan;https://gormb.github.io/_?b&page=116&c=w,100,s,642.4000244140625;Delt m Tea A (ln);Book Custom link;3.7
-mitatqr;https://open.spotify.com/track/18AXbzPzBS8Y3AkgSxzJPb?si=859814642faa4caf;In the Air Tonight, Phil Collins;Music;5.5154
-mffqr;https://open.spotify.com/track/5tVA6TkbaAH9QMITTQRrNv?si=f98a9e5d4b654848;"Free Falling; Tom Petty";Music;5.5064
-mrtnqr;https://open.spotify.com/track/6JTCH5tFwpTXIyPeWRaUK7?si=f7a6f1060b2a40a8;Road to Nowhere;Music;5.5054
-mybqr;https://open.spotify.com/track/4E5rL7YL0hVUPqeMSpjEF2?si=4b888442ff784919;"Yesterday; Beatles";Music;5.516
-badm;https://gormb.github.io/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book/adm/adm.html;Book adm;Book;3.3
-b;https://gormb.github.io/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book/LdD.html;General Book Viewer;Book;3.2
-bmbo;https://gormb.github.io/_?b&c=w,500,mfm,w,50,nTc;Del m Magne;Book Custom link;3.7
-mklzqr;https://open.spotify.com/track/6Vjk8MNXpQpi0F4BefdTyq?si=b94910fff2cb4132;"Kashmir; Led Zeppelin";Music;5.5042
-mimaqr;https://open.spotify.com/track/66Gg6EQCg8vsujEXGuDkE4?si=7620a90f59fa436b;"Into My Arms; Nick Cave";Music;5.5058
-mpjqr;https://open.spotify.com/track/2wUlYDGGXlSvm2NkGj0Qio?si=4bb5f695465c45a2;Personal Jesus;Music;5.5094
-mobbqr;https://open.spotify.com/track/7iyyI9HLxeQZ28iiIKuELK?si=0ba00c9602564b0c;On Being Blue;Music;5.5134
-mgsrqr;https://open.spotify.com/track/5cbI0HJrTDb0njDk653bcN?si=512be98ca7fa4ab9;Goth (Slowed + Reverb);Music;5.5087
-bkth;https://gormb.github.io/_?b&page=141&c=w,100;Del m Thomle;Book Custom link;3.7
-mtntqr;https://open.spotify.com/track/7LRMbd3LEoV5wZJvXT1Lwb?si=b54740411530435c;T.N.T. AC/DC;Music;5.5076
-bclo;https://gormb.github.io/_?ldd&c=w,500,mcali,w,50,nTc;Delt m Carina;Book Custom link;3.7
+﻿id;url;desc;group;sort;qr;present;txt
+cloe;https://aigap.no/?ldd&c=w,500,meott,w,300,nTc;Delt m Carina;Book Custom link;3.7;21M9tu;qr;
+moym;https://open.spotify.com/track/2S1rIobRdiid5m2i8MdbrQ?si=1f8f44f9ec044b1d;"Open Your Mind; U.S.U.R.A.";Music;5.5161;21M5u;qr;"Open your mind
+Open your mind (Oh)
+Open your mind (Oh)
+Open your mind (Oh)
+
+Oh
+Oh
+Oh
+Oh
+
+Oh
+Oh
+Oh
+Oh
+
+Oh
+Oh
+Oh
+Oh
+
+Open your mind
+Open your mind
+
+Open your mind
+Open your mind"
+f;https://www.acera.no/;Kristian Fostad;Hidden;99.9;21Q7tu;qr;
+msoe;https://open.spotify.com/track/59OfdsB1B6KuCa82mWbjBJ?si=946f08e2b39b4d9b;"State of Emergency; Cactus World News";Music;5.5028;29H9;qr;A time of change, a time to restHold out the windows, dig in hard shoulderYou're coming out, to give yourselfTo give yourself a fighting chanceI've seen those eyes, I know that faceSo many search for a resting placeJust give me a word and that's all I needNo time to lose, and I've wasted too much alreadyMaking plans by the 19Taking action by the noon timeA lonely search in silent hallsHunters brought aroundWounded in the night by the moon,Enemy who brings in deathBy wearing a 100 different masksThe time is closing all aroundYour light is small, but I let it shine that much brighterEvery time, every timeEvery time I look to youI can't embrace, and I love that causeThrow away the old and creep the emergencyWith all you got with all you can giveWith all that you have nowTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is rightTime has come, time is right(Sooner or later that time will comeSoooner or later that time will come)
+mklz;https://open.spotify.com/track/6Vjk8MNXpQpi0F4BefdTyq?si=b94910fff2cb4132;"Kashmir; Led Zeppelin";Music;5.5042;21L5;qr;"Oh, let the sun beat down upon my face
+With stars to fill my dream
+I am a traveler of both time and space
+To be where I have been
+Sit with elders of a gentle race
+This world has seldom seen
+Talk of days for which they sit and wait
+All will be revealed
+Talk and song from tongues of lilting grace
+Whose sounds caress my ear
+And not a word I heard could I relate
+The story was quite clear
+Oh, oh
+Oh, oh
+Ooh, oh, baby, I've been flying
+No, yeah, mama, there ain't no denying
+Oh, ooh, yeah, I've been flying
+Mama, mama, ain't no denying, no denying
+Oh, all I see turns to brown
+As the sun burns the ground
+And my eyes fill with sand
+As I scan this wasted land
+Trying to find, trying to find where I've been
+Oh, pilot of the storm who leaves no trace
+Like thoughts inside a dream
+Here's the path that led me to that place
+Yellow desert stream
+My Shangri-La beneath the summer moon
+I will return again
+Sure as the dust that floats high in June
+When moving through Kashmir
+Oh, father of the four winds, fill my sails
+Across the sea of years
+With no provision but an open face
+Along the straits of fear
+Oh, oh
+Oh, oh, ooh
+Oh, when I'm on, when I'm on my way, yeah
+When I see, when I see the way you stay, yeah
+Oh, yeah-yeah, oh, yeah-yeah, when I'm down, yeah
+Oh, yeah-yeah, oh, yeah-yeah, but I'm down, so down
+Oh, my baby, oh, my baby, let me take you there
+Oh, oh, come on, come on
+Oh, let me take you there, let me take you there
+Oh, yeah-yeah, oh, yeah-yeah, let me take you there"
+mgsr;https://open.spotify.com/track/5cbI0HJrTDb0njDk653bcN?si=512be98ca7fa4ab9;"Goth (Slowed + Reverb); Sidewalks and Skeletons";Music;5.5089;25M7;qr;"Place me, place me
+Place me in my casket
+Place me in my casket tonight
+Because I'm already dying inside
+Pale skin so cold to the touch
+Like a rose in bloom when we blush
+Dark eyes meet under the sky
+The stars are out, we're alive in the night
+My hollow heart finds it too hard to trust
+We're all alone until we turn back to dust
+Place me, place me
+Place me in my casket
+Place me, place me
+Place me in my casket
+Place me, place me
+Place me in my casket
+Place me, place me
+Place me in my casket
+"
+mlll;https://open.spotify.com/track/4uYwlMp841PLJmj1gJJwIq?si=1eaaf9c0a4fc4049;"Lay, Lady, Lay; Bob Dylan";Music;5.5109;21M5u;qr;"Lay, lady, lay
+Lay across my big brass bed
+Lay, lady, lay
+Lay across my big brass bed
+Whatever colors you have
+In your mind
+I'll show them to you
+And you'll see them shine
+Lay, lady, lay, lay across
+My big brass bed
+Stay, lady, stay
+Stay with your man awhile
+Until the break of day
+Let me see you make him smile
+His clothes are dirty, but his
+His hands are clean
+And you're the best thing
+That he's ever seen
+Stay, lady, stay
+Stay with your man awhile
+Why wait any longer for the world to begin?
+You can have your cake and eat it too
+Why wait any longer for the one you love
+When he's standing in front of you?
+Lay, lady, lay
+Lay across my big brass bed
+Stay, lady, stay
+Stay while the night is still ahead
+I long to see you in the morning light
+I long to reach for you in the night
+Stay, lady, stay
+Stay while the night is still ahead"
+mdic;https://open.spotify.com/track/2i7Ee1lRGMolvmVG1jOr9g?si=065f7b8cbe4d4621;"Dreaming in Color; The Art Of Noise";Music;5.5148;21M5u;qr;I move on and onI dream in colorYou are falling deeper into the colour of a dreamA voyage is about to beginOur emotions take their colourFrom how we liveAnd how we loveAnd how we dreamNow I touch the skyNow I wonder whyBon soirTime turns into colourDeeper and deeper and deeperDeeper and deeperImagine Debussy dreaming in colorWhen I snap my fingers, you will be in a different world
+mcb;https://open.spotify.com/track/2d7139N7CJ9eJmGVE42Y44?si=485876e5ed3d4021;"Carmina Burana: O Fortuna; Carl Orff";Music;5.5005;25M7;qr;"O Fortuna
+velut luna
+statu variabilis
+semper crescis
+aut decrescis
+vita detestabilis
+nunc obdurat
+et tunc curat
+ludo mentis aciem,
+egestatem,
+potestatem
+dissolvit ut glaciem.
+Sors immanis
+et inanis,
+rota tu volubilis
+status malus
+vana salus
+semper dissolubilis
+Obumbrata
+et velata
+michi quoque niteris
+nunc per ludum
+dorsum nudum
+fero tui sceleris.
+Sors salutis
+et virtutis
+michi nunc contraria,
+est affectus
+et defectus
+semper in angaria.
+Hac in hora
+sine mora
+corde pulsum tangite
+quod per sortem
+sternit fortem
+mecum omnes plangite"
+mwdoa;https://open.spotify.com/track/3oGSdQ57PgwROsNVg6RRcn?si=3a57ac4209a24b54;"Wanted Dead or Alive; Bon Jovi";Music;5.5016;25M5;qr;"It's all the same, only the names will change
+Every day it seems we're wastin' away
+Another place where the faces are so cold
+I'd drive all night just to get back home
+
+[Chorus]
+I'm a cowboy
+On a steel horse I ride
+I'm wanted dead or alive
+Wanted dead or alive
+
+[Verse 2]
+Sometimes I sleep, sometimes it's not for days
+The people I meet always go their separate ways
+Sometimes you tell the day by the bottle that you drink
+And times when you're alone, well, all you do is think
+
+[Chorus]
+I'm a cowboy
+On a steel horse I ride
+I'm wanted (Wanted) dead or alive
+Wanted (Wanted) dead or alive
+
+[Post-Chorus]
+Oh, and I ride
+
+You might also like
+6:16 in LA
+Kendrick Lamar
+The Tortured Poets Department
+Taylor Swift
+But Daddy I Love Him
+Taylor Swift
+
+[Guitar Solo]
+
+[Chorus]
+Ooh, I'm a cowboy
+On a steel horse I ride
+I'm wanted (Wanted) dead or alive
+
+[Verse 3]
+But I walk these streets, a loaded six-string on my back
+I play for keeps 'cause I might not make it back
+I've been everywhere, (Oh yeah) still I'm standin' tall
+I've seen a million faces and I've rocked them all
+
+[Chorus]
+'Cause I'm a cowboy
+On a steel horse, I ride
+I'm wanted (Wanted) dead or alive
+And I'm a cowboy
+I got the night on my side
+And I'm wanted (Wanted) dead or alive
+
+[Outro]
+And I ride (And I ride), dead or alive
+I still drive (Still drive), dead or alive
+Dead or alive
+Dead or alive
+Dead or alive
+Dead or alive"
+miwgswt;https://open.spotify.com/track/4wiz7bFeCQauwXrVE9lqln;"I Was Going Somewhere With This; Chris Rewired";Music;5.5139;21M5u;qr;"I’ve got autism, ADHD,
+so basically fuck knows which version you’ll see.
+One likes routine, one kicks in the door,
+one wants peace, one’s ordered three things more.
+
+
+
+I walk in a room, then forget why I came,
+stand there buffering, questioning my name.
+Go back downstairs, remember halfway,
+then spot something shiny and lose the whole day.
+
+
+
+My keys have legs, my phone disappears,
+I’ve found it in places that raise genuine fears.
+Fridge, bathroom, hoodie, under the bed,
+while using the torch on the phone in my hand instead.
+
+
+
+I make little lists so I don’t lose track,
+then lose the fucking list and never look back.
+Set seven alarms, ignore every sound,
+then wake up offended that morning came round.
+
+
+
+That’s my brain, mate, welcome aboard,
+half organised genius, half extension cord.
+I’m five steps ahead, then three streets wrong,
+but somehow I’ve blagged it my whole life long.
+
+
+
+I’m early for things that don’t matter at all,
+late for the one where they actually call.
+I can plan six months in a colour coded sheet,
+then forget I’ve got washing sat wet for a week.
+
+
+
+I reply to your message inside of my head,
+full conversation, job done, enough said.
+Three days later you’re thinking I’m rude,
+I’m shocked when I see it still marked unread, dude.
+
+
+
+Social battery full, I’m king of the room,
+twenty minutes later I’m planning my tomb.
+Not in a dark way, I just want my bed,
+and silence, a brew, no humans instead.
+
+
+
+I’ll cancel a plan then feel sad I’m alone,
+ignore every call then keep checking my phone.
+Want people around, but not actually near,
+just available somewhere, preferably not here.
+
+
+
+I’ll hyperfocus hard till the world disappears,
+learn twelve years of knowledge in seventeen beers.
+Okay, maybe not beers, but you know what I mean,
+I’m suddenly qualified in some random machine.
+
+
+
+Then one tiny job that should take half an hour,
+becomes Mount Everest with admin power.
+I’ll stare at the email, emotionally done,
+then clean out a drawer because apparently that’s fun.
+
+
+
+That’s my brain, mate, welcome aboard,
+half organised genius, half extension cord.
+I can fix your life with advice on demand,
+then lose my bank card while it’s there in my hand.
+
+
+
+I’m either all in or completely checked out,
+there’s rarely a sensible middle about.
+I’m calm on the outside, quite normal to view,
+inside there’s a meeting and nobody’s got a clue.
+
+
+
+Food is another ridiculous game,
+same meal for weeks, then I hate it by name.
+Buy loads because “this is my thing now, mate,”
+two days later it’s dying beside the use by date.
+
+
+
+Clothes have rules that nobody can see,
+that sock feels wrong so it’s dead to me.
+Labels are evil, seams are a crime,
+and if my sleeve twists I’ll mention it seventeen times.
+
+
+
+I hear every noise that exists in the land,
+the clock, the fridge, someone breathing near my hand.
+But ask what you said while I looked at your face,
+not a fucking clue, mate, I left mental space.
+
+
+
+And don’t move my stuff, I know where it is,
+under that pile beside the other pile, cheers.
+It looks like chaos to everyone else,
+but move one receipt and I’m calling for help.
+
+
+
+I’ve got hobbies I started with fire in my eyes,
+boxes of evidence, abandoned supplies.
+Gym kit, notebooks, cables and gear,
+“New me starts Monday” about twelve times a year.
+
+
+
+I research a purchase for twenty straight nights,
+compare every review till my eyeballs see lights.
+Then impulse buy something completely off track,
+and spend next Tuesday wondering how to send it back.
+
+
+
+That’s my brain, mate, fast, weird and loud,
+sometimes I’m hiding, sometimes too proud.
+Sometimes I’m funny because if I don’t laugh,
+I’ll spend four whole hours reorganising the bath.
+
+
+
+But loads of us do it, diagnosis or not,
+walk into kitchens and forget the plot.
+Lose track of the day, miss calls, overthink,
+open the fridge then just stare at the drink.
+
+
+
+Life’s basically chaos with bills on the side,
+everyone’s winging it, some just disguise.
+I’m AuDHD, so mine’s turned up to ten,
+I’ll finish this poem when I remember when.
+
+
+
+Hang on.
+
+
+
+What was I doing again?"
+mtnt;https://open.spotify.com/track/7LRMbd3LEoV5wZJvXT1Lwb?si=b54740411530435c;"T.N.T.; AC/DC";Music;5.5076;21M5u;qr;Oi, oi, oi, oi, oi, oi, oi, oiOi, oi, oi, oi, oi, oi, oiSee me ride out of the sunsetOn your colour TV screenOut for all that I can getIf you know what I meanWomen to the left of meAnd women to the rightAin't got no gunAin't got no knifeDon't you start no fight'Cause I'm(T.N.T.) I'm dynamite(T.N.T.) And I'll win the fight(T.N.T.) I'm a power load(T.N.T.) Watch me explodeI'm dirty, mean, mighty uncleanI'm a wanted manPublic enemy number oneUnderstand?So lock up your daughterLock up your wifeLock up your back doorAnd run for your lifeThe man is back in townSo don't you mess me 'round'Cause I'm(T.N.T.) I'm dynamite(T.N.T.) And I'll win the fight(T.N.T.) I'm a power load(T.N.T.) Watch me explodeOi, oi, oi(T.N.T.) Oi, oi, oi(T.N.T.) Oi, oi, oi(T.N.T.) Oi, oi, oiWatch me explode
+mhef;https://open.spotify.com/track/33F9KiDw9N7efOijGVAkqi?si=fae8191a18de4b20;"Hun er fri; Raga Rockers";Music;5.5066;21L5;qr;"Hun er en båt uten anker
+Hun har hue fullt av tanker
+Og et hjerte som banker
+For ting som hun tror på
+Hun har ikke sko på
+Hva er det du glor på
+Din straite dust
+Hun ække inntressert i penger
+Eller gull og grønne enger
+Eller tull i myke senger
+Med en pappagutt som deg
+Så du kommer ingen vei
+Med å leke helt for henne
+For det som får a' til å tenne er en gjennomført frik
+Slik som han som er på vei bort hit
+Han kan snakke hele natta
+Om ting hun blir betatt av
+Så elsker de på matta
+Som ville dyr
+Helt til dagen gryr
+Det er et herlig eventyr
+For vakre unge mennsker
+Tyske, danske, norske, svensker
+Fra gode trygge hjem
+Med lomma full av spenn
+På jakt etter en venn
+De kanskje aldri ser igjen
+Ja, det er romantikk
+Som grenser opp til poesi
+Det er slike ting
+Som vil få minnene på gli
+Når sommeren er forbi"
+mwg;https://open.spotify.com/track/7w5AOd6HrDIHewHfpABEss?si=b782d351a96c4169;"Wicked Game; Chris Isaak";Music;5.5002;25M7;qr;"The world was on fire and no one could save me but you
+It's strange what desire will make foolish people do
+I never dreamed that I'd meet somebody like you
+And I never dreamed that I'd lose somebody like you
+No, I don't wanna fall in love (this world is only gonna break your heart)
+No, I don't wanna fall in love (this world is only gonna break your heart)
+With you
+With you
+(This world is only gonna break your heart)
+What a wicked game you play, to make me feel this way
+What a wicked thing to do, to let me dream of you
+What a wicked thing to say, you never felt this way
+What a wicked thing to do, to make me dream of you
+And I don't wanna fall in love (this world is only gonna break your heart)
+No, I don't wanna fall in love (this world is only gonna break your heart)
+With you
+The world was on fire and no one could save me but you
+Strange what desire will make foolish people do
+I never dreamed that I'd love somebody like you
+And I never dreamed that I'd lose somebody like you
+No, I don't wanna fall in love (this world is only gonna break your heart)
+No, I don't wanna fall in love (this world is only gonna break your heart)
+With you (this world is only gonna break your heart)
+With you (with you)
+(This world is only gonna break your heart)
+No, I (this world is only gonna break your heart)
+(This world is only gonna break your heart)
+Nobody loves no one"
+mncty;https://open.spotify.com/track/5GHY1DFWKz3Prg2V0Iodqo?si=20f1d21dd3b34645;"Nothing Compares 2 U; Sinéad O'Connor";Music;5.5003;21M9tu;qr;"It's been seven hours and 15 days
+Since you took your love away
+I go out every night and sleep all day
+Since you took your love away
+Since you been gone, I can do whatever I want
+I can see whomever I choose
+I can eat my dinner in a fancy restaurant
+But nothing
+I said nothing can take away these blues
+'Cause nothing compares
+Nothing compares to you
+It's been so lonely without you here
+Like a bird without a song
+Nothing can stop these lonely tears from falling
+Tell me baby, where did I go wrong?
+I could put my arms around every boy I see
+But they'd only remind me of you
+I went to the doctor, guess what he told me
+Guess what he told me
+He said, ""Girl you better try to have fun, no matter what you do""
+But he's a fool
+'Cause nothing compares, nothing compares to you
+All the flowers that you planted mama
+In the back yard
+All died when you went away
+I know that living with you baby was sometimes hard
+But I'm willing to give it another try
+Nothing compares
+Nothing compares to you
+Nothing compares
+Nothing compares to you
+Nothing compares
+Nothing compares to you"
+mod;https://open.spotify.com/track/4aFC7Mes7CW5vHcb8ZApAx?si=32b9979d80a54b72;"Ohne Dich; Rammstein";Music;5.5009;25M7;qr;"Ich werde in die Tannen gehen
+Dahin, wo ich sie zuletzt gesehen
+Doch der Abend wirft ein Tuch aufs Land
+Und auf die Wege hinterm Waldesrand
+Und der Wald, er steht so schwarz und leer
+Weh mir, oh weh
+Und die Vögel singen nicht mehr
+hook
+Ohne dich kann ich nicht sein
+Ohne dich
+Mit dir bin ich auch allein
+Ohne dich
+Ohne dich zähl ich die Stunden, ohne dich
+Mit dir stehen die Sekunden
+Lohnen nicht
+verse
+Auf den Ästen in den Gräben
+Ist es nun still und ohne Leben
+Und das Atmen fällt mir ach so schwer
+Weh mir, oh weh
+Und die Vögel singen nicht mehr
+hook
+Ohne dich kann ich nicht sein
+Ohne dich
+Mit dir bin ich auch allein
+Ohne dich
+Ohne dich zähl ich die Stunden, ohne dich
+Mit dir stehen die Sekunden
+Lohnen nicht, ohne dich
+verse
+Und das Atmen fällt mir ach so schwer
+Weh mir, oh weh
+Und die Vögel singen nicht mehr
+hook
+Ohne dich kann ich nicht sein
+Ohne dich
+Mit dir bin ich auch allein
+Ohne dich
+Ohne dich zähl ich die Stunden, ohne dich
+Mit dir stehen die Sekunden
+Lohnen nicht, ohne dich
+Ohne dich, ohne dich, ohne dich, ohne dich"
+mttd;https://open.spotify.com/track/4JTy05wXvZkYOYXa9oMCuY?si=f8ac7e554ee64033;"Time to Die; The Stranglers";Music;5.5043;21M5u;qr;"My eyes have gazed upon things
+You couldn't even imagine
+Neon storms on the airstrips at Sales Marsh
+I saw hope in King Gomez Cape of eyes
+Before the Ten Year Fog
+Alas these things will disappear
+Like shifting sands in an ocean's bed
+Time to die
+Time to die"
+mabg;https://open.spotify.com/track/2sNGaLOMBIkyVFPsQqPQdW;"Alpha Beta Gaga; Air";Music;5.5138;21M9tu;qr;instumental
+n;https://www.linkedin.com/pulse/takk-en-hektisk-sommer-gorm-braarvig-o8whe/;Nyhetsbrev, gjeldende;Work;2.3;21Q9tu;qr;
+edd;dbAdm.html;This Page;Edit;9;;img;
+mlist;https://open.spotify.com/playlist/06f9iQGV6mSzWo4pz20hQB?si=4bcbd2eadfac46ed;Spotify Playlist;Music;5.1;21M9tu;qr;todo
+msb;https://open.spotify.com/track/6INLpBxo9F5QMer04VXEnd;"Sexy Boy; Air";Music;5.5199;21Q13tu;qr;"Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+Où sont tes héros
+Au corps d'athlète?
+Où sont tes idoles
+Mal rasés, bien habillés?
+Sexy boy
+Sexy boy
+Dans leurs yeux des dollars
+Dans leurs sourires des diamants
+Moi aussi, un jour
+Je serai beau comme un Dieu
+Sexy boy
+Sexy boy
+Apollon 2000
+Zéro défauts, vingt-et-un ans
+C'est l'homme idéal
+Charme au masculin
+Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+Sexy boy
+"
+mx;https://aigap.no/m.html;Meta for bok, musikk og mer;Music;5.5164;21L7t;qr;this is mx meta
+mss;https://open.spotify.com/track/6NSK78wm7FCKIvjmk28inK?si=6c818f3e1311449d;"Sola Skinner; Jokke & Valentinerne";Music;5.5014;25M7;qr;"Sola skinner og jeg er så glad
+Det er fordi jeg treffer deg i dag
+Sola skinner og jeg er så glad
+Jeg har med pils og jeg har med prince
+Og alle prevensjoner som finnes
+Jeg har med pils og jeg har med prince i dag
+Jeg husker da vi møttes for første gang
+Det var sol og sommer og fuglene sang
+Og jeg var full av dritt, og du var drita full
+og det var kjærlighet ved første...
+na na na na na na na na na
+na na na na na na na na na
+na na na na na na na na na na na.....
+To i lag og en sommerdag
+Vi sleiker sol og vi tar oss et bad
+Og to i lag og en sommerdag, det er fint
+Og etterpå går vi hjem til deg
+Du kler av meg og jeg kler av deg
+Og etterpå går vi hjem til deg
+La alltid en jente sjekke deg
+Det er mye enklere spør du meg
+Og jeg var full av dritt, og du var drita full
+og det var kjærlighet ved første...."
+d;www.aigap.no/d;Documents index;Documents;6;21Q7tu;qr;
+mhtyt;https://open.spotify.com/track/5YpZh8wfS4moRBk0ijNcXr?si=f530ac1785c74112;"Harder Than You Think; Public Enemy";Music;5.5014;21M5u;qr;"What, goes, on!
+Rolling Stones of the rap game, not bragging
+Lips bigger than Jagger, not saggin'
+Spell it backwards, I'mma leave it at that
+That ain't got nothing to do with rap
+Check the facts, expose those cats
+Who pose as heroes and take advantage of blacks
+Your government's gangster, so cut the crap
+A war going on so where y'all at?
+""Fight the Power"" comes great responsibility
+'F the Police' but who's stopping you from killing me?
+Disaster, fiascos over a loop by P.E
+If it's an I instead of we believing TV
+Spitting riches, bitches, and this new thing about snitches
+Watch them asses move as the masses switches
+System dissed them but barely missed her
+My sole intention to save my brothers and sisters
+Get up
+Just like that
+(Hard) Get up
+Just like that
+(Hard) Get up
+Just like that
+(Hard) Get up
+Just like that
+Screamin' gangsta 20 years later
+Of course endorsed while consciousness faded
+New generations believing them fables
+Gangster Boogie on two turntables
+Show no love so its easy to hate it
+Desecrated while the coroner waited
+Any given Sunday so where y'all rate it?
+Wit slavery, lynching, and them drugs infiltrated
+I'm like that doll Chucky, baby
+Keep comin' back to live love life like I'm crazy
+Keep it movin' risin' to the top
+Doug Fresh clean livin' you don't stop
+Revolution means change, don't look at me strange
+So I can't repeat what other rappers be sayin'
+You don't stand for something, you fall for anything
+Harder than you think, its a beautiful thing
+Get up
+Just like that
+(Hard) Get up
+Just like that
+(Hard) Get up
+Just like that
+(Hard) Get up
+Just like that
+So it's time to leave you a preview
+So you too can review what we do
+20 years in this business, ""How You Sell Soul?""
+G-Wiz, people bear witness
+Thank you for lettin' us be ourselves
+So don't mind me if I repeat myself
+These simple lines be good for your health
+To keep them crime rhymes on the shelf
+Live love life like you just don't care
+Five thousand leaders never scared
+""Bring the Noise, "" it's 'the moment they feared'
+Get up! Still a beautiful idea
+Throw yo hands in the air
+Get up and show no fear
+Get up if y'all really care
+PE 20 years
+Now get up"
+mfm;https://open.spotify.com/track/4w2lSUBDCLp8Tskl95xNAU?si=bf220b28af4f44b3;"Flower; Moby";Music;5.5051;21Q9tu;qr;"Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Old Miss Lucy's dead and gone
+Left me here to weep and moan
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Old Miss Lucy's dead and gone
+Left me here to weep and moan
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Old Miss Lucy's dead and gone
+Left me here to weep and moan
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Green Sally up and green Sally down
+Last one squat, gotta tear the ground
+Old Miss Lucy's dead and gone
+Left me here to weep and moan"
+mrtn;https://open.spotify.com/track/6JTCH5tFwpTXIyPeWRaUK7?si=f7a6f1060b2a40a8;"Road to Nowhere; Talking Heads";Music;5.5055;21M9tu;qr;"Well, we know where we're goin'
+But we don't know where we've been
+And we know what we're knowin'
+But we can't say what we've seen
+And we're not little children
+And we know what we want
+And the future is certain
+Give us time to work it out
+Yeah
+We're on a road to nowhere
+Come on inside
+Takin' that ride to nowhere
+We'll take that ride
+I'm feelin' okay this mornin'
+And you know
+We're on a road to paradise
+Here we go, here we go
+We're on a ride to nowhere
+Come on inside
+Takin' that ride to nowhere
+We'll take that ride
+Maybe you wonder where you are
+I don't care
+Here is where time is on our side
+Take you there, take you there
+We're on a road to nowhere (hey, hey)
+We're on a road to nowhere (hey, hey)
+We're on a road to nowhere (hey, hey)
+There's a city in my mind
+Come along and take that ride
+It's alright, baby, it's alright
+And it's very far away
+But it's growing day by day
+And it's alright, baby, it's alright
+Would you like to come along?
+And you could help me sing this song
+And it's alright, baby, it's alright
+They can tell you what to do
+But they'll make a fool of you
+And it's alright, baby, it's alright
+There's a city in my mind
+Come along and take that ride
+And it's alright, baby, it's alright
+And it's very far away
+But it's growing day by day
+And it's alright, baby, it's alright
+And would you like to come along?
+You could help me sing this song
+And it's alright, baby, it's alright
+They can tell you what to do
+But they'll make a fool of you
+And it's alright, baby, it's alright
+We're on a road to nowhere (hey)
+We're on a road to nowhere (hey)
+We're on a road to nowhere (hey-hey)
+We're on a road to nowhere"
+msftd;https://open.spotify.com/track/1IQFi1ptKlcoZBaMQmmZYn?si=895cae330a1649af;"Sympathy for the Devil; The Rolling Stones";Music;5.5074;29Q7;qr;"Yeow, yeow
+Yeow
+Please allow me to introduce myself
+I'm a man of wealth and taste
+I've been around for a long, long year
+Stole many a man's soul and faith
+I was 'round when Jesus Christ
+Had his moment of doubt and pain
+Made damn sure that Pilate
+Washed his hands and sealed his fate
+Pleased to meet you
+Hope you guess my name
+But what's puzzlin' you
+Is the nature of my game
+Stuck around St. Petersburg
+When I saw it was a time for a change
+Killed the Tsar and his ministers
+Anastasia screamed in vain
+I rode a tank, held a general's rank
+When the blitzkrieg raged
+And the bodies stank
+Pleased to meet you
+Hope you guess my name, oh yeah
+Ah, what's puzzling you
+Is the nature of my game, ah yeah
+I watched with glee (whoo-hoo)
+While your kings and queens (whoo-hoo)
+Fought for ten decades (whoo-hoo)
+For the gods they made (whoo-hoo)
+I shouted out (whoo-hoo)
+""Who killed the Kennedy's?"" (whoo-hoo)
+When after all (whoo-hoo)
+It was you and me (whoo-hoo)
+Let me please introduce myself (whoo-hoo, whoo-hoo)
+I'm a man of wealth and taste (whoo-hoo, whoo-hoo)
+And I laid traps for troubadours (whoo-hoo, whoo-hoo)
+Who get killed before they reach Bombay (whoo-hoo, whoo-hoo)
+Pleased to meet you (whoo-hoo, whoo-hoo)
+Hope you guess my name, oh yeah (whoo-hoo, whoo-hoo)
+But what's puzzlin' you (whoo-hoo)
+Is the nature of my game, ah yeah (whoo-hoo, whoo-hoo)
+Get down, damn it
+Pleased to meet you (whoo-hoo, whoo-hoo)
+Hope you guess my name, oh yeah (whoo-hoo, whoo-hoo)
+But what's confusing you (whoo-hoo)
+Is just the nature of my game, mm yeah (whoo-hoo, whoo-hoo)
+Just as every cop is a criminal (whoo-hoo, whoo-hoo)
+And all the sinners saints (whoo-hoo, whoo-hoo)
+As heads is tails, just call me Lucifer (whoo-hoo, whoo-hoo)
+'Cause I'm in need of some restraint (whoo-hoo, whoo-hoo)
+So if you meet me, have some courtesy (whoo-hoo, whoo-hoo)
+Have some sympathy, and some taste (whoo-hoo, woo-hoo)
+Use all your well-learned politeness (whoo-hoo, woo-hoo)
+Or I'll lay your soul to waste, mm yeah (whoo-hoo, woo-hoo)
+Pleased to meet you (whoo-hoo, whoo-hoo)
+Hope you guess my name, oh yeah (whoo-hoo, whoo-hoo)
+But what's puzzlin' you (whoo-hoo)
+Is the nature of my game, mean it (whoo-hoo, whoo-hoo)
+Get down
+whoo-hoo
+(Whoo-hoo, whoo-hoo) oh yeah, get on down
+(Whoo-hoo, whoo-hoo) oh, yeah
+yeah
+(Whoo-hoo, whoo-hoo) aw, yeah! A-tell me, baby
+what's my name, tell me, honey
+(Whoo-woo, whoo-woo) can ya guess my name, a-tell me, baby
+(Whoo-woo, whoo-woo) what's my name, I tell you one time
+(Whoo-woo, whoo-woo) you're to blame, ooh
+ooh-hoo
+(Whoo-hoo, whoo-hoo) alright
+(Whoo-hoo, whoo-hoo) whoo-hoo-hoo, whoo-hoo-hoo
+(Whoo-hoo, whoo-hoo) whoo-hoo-hoo, oh yeah, whoo-hoo-hoo
+whoo-hoo-hoo, oh yeah
+(Whoo-woo, whoo-woo) oh, what's my name, a-tell me baby
+(Whoo-woo, whoo-woo) what's my name, tell me, sweetie
+(Whoo-woo, whoo-woo) a-what's my name, whoo-hoo-hoo
+whoo-hoo-hoo, whoo-hoo-hoo
+(Whoo-hoo, whoo-hoo) whoo-hoo-hoo
+(Whoo-hoo, whoo-hoo) whoo-hoo-hoo, whoo-hoo-hoo
+(Whoo-hoo, whoo-hoo) whoo-hoo-hoo, oh yeah
+(Whoo-woo, whoo-woo)
+(Whoo-woo, whoo-woo)"
+y;https://www.norli.no/boker/fagboker/okonomi-og-ledelse/organisasjon-ledelse-og-administrasjon/moonshots-metoden-9788269400403;Moonshots-metoden - magisk medisin mot myopi;Hidden;99.9;21Q13tu;qr;
+bmd;https://aigap.no/m.html?b=m.md;Book NO free shortlink;Book Custom link;3.8;21Q9tu;qr;
+mmem;https://open.spotify.com/track/7fLzbEOBOae9lUnOwr7Tse?si=f55a2d11daa4475f;"Memories; David Guetta";Music;5.503;29Q7;qr;"All the crazy - I did tonight
+Those will be the best memories
+I just wanna let it go for the night
+That would be the best therapy for me
+All the crazy - I did tonight
+Those will be the best memories
+I just wanna let it go for the night
+That would be the best therapy for me
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah (yeah, yeah)
+All the crazy - I did tonight
+Those will be the best memories
+I just wanna let it go for the night
+That would be the best therapy for me
+All the crazy - I did tonight
+Those will be the best memories
+I just wanna let it go for the night
+That would be the best therapy for me
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+It's gettin' late but I don't mind
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)
+Hey, hey (ooh-ooh-ooh-ooh-ooh-ooh)
+Yeah, yeah (ooh-ooh-ooh-ooh-ooh-ooh)"
+mbwhoh;https://open.spotify.com/track/77u21r20AEsThKcf69lsUx?si=8d8e1d3c67f643ca;"Battle Without Honor or Humanity; HOTEI";Music;5.504;21M5tu;qr;"See the stone set in your eyes
+See the thorn twist in your side
+I wait for you
+Sleight of hand and twist of fate
+On a bed of nails she makes me wait
+And I wait without you
+With or without you
+With or without you
+Through the storm we reach the shore
+You give it all but I want more
+And I'm waiting for you
+With or without you
+With or without you
+I can't live
+With or without you
+And you give yourself away
+And you give yourself away
+And you give
+And you give
+Give yourself away
+My hands are tied
+My body is bruised, she's got me with
+Nothing to win and
+Nothing left to lose
+Give yourself away
+And you give yourself away
+And you give
+And you give
+And you give yourself away
+With or without you
+With or without you
+I can't live
+With or without you
+目に入った石を見る
+あなたの側でとげのねじれを参照してください
+あなたを待ちます
+手の長さと運命のねじれ
+爪のベッドで彼女は私を待たせます
+そして、私はあなたなしで待っています
+あなたの有無にかかわらず
+あなたの有無にかかわらず
+嵐の中、海岸にたどり着く
+あなたはそれをすべて与えるが、私はもっと欲しい
+そして、私はあなたを待っています
+あなたの有無にかかわらず
+あなたの有無にかかわらず
+生きられない
+あなたの有無にかかわらず
+そして、あなたは自分自身を与える
+そして、あなたは自分自身を与える
+そしてあなたは与える
+そしてあなたは与える
+自分を配って
+私の手は縛られている
+私の体は傷ついている、彼女は私を持っている
+勝つものはない
+失うものは何もありません
+自分を配って
+そして、あなたは自分自身を与える
+そしてあなたは与える
+そしてあなたは与える
+そして、あなたは自分自身を与える
+あなたの有無にかかわらず
+あなたの有無にかかわらず
+生きられない
+あなたの有無にかかわらず"
+msdamot;https://open.spotify.com/track/7Bp898e0U9IReLs2oKC7G4?si=fda57c227a1448b2;"Sweet Dreams; Eurythmics";Music;5.5052;21M5u;qr;"Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Some of them want to use you
+Some of them want to get used by you
+Some of them want to abuse you
+Some of them want to be abused
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+movin' on
+(Hold your head up) movin' on, (keep your head up) movin' on
+(Hold your head up) movin' on, (keep your head up) movin' on
+(Hold your head up) movin' on (keep your head up)
+Some of them want to use you
+Some of them want to get used by you
+Some of them want to abuse you
+Some of them want to be abused
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Sweet dreams are made of this
+Who am I to disagree?
+I travel the world and the seven seas
+Everybody's looking for something
+Sweet dreams are made of this (oh-oh)"
+o;https://omhuapp.no;Omhu (Philip);Hidden;99.9;21M5;qr;
+mima;https://open.spotify.com/track/66Gg6EQCg8vsujEXGuDkE4?si=7620a90f59fa436b;"Into My Arms; Nick Cave";Music;5.506;21M5u;qr;"I don't believe in an interventionist God
+But I know, darling, that you do
+But if I did, I would kneel down and ask him
+Not to intervene when it came to you
+Will not to touch a hair on your head
+Leave you as you are
+If he felt he had to direct you
+Then direct you into my arms
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms
+And I don't believe in the existence of angels
+But looking at you I wonder if that's true
+But if I did, I would summon them together
+And ask them to watch over you
+Well, to each burn a candle for you
+To make bright and clear your path
+And to walk, like Christ, in grace and love
+And guide you into my arms
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms
+But I believe in love
+And I know that you do too
+And I believe in some kind of path
+That we can walk down, me and you
+So keep your candles burning
+Make her journey bright and pure
+That she'll keep returning
+Always and evermore
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms, oh, Lord
+Into my arms"
+mmg;https://open.spotify.com/track/4aajmlOm3lXgokR5egCfKi?si=7945dd6fbe7540c7;"Material Girl; Madonna";Music;5.5061;21Q5u;qr;"Some boys kiss me, some boys hug me
+I think they're okay
+If they don't give me proper credit
+I just walk away
+They can beg and they can plead
+But they can't see the light (that's right)
+'Cause the boy with the cold hard cash
+Is always Mister Right
+'Cause we are living in a material world
+And I am a material girl
+You know that we are living in a material world
+And I am a material girl
+Some boys romance, some boys slow dance
+That's all right with me
+If they can't raise my interest
+Then I have to let them be
+Some boys try, and some boys lie
+But I don't let them play (no way)
+Only boys that save their pennies
+Make my rainy day
+'Cause we are living in a material world
+And I am a material girl
+You know that we are living in a material world
+And I am a material girl
+Living in a material world
+And I am a material girl
+You know that we are living in a material world
+And I am a material girl
+Ah-ah
+Ah-ah
+Ah-ah
+Ah-ooh
+Living in a material world (material)
+Living in a material world (ah-ah)
+Living in a material world (material)
+Living in a material world
+Boys may come, and boys may go
+And that's all right, you see
+Experience has made me rich
+And now they're after me
+'Cause everybody's living in a material world
+And I am a material girl
+You know that we are living in a material world
+And I am a material girl (ah-ah)
+Living in a material world
+And I am a material girl
+You know that we are living in a material world
+And I am a material girl
+A material, a material, a material, a material world
+Living in a material world (material)
+Living in a material world (ah)
+Living in a material world (material)
+Living in a material world (ah-ah)
+Living in a material world (material)
+Living in a material world
+Living in a material world (material)
+Living in a material world"
+dds;http://aigap.no/d/DeepSeek_V41_Tech_Report.pdf;Deepseek Flash 4.1 doc (whitepaper);Documents;6.501;21Q9tu;qr;
+mcn;https://open.spotify.com/track/5HNCy40Ni5BZJFw1TKzRsC?si=fc63943c44c74a5c;"Comfortably Numb; Pink Floyd";Music;5.5145;21Q5u;qr;"Hello? (Hello, hello, hello)
+Is there anybody in there?
+Just nod if you can hear me
+Is there anyone at home?
+
+Come on (come on, come on) now
+I hear you're feeling down
+Well, I can ease your pain
+And get you on your feet again
+
+Relax (relax, relax, relax)
+I'll need some information first
+Just the basic facts
+Can you show me where it hurts?
+
+There is no pain, you are receding
+A distant ship's smoke on the horizon
+You are only coming through in waves
+Your lips move, but I can't hear what you're saying
+
+When I was a child, I had a fever
+My hands felt just like two balloons
+Now I've got that feeling once again
+I can't explain, you would not understand
+This is not how I am
+
+I have become comfortably numb
+I have become comfortably numb
+
+Okay (okay, okay, okay)
+Just a little pinprick
+There'll be no more
+But you may feel a little sick
+Can you stand up? (Stand up, stand up)
+I do believe it's working, good
+That'll keep you going through the show
+Come on, it's time to go
+
+There is no pain, you are receding
+A distant ship's smoke on the horizon
+You are only coming through in waves
+Your lips move, but I can't hear what you're saying
+
+When I was a child, I caught a fleeting glimpse
+Out of the corner of my eye
+I turned to look, but it was gone
+I cannot put my finger on it now
+The child is grown
+The dream is gone
+And I have become
+Comfortably numb"
+mmfn;https://open.spotify.com/track/3bBE6dotfVu7eUeMdDe74a;"Money for Nothing; Dire Straits";Music;5.515;21M5tu;qr;"Now look at them yo-yos, that's the way you do it
+You play the guitar on the MTV
+That ain't workin', that's the way you do it
+Money for nothin' and your chicks for free
+Now that ain't workin', that's the way you do it
+Lemme tell ya, them guys ain't dumb
+Maybe get a blister on your little finger
+Maybe get a blister on your thumb
+We got to install microwave ovens, custom kitchen deliveries
+We got to move these refrigerators, we got to move these color TVs
+See the little faggot with the earring and the make up
+Yeah, buddy, that's his own hair
+That little faggot got his own jet airplane
+That little faggot, he's a millionaire
+We got to install microwave ovens, custom kitchen deliveries
+We got to move these refrigerators, we gotta move these color TVs
+We got to install microwave ovens, custom kitchen deliveries
+We got to move these refrigerators, we got to move these color TVs
+Looky here, look out
+I shoulda learned to play the guitar
+I shoulda learned to play them drums
+Look at that mama, she got it stickin' in the camera man
+We could have some
+And he's up there, what's that?
+Hawaiian noises?
+Bangin' on the bongos like a chimpanzee
+That ain't workin', that's the way you do it
+Get your money for nothin', get your chicks for free
+We got to install microwave ovens, custom kitchen deliveries
+We got to move these refrigerators, we gotta move these color TVs
+Listen here
+Now that ain't workin' that's the way you do it
+You play the guitar on the MTV
+That ain't workin', that's the way you do it
+Money for nothin' and your chicks for free
+Money for nothin', chicks for free
+Get your money for nothin' and your chicks for free
+Ooh, money for nothin', chicks for free
+Money for nothin', chicks for free (money, money, money)
+Money for nothin', chicks for free
+Get your money for nothin', get your chicks for free
+Get your money for nothin' and the chicks for free
+Get your money for nothin' and the chicks for free
+Look at that, look at that
+Get your money for nothin' (I want my, I want my)
+Chicks for free (I want my MTV)
+Money for nothin', chicks for free (I want my, I want my, I want my MTV)
+Get your money for nothin' (I want my, I want my)
+And the chicks for free (I want my MTV)
+Get your money for nothin' (I want my, I want my)
+And the chicks for free (I want my MTV)
+Easy, easy money for nothin' (I want my, I want my)
+Easy, easy chicks for free (I want my MTV)
+Easy, easy money for nothin' (I want my, I want my)
+Chicks for free (I want my MTV)
+That ain't workin'
+Money for nothing, chicks for free
+Money for nothing, chicks for free"
+mff;https://open.spotify.com/track/5tVA6TkbaAH9QMITTQRrNv?si=f98a9e5d4b654848;"Free Fallin; Tom Petty";Music;5.5064;25M7;qr;She's a good girl, loves her mamaLoves Jesus and America tooShe's a good girl, crazy 'bout ElvisLoves horses and her boyfriend tooIt's a long day livin' in ResedaThere's a freeway runnin' through the yardAnd I'm a bad boy'cause I don't even miss herI'm a bad boy for breakin' her heartAnd I'm free, I'm free fallin'All the vampires walkin' through the valleyMove west down Ventura BlvdAnd all the bad boys areStanding in the shadowsAll the good girls areHome with broken heartsI wanna glide down over MulhollandI wanna write her name in the skyI wanna free fall out into nothin'Gonna leave this world for awhile
+mlw;https://open.spotify.com/track/2YfEtTDwE9KknYUS94grcg?si=a6c6609a19ec4761;"Little Wing; Jimi Hendrix";Music;5.508;21Q5u;qr;"Well she's walking through the clouds
+With a circus mind
+That's running wild
+Butterflies and zebras and moonbeams
+And-a fairly tales
+That's all she ever thinks about
+Riding with the wind
+When I'm sad she comes to me
+With a thousand smiles
+She gives to me free
+""It's alright"", she says
+It's alright
+Take anything you want from me
+(Take anything)
+Anything
+Fly on, little wing"
+mtmwstw;https://open.spotify.com/track/4mWahKerLaVddUjb8d1Q4Q?si=714721c68e284fa1;"The Man Who Sold the World; David Bowie";Music;5.5113;21M5u;qr;"We passed upon the stairWe spoke of was and whenAlthough I wasn't thereHe said I was his friendWhich came as some surpriseI spoke into his eyes ""I thought you died aloneA long, long time ago""Oh no, not meI never lost controlYou're face to faceWith the man who sold the worldI laughed and shook his handAnd made my way back homeI searched for form and landFor years and years, I roamedI gazed a gazely stareAt all the millions hereWe must have died aloneA long, long time agoWho knows? Not meWe never lost controlYou're face to faceWith the man who sold the worldWho knows? Not meWe never lost controlYou're face to faceWith the man who sold the world"
+meils;https://open.spotify.com/track/0egYMfS7hjEneR86a9K61w?si=1907099b53bd4a25;" Everyday is Like Sunday; Morrissey";Music;5.5128;29Q7;qr;"Trudging slowly over wet sand
+Back to the bench where your clothes were stolen
+This is the coastal town
+That they forgot to close down
+Armageddon, come Armageddon
+Come, Armageddon, come
+Everyday is like Sunday
+Everyday is silent and grey
+Hide on the promenade, etch a postcard
+""How I dearly wish I was not here""
+In the seaside town
+That they forgot to bomb
+Come, come, come, nuclear bomb
+Everyday is like Sunday
+Everyday is silent and grey
+Trudging back over pebbles and sand
+And a strange dust lands on your hands
+And on your face
+On your face
+On your face
+On your face
+Everyday is like Sunday
+""Win yourself a cheap tray""
+Share some greased tea with me
+Everyday is silent and grey"
+mttt;https://open.spotify.com/track/5qBqBdfTEIWJwAS0Jm2F5R?si=d8b7685adc3b46ed;"Turn! Turn! Turn!; The Byrds";Music;5.515;21M5u;qr;"To every thing, turn, turn, turn
+There is a season, turn, turn, turn
+And a time to every purpose under heaven
+
+A time to be born, a time to die
+A time to plant, a time to reap
+A time to kill, a time to heal
+A time to laugh, a time to weep
+
+To everything, turn, turn, turn
+There is a season, turn, turn, turn
+And a time to every purpose under heaven
+
+A time to build up, a time to break down
+A time to dance, a time to mourn
+A time to cast away stones
+A time to gather stones together
+
+To everything, turn, turn, turn
+There is a season, turn, turn, turn
+And a time to every purpose under heaven
+
+A time of love, a time of hate
+A time of war, a time of peace
+A time you may embrace
+A time to refrain from embracing
+
+To everything, turn, turn, turn
+There is a season, turn, turn, turn
+And a time to every purpose under heaven
+
+A time to gain, a time to lose
+A time to rend, a time to sew
+A time for love, a time for hate
+A time for peace, I swear it's not too late"
+ldd;https://aigap.no/b/LdD.html?book=b/LifeDemandedDeath/b.pdf;Liv Krevde Død;Book;3.1;21Q9tu;qr;
+play;https://aigap.no/b/play/play.html;Play;Book;3.19;21L0;qr;
+bgda;https://aigap.no/b/LdD.html?c=w,1000,mrtn,w,1000,nTc;Delt med Gro;Book Custom link;3.7;21L5;none;
+mkohd;https://open.spotify.com/track/6IBjXUnfqZEic1tdHrE50y?si=fad13c269aed4530;"Knockin' on Heaven's Door; Bob Dylan";Music;5.5035;21M9tu;qr;Mama, take this badge off of meI can't use it anymoreIt's gettin' dark, too dark to seeFeel I'm knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorMama, put my guns in the groundI can't shoot them anymoreThat long black cloud is comin' downI feel I'm knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's doorKnock, knock, knockin' on Heaven's door
+myllr;https://open.spotify.com/track/2hDY7kVVZdQDwwq2fkNTg6?si=aec6397bee1d4fa7;"You Look Like Rain; Morphine";Music;5.5055;21M5u;qr;"Your mind and your experience call to me
+You have lived and your intelligence is sexy
+I want to know what you got to say
+I want to know what you got to say
+I want to know what you got to say
+I can tell you taste like the sky
+'Cause you look like rain
+You look like rain
+You look like rain
+You look like rain
+You look like rain
+You think like a whip on a horse's back
+Stretched out to the limit you make it crack
+Send that horse 'round and 'round the track
+I want to know what you got to say
+I want to know what you got to say
+I want to know what you got to say
+I can tell you taste like the sky
+'Cause you look like rain
+You look like rain
+You look like rain
+You look like rain
+You look like rain"
+G;https://www.proff.no/rolle/gorm-braarvig/oslo/1003838;Gorm (proff);Hidden;99.9;;none;
+i;https://entertainment.ideallya.com/watch-now;;Hidden;99.9;;none;
+badm;https://aigap.no/b/adm/adm.html;Book adm;Book;3.3;21L5;qr;
+chat;https://gormb.github.io//aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/index.html;Custom Chat;Work;2.6;21M5tu;qr;
+ckat;https://gormb.github.io//aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/indexkatalog.html;Custom Chats Catalog;Work;2.5;21M9tu;qr;
+I;https://entertainment.ideallya.com/watch-now;Ideallya Entertinment;Hidden;99.9;21Q9tu;qr;
+b;https://aigap.no/b/LdD.html;General Book Viewer;Book;3.2;21M5tu;qr;
+mct;https://open.spotify.com/track/5srgpROEtK8KLKQl5FW7Ub?si=d05ff417d36f43ac;"Crockets Theme; Jan Hammer";Music;5.5067;25Q9;qr;instrumental
+bffa;https://aigap.no/b/LdD.html?c=w%2C500%2Cmbwhoh%2Cw%2C50%2CnTc;Del med Frank F;Book Custom link;3.7;;none;
+mombc;https://open.spotify.com/track/3mzYziP0FUhEcnKL9zbIZ2?si=1e31ef1e889e4b1e;"O Mio Babbino Caro; Maria Callas";Music;5.5039;21M5u;qr;"O mio babbino caro
+Mi piace, è bello, bello
+Vo' andare in Porta Rossa
+A comperar l'anello!
+
+Sì, sì, ci voglio andare!
+E se l'amassi indarno
+Andrei sul Ponte Vecchio
+Ma per buttarmi in Arno!
+Mi struggo e mi tormento!
+
+O Dio, vorrei morir!
+Babbo, pietà, pietà!
+Babbo, pietà, pietà!"
+mre;https://open.spotify.com/track/0YU0wmz2rcE43p0b0wlC17?si=7292cf79549449aa;"Revolutionary Etude; Chopin";Music;5.5143;25M7;qr;instrumental
+edb;https://github.com/gormb/www.aigap.no/tree/main/b;Book App Src;Book Custom link;3.91;;none;
+hlm;https://aigap.no/ldd?page=154;Hjemmelegen Min;Book Custom link;3.7;21Q9tu;qr;
+mbooksongs;https://docs.google.com/spreadsheets/d/1aVY__JwcM2XHbUIWNGlp8sMI7OCkUJVtfkJ4Hdv-NaY;Manual music list;Music;5;29M5;qr;todo
+mntfl;https://open.spotify.com/track/30cjLreSF4Xq0uAB89i2Ac?si=aa4a89853c6f41cb;"Need to Feel Loved; Reflekt";Music;5.5102;21M5tu;qr;Come take the weight off meLet me surrender my griefPlease take the weight off meLet me surrender my griefAnd lay down here by my sideJust lay down here by my sideAnd love me, love meLove me, love me'Cause I need to feel lovedYeah, I need to feel lovedYeah, I need to feel lovedYeah, I need to feel lovedCome take the weight off meLet me surrender my griefPlease take the weight off meLet me surrender my griefAnd lay down here by my sideJust lay down here by my sideAnd love me, love meLove me, love me'Cause I need to feel lovedYeah, I need to feel lovedYeah, I need to feel lovedYeah, I need to feel loved
+nl;https://www.linkedin.com/newsletters/tirsdagsarkitekt-ser-p%C3%A5-ai-ki-7429157121755136000/;Weekly Newsletter;Work;2.2;25Q9t;qr;
+abook;https://aigap.no/b/LdD.html?book=b/ABook/b.pdf;Book Template;Book Custom link;3.81;;none;
+edh;https://github.com/gormb/_/edit/main/index.html;Edit this HTML;Edit;9;;img;
+ln;https://linkedin.com/in/gorm1;LinkedIn Profile;Work;2.1;25M7;qr;
+ldi;https://aigap.no/b/LdD.html?book=b/LifeDemandedDeath/b.pdf&c=w,3000,nLg1;Life Demanded Death;Book;3.11;21L5;img;
+btan;https://aigap.no/b/LdD.html?page=116&c=w,100,s,642.4000244140625;Delt m Tea A (ln);Book Custom link;3.7;;none;
+byug;https://aigap.no/b/LdD.html?c=w,100,mrg,w,50,nTc;Del m Yngvar;Book Custom link;3.7;25L5;img;
+b20km;https://aigap.no/b/LdD.html?c=w,500,mfm,w,50,nTc;Skrevet med Magne;Book Custom link;3.7;;none;
+bkth;https://aigap.no/b/LdD.html?page=141&c=w,100;Del m Thomle;Book Custom link;3.7;;none;
+bmbo;https://aigap.no/b/LdD.html?c=w,500,mfm,w,50,nTc;Del m Magne;Book Custom link;3.7;;none;
+cdb;https://facebook.com/events/1078684058367300;Cappelen Damm Bokbar;Hidden;99.9;21Q11tu;qr;
+g;https://linkedin.com/in/gorm1;Gorm (linkedin);Hidden;99.9;21M5u;qr;
+eds;https://supabase.com/dashboard/project/nlxtqmsghslwgbndxboe/sql/;Edit SQL;Edit;10;21L5;qr;
+mbtr;https://open.spotify.com/track/6hTcuIQa0sxrrByu9wTD7s?si=dc1e8b8900a74390;"Born to Run; Bruce Springsteen";Music;5.5069;21M5u;qr;In the day, we sweat it out on the streetsOf a runaway American dreamAt night, we ride through mansions of gloryIn suicide machinesSprung from cages out on Highway 9Chrome wheeled, fuel injected and steppin' out over the lineOh, baby this town rips the bones from your backIt's a death trap, it's a suicide rapWe gotta get out while we're young'Cause tramps like us, baby we were born to runYes, girl, we wereWendy let me in, I wanna be your friendI want to guard your dreams and visionsJust wrap your legs 'round these velvet rimsAnd strap your hands across my enginesTogether we could break this trapWe'll run 'til we drop, baby we'll never go backOh, will you walk with me out on the wire?'Cause baby, I'm just a scared and lonely riderBut I gotta know how it feelsI want to know if love is wild, babeI want to know if love is realOh, can you show me?Beyond the palace, hemi-powered dronesScream down the boulevardThe girls comb their hair in rearview mirrorsAnd the boys try to look so hardThe amusement park rises bold and starkKids are huddled on the beach in a mistI wanna die with you, Wendy, on the streets tonightIn an everlasting kiss, huhOne, two, three, fourThe highways jammed with broken heroesOn a last chance power driveEverybody's out on the run tonightBut there's no place left to hideTogether, Wendy, we can live with the sadnessI'll love you with all the madness in my soulOh, someday girl, I don't know whenWe're gonna get to that placeWhere we really want to go, and we'll walk in the sunBut 'til then, tramps like usBaby, we were born to runOh honey, tramps like usBaby, we were born to runCome on Wendy, tramps like usBaby, we were born to runWhoa-oh-whoaMm-mm-mmOh, oh, oh, oh, oh-ohWhoa-oh-oh-oh-oh-ohMm-mm-mmWhoa-whoa, whoa-whoaWhoa-oh-oh-oh-oh-oh
+mtp;https://open.spotify.com/track/3iRpka8wVsRRkus5f8fVbY?si=0c4d4806b2ef4a19;"The Passenger; Iggy Pop";Music;5.5073;25M7;qr;"I am a passenger
+And I ride, and I ride
+I ride through the city's backsides
+I see the stars come out of the sky
+Yeah, they're bright in a hollow sky
+You know it looks so good tonight
+I am the passenger
+I stay under glass
+I look through my window so bright
+I see the stars come out tonight
+I see the bright and hollow sky
+Over the city's ripped back sky
+And everything looks good tonight
+Singin' la la la la la la la la
+La la la la la la la la
+La la la la la la la la, la la
+Get into the car
+We'll be the passenger
+We'll ride through the city tonight
+See the city's ripped backsides
+We'll see the bright and hollow sky
+We'll see the stars that shine so bright
+Oh, stars made for us tonight
+Oh, the passenger
+How, how he rides
+Oh, the passenger
+He rides and he rides
+He looks through his window
+What does he see?
+He sees the silent hollow sky
+He sees the stars come out tonight
+He sees the city's ripped backsides
+He sees the winding ocean drive
+And everything was made for you and me
+All of it was made for you and me
+'Cause it just belongs to you and me
+So let's take a ride and see what's mine
+Singin' la la la la la la la la
+La la la la la la la la
+La la la la la la la la, la la
+Oh, the passenger
+He rides and he rides
+He sees things from under glass
+He looks through his window's eye
+He sees the things that he knows are his
+He sees the bright and hollow sky
+He sees the city asleep at night
+He sees the stars are out tonight
+And all of it is yours and mine
+And all of it is yours and mine
+So let's ride and ride and ride and ride
+Singin' la la la la la la la la
+La la la la la la la la
+La la la la la la la la, la la
+Singin' la la la la la la la la
+La la la la la la la la
+La la la la la la la la, la la"
+mof;https://open.spotify.com/track/14EUcXXpqrC03Dzzdj8bGr?si=550d1d1cf1d44328;"Orinoco Flow; Enya";Music;5.5074;21Q5u;qr;"Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+From Bissau to Palau, in the shade of Avalon
+From Fiji to Tyree and the Isles of Ebony
+From Peru to Cebu, hear the power of Babylon
+From Bali to Cali, far beneath the Coral Sea
+Turn it up, turn it up, turn it up, up, adieu, ooh, ooh
+Turn it up, turn it up, turn it up, up, adieu, ooh, ooh
+Turn it up, turn it up, turn it up, up, adieu, oh
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+From the North to the South, Ebudæ unto Khartoum
+From the deep Sea of Clouds to the Island of the Moon
+Carry me on the waves to the lands I've never been
+Carry me on the waves to the lands I've never seen
+We can sail, we can sail with the Orinoco Flow
+We can sail, we can sail
+(Sail away, sail away, sail away)
+We can steer, we can near
+With Rob Dickins at the wheel
+We can sigh, say goodbye Ross and his dependency
+We can sail, we can sail
+(Sail away, sail away, sail away)
+We can reach, we can beach
+On the shores of Tripoli
+We can sail, we can sail
+(Sail away, sail away, sail away)
+From Bali to Cali, far beneath the Coral Sea
+We can sail, we can sail
+(Sail away, sail away, sail away)
+From Bissau to Palau, in the shade of Avalon
+We can sail, we can sail
+(Sail away, sail away, sail away)
+We can reach, we can beach
+Far beyond the Yellow Sea
+We can sail, we can sail
+(Sail away, sail away, sail away)
+From Peru to Cebu, hear the power of Babylon
+We can sail, we can sail
+(Sail away, sail away, sail away)
+We can sail, we can sail
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away
+Sail away, sail away, sail away"
+mcp;https://open.spotify.com/track/7Cd7GNarsbb0Cazkekz9IN?si=8dc1e7bf01574537;"Common People; Pulp";Music;5.5078;25M7;qr;"
+You are amazed that they exist
+And they burn so bright whilst you can only wonder why
+
+Rent a flat above a shop
+Cut your hair and get a job
+And smoke some fags and play some pool
+Pretend you never went to school
+But still you'll never get it right
+'Cause when you're laid in bed at night
+Watching roaches climb the wall
+If you called your dad he could stop it all, yeah
+
+Never live like common people
+Never do what common people do
+Never fail like common people
+Never watch your life slide out of view
+And then dance and drink, and screw
+Because there's nothing else to do
+
+Wanna live with common people like you
+Wanna live with common people like you
+Wanna live with common people like you
+Wanna live with common people like you
+Wanna live with common people like you
+Wanna live with common people like you
+Wanna live with common people like you
+
+A la la la la la
+Ooooh, la la la la
+Ooooh, la la la la
+Ooooh, la la-la-la-la la, oh yeah"
+mltf;https://open.spotify.com/track/4aiWC2oWLZtJS6U8XnTqXN?si=345465f4753d4a18;"Learning to Fly; Pink Floyd";Music;5.5079;25M7;qr;"Into the distance a ribbon of black
+Stretched to the point of no turning back
+A flight of fancy on a windswept field
+Standing alone, as my senses reeled
+A fatal attraction is holding me fast
+How can I escape this irresistible grasp?
+Can't keep my eyes from the circling skies
+Tongue tied and twisted, just an earth bound misfit, I
+Ice is forming on the tips of my wings
+Unheeded warnings, I thought, I'd thought of everything
+No navigator to find my way home
+Unladened, empty and turned to stone
+A soul in tension that's learning to fly
+Condition grounded, but determined to try
+Can't keep my eyes from the circling skies
+Tongue-tied and twisted, just an earth-bound misfit, I
+Friction lock, set
+Mixtures, rich
+Propellers, fully forward
+Flaps, set, ten degrees
+Engine gauges and suction, check
+Mixture set to maximum percent, recheck
+Flight instruments
+Altimeters, check both
+Navigation lights, on
+Strobes, on
+Confirm three-eight-echo ready for departure
+Hello again, this is now 129.4
+129.4, it's to go
+You may commence your takeoff, winds over ten knots
+Three-eight-echo
+Easy on the brakes, take it easy, its gonna roll this time
+Just hand the power gradually, and it
+Above the planet on a wing and a prayer
+My grubby halo, a vapor trail in the empty air
+Across the clouds, I see my shadow fly
+Out of the corner of my watering eye
+A dream unthreatened by the morning light
+Could blow this soul right through the roof of the night
+There's no sensation to compare with this
+Suspended animation, a state of bliss
+Can't keep my mind from the circling skies
+Tongue-tied and twisted, just an earth-bound misfit, I"
+mtls;https://open.spotify.com/track/5Z4EgTCCoObfO1WfrvrQ9v?si=3a6026f1667c4104;"The Logical Song; Supertramp";Music;5.5079;29Q7;qr;"When I was young, it seemed that life was so wonderful
+A miracle, oh, it was beautiful, magical
+And all the birds in the trees, well they'd be singing so happily
+Oh, joyfully, oh, playfully watching me
+But then they sent me away to teach me how to be sensible
+Logical, oh, responsible, practical
+And then they showed me a world where I could be so dependable
+Oh, clinical, oh, intellectual, cynical
+There are times when all the world's asleep
+The questions run too deep
+For such a simple man
+Won't you please, please tell me what we've learned?
+I know it sounds absurd
+Please tell me who I am
+I said, now, watch what you say, they'll be calling you a radical
+A liberal, oh, fanatical, criminal
+Oh, won't you sign up your name? We'd like to feel you're acceptable
+Respectable, oh, presentable, a vegetable
+Oh, take, take, take it, yeah
+But at night, when all the world's asleep
+The questions run so deep
+For such a simple man
+Won't you please (oh, won't you tell me)
+Please tell me what we've learned? (Can you hear me?)
+I know it sounds absurd (oh, won't you tell me)
+Please tell me who I am
+Who I am, who I am, who I am
+Ooh
+Hey
+'Cause I was feeling so logical
+Yeah
+D-D-D-D-D-D-D-Digital
+Yeah, one, two, three, five
+Oh, oh, oh, oh, yeah
+Ooh, it's getting unbelievable
+Yeah
+Getting, getting, yeah, yeah
+Uh, uh, uh, uh"
+mslg;https://open.spotify.com/track/28mP2vfW3oGYmxE0slVqia?si=4cb710b366bc4737;"Strange Little Girl; The Stranglers";Music;5.5083;21M5u;qr;"One day you see a strange little girl look at you
+One day you see a strange little girl feeling blue
+She'd run to the town one day
+Leaving home and the country fair
+Just beware
+When you're there
+Strange little girl
+She didn't know how to live in a town that was rough
+It didn't take long before she knew she had enough
+Walking home in her wrapped up world
+She survived, but she's feeling old
+And she found all things cold
+Strange little girl, where are you going?
+Strange little girl, where are you going?
+Do you know where you could be going?
+Walking home in her wrapped up world
+She survived, but she's feeling old
+'Cause she found all things cold
+Strange little girl, where are you going?
+Strange little girl, where are you going?
+Do you know where you could be going?
+Strange little girl, where are you going?
+Strange little girl, where are you going?
+Do you know where you could be going?"
+mgt;https://open.spotify.com/track/6lRkdG1HurVS72F9GoBeWJ?si=6ba3f29b599a4698;"Good Thing; Fine Young Cannibals";Music;5.5085;25Q7t;qr;One, two, three, fourI data-backed my suitcase, took it to the trackNever thought that I would be looking backI'm not the kind of guy who likes to loseAnd I've got nothing left for you to useGood thingWhere have you gone?My good thingYou've been gone too longGood thingWhere have you gone?My good thingYou've been gone too longI've been thinking about what I'm gonna doI don't want to spend my life without youI've been checking out the things that you saidAnd they've been running all around in my headGood thingWhere have you gone?My good thingYou've been gone too longGood thingWhere have you gone?My good thingYou've been gone too long(Guitar Solo)I'm not the kind of guy who likes to loseAnd I've got nothing left for you to useGood thingWhere have you gone?My good thingYou've been gone too longGood thingWhere have you gone?My good thingYou've been gone too longGood thingWhere have you gone?My good thingYou've been gone too longGood thingWhere have you gone?My good thingYou've been gone too long
+mwctbl;https://open.spotify.com/track/0TaT50ZZxT4ytZxuqkE3A9?si=0efd77f06d58490b;"Why Cant This be Love?; Van Halen";Music;5.51;21M5u;qr;"Oh here it comes
+That funny feeling again winding me up inside
+Every time we touch
+Hey I don't know
+Oh, tell me where to begin cause I never ever
+Felt so much
+… And I can't recall any love at all
+Baby this blows 'em all away
+… It's got what it takes
+So tell me why can't this be love?
+Straight from my heart
+Oh, tell me why can't this be love?
+… I tell myself
+Hey only fools rush in and only time will tell
+If we stand the test of time
+All I know
+You've got to run to win and I'll be damned if
+I'll get hung up on the line
+… Hey
+… No I can't recall anything at all
+Oh baby this blows them all away
+… Woo
+… It's got what it takes
+So tell me why can't this be love?
+You want it straight from the heart
+Oh tell me why can't this be love?
+… It's got what it takes
+So tell me why can't this be love?
+Straight from my heart
+Oh, tell me why can't this be love?
+… Baby why can't this be love
+Got to know why can't this be love
+I wanna know why can't this be love"
+mwilty;https://open.spotify.com/track/3PkvYP6223QO3xlW2THd1x;"Would I lie To You; Duophonic";Music;5.5085;21M5u;qr;Look into my eyesCan't you see they're open wide?Would I lie to you, baby?Would I lie to you?Oh, yeah, don't you know it's true, girl?There's no one else but youWould I lie to you, baby, yeah?Verse 1Everybody's got their historyOn that you can dependAnd nothing's into miseryThat's missing in the endPre-ChorusDid I ever make you cry?Did I ever tell you lies? (No)The truth is there for you to seeYou're the only one for meChorusLook into my eyesCan't you see they're open wide?Would I lie to you, baby?Would I lie to you?Don't you know it's true, girl?There's no one else but youWould I lie to you, baby, yeah?(Say come on, say come on)Verse 2I will never do you any harmI'll never make you feel blueI want to take you in my armsAnd let the love come throughPre-ChorusDid I ever make you cry?Did I ever tell you lies?The truth is there for you to seeYou're the only one for meChorusLook into my eyesCan't you see they're open wide?Would I lie to you, baby?Would I lie to you?Don't you know it's true, girl?There's no one else but youWould I lie to you, baby, yeah?BridgeAs the night follows the dayI'm always gonna be this wayCan't you see?(Look into my eyes)Guitar SoloPre-ChorusDid I ever make you cry?Did I ever tell you lies?The truth is there for you to seeYou're the only one for meChorus / OutroLook into my eyesCan't you see they're open wide?Would I lie to you, baby?Would I lie to you?Don't you know it's true, girl?There's no one else but youWould I lie to you, baby, yeah?(Oh, look into my eyes)Look into my eyesCan't you see they're open wide?Would I lie to you, baby? (I wouldn't lie to you)Would I lie to you? (No, no, no, no, no, no)Don't you know it's true, girl?There's no one else but youWould I lie to you, baby, yeah?
+mllo;https://open.spotify.com/track/4OC7gpMX43H2GqA0GVGXPh?si=a067fb51f98d48d9;"Love Labours On; Billy Idol";Music;5.5089;21M5u;qr;"Back through time, I know
+You're calling me
+For a saviour--I know
+It's my destiny
+So I'm gonna rise
+Face the morning sun
+Feel it calling me,
+Wanting me
+Believes in me
+Love labours on
+Love labours on
+Back through time, I know
+I'm a wanted man
+Oh momma, I know
+Gave me grace, not to lose
+So I'm gonna get up--cleansed
+Face the morning rain
+I feel it touching me,
+Healing me
+Believes in me
+Love labours on
+Love labours on
+Feel it wanting me,
+Knowing me,
+Believe, yeah
+Love labours on
+Love labours on
+Ooh
+Ooh
+Are you wanting,
+I know 'cause you're calling me, yeah
+Are you needing,
+Yeah 'cause you need from me
+Wanting me,
+Reaching me,
+Wanting me,
+Knowing me,
+Believes in me.
+Love labours on
+Love labours on
+Love labours on
+Love labours on
+Labours on
+Love labours on
+Love labours on"
+mlmr;https://open.spotify.com/track/7gWE3j4HZmrXQiGkQxrRt0;"Losing My Religion; R.E.M.";Music;5.5085;21L5;qr;"Oh, life is bigger
+It's bigger than you, and you are not me
+The lengths that I will go to
+The distance in your eyes
+Oh no, I've said too much
+I set it up
+That's me in the corner
+That's me in the spotlight, losing my religion
+Trying to keep up with you
+And I don't know if I can do it
+Oh no, I've said too much
+I haven't said enough
+I thought that I heard you laughing
+I thought that I heard you sing
+I think I thought I saw you try
+Every whisper, of every waking hour
+I'm choosing my confessions
+Trying to keep an eye on you
+Like a hurt, lost and blinded fool, fool
+Oh no, I've said too much
+I set it up
+Consider this, consider this
+The hint of the century
+Consider this, the slip
+That brought me to my knees, failed
+What if all these fantasies come flailing around?
+Now I've said too much
+I thought that I heard you laughing
+I thought that I heard you sing
+I think I thought I saw you try
+But that was just a dream
+That was just a dream
+That's me in the corner
+That's me in the spotlight, losing my religion
+Trying to keep up with you
+And I don't know if I can do it
+Oh no, I've said too much
+I haven't said enough
+I thought that I heard you laughing
+I thought that I heard you sing
+I think I thought I saw you try
+But that was just a dream
+Try, cry, fly, try
+That was just a dream, just a dream
+Just a dream, dream"
+mniws;https://open.spotify.com/track/6L5BZEcZmD6RBJnimzlyKr?si=d371245a07e2403e;"Nights in White Satin; The Moody Blues";Music;5.5091;21M5u;qr;"Nights in white satin, never reaching the end
+Letters I've written, never meaning to send
+Beauty I've always missed, with these eyes before
+Just what the truth is, I can't say any more
+'Cause I love you
+Yes I love you
+Oh how I love you
+Gazing at people some hand in hand
+Just what I'm going through they can't understand
+Some try to tell me thoughts they cannot defend
+Just what you want to be you will be in the end
+And I love you
+Yes I love you
+Oh, how I love you
+Oh, how I love you
+Nights in white satin, never reaching the end
+Letters I've written, never meaning to send
+Beauty I've always missed, with these eyes before
+Just what the truth is, I can't say any more
+'Cause I love you
+Yes I love you
+Oh, how I love you
+Oh, how I love you
+'Cause I love you
+Yes I love you
+Oh, how I love you
+Oh, how I love you"
+mtbsg;https://open.spotify.com/track/76TZCvJ8GitQ2FA1q5dKu0?si=89ed65b71aa14ecb;"The Boxer; Simon & Garfunkel";Music;5.5094;21M5u;qr;"I am just a poor boy
+Though my story's seldom told
+I have squandered my resistance
+For a pocketful of mumbles
+Such are promises
+All lies and jest
+Still a man hears what he wants to hear
+And disregards the rest
+When I left my home and my family
+I was no more than a boy
+In the company of strangers
+In the quiet of the railway station
+Running scared
+Laying low, seeking out the poorer quarters
+Where the ragged people go
+Looking for the places only they would know
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Asking only workman's wages, I come looking for a job
+But I get no offers
+Just a come-on from the whores on 7th Avenue
+I do declare, there were times when I was so lonesome
+I took some comfort there, la-la-la-la-la-la-la
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Then I'm laying out my winter clothes
+And wishing I was gone, going home
+Where the New York City winters aren't bleeding me
+Leading me, going home
+In the clearing stands a boxer
+And a fighter by his trade
+And he carries the reminders
+Of every glove that laid him down
+Or cut him till he cried out
+In his anger and his shame
+""I am leaving, I am leaving""
+But the fighter still remains
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+Lie-la-lie-lie-lie-lie-lie
+Lie-la-lie
+Lie-la-lie-lie-lie-lie-lie, lie-lie-lie-lie-lie
+I love you"
+mpj;https://open.spotify.com/track/2wUlYDGGXlSvm2NkGj0Qio?si=4bb5f695465c45a2;"Personal Jesus; Depeche Mode";Music;5.5094;21Q9tu;qr;"Reach out, touch faith
+Your own personal Jesus
+Someone to hear your prayers
+Someone who cares
+Your own personal Jesus
+Someone to hear your prayers
+Someone who's there
+Feeling unknown
+And you're all alone
+Flesh and bone
+By the telephone
+Lift up the receiver
+I'll make you a believer
+Take second best
+Put me to the test
+Things on your chest
+You need to confess
+I will deliver
+You know I'm a forgiver
+Reach out, touch faith
+Reach out, touch faith
+Your own personal Jesus
+Someone to hear your prayers
+Someone who cares
+Your own personal Jesus
+Someone to hear your prayers
+Someone who's there
+Feeling unknown
+And you're all alone
+Flesh and bone
+By the telephone
+Lift up the receiver
+I'll make you a believer
+I will deliver
+You know I'm a forgiver
+Reach out, touch faith
+Your own personal Jesus
+Reach out, touch faith
+Reach out, touch faith
+Reach out, touch faith
+(Reach out, reach out)
+Reach out, touch faith
+Reach out and touch faith"
+mans;https://open.spotify.com/track/1k1Bqnv2R0uJXQN4u6LKYt?si=e1ff800304e3428b;"Aint no Sunshine When Shes Gone; Bill Withers";Music;5.5104;21M5u;qr;"Ain't no sunshine when she's gone
+It's not warm when she's away
+Ain't no sunshine when she's gone
+And she's always gone too long
+Anytime she's goes away
+Wonder this time where she's gone
+Wonder if she's gone to stay
+Ain't no sunshine when she's gone
+And this house just ain't no home
+Anytime she goes away
+And I know, I know, I know, I know
+I know, I know, I know, I know, I know
+I know, I know, I know, I know, I know
+I know, I know, I know, I know, I know
+I know, I know, I know, I know, I know
+I know, I know
+Hey, I ought to leave young thing alone
+But ain't no sunshine when she's gone, whoa-whoa
+Ain't no sunshine when she's gone
+Only darkness every day
+Ain't no sunshine when she's gone
+And this house just ain't no home
+Anytime she goes away
+Anytime she goes away
+Anytime she goes away
+Anytime she goes away"
+mrots;https://open.spotify.com/track/5j5VvsEHLlWT6IaEKSGDj9?si=de6cce2de9594220;"Riders on the Storm; The Doors";Music;5.5106;21M5u;qr;"Riders on the storm
+Riders on the storm
+Into this house we're born
+Into this world we're thrown
+Like a dog without a bone
+An actor out on loan
+Riders on the storm
+There's a killer on the road
+His brain is squirmin' like a toad
+Take a long holiday
+Let your children play
+If you give this man a ride
+Sweet memory will die
+Killer on the road, yeah
+Girl, you gotta love your man
+Girl, you gotta love your man
+Take him by the hand
+Make him understand
+The world on you depends
+Our life will never end
+Gotta love your man, yeah
+Riders on the storm
+Riders on the storm
+Into this house we're born
+Into this world we're thrown
+Like a dog without a bone
+An actor out on loan
+Riders on the storm
+Riders on the storm
+Riders on the storm
+Riders on the storm
+Riders on the storm"
+mits;https://open.spotify.com/track/76gbXfMpFoZJGkPgxgzvFt?si=209d436766554173;"I'm Too Sexy; Right Said Fred";Music;5.5112;21M5tu;qr;[Chorus]I'm too sexy for my loveToo sexy for my loveLove's going to leave me[Verse 1]I'm too sexy for my shirtToo sexy for my shirtSo sexy it hurtsAnd I'm too sexy for MilanNew York, and JapanAnd I'm too sexy for your partyNo way I'm disco dancing[Chorus]I'm too sexy for my loveToo sexy for my loveLove's going to leave me[Verse 2]I'm too sexy for my carToo sexy for my carToo sexy by farAnd I'm too sexy for my hatToo sexy for thatWhat do you think about that?[Chorus]I'm too sexy for my loveToo sexy for my loveLove's going to leave me[Bridge]I'm a model, you know what I meanAnd I do my little turn on the catwalkYeah, on the catwalk, on the catwalk, yeahI do my little turn on the catwalk[Verse 3]I'm too sexy for my catToo sexy for my catPoor pussy, poor pussy catI'm too sexy for my loveToo sexy for my loveLove's going to leave me[Bridge]I'm a model, you know what I meanAnd I do my little turn on the catwalkYeah, on the catwalk, on the catwalk, yeahI do my little turn on the catwalk[Outro]I'm too sexy for my shirtToo sexy for my shirtSo sexy it hurtsAnd I'm too sexy for this song
+mhltw;https://open.spotify.com/track/39lSeqnyjZJejRuaREfyLL?si=a8f4a6b4527843f6;"Hungry Like the Wolf; Duran Duran";Music;5.5115;21M5u;qr;"Darken the city, night is a wire
+Steam in the subway, earth is afire (do-do-do-do-do-do-do-do-do)
+Woman, you want me, give me a sign
+And catch my breathing even closer behind (do-do-do-do-do-do-do-do-do)
+In touch with the ground
+I'm on the hunt, I'm after you
+Smell like I sound, I'm lost in a crowd
+And I'm hungry like the wolf
+Straddle the line in discord and rhyme
+I'm on the hunt, I'm after you
+Mouth is alive, with juices like wine
+And I'm hungry like the wolf
+Stalked in the forest, too close to hide
+I'll be upon you by the moonlight side (do-do-do-do-do-do-do-do-do)
+High blood drumming on your skin, it's so tight
+You feel my heat, I'm just a moment behind (do-do-do-do-do-do-do-do-do)
+In touch with the ground
+I'm on the hunt I'm after you
+A scent and a sound, I'm lost and I'm found
+And I'm hungry like the wolf
+Strut on a line, it's discord and rhyme
+I howl and I whine, I'm after you
+Mouth is alive, all running inside
+And I'm hungry like the wolf
+Hungry like the wolf
+Hungry like the wolf
+Hungry like the wolf
+Burning the ground, I break from the crowd
+I'm on the hunt, I'm after you
+I smell like I sound, I'm lost and I'm found
+And I'm hungry like the wolf
+Strut on a line, it's discord and rhyme
+I'm on the hunt, I'm after you
+Mouth is alive, with juices like wine
+And I'm hungry like the wolf
+Burning the ground, I break from the crowd
+I'm on the hunt, I'm after you
+Scent and a sound, I'm lost and I'm found
+And I'm hungry like the wolf
+Strut on a line, it's discord and rhyme
+I'm on the hunt, I'm after you
+Mouth is alive all running inside"
+msd;https://open.spotify.com/track/73eSPHYBvrzSeOPzCfHW51?si=34b3491b2f264781;"Skin Deep; The Stranglers";Music;5.5116;21Q5u;qr;"Many people tell you that they're your friend
+You believe them
+You need them
+For what's round the river bend
+Make sure that you're receiving the signals they send
+'Cause brother, you've only got two hands to lend
+Maybe there's someone who makes you weep
+And some nights loom up ahead
+When you're asleep
+Some days there's things on your mind you should keep
+Sometimes, it's tougher to look than to leap
+better watch out for the skin deep
+(Ooh-ooh) better watch out for the skin deep
+(Brother, watch out) watch out for the skin deep
+(Brother, watch out) watch out for the skin deep
+Better watch out for the skin deep
+One day, the track that you're climbing gets steep
+Your emotions are frayed
+And your nerves are starting to creep
+Just remember the days
+As long as the time that you keep
+Brother, you better watch out for the skin deep
+better watch out for the skin deep
+(Ooh-ooh) better watch out for the skin deep
+(Brother, watch out) watch out for the skin deep
+(Brother, watch out) watch out for the skin deep
+Better watch out for the skin deep
+watch out for the skin deep
+(Brother, watch out) watch out for the skin deep
+Better watch out for the skin deep"
+mrg;https://open.spotify.com/track/5Gq5Ozgqqti42kNLVRfkRt?si=d4db9021e58b4400;"Rich Girl; Hall & Oates";Music;5.5118;21Q7u;qr;"You're a rich girl, and you've gone too far
+'Cause you know it don't matter anyway
+You can rely on the old man's money
+You can rely on the old man's money
+It's a bitch girl but it's gone too far
+'Cause you know it don't matter anyway
+Say money, but it won't get you too far
+Get you too far
+And don't you know, don't you know
+That it's wrong to take what is given you
+So far gone, on your own
+You could get along if you try to be strong
+But you'll never be strong 'cause
+You're a rich girl, and you've gone too far
+'Cause you know it don't matter anyway
+You can rely on the old man's money
+You can rely on the old man's money
+It's a bitch girl and it's gone too far
+'Cause you know it don't matter anyway
+Say money, but it won't get you too far
+Get you too far
+High and dry, out of the rain
+It's so easy to hurt others when you can't feel pain
+And don't you know that a love can't grow
+'Cause there's too much to give, 'cause you'd rather live
+For the thrill of it all, oh
+You're a rich girl, and you've gone too far
+'Cause you know it don't matter anyway
+You can rely on the old man's money
+You can rely on the old man's money
+It's a bitch girl and it's gone too far
+'Cause you know it don't matter anyway
+Say money, but it won't get you too far
+Say money, but it won't get you too far
+Say money, but it won't get you too far
+Get you too far
+And you say
+You can rely on the old man's money
+You can rely on the old man's money
+You're a rich girl, a rich girl
+Oh, you're a rich, rich girl yeah
+Say money, but it won't get you too far, oh"
+mww;https://open.spotify.com/track/1n0q3k3Y8c9zuCJ5QODD61?si=5c5a641e04984977;"Wild World; Cat Stevens";Music;5.5121;21Q9tu;qr;Manjo hamm-ile, unglishiyile ingliziyo flunguManjo hamm-ile, unglishiyile ingliziyo flunguOh, Bana, Bana it's a wild worldIt's hard to get by just upon a smileOh, Bana, Bana it's a wild worldI'll always remember you like a childYou know I've seen a lot of what the world can doAnd it's changing(?) my heart in two'Cause I never wanna see you sad, childIf you gotta leave take good careHope you have a lot of nice things to wearThen a lot of nice things turn bad out thereOh, Bana, Bana it's a wild worldIt's hard to get by just upon a smileOh, Bana, Bana it's a wild worldI'll always remember you like a childManjo hamm-ile, unglishiyile ingliziyo flunguManjo hamm-ile, unglishiyile ingliziyo flunguOh, Bana, Bana it's a wild worldIt's hard to get by just upon a smileOh, Bana, Bana it's a wild worldI'll always remember you like a childOh, Bana, Bana it's a wild worldIt's hard to get by just upon a smile
+mts;https://open.spotify.com/track/2LTl1pU074hnzAdy0SpHAb?si=75b05d1ae98e4ade;"The Scientist; Coldplay";Music;5.5123;25Q9;qr;"Come up to meet you, tell ya I'm sorry
+You don't know how lovely you are
+I had to find you, tell ya I need you
+Tell you I set you apart
+Tell me your secrets and ask me your questions
+Oh, let's go back to the start
+Runnin' in circles, comin' up tails
+Heads on a science apart
+Nobody said it was easy
+It's such a shame for us to part
+Nobody said it was easy
+No one ever said it would be this hard
+Oh, take me back to the start
+I was just guessing at numbers and figures
+Pulling the puzzles apart
+Questions of science, science and progress
+Do not speak as loud as my heart
+But tell me you love me, come back and haunt me
+Oh, and I rush to the start
+Runnin' in circles, chasin' our tails
+Coming back as we are
+Nobody said it was easy
+Oh, it's such a shame for us to part
+Nobody said it was easy
+No one ever said it would be so hard
+I'm going back to the start"
+mcali;https://open.spotify.com/track/5eM6Rrk8rwLpUhrh7Kk5R1?si=583f66595c104de5;"California; Joni Mitchell";Music;5.5124;25M5;qr;"Sitting in a park in Paris, France
+Reading the news and it sure looks bad
+They won't give peace a chance
+That was just a dream some of us had
+Still a lot of lands to see
+But I wouldn't want to stay here
+It's too old and cold and settled in its ways here
+Oh, but California
+California I'm coming home
+I'm going to see the folks I dig
+I'll even kiss a Sunset pig
+California I'm coming home
+I met a redneck on a Grecian isle
+Who did the goat dance very well
+He gave me back my smile
+But he kept my camera to sell
+Oh the rogue, the red red rogue
+He cooked good omelettes and stews
+And I might have stayed on with him there
+But my heart cried out for you, California
+Oh California I'm coming home
+Oh make me feel good rock'n roll band
+I'm your biggest fan
+California, I'm coming home
+Oh it gets so lonely
+When you're walking
+And the streets are full of strangers
+All the news of home you read
+Just gives you the blues
+Just gives you the blues
+So I bought me a ticket
+I caught a plane to Spain
+Went to a party down a red dirt road
+There were lots of pretty people there
+Reading Rolling Stone, reading Vogue
+They said, ""How long can you hang around?""
+I said ""a week, maybe two,
+Just until my skin turns brown
+Then I'm going home to California""
+California I'm coming home
+Oh will you take me as I am
+Strung out on another man
+California I'm coming home
+Oh it gets so lonely
+When you're walking
+And the streets are full of strangers
+All the news of home you read
+More about the war
+And the bloody changes
+Oh will you take me as l am?
+Will you take me as l am?
+Will you?"
+mebyt;https://open.spotify.com/track/4U3Ggqyv2XgnS1u82HOGQX?si=3efa770ae81e4c39;"Every Breath You Take; The Police";Music;5.5125;29H9;qr;"Every breath you take
+And every move you make
+Every bond you break
+Every step you take
+I'll be watching you
+Every single day
+And every word you say
+Every game you play
+Every night you stay
+I'll be watching you
+Oh, can't you see
+You belong to me?
+How my poor heart aches
+With every step you take?
+Every move you make
+And every vow you break
+Every smile you fake
+Every claim you stake
+I'll be watching you
+Since you've gone, I've been lost without a trace
+I dream at night, I can only see your face
+I look around, but it's you I can't replace
+I feel so cold, and I long for your embrace
+I keep crying, baby, baby please
+Oh, can't you see
+You belong to me?
+How my poor heart aches
+With every step you take?
+Every move you make
+And every vow you break
+Every smile you fake
+Every claim you stake
+I'll be watching you
+Every move you make
+Every step you take
+I'll be watching you
+I'll be watching you
+(Every breath you take)
+(Every move you make)
+(Every bond you break)
+(Every step you take) I'll be watching you
+I'll be watching you
+I'll be watching you
+whoo, hoo
+(Every game you play)
+(Every night you stay) I'll be watching you
+I'll be watching you
+I'll be watching you
+I'll be watching you
+(Every single day)
+(Every word you say)
+(Every game you play)
+(Every night you stay) I'll be watching you"
+mpy;https://open.spotify.com/track/1FS21kclHQ2vVi3U1ZxETc?si=a74b8ee4537f4820;"Praise You; Fatboy Slim";Music;5.5126;25Q9;qr;"We've come a long, long way together
+Through the hard times and the good
+I have to celebrate you, baby
+I have to praise you like I should
+We've come a long, long way together
+Through the hard times and the good
+I have to celebrate you, baby
+I have to praise you like I should
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you like I should
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+We've come a long, long way together
+Through the hard times and the good
+I have to celebrate you, baby
+I have to praise you like I should
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you like I should
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you
+I have to praise you"
+msh;https://open.spotify.com/track/2f0P7iELCvAlV8j6Z3rGDE?si=3b5d9d50e913427e;"Stranglehold; Ted Nugent";Music;5.5127;21Q5u;qr;"Here I come again now, baby
+Like a dog in heat
+You tell it's me by the clamor now, baby
+I like to tear up the streets
+Now I've been smoking for so long
+You know I'm here to stay
+Got you in a stranglehold, baby
+You best get out of the way
+The road I cruise is a bitch now, baby
+You know you can't turn me 'round
+And if a house gets in my way, baby
+You know I'll burn it down
+You ran that night that you left me
+You put me in my place
+I got you in a stranglehold, baby
+And then I crushed your face
+Yeah, sometimes you gonna get higher
+And sometimes you gotta start low
+Some people think they gonna die someday
+I got news, you never got to go
+Come on, come on up
+Come on, come on up
+Come on, come on up
+Come on, come on up
+Come on, come on, come on, come on, baby
+Come on, come on, come on, come on up
+Come on, come on, come on, come on, baby
+Come on, come on, come on
+Road I cruise is a bitch now
+You know you can't turn me 'round
+and if a house gets in my way
+You know I'll burn it down
+You ran that night that you left me
+You put me in my place
+I got you in a stranglehold, baby
+And then I crushed your face"
+maam;https://open.spotify.com/track/62SRcHI07VTSCbzG4WLfj2?si=589d1efaa838423a;"All Around Me; Luna Orbit";Music;5.5129;21M5u;qr;"All around there are so-
+Ca-ca-ca
+All around there are some-
+I'm, I'm, I'm, I'm also asking for a-
+Ca-ca-ca
+I'm also asking for a-
+Can I? Ca-ca-ca-can I choose it?
+All around there are so-
+Ca-ca-ca
+All around there are some-
+I'm, I'm, I'm, I'm also asking for a-
+Ca-ca-ca
+I'm also asking for a-
+Can I? Ca-ca-ca-can I choose it?
+All around there are so many races, different colors, million faces
+All around there is some people crying, are we losers?
+Just don't fuse it
+I'm also asking for a better future
+Can I choose it? Can I choose it?
+All around there is some people crying, are we losers?
+Just don't fuse it
+All around there are so-
+Ca-ca-ca
+All around there are some
+I'm, I'm, I'm, I'm also asking for a-
+Ca-ca-ca
+I'm also asking for a-
+Can I? Ca-ca-ca-can I choose it?
+All around there are so many races, different colors, million faces
+All around there is some people crying, are we losers?
+Just don't fuse it
+I'm also asking for a better future
+Can I choose it? Can I choose it?
+All around there is some people crying, are we losers?
+Just don't fuse it
+All around there are so many races, different colors, million faces
+All around there is some people crying, are we losers?
+Just don't fuse it
+I'm also asking for a better future
+Can I choose it? Can I choose it?
+All around there is some people crying, are we losers?
+Just don't fuse it
+All around there are so-
+Ca-ca-ca
+All around there are some
+I'm, I'm, I'm, I'm also asking for a-
+Ca-ca-ca
+I'm also asking for a-
+Can I? Ca-ca-ca-can I choose it?"
+mbrq;https://open.spotify.com/track/1HjvOZjeYSmZFU4qHtXOfY?si=6dad433361574d51;"Bicycle Race; Queen";Music;5.513;21M5tu;qr;"[Intro]Bicycle, bicycle, bicycleI want to ride my bicycle, bicycle, bicycleI want to ride my bicycleI want to ride my bikeI want to ride my bicycleI want to ride it where I like[Verse 1]You say black, I say whiteYou say bark, I say biteYou say shark, I say hey manJaws was never my sceneAnd I don't like Star WarsYou say Rolls, I say RoyceYou say God give me a choiceYou say Lord, I say ChristI don't believe in Peter PanFrankenstein or SupermanAll I wanna do is[Chorus]Bicycle, bicycle, bicycleI want to ride my bicycle, bicycle, bicycleI want to ride my bicycleI want to ride my bikeI want to ride my bicycleI want to ride it where I like[Bridge]Bicycle races are coming your waySo forget all your duties oh yeahFat bottomed girls they'll be riding todaySo look out for those beauties oh yeahOn your marks, get set, go!Bicycle race, bicycle race, bicycle raceBicycle, bicycle, bicycleBicycle race[Guitar Solo][Verse 2]You say coke, I say johnYou say democrat, I say republicanYou say Jesus, I say, ""I don't know""You say tax, I say fineIncome tax is a crimeYou say Obama, I say RomneyYou say hip, I say hopYou say dump, I say dropYou say, ""Hey man, smile""I say, ""Cheeseburger""I don't wanna be a candidate forVietnam, Vietnam, VietnamAll I wanna do is[Chorus]Bicycle, bicycle, bicycleI want to ride my bicycle, bicycle, bicycleI want to ride my bicycleI want to ride my bikeI want to ride my bicycleI want to ride it where I like[Outro]Bicycle, bicycle, bicycleBicycle, bicycle, bicycleBicycle, bicycle, bicycleBicycle, bicycle, bicycleBicycle, bicycle, bicycle..."
+metiirp;https://open.spotify.com/track/2kRFrWaLWiKq48YYVdGcm8?si=e7007a3c45b64ddc;"Everything is in its Right Place; Radiohead";Music;5.5131;21M5u;qr;"Kid A, Kid A
+Kid A, Kid A
+Everything
+Everything
+Everything
+Everything
+In its right place
+In its right place
+In its right place
+In its right place
+Yesterday, I woke up sucking on a lemon
+Yesterday, I woke up sucking on a lemon
+Yesterday, I woke up sucking on a lemon
+Yesterday, I woke up sucking on a lemon
+Everything
+Everything
+Everything
+In its right place
+In its right place
+In its right place
+Right place
+There are two colors in my head
+There are two colors in my head
+What, what is that you tried to say?
+What, what was that you tried to say?
+Tried to say
+Tried to say
+Tried to say
+Tried to say
+Everything
+Everything
+Everything
+Everything"
+mfratm;https://open.spotify.com/track/48lQegoLqGAzaRLnMwK0mO?si=cdc1f55d76764c98;"Freedom; Rage Against the Machine";Music;5.5135;21M5u;qr;"UhPump, pump, woo!Come onUhSolo, I'm a soloist on a solo listAll live, never on a floppy diskInka, inka, bottle of inkPaintings of rebellion drawn up by the thoughts I thinkYeahCome onThe militant poet in once again, check itIt's set up like a deck of cardsThey're sendin' us to early graves for all the diamondsThey'll use a pair of clubs to beat the spadesWith poetry, I paint the pictures that hitMore like the murals that fitDon't turn away, get in front of itBrother, did ya forget ya name?Did ya lose it on the wall playin' Tic-Tac-Toe?Yo, check the diagonal, three brothers gone, come onDoesn't that make it three in a row?Come onUhDrop thatUhCome onYeahUhBrother, did ya forget ya name?Did ya lose it on the wall playin' Tic-Tac-Toe?Yo, check the diagonal, three million gone, come on'Cause you know they're counting backwards to zeroEnvironment, the environment exceedingOn the level of our unconsciousnessFor example, what does the billboard say?""Come and play, come and playForget about the movement""YeahUhAw, bring that shit inUhHeyFreedom, yeahFreedom, yeah rightFreedom, yeahFreedom, yeahFreedom, yeah, rightFreedom, yeahFreedom, yeah, right"
+mwch;https://open.spotify.com/track/2OW3b4EGUNuTR6wONHmyWr?si=3f5a4cf37a5942e7;"Working Class Hero; Ozzy Osbourne";Music;5.514;29Q7;qr;"As soon as you're born they make you feel small
+By giving you no time instead of it all
+'Til the pain is so big you feel nothing at all
+A working class hero is something to be
+They hurt you at home and they hit you at school
+They hate you if you're clever and they despise a fool
+'Til you're so fucking crazy, you can't follow their rules
+A working class hero is something to be
+When they've tortured and scared you for 20 odd years
+Then they expect you to pick a career
+When you can't really function, you're so full of fear
+A working class hero is something to be
+Keep you doped with religion and your sex and tv
+And you think you're so clever and you're classless and free
+But you're still fucking peasants as far as I can see
+A working class hero is something to be
+A working class hero is something to be
+There's room at the top they are telling you still
+But first you must learn how to smile as you kill
+If you want to be like the fool on the hill
+A working class hero is something to be
+A working class hero is something to be
+If you want to be a hero, well just follow me"
+masfos;https://open.spotify.com/track/2WXTF0qgKbczC2O8VymeLO?si=1895b88f399b4ad5;"A Sky Full of Stars; Coldplay";Music;5.5152;29Q7;qr;"'Cause you're a sky, 'cause you're a sky full of stars
+I'm gonna give you my heart
+'Cause you're a sky, 'cause you're a sky full of stars
+'Cause you light up the path
+I don't care, go on and tear me apart
+I don't care if you do, ooh-ooh, ooh
+'Cause in a sky, 'cause in a sky full of stars
+I think I saw you
+'Cause you're a sky, 'cause you're a sky full of stars
+I wanna die in your arms, oh, oh-oh
+'Cause you get lighter the more it gets dark
+I'm gonna give you my heart, oh
+I don't care, go on and tear me apart
+I don't care if you do, ooh-ooh, ooh
+'Cause in a sky, 'cause in a sky full of stars
+I think I see you
+I think I see you
+'Cause you're a sky, you're a sky full of stars
+Such a heavenly view
+You're such a heavenly view
+Yeah, yeah, yeah, ooh"
+mtwtia;https://open.spotify.com/track/2LCOlwwe5SErpR1yzLglk6?si=5602866f6f304e0a;"The Winner Takes It All; Abba";Music;5.514;21M5tu;qr;"I don't wanna talk
+About things we've gone through
+Though it's hurting me
+Now it's history
+I've played all my cards
+And that's what you've done too
+Nothing more to say
+No more ace to play
+The winner takes it all
+The loser standing small
+Beside the victory
+That's her destiny
+I was in your arms
+Thinking I belonged there
+I figured it made sense
+Building me a fence
+Building me a home
+Thinking I'd be strong there
+But I was a fool
+Playing by the rules
+The gods may throw a dice
+Their minds as cold as ice
+And someone way down here
+Loses someone dear
+The winner takes it all (takes it all)
+The loser has to fall (has to fall)
+It's simple, and it's plain (yes, it's plain)
+Why should I complain? (Why complain?)
+But tell me, does she kiss
+Like I used to kiss you?
+Does it feel the same
+When she calls your name?
+Somewhere deep inside
+You must know I miss you
+But what can I say?
+Rules must be obeyed
+The judges will decide (will decide)
+The likes of me abide (me abide)
+Spectators of the show (of the show)
+Always staying low (staying low)
+The game is on again (on again)
+A lover or a friend (or a friend)
+A big thing or a small (big or small)
+The winner takes it all (takes it all)
+I don't wanna talk
+If it makes you feel sad
+And I understand
+You've come to shake my hand
+I apologize
+If it makes you feel bad
+Seeing me so tense
+No self-confidence, but you see
+The winner takes it all
+The winner takes it all
+So the winner takes it all
+And the loser has to fall
+Throw the dice, cold as ice
+Way down here, someone dear
+Takes it all, has to fall
+Yes, it's plain, why complain?"
+mway;https://open.spotify.com/track/23IJ5wLRhEZ9DOuia5mPiZ?si=d3e852af6b2e43f0;"Who Are You; The Who";Music;5.5141;29Q7;qr;"Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+I woke up in a Soho doorway
+A policeman knew my name
+He said, ""You can go sleep at home tonight
+If you can get up and walk away""
+I staggered back to the underground
+And the breeze blew back my hair
+I remember throwin' punches around
+And preachin' from my chair
+Well, who are you? (Who are you? Who, who, who, who?)
+I really wanna know (who are you? Who, who, who, who?)
+Tell me, who are you? (Who are you? Who, who, who, who?)
+'Cause I really wanna know (who are you? Who, who, who, who?)
+I took the tube back out of town
+Back to the Rolling Pin
+I felt a little like a dying clown
+With a streak of Rin Tin Tin
+I stretched back and I hiccupped
+And looked back on my busy day
+11 hours in the tin pan
+God, there's got to be another way
+Well, who are you? (Who are you? Who, who, who, who?)
+Oh, who are you? (Who are you? Who, who, who, who?)
+Come on, tell me, who are you? (Who are you? Who, who, who, who?)
+Oh, who the fuck are you? (Who are you? Who, who, who, who?)
+Who are you?
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh-wa, ooh
+Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+Who are you?
+Who, who, who, who?
+I really wanna know (who are you? Who, who, who, who?)
+I really wanna know (who are you? Who, who, who, who?)
+Come on, tell me, who are you? (Who are you? Who, who, who, who?)
+'Cause I really wanna know (who are you? Who, who, who, who?)
+I know there's a place you walked
+Where love falls from the trees
+My heart is like a broken cup
+I only feel right on my knees
+I spit out like a sewer hole
+Yet still receive your kiss
+How can I measure up to anyone now
+After such a love as this?
+Well, who are you? (Who are you? Who, who, who, who?)
+Come on, tell me, who are you? (Who are you? Who, who, who, who?)
+Oh, I really wanna know (Who are you? Who, who, who, who?)
+Tell, tell me, who are you? (Who are you? Who, who, who, who?)
+Come on, come on, who? (Who are you? Who, who, who, who?)
+Ah, who the fuck are you? (Who are you? Who, who, who, who?)
+Who are you? (Who are you? Who, who, who, who?)
+Oh, tell me, who are you? (Who are you? Ooh)
+I really wanna know
+Oh, I really wanna know
+Come on, tell me, who are you, you, you, ah, you? (Yeah)"
+mmitm;https://open.spotify.com/track/2u2udGmop1z67EPpr91km7?si=65a8d54c1d874ce8;"Man in the Mirror; Michael Jackson";Music;5.5142;29Q7;qr;"I'm gonna make a change
+For once in my life
+It's gonna feel real good
+Gonna make a difference, gonna make it right
+As I turn up the collar on my favorite winter coat
+This wind is blowin' my mind
+I see the kids in the street with not enough to eat
+Who am I to be blind, pretending not to see their needs?
+A summer's disregard, a broken bottle top
+And a one man's soul
+They follow each other on the wind, ya know
+'Cause they got nowhere to go
+That's why I want you to know
+I'm starting with the man in the mirror
+I'm asking him to change his ways
+And no message could have been any clearer
+If you wanna make the world a better place
+Take a look at yourself and then make a change
+Na-na-na, na-na-na, na-na-na-na
+Uh-huh
+I've been a victim of a selfish kinda love
+It's time that I realize
+There are some with no home, not a nickel to loan
+Could it be really me pretending that they're not alone?
+A willow deeply scarred, somebody's broken heart
+And a washed-out dream (a washed-out dream)
+They follow the pattern of the wind, ya see
+'Cause they got no place to be
+That's why I'm starting with me
+I'm starting with the man in the mirror (who?)
+I'm asking him to change his ways (who?)
+And no message could have been any clearer
+If you wanna make the world a better place
+Take a look at yourself and then make a change
+I'm starting with the man in the mirror (who?)
+I'm asking him to change his ways (who?)
+And no message could have been any clearer
+If you wanna make the world a better place
+Take a look at yourself and then make that change
+I'm starting with the man in the mirror (oh, yeah)
+I'm asking him to change his ways (oh, you better change)
+No message could have been any clearer
+If you wanna make the world a better place
+Take a look at yourself and then make the change
+You gotta get it right while you got the time
+'Cause when you close your heart (you can't)
+Then you close your (your) mind (that man, that man)
+With the man in the mirror, oh, yeah (that man, that man)
+I'm asking him to change his ways (that man, that man, that man)
+Oh, you better change (you know, that man)
+And no message could have been any clearer
+If you wanna make the world a better place
+Take a look at yourself and then make that change
+Na-na-na, na-na-na, na-na-na-na
+(Ooh) gonna feel real good, yeah (oh, yeah)
+Yeah, yeah, yeah, yeah (na-na-na), yeah, yeah (na-na-na, na-na-na-na)
+Oh-oh, oh, no
+I'm gonna make a change
+It's gonna feel real good, shamone (change)
+Just lift yourself, you know
+You've got to start with yourself (yeah)
+I gotta make that change today
+(Man in the mirror) you've got to
+You got to start with yourself, brother
+(Yeah) you know
+I've got to be that man, that man
+(Man in the mirror) you've got to
+You got to move, shamone, shamone
+You got to stand up (yeah), stand up (make that change), stand up
+Stand up and lift yourself now (man in the mirror)
+Go make that change, shamone (man in the mirror)
+You know it, you know it, you know it, you know (change)
+Make that change"
+mobb;https://open.spotify.com/track/7iyyI9HLxeQZ28iiIKuELK?si=0ba00c9602564b0c;"On Being Blue; The Art Of Noise";Music;5.5144;21M5u;qr;"It would be truly surprising if sound were not capable of
+Suggesting color, if colors could not give the idea of the
+Melody, if sound and color were not adequate to express ideas
+All the songs now are in minor keys
+Like the sound of the wind in the trees
+All of the colors are blue
+All of the colors are blue
+You can see by the look on my face
+All my words lost like planets in space
+All of the colors are blue
+All of the colors are blue
+Out of the blue, the deep blue sea
+The blue sea
+The blue sea"
+milrr;https://open.spotify.com/track/4jTqsgDaffdNH0BMBwhjFv?si=73fce77e36794c66;"I love Rock and Roll; Joan Jett";Music;5.5149;21M5u;qr;"I saw him dancin' there by the record machine
+I knew he must a been about seventeen
+The beat was goin' strong
+Playin' my favorite song
+And I could tell it wouldn't be long
+'Til he was with me, yeah, me
+And I could tell it wouldn't be long
+'Til he was with me, yeah, me, singin'
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with me
+Ow
+He smiled, so I got up and asked for his name
+""That don't matter"", he said, ""'cause it's all the same""
+I said, ""Can I take you home where we can be alone?""
+And next we were movin' on
+He was with me, yeah, me
+Next we were movin' on
+He was with me, yeah, me singin'
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with me
+Ow
+Said, ""Can I take you home where we can be alone?""
+Next we were movin' on
+He was with me, yeah, me
+And we'll be movin' on
+And singin' that same old song
+Yeah, with me, singin'
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with me
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with
+I love rock n' roll
+So put another dime in the jukebox, baby
+I love rock n' roll
+So come and take your time and dance with me"
+med;https://open.spotify.com/track/0Ytxje4D5iXTHN3MOCC5jS?si=60d58eed41254698;"Electric Dreams; Philip Oakey & Giorgio Moroder";Music;5.5152;25M7;qr;"[Verse 1]
+I only knew you for a while
+I never saw your smile
+'Til it was time to go
+Time to go away
+(Time to go away)
+Sometimes it's hard to recognize
+Love comes as a surprise
+And it's too late
+It's just too late to stay
+Too late to stay
+
+[Chorus]
+(Love never ends)
+We'll always be together
+However far it seems
+(Love never ends)
+We'll always be together
+Together in electric dreams
+
+[Verse 2]
+Because the friendship that you gave
+Has taught me to be brave
+No matter where I go
+I'll never find a better prize
+(Find a better prize)
+Though you're miles and miles away
+I see you every day
+I don't have to try
+I just close my eyes
+I close my eyes
+
+You might also like
+loml
+Taylor Swift
+But Daddy I Love Him
+Taylor Swift
+She Knows
+J. Cole
+
+[Chorus]
+(Love never ends)
+We'll always be together
+However far it seems
+(Love never ends)
+We'll always be together
+Together in electric dreams
+(Love never ends)
+We'll always be together
+However far it seems
+(Love never ends)
+We'll always be together
+Together in electric dreams
+
+[Instrumental Break]
+
+[Chorus]
+We'll always be together
+However far it seems
+(Love never ends)
+We'll always be together
+Together in electric dreams
+(Love never ends)
+We'll always be together
+However far it seems
+(Love never ends)
+We'll always be together
+Together in electric dreams..."
+mbd;https://open.spotify.com/track/0gzqZ9d1jIKo9psEIthwXe?si=e4a43a936ed24b7d;"Beautiful Day; U2";Music;5.5159;21Q5u;qr;"The heart is a plant
+Shoots up through the stony ground
+There's no room
+No space to rent in this town
+You're out of luck
+And the reason that you had to care
+The traffic's stuck
+And you're not moving anywhere
+You thought you'd find a friend
+To take you out of this place
+Someone you could lend a hand
+In return for grace
+It's a beautiful day
+Sky is false, you feel like
+Beautiful day
+Don't let it get away
+You're out on the road
+But you got no destination
+You're in the mud
+In the maze of her imagination
+Your luck is down
+Even if that doesn't ring true
+You've been a lover
+And it's been all over you
+It's a beautiful day
+Don't let it get away
+It's a beautiful day
+Touch me
+Take me to another place
+Teach me
+I know I'm not a hopeless case
+See the world in green and blue
+See China right in front of you
+See the canyons broken by cloud
+See the tulip fields clearing the sea out
+See the bad boy fires at night
+See the oil fields at first light
+And see the bird with the lead in your mouth
+After the flood all the colors came out
+It's a beautiful day
+Don't let it get away
+It's a beautiful day
+Touch me
+Take me to another place
+Reach me
+I know I'm not a hopeless case
+What you don't have you don't need it now
+What you don't know you can feel it somehow
+What you don't have you don't need it now
+Don't need it now
+It's a beautiful day
+It's a beautiful day"
+mitat;https://open.spotify.com/track/18AXbzPzBS8Y3AkgSxzJPb?si=859814642faa4caf;"In the Air Tonight; Phil Collins";Music;5.5162;21M5u;qr;I can feel it coming in the air tonight, oh LordI've been waiting for this moment all my life, oh LordCan you feel it coming in the air tonight, oh LordOh LordWell, if you told me you were drowningI would not lend a handI've seen your face before, my friendBut I don't know if you know who I amWell, I was there and I saw what you didI saw it with my own two eyesSo you can wipe off the grin, I know where you've beenIt's all been a pack of liesI can feel it coming in the air tonight, oh LordI've been waiting for this moment for all my life, oh LordCan you feel it coming in the air tonight, oh LordI've been waiting for this moment for all my life, oh LordOh LordWell, I remember, I remember to my wayHow could I ever forget the first time?The last time we ever metBut I know the reason why you keep your silence upNo, you don't fool meThe hurt doesn't show, but the pain still growsIt's no stranger to you or meI can feel it coming in the air tonight, oh LordI've been waiting for this moment for all my life, oh LordCan you feel it coming in the air tonight, oh LordI've been waiting for this moment for all my life, oh LordOh Lord
+myb;https://open.spotify.com/track/4E5rL7YL0hVUPqeMSpjEF2?si=4b888442ff784919;"Yesterday; Beatles";Music;5.5163;21L7t;qr;"Suddenly
+I'm not half the man I used to be
+There's a shadow hangin' over me
+Oh, yesterday came suddenly
+
+[Bridge]
+Why she had to go
+I don't know, she wouldn't say
+I said something wrong
+Now I long for yesterday
+
+[Verse 3]
+Yesterday
+Love was such an easy game to play
+Now I need a place to hide away
+Oh, I believe in yesterday
+
+[Bridge]
+Why she had to go
+I don't know, she wouldn't say
+I said something wrong
+Now I long for yesterday
+
+You might also like
+So Long, London
+Taylor Swift
+The Tortured Poets Department
+Taylor Swift
+But Daddy I Love Him
+Taylor Swift
+
+[Verse 3]
+Yesterday
+Love was such an easy game to play
+Now I need a place to hide away
+Oh, I believe in yesterday
+
+[Outro]
+Mm-mm-mm-mm-mm, hmm-hmm"
+mbss;https://open.spotify.com/track/57iDDD9N9tTWe75x6qhStw?si=7782cd910e8245c9;"Bitter Sweet Symphony; The Verve";Music;5.5164;21L5u;qr;"'Cause it's a bittersweet symphony, that's life
+Tryna make ends meet, you're a slave to money then you die
+I'll take you down the only road I've ever been down
+You know the one that takes you to the places where all the veins meet, yeah
+No change, I can change
+I can change, I can change
+But I'm here in my mold
+I am here in my mold
+But I'm a million different people
+From one day to the next
+I can't change my mold
+No, no, no, no, no
+(Have you ever been down?)
+Well, I've never prayed but tonight I'm on my knees, yeah
+I need to hear some sounds that recognize the pain in me, yeah
+I let the melody shine, let it cleanse my mind, I feel free now
+But the airwaves are clean and there's nobody singin' to me now
+No change, I can change
+I can change, I can change
+But I'm here in my mold
+I am here in my mold
+And I'm a million different people
+From one day to the next
+I can't change my mold
+No, no, no, no, no
+(Have you ever been down?)
+I can't change, oh, no
+I can't change, oh
+'Cause it's a bittersweet symphony, that's life
+Tryna make ends meet, tryna find somebody then you die
+I'll take you down the only road I've ever been down
+You know the one that takes you to the places where all the veins meet, yeah
+You know I can change, I can change
+I can change, I can change
+But I'm here in my mold
+I am here in my mold
+And I'm a million different people
+From one day to the next
+I can't change my mold
+No, no, no, no, no
+I can't change my mold
+No, no, no, no, no,
+I can't change my mold, no, no, no, no
+It's just sex and violence, melody and silence
+It's just sex and violence, melody and silence
+I'll take you down the only road I've ever been down
+I'll take you down the only road I've ever been down
+Been down
+Ever been down
+Ever been down
+Ever been down
+Ever been down
+Have you ever been down?
+Have you ever been down?
+Have you ever been down?"
+mrm;https://open.spotify.com/track/7MwPTFInd4Y3q1ZtwgzG57?si=47f3a01f4cda41e6;"Remember Me; Blue Boy";Music;5.5022;21Q7tu;qr;"Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes
+Remember me?
+I'm the one who had your baby's eyes"
+bx;https://aigap.no/b/LdD.html?c=w,1500,miwgswt,w,100,nTc;dagens;Book;3.01;;qr;
+mhjc;https://open.spotify.com/track/28cnXtME493VX9NOw9cIUh?si=b3bc09d6f1244302;"Hurt; Johnny Cash";Music;5.5032;29Q13t;qr;" hurt myself today
+To see if I still feel
+I focus on the pain
+The only thing that's real
+The needle tears a hole
+The old familiar sting
+Try to kill it all away
+But I remember everything
+What have I become?
+My sweetest friend
+Everyone I know goes away
+In the end
+And you could have it all
+My empire of dirt
+I will let you down
+I will make you hurt
+I wear this crown of thorns
+Upon my liar's chair
+Full of broken thoughts
+I cannot repair
+Beneath the stains of time
+The feelings disappear
+You are someone else
+I'm still right here
+What have I become?
+My sweetest friend
+Everyone I know goes away
+In the end
+And you could have it all
+My empire of dirt
+I will let you down
+I will make you hurt
+If I could start again
+A million miles away
+I would keep myself
+I would find a way"
+mdl;https://open.spotify.com/track/4bXxKMRwbwJRu9UfE3XdAQ;"Dirty Laundry; Don Henley";Music;5.5128;21Q5u;qr;[Verse 1]I make my living off the evening newsJust give me something, something I can usePeople love it when you loseThey love dirty laundry   Well, I coulda been an actor, but I wound up hereI just have to look good, I don't have to be clearCome and whisper in my earGive us dirty laundry   [Chorus]Kick 'em when they're upKick 'em when they're downKick 'em when they're upKick 'em when they're downKick 'em when they're upKick 'em when they're downKick 'em when they're upKick 'em all around   [Verse 2]We got the bubble-headed bleach-blonde comes on at fiveShe can tell you 'bout the plane crash with a gleam in her eyeIt's interesting when people dieGive us dirty laundry   Can we film the operation? Is the head dead yet?You know the boys in the newsroom got a running betGet the widow on the setWe need dirty laundry   [Verse 3]You don't really need to find out what's going onYou don't really want to know just how far it's goneJust leave well enough aloneEat your dirty laundry   [Chorus]Kick 'em when they're upKick 'em when they're downKick 'em when they're upKick 'em when they're downKick 'em when they're upKick 'em when they're downKick 'em when they're stiffKick 'em all around   [Guitar Solo 1 - Joe Walsh][Verse 4]Dirty little secretsDirty little liesWe got our dirty little fingers in everybody's pieWe love to cut you down to sizeWe love dirty laundry   We can do the innuendo, we can dance and singWhen it's said and done, we haven't told you a thingWe all know that crap is kingGive us dirty laundry!
+meott;https://open.spotify.com/track/2HHtWyy5CgaQbC7XSoOb0e;"Eye of the Tiger; Survivor";Music;5.5128;21M5u;qr;"Risin' up, back on the street
+Did my time, took my chances
+Went the distance now I'm back on my feet
+Just a man and his will to survive
+So many times it happens too fast
+You trade your passion for glory
+Don't lose your grip on the dreams of the past
+You must fight just to keep them alive
+It's the eye of the tiger
+IT'S THE THRILL OF THE FIGHT
+Rising up to the challenge of our rival
+And the last known survivor
+Stalks his prey in the night
+And he's watching us all
+With the eye of the tiger
+Face to face, out in the heat
+Hangin' tough, stayin' hungry
+They stack the odds still we take to the street
+For the kill, with the skill to survive
+It's the eye of the tiger
+IT'S THE THRILL OF THE FIGHT
+Rising up to the challenge of our rival
+And the last known survivor
+Stalks his prey in the night
+And he's watching us all
+With the eye of the tiger
+Risin' up, straight to the top
+Had the guts, got the glory
+Went the distance, now I'm not gonna stop
+Just a man and his will to survive
+It's the eye of the tiger
+It's the thrill of the fight
+Rising up to the challenge of our rival
+And the last known survivor
+Stalks his prey in the night
+And he's watching us all
+With the eye of the tiger
+The eye of the tiger
+The eye of the tiger
+The eye of the tiger
+The eye of the tiger
+"

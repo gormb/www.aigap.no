@@ -19,6 +19,8 @@ window.qr = {
   MAR:4,                                                    // quiet zone in modules (renderHi default)
   _i:{},                                                    // art src -> decoded image
   _pc:null,                                                 // the last _pool, so one search serves best+top
+  _m:{},                                                    // "size|ec|text" -> the module matrix
+  _n:{},                                                    // "size|ec|text" -> the same as bytes
   _k:{},                                                    // art src -> keyed canvas (i/u/qr.js KEYED)
   _f:{},                                                    // "size|text" -> the EC levels that hold it (i/u/qr.js FIT)
   _c:{},                                                    // art|hole|tr|phase -> the covered modules (sub-module)
@@ -41,7 +43,7 @@ window.qr = {
     const cv=qr._draw(qr._mx(o.N,o.ec,o.s),o.h,o.tr,o.A,o.lx,o.ly,o.fx,o.fy);
     cv.t=o.N+o.ec+o.h+(o.h>0&&o.tr?'t':'');
     cv.u=o.s;
-    cv.e=qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy);
+    cv.e=qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy,o.s);
     cv.o=[o.fx-o.cx,o.fy-o.cy];
     return cv;
   },
@@ -49,11 +51,11 @@ window.qr = {
   // caller can walk the holes itself and draw only the one it picks.
   met:async (t=null,img=null,iSz=21,iTrans=true,iHole=0,error=20,offsetX=0,offsetY=0)=>{
     const o=await qr._o(t,img,iSz,iTrans,iHole,error,offsetX,offsetY);
-    return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy):null;
+    return o?qr._met(o.N,o.ec,o.h,o.tr,o.A,o.fx,o.fy,o.s):null;
   },
   // The offset (in modules, from centre) that erases the fewest codewords, so the art can be
-  // placed instead of nudged by hand, at sub-module precision -- a module counts only when the art
-  // covers at least half of it (_cover), which is true or not depending on the fractional offset.
+  // placed instead of nudged by hand, at sub-module precision -- a module counts as lost only when
+  // the art leaves it the wrong colour (_cover), so art that agrees with the code costs nothing.
   // The search reads three grids, never every position (_pool); a placement that would hide a
   // finder pattern's middle row/column ranks last, so the finder keeps its 1:1:3:1:1 scan lines,
   // and ties go to the offset nearest the centre.  (excl) lists offsets already taken: the best
@@ -102,7 +104,8 @@ window.qr = {
     for(let i=0;i<L.cells.length;i++){const cl=L.cells[i],k=(cl.seq/8)|0;if(k<cwN)cw[cl.r*N+cl.c]=k;}
     [[0,0],[0,N-7],[N-7,0]].forEach(p=>{for(let i=0;i<7;i++){    // each finder's middle row + column
       prot[(p[0]+3)*N+p[1]+i]=1;prot[(p[0]+i)*N+p[1]+3]=1;}});
-    const stamp=new Int32Array(cwN).fill(-1),cnt=new Int32Array(nb);
+    const MZ=o.mz                                 // the module colours the art has to agree with
+     ,stamp=new Int32Array(cwN).fill(-1),cnt=new Int32Array(nb);
     let ro=new Int32Array(8)                      // i*N for the rows a mask can name
      ,gen=0;
     // score the art with the hole's top-left at (fx,fy) (may be fractional): the worst-block erased
@@ -111,26 +114,30 @@ window.qr = {
       if(fx<0||fy<0||fx>R||fy>R)return null;
       const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
        ,C=qr._cover(A,h,o.tr,Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),Math.min(9,Math.max(0,Math.round((fy-By)*10))))
-       ,ix=C.ix,base=By*N+Bx;
+       ,ix=C.ix,cv=C.cv,dk=C.dk,base=By*N+Bx;
       gen++;let cross=0;
       if(ro.length<C.M){ro=new Int32Array(C.M);for(let i=0;i<C.M;i++)ro[i]=i*N;}
-      if(By>=7&&Bx>=7&&By+C.M<=N-7&&Bx+C.M<=N-7){        // clear of every edge and finder: the mask needs
-        for(let n=0;n<ix.length;n++){const q=ix[n],k=cw[base+ro[q>>16]+(q&0xFFFF)];   // no test at all
-          if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
-      }else for(let n=0;n<ix.length;n++){
+      if(By>=7&&Bx>=7&&By+C.M<=N-7&&Bx+C.M<=N-7){        // clear of every edge and finder: nothing to
+        for(let n=0;n<ix.length;n++){                    // test but the colour the art left behind
+          const q=ix[n],at=base+ro[q>>16]+(q&0xFFFF);
+          if(!(MZ[at]?cv[n]-dk[n]>127:dk[n]>=128))continue;
+          const k=cw[at];
+          if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}}
+      else for(let n=0;n<ix.length;n++){
         const q=ix[n],r=By+(q>>16),c=Bx+(q&0xFFFF);
         if(r>=N||c>=N)continue;
-        if(prot[r*N+c]){cross++;continue;}
-        const k=cw[r*N+c];
+        const at=r*N+c,m=MZ[at];
+        if(!(m?cv[n]-dk[n]>127:dk[n]>=128))continue;     // the art left this module as it was
+        if(prot[at]){cross++;continue;}
+        const k=cw[at];
         if(k>=0&&stamp[k]!==gen){stamp[k]=gen;cnt[L.bmap[k]]++;}}
       let worst=0;                                          // _met: the RS block that loses the most
       for(let b=0;b<nb;b++){const s=cnt[b]/L.blk[b].ec;if(s>worst)worst=s;cnt[b]=0;}
       return {fx:fx,fy:fy,per:worst,cross:cross,d:Math.abs(fx-cx)+Math.abs(fy-cx)};};
     const rank=(a,b)=>a.cross-b.cross||a.per-b.per||a.d-b.d;
     const keep=a=>(a.sort(rank),a.slice(0,20));   // the twenty placements worth keeping
-    const c0=qr._cover(A,h,o.tr,0,0);
-    let any=false;for(let i=0;i<c0.M*c0.M&&!any;i++)if(c0.m[i])any=true;
-    if(!any)return qr._pc={o:o,cand:[{fx:cx,fy:cx,per:0,cross:0,d:0}],best:{fx:cx,fy:cx,per:0,cross:0,d:0}};
+    if(!qr._cover(A,h,o.tr,0,0).ix.length)               // nothing is covered anywhere near the hole
+      return qr._pc={o:o,cand:[{fx:cx,fy:cx,per:0,cross:0,d:0}],best:{fx:cx,fy:cx,per:0,cross:0,d:0}};
     const pts=[];                                 // everything read, best first by the end
     const grid=step=>{const out=[],put=(x,y)=>{const s=score(x,y);if(s){out.push(s);pts.push(s)}};
       for(let y=0;y<=R;y+=step)for(let x=0;x<=R;x+=step)put(x,y);
@@ -197,6 +204,7 @@ window.qr = {
      ,lx=Math.round(fx)               // the cleared modules (and the erasure) stay whole
      ,ly=Math.round(fy);
     return {N:N,ec:ec,h:h,tr:iTrans?true:false,s:s,cx:cx,cy:cy,lx:lx,ly:ly,fx:fx,fy:fy,
+      mz:h>0?qr._mz(N,ec,s):null,
       A:img&&String(img).trim()?await qr._art(String(img).trim()):null};
   },
   // id|url -> the art image (name -> /i/<name>.png); missing art or blocked pixels -> null
@@ -213,12 +221,24 @@ window.qr = {
     return qr._i[u];
   },
   _mx:(N,ec,s)=>{   // i/u/qr.js matrixFor + modeFor
+    const k=N+'|'+ec+'|'+s,c0=qr._m[k];
+    if(c0)return c0;
     const q=qrcode((N-17)/4,ec);
     q.addData(s,/^[0-9A-Z $%*+\-./:]+$/.test(s)?'Alphanumeric':'Byte');
     q.make();
     const n=q.getModuleCount(),M=[];
     for(let r=0;r<n;r++){const row=[];for(let c=0;c<n;c++)row.push(q.isDark(r,c));M.push(row);}
-    return M;
+    if(Object.keys(qr._m).length>40)qr._m={};
+    return qr._m[k]=M;
+  },
+  // the module colours as one byte each, which is what the damage test in _met/_pool reads
+  _mz:(N,ec,s)=>{
+    const k=N+'|'+ec+'|'+s,b0=qr._n[k];
+    if(b0)return b0;
+    const M=qr._mx(N,ec,s),n=M.length,b=new Uint8Array(n*n);
+    for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(M[r][c])b[r*n+c]=1;
+    if(Object.keys(qr._n).length>40)qr._n={};
+    return qr._n[k]=b;
   },
   _key:A=>{   // the keyed art (i/u/qrmetrics.js keyArt); null when there is nothing to draw
     if(!A||!(A.naturalWidth||A.width))return null;
@@ -236,13 +256,18 @@ window.qr = {
       const g=cv.getContext('2d',{willReadFrequently:true});
       if(tr){const Z=qr._key(A),aW=Z.naturalWidth||Z.width,aH=Z.naturalHeight||Z.height
          ,r=Math.min(h/aW,h/aH),w=aW*r,hh=aH*r;   // the art contained in the hole (i/u/qr.js artFit)
-        g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);
+        g.imageSmoothingEnabled=w*K<=aW;         // as in _draw: an upscaled art keeps its own pixels,
+        g.drawImage(Z,0,0,aW,aH,(1+(h-w)/2)*K,(1+(h-hh)/2)*K,w*K,hh*K);   // so this measures what is drawn
       }else g.fillRect(K,K,h*K,h*K);              // opaque art covers the whole hole
-      const d=g.getImageData(0,0,S0,S0).data,W=S0+1,S=new Int32Array(W*W);
-      for(let y=0;y<S0;y++){let row=0;const o=y*S0*4,p=(y+1)*W,q=y*W;
-        for(let x=0;x<S0;x++){row+=d[o+x*4+3];S[p+x+1]=S[q+x+1]+row;}}   // summed alpha: a module's
-      s=qr._s[k]={K:K,S0:S0,M0:M0,W:W,S:S};         // coverage is then four lookups, whatever K is
-      if(Object.keys(qr._s).length>16)qr._s={};    // one entry is a whole table: keep the last few
+      const d=g.getImageData(0,0,S0,S0).data,W=S0+1
+       ,SA=new Int32Array(W*W)                      // summed alpha,
+       ,SD=new Int32Array(W*W);                     // and summed alpha*darkness (0..255 each)
+      for(let y=0;y<S0;y++){let ra=0,rd=0;const o=y*S0*4,p=(y+1)*W,q=y*W;
+        for(let x=0;x<S0;x++){const a=d[o+x*4+3];
+          ra+=a;rd+=(a*(255-((d[o+x*4]*299+d[o+x*4+1]*587+d[o+x*4+2]*114)/1000|0))/255)|0;
+          SA[p+x+1]=SA[q+x+1]+ra;SD[p+x+1]=SD[q+x+1]+rd;}}
+      s=qr._s[k]={K:K,S0:S0,M0:M0,W:W,SA:SA,SD:SD};   // a module's coverage and its mean colour are
+      if(Object.keys(qr._s).length>6)qr._s={};      // then four lookups each, whatever K is
     }
     return s;
   },
@@ -252,25 +277,38 @@ window.qr = {
     if(a[t])return a[t];
     if(!A||!(A.naturalWidth||A.width)){                    // no art, or one that did not load: the hole
       const M=Math.ceil(h)+3;                              // stays empty, so nothing is erased and nothing
-      return a[t]={M:M,m:new Uint8Array(M*M),ix:new Int32Array(0)};}   // here has to touch the art canvas
-    const s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3,m=new Uint8Array(M*M)
-     ,S=s.S,W=s.W,half=K*K*255,x0=K-pi,y0=K-pj,ix=[];  // KSUB makes the window a whole module: exact
+      return a[t]={M:M,ix:new Int32Array(0),cv:new Uint8Array(0),dk:new Uint8Array(0)};}   // the art canvas
+    const s=qr._scan(A,h,tr),K=s.K,M=Math.ceil(h)+3
+     ,SA=s.SA,SD=s.SD,W=s.W,K2=K*K,x0=K-pi,y0=K-pj,ix=[],cv=[],dk=[];   // KSUB makes the window whole
     for(let i=0;i<M;i++){const r0=y0+i*K,r1=r0+K,rw0=r0*W,rw1=r1*W;
-      for(let j=0;j<M;j++){const c0=x0+j*K,c1=c0+K
-        ,sm=S[rw1+c1]-S[rw0+c1]-S[rw1+c0]+S[rw0+c0];
-        if(sm*2>=half){m[i*M+j]=1;ix.push((i<<16)|j);}}}   // >= half of the module is covered
-    a[t]={M:M,m:m,ix:Int32Array.from(ix)};
+      for(let j=0;j<M;j++){
+        if(keep(h,i,j))continue;                 // the drawing repaints these, so the art never hides them
+        const c0=x0+j*K,c1=c0+K
+         ,a1=SA[rw1+c1]-SA[rw0+c1]-SA[rw1+c0]+SA[rw0+c0]
+         ,d1=SD[rw1+c1]-SD[rw0+c1]-SD[rw1+c0]+SD[rw0+c0]
+         ,c=Math.round(a1/K2);                   // 0..255 of the module the art covers,
+        if(c<128)continue;                       // ... which can only flip the module at half or more
+        ix.push((i<<16)|j);cv.push(c);dk.push(Math.round(d1/K2));}}   // and its mean darkness there
+    a[t]={M:M,ix:Int32Array.from(ix),cv:Uint8Array.from(cv),dk:Uint8Array.from(dk)};
     if(Object.keys(qr._c).length>24)qr._c={};     // each entry is a small mask: keep the last few arts
     return a[t];
   },
-  _met:(N,ec,h,tr,A,fx,fy)=>{   // i/u/qr.js metricFor, at the true sub-module placement (fx,fy)
-    if(h>0){
-      const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
-       ,pi=Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),pj=Math.min(9,Math.max(0,Math.round((fy-By)*10)))
-       ,C=qr._cover(A,h,tr,pi,pj);
-      return qrErasure(N,ec,(r,c)=>{const i=r-By,j=c-Bx;return i>=0&&j>=0&&i<C.M&&j<C.M&&C.m[i*C.M+j]===1;});
-    }
-    return qrErasure(N,ec,()=>false);
+  // i/u/qr.js metricFor counts every covered module as lost.  This counts a module as lost only
+  // when the art leaves it the wrong colour: the composite of the art over the code is measured
+  // against what the code says there, so art whose pixels agree with the modules underneath costs
+  // nothing.  A module the drawing repaints (keep()) is never lost, and so is one the art covers
+  // less than half of, which cannot flip it.
+  _met:(N,ec,h,tr,A,fx,fy,s)=>{
+    if(!(h>0))return qrErasure(N,ec,()=>false);
+    const Bx=Math.floor(fx+1e-9),By=Math.floor(fy+1e-9)
+     ,pi=Math.min(9,Math.max(0,Math.round((fx-Bx)*10))),pj=Math.min(9,Math.max(0,Math.round((fy-By)*10)))
+     ,C=qr._cover(A,h,tr,pi,pj),MZ=qr._mz(N,ec,s),bad=new Uint8Array(N*N);
+    for(let n=0;n<C.ix.length;n++){
+      const q=C.ix[n],r=By+(q>>16),c=Bx+(q&0xFFFF);
+      if(r>=N||c>=N)continue;
+      const cv=C.cv[n],dk=C.dk[n];
+      if(MZ[r*N+c]?cv-dk>127:dk>=128)bad[r*N+c]=1;}
+    return qrErasure(N,ec,(r,c)=>bad[r*N+c]===1);
   },
   _fit:(side,aW,aH,tr)=>{   // i/u/qr.js artFit: opaque crops to the square, transparent contains
     if(!(aW&&aH))return {sx:0,sy:0,sw:1,sh:1,x:0,y:0,w:side,h:side};
@@ -296,9 +334,12 @@ window.qr = {
       const size=h*S,bar=keepHole(N,h),K=tr?qr._key(A):A
        ,x0=Math.max(0,fx),y0=Math.max(0,fy),x1=Math.min(N,fx+h),y1=Math.min(N,fy+h);
       if(K&&x1>x0&&y1>y0){   // the code stays underneath; the art keeps its own resolution
-        const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);
-        g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();
-        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,(mar+fx)*S+f.x,(mar+fy)*S+f.y,f.w,f.h);g.restore();}
+        // whole pixels and whole sizes: a fractional box would be resampled once more, and the art is
+        const f=qr._fit(size,K.naturalWidth||K.width,K.naturalHeight||K.height,tr);   // the only thing here
+        g.save();g.beginPath();g.rect((mar+x0)*S,(mar+y0)*S,(x1-x0)*S,(y1-y0)*S);g.clip();  // with detail
+        g.imageSmoothingEnabled=f.w<=f.sw;   // upscaled art keeps its own pixels: smoothing it is blur,
+        g.drawImage(K,f.sx,f.sy,f.sw,f.sh,Math.round((mar+fx)*S+f.x),Math.round((mar+fy)*S+f.y)  // not sharp
+         ,Math.ceil(f.w),Math.ceil(f.h));g.restore();}
       if(bar)qr._keep(g,M,h,S,mar,lx,ly);}
     return cv;
   }
