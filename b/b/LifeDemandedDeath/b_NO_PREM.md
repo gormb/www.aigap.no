@@ -740,9 +740,9 @@ Etter å ha takket for samtalen.
 #### p. 117
 ### Emilio
 🎵 [Smooth Operator, Shade](https://aigap.no/mso)
-Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrakt levende lys og den første flasken Cava.
-Vakker romantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med! Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
-”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakre, unge, gamle, han har et soverom fullt av speil der han ser på seg selv mens han har sex. Emilio!”
+Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrakt levende lys og den første flasken Cava. Vakker romantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med! Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
+”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakre, unge, gamle, han har et soverom fullt av speil der han ser på seg selv mens han har sex.
+Emilio!”
 Jeg ser ned på mannen vi har bestemt oss for heter Emilio.
 Skjønte umiddelbart hvem hun mente. Emilio skiller seg ut.
 Han har middels utseende, middels høy, er middels velbygget og
@@ -752,7 +752,7 @@ Hipsterbrillene er av styrke NULL, når de faller ned på nesen hverken justerer
 De andre som konkurrerer om kvinnelig, og for den saks skyld mannlig, oppmerksomhet er konkurransen ikke reell.
 Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrente gutter som tar godt vare på kropp og sjel, men de gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for alle sammen.
 Bartenderen er trolig god musiker og sitter og leker med gitaren mellom serveringene og har tett kontakt med Emilio som strekker seg mot ham med intim avstand. Her er alt lov og skammen har aldri dødd, den har aldri vært der.
-Syv-åtte venninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle og enhver føler seg unike og tror de kan få ham. Han går hjem til kona.
+Syv-åtte venninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle føler seg unike og tror de kan få ham. Han går hjem til kona.
 #### p. 119
 ### Impuls!
 🎵 [Sexy Boy; Air](https://aigap.no/msb)
