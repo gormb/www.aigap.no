@@ -711,7 +711,8 @@
         </script>
     </head>
     <body onload="loaded()">
-        <div class="bookControls collapsed" style="z-index:1;text-align:center;">
+        <!-- above the full-screen panels (TOC 99, share 1) so the menu stays clickable there; below the word map (110) -->
+        <div class="bookControls collapsed" style="z-index:100;text-align:center;">
             <button id="nMt" onmousedown="nav.menu()" style="padding-left:2vw;padding-right:2vw;scale:.7;">⏷</button>
             <button id="nFt" onmousedown="nav.Page(1, 0)">⏮️</button>
                 <button id="nPv" onmousedown="nav.Page(books.book.pn()-1, 0)">◀️</button>
