@@ -494,7 +494,21 @@ Hun fikk et smil og takk for følget. Selvskadende relasjoner mellom som ikke se
 Forfriskende var hun, men tankene om kontrasten, kalkulerende vesen som avler kalkulerende vesen avhengig av kunstige endorfiner; “Har du sjekka Tinder-profilen din i dag?” spurte jeg. Hun så spørrende på meg og sa “jeg har ikke Tinder, har du sjekka LinkedIN-profilen din i dag?”. Jeg nikket bekreftende, jeg er også endorfinslave av big-techs digitale narkotika. “Takk”, sa jeg, “nå skal jeg gjøre meta-kognisjon og slutte å undervurdere folk jeg møter for første gang”. Hun så spørrende på meg, tok farvel og gikk.
 Etter å ha takket for samtalen.
 #### p. 117
+### Emilio
+🎵 [Smooth Operator, Shade](https://aigap.no/mso)
+Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrakt levende lys og den første flasken Cava. Vakker romantisk høstkveld. Vi går inn og drikker flaske nummer to. “Følg med! Det er en som har fått draget på alle damene i lokalet den siste halvtimen”, sier kvinnen som skulle gjøre det slutt i kveld, men ikke vet hvordan.
+”Hm?” Hun fortsetter: “Se! han oser av seksualitet til å fylle hele rommet. Han kan ligge med alle etter tur, og har ny dame hver helg. Vakre, ikke vakre, unge, gamle, han har et soverom fullt av speil der han ser på seg selv mens han har sex.
+Emilio!”
+Jeg ser ned på mannen vi har bestemt oss for heter Emilio.
+Skjønte umiddelbart hvem hun mente. Emilio skiller seg ut.
+Han har middels utseende, middels høy, er middels velbygget og
 #### p. 118
+har trolig middels intelligens. Hoftene beveger seg sensuelt mens han går og mens han danser, og man kan tidvis se kritthvite blekede tenner når han smiler, noe han subtilt gjør hele tiden, med kroppen i rytmisk bevegelse.
+Hipsterbrillene er av styrke NULL, når de faller ned på nesen hverken justerer eller myser ham, de er del av en nøye planlagt og deretter perfeksjonert fasade. Det krøllete svarte håret har fått akkurat så lite hårspray at det ikke glinser, og er nyfrisert.
+De andre som konkurrerer om kvinnelig, og for den saks skyld mannlig, oppmerksomhet er konkurransen ikke reell.
+Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrente gutter som tar godt vare på kropp og sjel, men de gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for alle sammen.
+Bartenderen er trolig god musiker og sitter og leker med gitaren mellom serveringene og har tett kontakt med Emilio som strekker seg mot ham med intim avstand. Her er alt lov og skammen har aldri dødd, den har aldri vært der.
+Syv-åtte venninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle føler seg unike og tror de kan få ham. Han går hjem til kona.
 #### p. 119
 Jeg har aldri angret på noe jeg har kjøpt på impuls.
 Jeg er god på gjensøk og har aldri angret min manglende research.
