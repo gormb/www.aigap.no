@@ -1084,7 +1084,7 @@ Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
 #### p. 177
-### Openness to new thinking;
+### Openness to new thinking
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
@@ -1115,4 +1115,4 @@ Appendix and more
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 qwe
 #### p. 183
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium premium "EB Garamond" After the book, you remember the feeling it gave you, not what it was about. This is paid text, in "EB Garamond". This is the speciﬁc typeface used for the paid text. It is based on a classic, historical print from 1592, which gives the text a slightly darker, softer, and more traditional book-printing character. For the system, it functions as a completely separate font ID that allows your viewing program to automatically unlock or hide the text based on payment status.
+qwe

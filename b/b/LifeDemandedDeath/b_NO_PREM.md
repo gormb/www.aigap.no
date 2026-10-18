@@ -745,14 +745,13 @@ Vi har vært på det meksikanske utestedet en time. Begynt utendørs med medbrak
 Emilio!”
 Jeg ser ned på mannen vi har bestemt oss for heter Emilio.
 Skjønte umiddelbart hvem hun mente. Emilio skiller seg ut.
-Han har middels utseende, middels høy, er middels velbygget og
 #### p. 118
-har trolig middels intelligens. Hoftene beveger seg sensuelt mens han går og mens han danser, og man kan tidvis se kritthvite blekede tenner når han smiler, noe han subtilt gjør hele tiden, med kroppen i rytmisk bevegelse.
-Hipsterbrillene er av styrke NULL, når de faller ned på nesen hverken justerer eller myser ham, de er del av en nøye planlagt og deretter perfeksjonert fasade. Det krøllete svarte håret har fått akkurat så lite hårspray at det ikke glinser, og er nyfrisert.
-De andre som konkurrerer om kvinnelig, og for den saks skyld mannlig, oppmerksomhet er konkurransen ikke reell.
-Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrente gutter som tar godt vare på kropp og sjel, men de gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for alle sammen.
-Bartenderen er trolig god musiker og sitter og leker med gitaren mellom serveringene og har tett kontakt med Emilio som strekker seg mot ham med intim avstand. Her er alt lov og skammen har aldri dødd, den har aldri vært der.
-Syv-åtte venninner, en gruppe damer der en bor i Oslo og resten overnatter, de er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle føler seg unike og tror de kan få ham. Han går hjem til kona.
+Han har middels utseende, middels høy, er middels velbygget og har trolig middels intelligens. Hoftene beveger seg sensuelt mens han går og mens han danser, og man kan tidvis se kritthvite blekede tenner når han smiler, noe han subtilt gjør hele tiden, med kroppen i rytmisk bevegelse.
+Hipsterbrillene er av styrke NULL Når de faller ned på nesen hverken justerer eller myser han, de er del av nøye planlagt og deretter perfeksjonert fasade. Det krøllete svarte håret har fått akkurat så lite hårspray at det ikke glinser, og er nyfrisert.
+De andre som konkurrerer om kvinnelig, og for den saks skyld mannlig, oppmerksomhet er ikke reell konkurranse.
+Halvparten av gutta går med caps for å gjemme seg, resten er trolig homofile veltrente gutter som tar godt vare på kropp og sjel, men gir ikke kvinnene oppmerksomhet, de med caps tør ikke, de uten vil ikke. Emilio leverer for dem alle sammen.
+Bartenderen er trolig god musiker og sitter og leker med gitaren mellom serveringene. Han har tett kontakt med Emilio som strekker seg mot ham med intim avstand. Her er alt lov og skammen har ikke dødd, den var der aldri.
+Syv-åtte venninner, en gruppe damer hvorav en bor i Oslo og resten overnatter. De er fra Hamar, Mjøndalen eller lignende og har pyntet seg for å gå ut. Emilio danser med alle, og alle føler seg unike og tror de kan få ham. Han går hjem til kona.
 #### p. 119
 ### Impuls!
 🎵 [Sexy Boy; Air](https://aigap.no/msb)
@@ -1127,7 +1126,7 @@ Tap er rom for det nye.
 Gamle veier dør eller vi dør med dem.
 Åpne sinnet.
 #### p. 177
-### Åpenhet for nytenking;
+### Åpenhet for nytenking
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. Vi er fanger av våre mentale modeller, om vi som laksen må svømme, eller som korallen dør ved endring.
 Open, You’re Mine. Korall prisgitt rolig vann for overlevelse, den vakre skapningen jeg beundrer og setter pris på, er en annen bok. Her dør det gamle for å gi plass til nytt liv. Vær fri, tenk selv. Åpne opp, du er min. Eller fanget.
