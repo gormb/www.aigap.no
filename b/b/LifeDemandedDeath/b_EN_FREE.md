@@ -642,6 +642,7 @@ The dog barks even though there is no danger. Does it think the reason there is 
 More people have died from blood clots while making stupid signs than the number of lives saved by the signs. I pass through.
 #### p. 145
 ### Oleksa
+🎵 [Thieves in the Temple; Prince](https://aigap.no/mtitt)
 I had made a quick errand on the motorcycle, walked into the store, and left the key in. In the middle of the MC parking on Karl Johan, Norway's safest, finest place. But it's ruined by well-organized crime.
 When I come back, the key is gone. With a sandwich in one hand and coffee in the other, I sit down on a bench right in front to see what happens next.
 Oleksa arrives on an electric scooter with room for an extra helmet.
