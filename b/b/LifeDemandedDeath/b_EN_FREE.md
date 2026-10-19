@@ -496,6 +496,8 @@ For the others competing for female, and for that matter male, attention, the co
 The bartender is probably a good musician and sits playing with the guitar between servings and has close contact with Emilio, who reaches toward him at intimate distance. Here everything is allowed, and shame has never died—it has never been there.
 Seven or eight girlfriends, a group of women where one lives in Oslo and the rest are staying over, they are from Hamar, Mjøndalen, or similar, and have dressed up to go out. Emilio dances with all of them, and each and every one feels unique and believes they can have him. He goes home to his wife.
 #### p. 119
+### Impulse!
+🎵 [Sexy Boy; Air](https://aigap.no/msb)
 I have never regretted anything I bought on impulse.
 I am good at research and have never regretted my lack of research.
 He said: "don't read the rest of this chapter."

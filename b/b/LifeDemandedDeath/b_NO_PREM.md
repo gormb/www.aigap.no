@@ -932,7 +932,8 @@ Flere har dødd av blodpropp mens de laget dumme skilt enn antall liv reddet av 
 Jeg har vært et kort ærend med motorsykkelen, gått inn i butikken og latt nøkkelen stå i. Midt på MC-parkeringen på Karl Johan, Norges tryggeste fineste sted. Men det er ødelagt av velorganisert kriminalitet.
 Når jeg kommer tilbake er nøkkelen borte.  Med sandwich i den ene hånden og kaffe i den andre setter jeg meg på en benk rett foran for å se hva som skjer videre.
 Oleksa kommer på elektrisk scooter med rom til ekstrahjelm.
-Aktiv på telefonen myser han fem minutter på sykkelen med sidesynet. Så betaler han den nøkkeltyven. Stoffmisbrukere vet hvem de skal ringe for å selge nøkkel. Oleksa nikker til den femti år gamle damen som passerer. Godkjent. Oxycotin gjemt i sigarett faller ned i posen hennes. Hun går hjem.
+Aktiv på telefonen myser han fem minutter på sykkelen med sidesynet. Så betaler han den nøkkeltyven. De på kanten av loven vet hvem de skal ringe for å selge nøkkel. Oleksa nikker til den femti år gamle damen som passerer. Godkjent.
+Oxycotin gjemt i sigarett faller ned i posen hennes. Hun går hjem.
 #### p. 146
 Etter å ha sett det med mitt eget sidesyn går jeg bort og løsner giret. MC gires med venstre fot, og mitt kan løsnes med en skrue og en mutter. Jeg skrur det helt av og putter noen deler i sekken. Oleksa har betalt for for lite. Kanskje. Varebilen, som står på Ibsen-parkeringen, kan plukke opp sykkelen utover natten hvis den fortsatt står der.
 Den gamle maskuline sykkelen er allerede lovet bort til broren til en av Oleksas overordnede en tidligere kveld sykkelen sto bak operaen. Han bor i landsbyen der Oleksa vokste opp og lærte seg å skru motor. Før krigen. Nå har de mobiltelefoner med kamera og kan naske fra bortskjemte rike i andre land.
@@ -943,7 +944,7 @@ To politidamer rir forbi: “Hei, kan dere hjelpe meg?” de stopper hjelpsomt i
 Jeg forklarer situasjonen og hendelsesforløpet og nikker mot Oleksa som hadde tenkt å kjøre den bort, og at jeg kan ikke bevise det. Mens den ene politidamen rir bort mot ham snakker jeg med den andre fra avstand: “Gamle sykler er utsatt”. “Ja”, sier hun, “jeg hadde en gammel moped som ble stjålet, mens de nye rundt fikk stå i fred”. “Ja elektronikken gjør det vanskelig å stjele det nye, det gamle er fortsatt attraktivt og ikke sporbart”.
 Politidamen som har ridd bort til Oleksa spør: “Hei, har du sett noe”, hva skal han si? hva skal jeg? prosessen med å stjele sykler med nøkkel i er flere tiår inne i standardisering på tvers av Vesteuropa, dette er en vanlig dag på jobben. Kjeltringen er på jobb og politiet er på jobb, de kjenner hverandre og alt er uproblematisk.
 “Gata er kameraovervåket, kanskje kamera har fått med seg noe” sier den ene, jeg svarer: “ja, men skulle man bevist kriminalitet, tiltalt forholdet, fått fanget og straffedømt personene i løpet av et par år, ville jeg ikke vunnet noe.
-Stoffmisbrukeren ville ikke blitt fri fra avhengighet og Oleksa ikke sluttet å se på seg selv som en blanding av Robin Hood og Vito Corleone”. Jeg smiler. “Vil du anmelde?” sier hun mykt. Jeg anmelder. For oss alle. Men om det er et lite bidrag til neste års forhandlinger om midler til politiet, eller nyttig for befolkningen? jeg vet ikke. Men interaksjonene var fine.
+Rusmisbrukere  ville ikke blitt fri fra avhengighet og Oleksa ikke sluttet å se på seg selv som en blanding av Robin Hood og Vito Corleone”. Jeg smiler. “Vil du anmelde?” sier hun mykt. Jeg anmelder. For oss alle. Men om det er et lite bidrag til neste års forhandlinger om midler til politiet, eller nyttig for befolkningen? jeg vet ikke. Men interaksjonene var fine.
 #### p. 148
 ### Ensom
 🎵 [Dirty Laundry; Don Henley](https://aigap.no/mdl)
