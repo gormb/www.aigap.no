@@ -496,6 +496,10 @@ Etter å ha takket for samtalen.
 #### p. 117
 ### Tafatt kategorifeil
 🎵 [Luka; Suzanne Vega](https://aigap.no/mluka)
+Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet. Det var en spesiell kunst med ord. Slam Poesi ville de ha. Kunsten å få ord til å ligne andre ord, der ord ikke har noe med hverandre å gjøre.
+“Jeg vil ikke!” skrek det inne i meg. Jeg vil ikke finne ord som ligner, ikke løse kryssord, ikke noe bokstavlek, og i alle fall ingen ordlek.
+Barnets lekenhet raser over ansiktet hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker musikk til å uttrykke.
+“Vekk fra den ubønnhørlige realiteten, så kom jeg”. Eg gikk.
 #### p. 118
 Ville ikke legge frem mine ord som bare kommer opp i hodet mitt. Et sted der folk har brukt dagevis på hver eneste setning.
 Selv om det kan være dårlige rim og svake poeng, er det jobbet hardt for hvert eneste ord. Det hadde vært et overtramp å lese min råtekst.
@@ -849,3 +853,5 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
+#### p. 188
+#### p. 189
