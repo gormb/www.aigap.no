@@ -1,7 +1,6 @@
 # Bokleser
 ## Ordne denne listen
 ## Kompletter denne listen
-## Lyd ift lesing
 ## Avdekk funksjonalitet
 # Funksjonalitet
 ## ASIS
@@ -96,5 +95,7 @@ Både i TOC og som parameter kan man velkge bok
 ### Logging
 - `window.db.logUsage({event, book, page, code})` → Supabase `usage`: `page` ved sidebytte/åpning, `premium_activate` ved gyldig PIN.
 ## TODO
-
+### Gjør det mulig å zoom'e ikke-semantisk (folk vil ha størreskrift)
+### Ta notater mens man skriver
+### Lyd ift lesing - 
 ## Kodekommentarer

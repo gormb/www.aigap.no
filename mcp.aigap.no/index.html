@@ -13,6 +13,8 @@
   code { background:#8881; padding:.15em .4em; border-radius:.3em }
   pre { background:#8881; padding:.9rem 1rem; border-radius:.5rem; overflow-x:auto; margin:0 }
   a { color:inherit }
+  details { margin:.75rem 0 }
+  summary { cursor:pointer }
 </style>
 <h1>Aigap MCP</h1>
 <p class="sub">A minimal Model Context Protocol server running on Cloudflare Workers.</p>
@@ -41,4 +43,37 @@
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize",
        "params":{"protocolVersion":"2025-06-18","capabilities":{},
                  "clientInfo":{"name":"curl","version":"1"}}}'</pre>
+
+<h2>Todo</h2>
+Current plan is to implement the following features:
+<details>
+  <summary>LifeDemandedDeath MCP implementation plan</summary>
+  <p><a href="b/ldd.md">Open Markdown file</a></p>
+  <pre data-src="b/ldd.md">Loading plan…</pre>
+</details>
+<details>
+  <summary>Suggestion A</summary>
+  <p><a href="b/ldd_sugg_a.md">Open Markdown file</a></p>
+  <pre data-src="b/ldd_sugg_a.md">Loading suggestion…</pre>
+</details>
+<details>
+  <summary>Suggestion B</summary>
+  <p><a href="b/ldd_sugg_b.md">Open Markdown file</a></p>
+  <pre data-src="b/ldd_sugg_b.md">Loading suggestion…</pre>
+</details>
+
+<script>
+  document.querySelectorAll("pre[data-src]").forEach(element => {
+    fetch(element.dataset.src)
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
+      .then(text => { element.textContent = text; })
+      .catch(error => {
+        console.error(`Could not load ${element.dataset.src}`, error);
+        element.textContent = `Could not load ${element.dataset.src}. Open the Markdown file above.`;
+      });
+  });
+</script>
 </html>
