@@ -822,4 +822,10 @@ Background music can give atmosphere to the text; associated music can give dept
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
 #### p. 185
+### Clean up!
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+Everything must be cleaned up after you. Either by you or others. Either while you live or after you're dead. Everything must be cleaned up. Might as well do it.
+Clutter is inherited. At home it's messy; at a brother's and two sisters' it's messy. At one sister's it's tidy; she has broken the pattern. She has introduced a tidiness that is going to be inherited. Tidiness is a dominant "inherited" trait in the sense that the tidy ones reproduce in a planned manner more often than the messy ones. I think. Some don't reproduce in a planned manner, like my parents, but that probably has to do with the time one lives in. The 60s idealized mess, the 90s idealized tidiness. The 20s I don't know if one reproduces at all.
+The bike is broken, attempted stolen. I might as well clean up.
 #### p. 186
+#### p. 187

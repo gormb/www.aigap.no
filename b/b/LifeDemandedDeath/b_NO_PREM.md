@@ -1173,7 +1173,17 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 185
-### Kategorifeil
+### Rydd!
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Spotify Playlist](https://aigap.no/mlist)
+Alt skal ryddes etter deg. Enten av deg eller andre. Enten mens du lever eller etter du er død. Alt skal ryddes. Kan like godt gjøre det.
+Rot går i arv. Hjemme er det rotete, hos en bror og to søstre er det rotete. Hos en søster er det ryddig, hun har brutt mønsteret.
+Hun har innført en ryddighet som kommer til å gå i arv.
+Ryddighet er dominant “nedarvet” egenskap på den måten at de ryddige formerer seg planlagt oftere enn de rotete. Tror jeg.
+Noen formerer seg ikke planlagt, som mine foreldre, men det har sikkert med tiden man lever i å gjøre. 60-tallet idealiserte rot, 90-tallet idealiserte ryddighet. 20-tallet vet jeg ikke om man formerer seg i det hele tatt.
+Sykkelen er ødelagt, forsøkt stjålet. Jeg kan like godt rydde opp.
+#### p. 186
+### Kategorifeil (under arbeid)
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 Livet går videre. Jeg meldte meg til å lese opp det jeg har skrevet.
 Det var en spesiell kunst med ord. Slam-poesi ville de holde.
@@ -1181,6 +1191,6 @@ Kunsten å få ord til å ligne andre ord som ikke har noe med hverandre å gjø
 “Jeg vil ikke!” skrek det inne i meg. Jeg vil ikke finne ord som ligner, ikke løse kryssord, ikke noe bokstavlek, og i alle fall ingen ordlek.
 Barnets lekenhet raser over ansiktet hennes, hun er den beste i utvikling av slam-poesi, følelsene brenner frem teksten om ektefølt forløsning i en enkel relasjon. Følelser. Det jeg bruker mnusikk tilå uttrykke.
 “Vekk fra den ubønnhrlige realiteten, og så kom jeg”. Eg gikk.
-#### p. 186
+#### p. 187
 Ville ikke legge frem mine ord som bare kommer opp i hodet mitt et sted der folk har brukt dagesvis på hver eneste setning og laget dårlige rim og svake poeng, men jobbet hardt for hver eneste setning. Det hadde vært et overtramp i mitt hode.
 “Hvorfor tok du ikke den om 200 km i timen” halvt ropte arrangøren etter meg da jeg gikk ut døra. Satte meg på kafe på løkka med svart kaffe. De snakker ivrig på bordet ved siden av: “

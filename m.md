@@ -838,4 +838,10 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 185
+### Rydd!
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Spotify Playlist](https://aigap.no/mlist)
 #### p. 186
+### Kategorifeil (under arbeid)
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+#### p. 187
