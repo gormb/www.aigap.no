@@ -381,6 +381,7 @@ M.Z={
             ,mk=(t,tip,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.title=tip;b.onclick=fn;return b;}
             ,band=document.createElement('div'),head=document.createElement('div');
         band.id='semBand';band.className='semBand';
+        e.panel=band;   // the whole surface the map owns – head, areas and foot – what the pinch must stay within
         e.band=document.createElement('div');e.band.id='semBody';
         head.className='semHead';
         e.levels=document.createElement('span');e.levels.className='semLevels';   // the level bar is the coarser/finer step: pick the level
@@ -400,7 +401,8 @@ M.Z={
     ,init:()=>{
         const z=M.Z,page=()=>z.el.page
             ,dist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY)
-            ,zone=t=>page().contains(t)||!!(z.nav.el&&z.nav.el.contains(t));
+            ,panel=()=>z.el.panel||z.el.band
+            ,zone=t=>page().contains(t)||!!(z.nav.el&&z.nav.el.contains(t))||!!(panel()&&panel().contains(t));
         if(!z.el.band)z.build();
         z.el.zoom.onclick=()=>{z.on?z.hide():z.show();};z.zb();
         try{z.inv=localStorage.getItem(z.invKey)==='1'?1:0;}catch(e){}
@@ -446,6 +448,12 @@ M.Z={
                 if(z.on&&Math.abs(dx)>48&&Math.abs(dx)>2*Math.abs(dy))M.host.nav(dx<0?1:-1);
             }
         },{passive:true});
+        // iOS keeps its own pinch-zoom even when the page's viewport says not to (and 'manipulation' still allows it):
+        // on the map it must surrender to the semantic pinch, or both zoom at once and the view breaks
+        const noNative=e=>{if(!zone(e.target))return;if(e.cancelable)e.preventDefault();};
+        document.addEventListener('gesturestart',noNative,{passive:false});
+        document.addEventListener('gesturechange',noNative,{passive:false});
+        document.addEventListener('touchcancel',()=>{z.t=0;sw=0;},{passive:true});
         document.addEventListener('wheel',e=>{
             if(!e.ctrlKey||!zone(e.target))return;
             if(e.cancelable)e.preventDefault();
