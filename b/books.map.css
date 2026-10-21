@@ -10,7 +10,7 @@ body.zoom #lvCtl{flex-direction:row-reverse;gap:.15em;}
 .blink{animation:blink .4s ease-in-out 1;}
 #semOv{position:fixed;display:none;inset:-50vmax;background:rgba(0,70,190,.5);pointer-events:none;z-index:50;touch-action:none;} /* the blue area covers the whole screen itself – -50vmax reaches well outside the page, so no other zoom can leave screen uncovered */
 /* iPhone: the pinch belongs to the map – Safari's page zoom is kept off the map's surfaces, or the two zoom at once and the view breaks (manipulation alone still allows pinch-zoom) */
-#semBand,#semNav,#semNav .nvA{touch-action:none;}
+#semBand,#semNav,#semNav .nvA,#zmHead,.semHead{touch-action:none;}
 /* ⌃⇧ let go: the areas stay where they are, but turn on their side in a very narrow band, and the reading area takes what the panel gives back */
 body:not(.zoom) #semNav .nvW{transform:rotate(80deg);}
 body:not(.zoom) #semNav .nvA{overflow:hidden;} /* the turned cloud is held in its own area – nothing of it reaches the reading area */

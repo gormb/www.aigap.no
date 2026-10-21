@@ -402,7 +402,7 @@ M.Z={
         const z=M.Z,page=()=>z.el.page
             ,dist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY)
             ,panel=()=>z.el.panel||z.el.band
-            ,zone=t=>page().contains(t)||!!(z.nav.el&&z.nav.el.contains(t))||!!(panel()&&panel().contains(t));
+            ,zone=t=>page().contains(t)||!!(z.nav.el&&z.nav.el.contains(t))||!!(z.on&&panel()&&panel().contains(t));
         if(!z.el.band)z.build();
         z.el.zoom.onclick=()=>{z.on?z.hide():z.show();};z.zb();
         try{z.inv=localStorage.getItem(z.invKey)==='1'?1:0;}catch(e){}
