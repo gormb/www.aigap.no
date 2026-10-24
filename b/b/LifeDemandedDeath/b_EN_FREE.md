@@ -851,8 +851,8 @@ Background music can give atmosphere to the text; associated music can give dept
 #### p. 191
 ### Dimensionality. Axes
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
-"She is multidimensional"; high freedom in the space of thought.
-One dimension: "She is good!" Or bad. Points on an axis of degree of freedom.
+"She is multidimensional"; with high freedom in the space of thought.
+One dimension: "She is good!" Or bad. Points on axis;degree of freedom.
 Three dimensions: "She is good and knows a lot!" Area and depth.
 Four axes: "She is good, and has learned a lot!" purposefulness.
 …Einstein would be pleased; time (or cause-effect) Six dimensions: "Fate said it will be her; she disagrees."

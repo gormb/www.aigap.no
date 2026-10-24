@@ -1176,14 +1176,14 @@ Two extremes for the role of music in storytelling are background music and asso
 #### p. 191
 ### Dimensionality. Axes
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
-"She is multidimensional"; high freedom in the space of thought.
-One dimension: "She is good!" Or bad. Points on an axis of degree of freedom.
+"She is multidimensional"; with high freedom in the space of thought.
+One dimension: "She is good!" Or bad. Points on axis;degree of freedom.
 Three dimensions: "She is good and knows a lot!" Area and depth.
 Four axes: "She is good, and has learned a lot!" purposefulness.
 …Einstein would be pleased; time (or cause-effect) Five degrees of freedom: "She is good for me! The way I think."
 …action and possibility as an axis of thought.
-"She is good for me! The way I think." Meaning and reality can be diﬀerent. The space for alternative views. Diﬀerent thought systems as points on an axis, "I live in actions, she too in faith in the space between"
-Six dimensions: "Fate said it will be her; she disagrees."
+"She is good for me! The way I think." Meaning and reality can be diﬀerent. The space for alternative views. Diﬀerent thought systems as points on an axis, Six dimensions: "Fate said it will be her; she disagrees."
+"I live in actions, she too in faith in the space between"
 My undefined axes; enjoying yours without understanding.
 #### p. 192
 ## Unplaced & undecided

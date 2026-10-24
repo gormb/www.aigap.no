@@ -862,12 +862,13 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 #### p. 191
 ### Dimensjonalitet. Akser
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
-“Hun er multidimensjonal"; høy frihet i tankens rom.
-En dimensjon: “Hun er bra!”. Eller dårlig. Punkter på en akse av frihetsgrad.
+“Hun er multidimensjonal"; hun har høy frihet i tankens rom.
+En dimensjon: “Ting er bra!”. Eller mer eller mindre dårlig.
+…En akse av frihetsgrad beskriver alt. En egenskap.
 Tre dimensjoner: “Hun er bra og kan mye!”. Areal og dybde.
 Fire akser: “Hun er bra, og har lært mye!”, planmessighet.
 …Einstein ville være glad; tid (eller årsak-virkning) Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
-Mine udefinerte akser; nyter dine uten å forstå.
+Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
 #### p. 192
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
