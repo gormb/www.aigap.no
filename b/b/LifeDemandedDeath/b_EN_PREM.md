@@ -1174,16 +1174,17 @@ I hadn't listened to music for a long time. Starved for music.
 Only writing. Then I put on the playlist for this book after two weeks. What a variation! The brain was overstimulated by the impressions!
 Two extremes for the role of music in storytelling are background music and associated music. Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
 #### p. 191
-Dimensionality. Axes.
-"She is multidimensional," what do I mean by that? Simultaneously independent thoughts; freedom in the space of thought.
-"She is good!" Or bad. As points on an axis of degree of freedom. Or how beautiful she is.
-The one who accepts more freedoms of thought can at the same time speak of breadth; "She is good and knows a lot!" Depth and purposefulness; "She is good, and has learned a lot!"—then we have four degrees of freedom. Einstein would be pleased; time or cause-effect is integrated.
-Four dimensions Then comes action and possibility as my ﬁfth degree of freedom and axis of thought. "She is good for me! The way I think."
-Meaning and reality can be diﬀerent. The space for alternative views. Diﬀerent thought systems as points on an axis, "I live in action, she too in faith in the space between actions."
-"Space of possibility," a sixth degree of freedom; fate and life can coexist.
-Physical reality and truth as two points on an axis with flexibility. "Fate dictates that it will be me and woman. Others think I shall stay away!"
-My undefined axes, enjoying yours without understanding.
-“Teardrop”, Massive Attack
+### Dimensionality. Axes
+🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
+"She is multidimensional"; high freedom in the space of thought.
+One dimension: "She is good!" Or bad. Points on an axis of degree of freedom.
+Three dimensions: "She is good and knows a lot!" Area and depth.
+Four axes: "She is good, and has learned a lot!" purposefulness.
+…Einstein would be pleased; time (or cause-effect) Five degrees of freedom: "She is good for me! The way I think."
+…action and possibility as an axis of thought.
+"She is good for me! The way I think." Meaning and reality can be diﬀerent. The space for alternative views. Diﬀerent thought systems as points on an axis, "I live in actions, she too in faith in the space between"
+Six dimensions: "Fate said it will be her; she disagrees."
+My undefined axes; enjoying yours without understanding.
 #### p. 192
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)

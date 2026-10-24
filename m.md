@@ -860,15 +860,14 @@ Bakgrunnsmusikk kan gi stemning til tekst, assosiert musikk dybde og nytt innhol
 Et eksempel fra film og serier og TV er serien Miami Vice. Jan Hammer, ansvarlig for musikken, så musikken som den tredje hovedrolleinnehaveren i tillegg til Ricardo og Tubbs.
 Filmskapere har både før og etter hatt samme innstilling. I denne boka er musikken til det enkelte kapittel uttrykk for følelser da kapittelet ble skrevet.
 #### p. 191
-Dimensjonalitet. Akser.
-“Hun er multidimensjonal", hva jeg mener med det? samtidig uavhengige tanker; frihet i tankens rom.
-“Hun er bra!”. Eller dårlig. Som punkter på en akse av frihetsgrad. Eller hvor vakker hun er. En dimensjon.
-Den som godtar flere tankefriheter kan samtidig snakke om bredden; “Hun er bra og kan mye!”. Dybde og planmessighet; “Hun er bra, og har lært mye!”, da har vi fire frihetsgrader.
-Einstein ville være fornøyd, tid eller årsak-virkning er integrert. Fire dimensjoner.
-“Mulighetsrom”, en sjette frihetsgrad, skjebne og liv kan sameksistere. Fysisk realitet og sannhet som to punkter på en akse med fleksibilitet. “Skjebnen tilsier det blir meg og henne,.
-andre sier jeg bør ligge unna!”
-.
-“Teardrop”, Massive Attack
+### Dimensjonalitet. Akser
+🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
+“Hun er multidimensjonal"; høy frihet i tankens rom.
+En dimensjon: “Hun er bra!”. Eller dårlig. Punkter på en akse av frihetsgrad.
+Tre dimensjoner: “Hun er bra og kan mye!”. Areal og dybde.
+Fire akser: “Hun er bra, og har lært mye!”, planmessighet.
+…Einstein ville være glad; tid (eller årsak-virkning) Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
+Mine udefinerte akser; nyter dine uten å forstå.
 #### p. 192
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
