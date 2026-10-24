@@ -880,3 +880,5 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 Appendix og mer
 #### p. 190
 #### p. 191
+#### p. 192
+#### p. 193

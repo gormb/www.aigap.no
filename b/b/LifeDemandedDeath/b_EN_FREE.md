@@ -850,3 +850,9 @@ Appendix and more
 "Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
 #### p. 191
 "Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)
+#### p. 192
+### Subchapter Title
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
+#### p. 193
+"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)

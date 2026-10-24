@@ -1220,7 +1220,7 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 190
-### Underkapitteltittel
+### Vin
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Hun trippet lykkelig gjennom vinbaren: “Hei!”, det var ikke mulig å spørre “hva kan jeg gjøre for deg?” for jeg hadde akkurat fått et glass vin av eieren, som tilsynelatende drakk den vinen som hadde blitt til eddik.
@@ -1229,4 +1229,19 @@ Eieren skulte på oss. “Hei,- ”, sa jeg så jeg så lavt at hun umulig kunne
 #### p. 191
 “Jeg liker super-Toscana”. “Det har vi ikke” sa hun stramt, som om jeg hadde fornærmet henne. Hun hadde trodd jeg var et bud, og nå hadde jeg en smak dyrere enn stedet hennes. Hun hatet meg og ville sparke både oppover og nedover samtidig.
 Selvfølelsen lå i at hun hadde god dømmekraft. og instinktet var at hun ikke likte meg, det skulle opprettholdes..
-Bakgrunnsmusikken var av Charlie Jeer, en slags techno, gladjass, popinstrumental som fylte rommet med ungdommelig glede og energi, lavmelt men energisk. Musikken var perfekt, det luktet godt. Men pretentiøs overmøblering, kjedelig vin og dårlig mottagelse fra eieren gjorde det umulig for de unge spreke serviceinnstilte “Legg til med “ond mening” fra “de andre”
+Bakgrunnsmusikken var av Charlie Jeer, en slags techno, gladjass, popinstrumental som fylte rommet med ungdommelig glede og energi, lavmelt men energisk. Musikken var perfekt, det luktet godt. Men pretentiøs overmøblering, kjedelig vin og dårlig mottagelse fra eieren gjorde det umulig for de unge spreke serviceinnstilte Vi tillegger hverandre egenskaper på en veldig energibesparende måte. “Legg til med “ond mening” fra “de andre”
+Det begynner vi, med en markedsundersøkelse, folks mentale modell når de skal svare.
+Innovasjonsfilterne “Tripple Diamond”. Først begrenser vi tankene til det vi får ned på gul lapp, så bnegrenser vi til det vi kan samkategorisere. Til slutt definerer vi habndlinger så vi gjerner alt vanskelig.
+Ta med Trygghetvandring.
+M fl ikk å ldi l
+#### p. 192
+### Diamanten
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Spotify Playlist](https://aigap.no/mlist)
+Det begynner vi, med en markedsundersøkelse, folks mentale modell når de skal svare.
+Innovasjonsfilterne “Tripple Diamond”. Først begrenser vi tankene til det vi får ned på gul lapp, så bnegrenser vi til det vi kan samkategorisere. Til slutt definerer vi habndlinger så vi gjerner alt vanskelig.
+Trygghetvandring. Man flytter ikke så veldig langt.
+SUSHI, skal man få redusert fremmedfrykten for det nye er at innpakningen har en gjengkjennelseseffekt for å få det adopert.
+Maci medtang på utsiden ble ikke kjent igjen. Hvis det første du ser er tangenvet vi ikke hva det er. Ris vet vi hva er, vekk med tangen frem med risen (gjem tang og fisk inne i makien
+#### p. 193
+Assosiasjon med det trygge reduserer frykten for å gjøre noe annerledes.  Vi er vanedyr.
