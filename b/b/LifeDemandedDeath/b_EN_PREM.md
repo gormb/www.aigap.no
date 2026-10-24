@@ -1183,7 +1183,7 @@ Meaning and reality can be diﬀerent. The space for alternative views. Diﬀere
 "Space of possibility," a sixth degree of freedom; fate and life can coexist.
 Physical reality and truth as two points on an axis with flexibility. "Fate dictates that it will be me and woman. Others think I shall stay away!"
 My undefined axes, enjoying yours without understanding.
-“Teardrop”, Massive Attack.
+“Teardrop”, Massive Attack
 #### p. 192
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)

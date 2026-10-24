@@ -1227,7 +1227,7 @@ Forskjellige tankesystemer som punkter på en akse, “Jeg lever i handling, hun
 “Mulighetsrom”, en sjette frihetsgrad, skjebne og liv kan sameksistere. Fysisk realitet og sannhet som to punkter på en akse med fleksibilitet. “Skjebnen tilsier det blir meg og henne,.
 andre sier jeg bør ligge unna!”
 .
-“Teardrop”, Massive Attack.
+“Teardrop”, Massive Attack
 #### p. 192
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
