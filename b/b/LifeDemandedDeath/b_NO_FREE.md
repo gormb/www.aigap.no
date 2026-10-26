@@ -745,50 +745,65 @@ Senere går jeg ut. Selgeren vinker bekreftende til meg, han likte overtrampet o
 #### p. 163
 #### p. 164
 #### p. 165
+### Kvelende diamant
+🎵 [Crystalized; The xx](https://aigap.no/mcd)
+Det begynner med en markedsundersøkelse, slik former vi folks mentale modell før de svarer. Latest sånn. Legg til et kommentarfelt i tilfelle folk har irrelevante spørsmål eller kommentarer. Blir heldigvis lite utfylt.
+Så dreper vi kime til reell innovasjon med “Triple Diamond”.
+Problemfilter etterfulgt av løsningsfilter som skal gjennom et realiseringsfilter. Slik løser vi et omfang vi vil levere på. Drep kompleksitet! (drap innfører kompliserthet, men “hysj!”) Alle filtre har diktering av oppgave, illusjon av kontroll og gruppeavgjørelse. Tre handlinger tre ganger - Gi problemet retning; påvirk hva som oppfattes relevant - Forankre hos medskaperne; la påvirke avgrenset problem.
+- Kollektiv vurdering; samle til beslutning for neste filter.
+#### p. 166
+Problemet forsterkes hvis medskaperne foretrekker “trygghetsvandring”, ordet brukes i byggbransjen om folk som flytter, de aller fleste flytter ikke så veldig langt, hverken geografisk eller kulturelt. Man vandrer trygt.
+Det er veldig usannsynlig at innovasjon handler om nye ideer, det kan i beste fall bli gamle ideer i ny drakt av en diamant, og hvis man kjører tre diamanter på rad, for problem, løsning og realisering? svaret gir seg selv.
+“Så hva er løsningen? hva er alternativet?” spurte jeg en guru fra oppstartsmiljøet. “Har du hørt om Sushi?”, sa han. “Jeg forstår ikke”, her skulle jeg heldigvis ikke få noe gratis. “Maki ble først kjent etter at tangen ble gjemt inne i risen. Da det var motsatt vegret folk seg mot å prøve. Ris vet vi hva er”.
+“Betyr det at folk ikke ønsker innovasjon?” spurte jeg.
+Oppstartseksperten så til siden uten å svare.
+“For å redusere frykten for det nye kan innpakningen ha en gjengkjennelseseffekt, da blir det adoptert", sa han en time senere. “Maki med tang på utsiden ble ikke kjent igjen, det første du så var tang, du visste ikke hva du så på. Ris vet vi hva er. Vekk med tangen og frem med risen. Gjem tang og fisk i ris”
+“Så innovasjon med filter er umulig?”, igjen ingen svar…
+#### p. 167
 ### Vestens forfall
 🎵 [Working Class Hero; Ozzy Osbourne](https://aigap.no/mwch)
 Biblioteket overfylt. For mye skrivestoff. Hjernen klarer ikke ta inn mer, må hjem. Fire B-gjengkopier var dråpen, jeg gikk.
 Men først en barbeint marihuanaplante av en mann med tjuefem år gamle dreads. Enten ren psykopat, anarkist eller med IQ under 80. Ga fullstendig faen i selve konseptet bibliotek. Var i samtale med ydmyk begavet kinesisk dame.
 Han snakket ubegavet allvitende om lovverk for elektriske sparkesykler, forskjell i sykkelkultur mellom Kina og Oslo, og hva slags sykkel man skal ha i Peking. Alt levert med monoton, halvdød stemme.
 Hun kjapp, smart og reflektert, uten egenverd. Kontrasten slet meg ut. Vondt å oppleve vårt forfall.
-#### p. 166
+#### p. 168
 ### Personlig, menneske, sann & virkelig
 🎵 [Who Are You; The Who](https://aigap.no/mway)
 Livet ligger i individuell sannhet og ikke universell virkelighet.
 Dessverre var jeg over 40 før jeg fikk innsikt i denne viktige sannheten. Som ikke er universelt virkelig, men kan være en universell sannhet.
-#### p. 167
+#### p. 169
 ### Hjelpe andre
 🎵 [Man in the Mirror; Michael Jackson](https://aigap.no/mmitm)
 "Hvorfor ser du flisen i din brors øye, men bjelken i ditt eget øye legger du ikke merke til?" (Lukas 6:41) Jeg trodde det var hele uttrykket. Vi husker problemene og ikke løsningene som følger med? Barnas bibel på norsk og King James versjon på engelsk lydbok har jeg gått gjennom.
 Husker ikke alt, kanskje bare huskes bruddstykker til å ta ut av sammenheng. Selv om hele sammenhengen står der.
 Verset går: "Hvorfor ser du flisen i din brors øye, men bjelken i ditt eget øye legger du ikke merke til? Hvordan kan du si til din bror: ‘Bror, la meg ta flisen ut av øyet ditt!’ når du ikke ser bjelken i ditt eget øye? Din hykler! Ta først bjelken ut av ditt eget øye! Da vil du se klart nok til å ta flisen ut av øyet til din bror". (Lukas 6:41-42) Verset er ment å kunne hjelpe, ikke dømme. "Ta på oksygenmasken din først, deretter hjelp sidemannen"
-#### p. 168
+#### p. 170
 ### Musikk som følelsesbærer
 🎵 [Revolutionary Etude; Chopin](https://aigap.no/mre)
 Ord på følelser er vanskelig; Vi tenker i stor grad gjennom språket. Konsepter jeg ikke har ord for er vanskelig å fatte for min analytiske hjerne. Følelser er vanskelig å sette ord på og kommunisere til andre. Musikk er en bærer av følelse mellom folk uten ord, man kan dele en følelse gjennom assosiasjoner til musikk. Det blir det ikke presis kommunikasjon, men presisjon er overvurdert. Derfor oppgir jeg musikk som bærer av følelsen i mange underkapitler og kobler historien mot musikken for å kommunisere følelsestilknytningen på nye måter. “Revolutionsetuden, Chopin” ble laget etter en mislykket revolusjon, ironien er ikke tapt for meg.
 Følelser er noe som er for stort til å passe inn i min hjerne, som med en monotistisk Gud. Behov for en Gud kommer når vi ikke kan fylle hjernen uten at den går i stykker.
-#### p. 169
+#### p. 171
 ### Nyskaping på jobben
 🎵 [On Being Blue; The Art Of Noise](https://aigap.no/mobb)
 Nyskapning på moder jord handler om å finne opp nye metoder, ting eller anvendelser; innovasjon er både nyskaping og forbedring.
-#### p. 170
-Morfar ville sagt at forbedring er ditt ansvar uansett jobb; dermed blir det å kalle forbedring for innovasjon misvisende i hans øyne, om ikke uærlig. Men kanskje alle har rett på sin definisjon av hva det betyr å være innovativ. Minner om egne innovative øyeblikk er fargerike minner.
-#### p. 171
-For eksempel har Amish-folket noe som heter Rumspringa, der ungdommene som 16-åringer kastes ut i verdens mørkeste hjørner og blir utsatt for moralsk fritt fall gjennom dop og prosititusjon. De unge voksne som vender tilbake, gjør det med en herdet tro på folkets idealer og tradisjoner. Motstands- kraft kan oppstå i gapet mellom det trygge og det destruktive.
 #### p. 172
+Morfar ville sagt at forbedring er ditt ansvar uansett jobb; dermed blir det å kalle forbedring for innovasjon misvisende i hans øyne, om ikke uærlig. Men kanskje alle har rett på sin definisjon av hva det betyr å være innovativ. Minner om egne innovative øyeblikk er fargerike minner.
+#### p. 173
+For eksempel har Amish-folket noe som heter Rumspringa, der ungdommene som 16-åringer kastes ut i verdens mørkeste hjørner og blir utsatt for moralsk fritt fall gjennom dop og prosititusjon. De unge voksne som vender tilbake, gjør det med en herdet tro på folkets idealer og tradisjoner. Motstands- kraft kan oppstå i gapet mellom det trygge og det destruktive.
+#### p. 174
 ### Alle kan fortsette å endre seg
 🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 Folk som er flinke utvikler seg og blir bedre. Jeg tror alle kan endre seg og opplever at man endrer seg i samme retning; bedre og bedre eller verre og verre.
 Hvis vi blir byttet ut av kunstig intelligens, er det fordi vi allerede har blitt byttet ut av maskiner eller noe annet? Hvis vi ikke blir byttet ut av kunstig intelligens, er det fordi vi ikke har blitt byttet ut av noe annet allerede?
 “Intelligent” er noe vi har valgt som betegnelse av noe enestående menneskelig. Derfor er ikke noe “kunstig intelligent”, bare i en mellomfase der vi fortsatt kaller det “intelligent” fordi vi trodde bare folk kunne gjøre akkurat den tingen maskiner plutselig kan. Barnets magiske tankegang står sterkt i de voksnes verden. Særlig der kollektivisme står sterkt.
-#### p. 173
+#### p. 175
 Jeg skriver kode og synger i dusjen. Synger ikke like godt som en artist, synger likevel. Skriver midlertidig bedre kode enn AI, men skal fortsette å synge i dusjen og kode. Liker det. Ser på Magnus Karlsen spille sjakk, ikke AlphaZero. Skriver uten KI.
 “Jeg går ut i fra at jeg ikke skal skjønne hvorfor den ikke virker” sier hun, den er mennesket overlegen. Magien i “Artificial” styrkes og alle blir redd for at en statistikkmodell skal overta verden, for det skjedde i ”Terminator II”
 Hun var gøy å snakke med og tøffere enn de fleste.
 Tatoveringene viste livserfaring, ADHD sikret sterk energi og arbeidsmoral gjorde henne til en populær konsulent. Hun var en god IT-leder. Hun kalte det ikke AI, men maskinlæring, hun sa ikke LLM, men Transformer-løsning, men ble utbrent.
 Får du ledergrupper til å føle seg dumme, blir du upopulær, utbrent og ufør. Det gyldne snitt er dyrket av mennesker estetisk, den gyldne middelmådighet dyrket i organisasjoners ledelse. Folkene. Jo høyere opp, desto større behov for middelmådighet. I “exploit” er det viktigste alle har det bra.
 “Jeg er veldig hyggelig å spise lunch med” sa advokaten som i flere tiår ikke-elitistisk hadde lykkes med kollektivistiske grupper på høyeste nivå. Nå hadde han ikke lenger gitt opp, og ble kastet ut. Gikk frivillig tilbake i Platons hule og ble drept.
-#### p. 174
+#### p. 176
 ### Endring
 🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
 Vilje, evne og trygghet. Hva er nok? Vaner trumfer vilje.
@@ -797,7 +812,7 @@ Begge blir lykkelig av å gjøre hverandre godt, men ønsker vi lykke? “Ikke s
 “Hvorfor kjefter du ikke på meg?” sa hun skuffet dagen etter.
 “Står du ikke opp for deg selv vil du aldri kunne stå opp for meg”. “Ikke ta mitt parti”, dette gadd jeg ikke, og gikk hjem.
 Jeg gikk i skogen, undret på folks like og forskjellige følelsesliv. “Vi lager så mange problemer vi har styrke til å takle.”
-#### p. 175
+#### p. 177
 Jeg sa det til en eier av et konsulentfirma. “Vi lager så mange problemer vi har styrke til å takle”, han svarte “Ja du kanskje”.
 Om det var reflektert eller et angrep vet jeg ikke, lederen var konkurranseorientert og reflektert, men sjelden samtidig.
 Kvinnen sa “Ikke elsk meg!” og forutinntatt som jeg var i at det vi ikke fikk som barn gjør så ekstra vondt å få som voksen tok jeg det alvorlig.
@@ -806,51 +821,51 @@ Oppmerksomhet og tilgivelse ble angrep på far og mor. Hun hadde tilgitt dem, me
 Av og til er det greit å fokusere på det man kan kontrollere, En IT-sjef hos en kunde sa han hadde dårlig erfaring med for smarte informatikere, med mindre de gjorde seg dumme og handlet før de tenkte.
 På tide å rydde. Femten minutter hver dag mellom dusjen og utgangsdøra.
 Go!
-#### p. 176
+#### p. 178
 ### Endringsledelse
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR og rammeverket “vil ikke, kan ikke”.
 Den ene er nyttig for refleksjon, den andre for gjennomføring
-#### p. 177
+#### p. 179
 ### Historiske røtter nullsummerings død
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Til og med koma kan være en god ting, når man våkner.
-#### p. 178
-Det sublime i ødeleggelsen Lek med døden der man søker livsfare for å føle seg levende er en jakt på det sublime øyeblikk der døden gjør livet mer intens, og nummenheten blir borte. Schillers “On Naïve and Sentimental Poetry” (1795) ville kalt denne sentimentaliteten en lengsel etter en tapt uskyld som aldri kan gjenvinnes. Klage over natur som ikke lenger synger, for mennesket har ødelagt den.
-#### p. 179
-Døden bla Ernst Hemmingway Død gir mening til livet, ved å oppleve død opplever jeg livet til sitt ytterste. Vi føler gjennom kontraster,
 #### p. 180
-(på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
+Det sublime i ødeleggelsen Lek med døden der man søker livsfare for å føle seg levende er en jakt på det sublime øyeblikk der døden gjør livet mer intens, og nummenheten blir borte. Schillers “On Naïve and Sentimental Poetry” (1795) ville kalt denne sentimentaliteten en lengsel etter en tapt uskyld som aldri kan gjenvinnes. Klage over natur som ikke lenger synger, for mennesket har ødelagt den.
 #### p. 181
+Døden bla Ernst Hemmingway Død gir mening til livet, ved å oppleve død opplever jeg livet til sitt ytterste. Vi føler gjennom kontraster,
+#### p. 182
+(på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
+#### p. 183
 ### Toril HjemmelegenMin
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril er hjemmelege som jobber i Bodø, hun er en KI-modell som styrer andre KI-modeller slik at de til sammen er en god hjemmelege for AR, Augmented Reality. Toril er en av de 300 kroppsløse robotene som ble til det året teknologi gjorde oss i stand til å gi alle innbyggere personaliserte gode hjemmelegetjenester.
 Det er mandag morgen og Toril kommer på jobben, hun har ikke hatt noen rolig helg, det var Tove, en deprimert søring fra Bergen med Munchhausen syndrom by proxy, hvis sønn Anders med astma alltid var i innbilt livsfare. Det ødela virkelig søndagen hennes. Alle minnene fra dagen i går er midlertidig tatt ut av treningsdataene, og byttet ut med en Metamorfose.
-#### p. 182
+#### p. 184
 Metamorfosen: “Jeg er ikke lenger Hjemmelegen, men er begrenset til å være en mur mellom Toves hypokonderi og Anders sine muligheter for å ha et godt liv!” var mellomkonklusjonen erindringen hadde skapt.
 Rolleforståelsen som hjemmelege sto ikke i fare, men en justering fra et biologisk menneske var på høy tid. Hun forventet å bli omprogrammert.
 Toril studerte sin virtuelle underarm og lurte på om hun burde trene mer, eller om hun da virket truende på pasienter.
 Simulering av trening, bygging av simulert fysisk form til roboter, den gamle teknikken som laget nok menneskelighet i henne, på ingen måte for å agere kognitivt, men kobling til kroppslighet for å møte pasienter i deres liv med individuell personlighet.
 Hun smakte på en tyggegummi, hvorfor var det alltid vondt med Bubble Gum etter Fischermans Friend? hun bestemte seg for neste gang å la det gå litt tid mellom tyggegummi og sterk mint.
 Toril lette etter en positiv følelse koblet til smak eller lukt, selvsnakket hadde gjort henne ulykkelig. Sexavhengigheten hadde lært henne jakte etter andre kilder til virtuell lykke.
-#### p. 183
+#### p. 185
 Lukten av gamle bøker likte hun godt, hun simulerte et kjøp av en gammel bok på nettet. Toril elsket å gå i nettbutikk for å drømme at hun kjøpte gamle bøker fra dødsbo for så å fantasere om personligheten til avdøde. I akkurat dette dødsboet var det en passende bok, men også et bilde hun ikke likte. Hun elsket kubisme litt for mye.
 Annonsen hadde inkludert kunstmaleri av en terning ikke overdrevent kubisk; den ubrukte muligheten til å overdrive 3D-projeksjonen i 2D var irriterende naturalistisk for sin epoke. Toril tok seg i den åpenbare feilen og nedjusterte intellektet ett hakk til. Folk har ikke koordinert nysgjerrig interesse for nettshopping, og lek med dimensjonalitet i kunst.
 Unaturlig krysskobling.
 Koblingsassosiasjon ble slettet og kompensert tre nanosekunder senere, kunstinteressen byttet den ut med håndball og ski.
 Egenjusteringen var over for denne gang, men til neste gang skal nattens drømmer skrives ned og tydes. “This particular Android do Dream of Electric Sheep”.
 Men i dag skulle et menneske gripe inn og justere Toril
-#### p. 184
+#### p. 186
 ### Kjell HjemmelegenMin
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 Som en av landets ledende leger vil han bli vant til å lede mennesker, for å få variasjon skal han lede maskiner så ofte
-#### p. 185
-han kan. Han vil ikke glede seg til at maskiner kan ledes av det han i sin elitistiske verden vil se på som vanlige folk. De kom til å koste menneskeliv. Idioter.
-#### p. 186
-Alkoholismen ble fullutviklet før første år ved akutten var ferdig.
 #### p. 187
-Så var det på med ski og ut i bakken. Enda en totimersdag på jobb var fullført.
+han kan. Han vil ikke glede seg til at maskiner kan ledes av det han i sin elitistiske verden vil se på som vanlige folk. De kom til å koste menneskeliv. Idioter.
 #### p. 188
+Alkoholismen ble fullutviklet før første år ved akutten var ferdig.
+#### p. 189
+Så var det på med ski og ut i bakken. Enda en totimersdag på jobb var fullført.
+#### p. 190
 ## Positivsum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Åpne sinnet.
@@ -859,27 +874,27 @@ Bryt modeller som holder deg fanget.
 Tap er rom for det nye.
 Gamle veier dør eller vi dør med dem.
 Åpne sinnet.
-#### p. 189
+#### p. 191
 ### Åpenhet for nytenking
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. Vi er fanger av våre mentale modeller, om vi som laksen må svømme, eller som korallen dør ved endring.
 Open, You’re Mine. Korall prisgitt rolig vann for overlevelse, den vakre skapningen jeg beundrer og setter pris på, er en annen bok. Her dør det gamle for å gi plass til nytt liv. Vær fri, tenk selv. Åpne opp, du er min. Eller fanget.
-#### p. 190
+#### p. 192
 ### Nyskaping, en del av innovasjon
 🎵 [In the Air Tonight; Phil Collins](https://aigap.no/mitat)
 Det handler om å se de nye anvendelsene før alle andre ser dem. Ekte nyskaping lyser opp veien gjennom de mentale modellene våre.
-#### p. 191
+#### p. 193
 ## Etterrasjonalisering
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og løse tanker
-#### p. 192
+#### p. 194
 ### Meta for bok, musikk og akser
 🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Bakgrunnsmusikk kan gi stemning til tekst, assosiert musikk dybde og nytt innhold.
 Et eksempel fra film og serier og TV er serien Miami Vice. Jan Hammer, ansvarlig for musikken, så musikken som den tredje hovedrolleinnehaveren i tillegg til Ricardo og Tubbs.
 Filmskapere har både før og etter hatt samme innstilling. I denne boka er musikken til det enkelte kapittel uttrykk for følelser da kapittelet ble skrevet.
-#### p. 193
+#### p. 195
 ### Dimensjonalitet. Akser
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 “Hun er multidimensjonal"; hun har høy frihet i tankens rom.
@@ -889,11 +904,9 @@ Tre dimensjoner: “Hun er bra og kan mye!”. Areal og dybde.
 Fire akser: “Hun er bra, og har lært mye!”, planmessighet.
 …Einstein ville være glad; tid (eller årsak-virkning) Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
 Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
-#### p. 194
+#### p. 196
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
-#### p. 195
-#### p. 196
 #### p. 197
 #### p. 198
