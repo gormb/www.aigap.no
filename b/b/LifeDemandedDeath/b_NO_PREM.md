@@ -1264,8 +1264,7 @@ Selvfølelsen lå i at hun hadde god dømmekraft. og instinktet var at hun ikke 
 Bakgrunnsmusikken var av Charlie Jeer, en slags techno, gladjass, popinstrumental som fylte rommet med ungdommelig glede og energi, lavmelt men energisk. Musikken var perfekt, det luktet godt. Men pretentiøs overmøblering, kjedelig vin og dårlig mottagelse fra eieren gjorde det umulig for de unge spreke serviceinnstilte Vi tillegger hverandre egenskaper på en veldig energibesparende måte. “Legg til med “ond mening” fra “de andre”
 Det begynner vi, med en markedsundersøkelse, folks mentale modell når de skal svare.
 Innovasjonsfilterne “Tripple Diamond”. Først begrenser vi tankene til det vi får ned på gul lapp, så bnegrenser vi til det vi kan samkategorisere. Til slutt definerer vi habndlinger så vi gjerner alt vanskelig.
-Ta med Trygghetvandring.
-M fl ikk å ldi l
+Ta med Trygghetvandring. (Man flytter ikke så veldig langt)
 #### p. 198
 ### Diamanten
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
