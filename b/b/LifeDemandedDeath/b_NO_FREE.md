@@ -582,17 +582,18 @@ G leder gartneri i fars venns gartnerkjede. Hennes assistent løser alt unntatt 
 G har hatt mange beilere, men elsker sin bestevenn og vil aldri skilles fra ham.
 #### p. 134
 ### Professorne
-🎵 [Hurtless; Dean Lewis](https://aigap.no/mhl)
+🎵 [Born to Run; Bruce Springsteen](https://aigap.no/mbtr)
 Kanskje skal jeg melde meg på kor på Radiumhospitalet?
-Kormedlemmene er ikke-pretentiøse og ekte, jeg liker dem, det de står for. Har respekt for deres godhet uten ånske om å leve opp til egne forventninger om å matche dem.
-Dro på søndagskonsert på Blå. Noen hadde sagt at jeg kunne stuntpoesi og jeg har sett filmen “Elling”. Jeg passer ikke på Blå. Bandet låter bra, selv med over 20 medlemmer. De har hatt mange tusen konserter. Vokalistjobben går på rundgang, alle i bandet må synge på minst en av sangene, slik bytter de på å være frontfigur. Jeg tenker på koret.
-En i koret kjører gammel “widowmaker”, betegnelsen på en motorsykkel for kraftig for sin tid. kraftig for sin tid.. “Så forferdelig”, sier professoren og ser på meg med triste øyne.
+Kormedlemmene er ikke-pretentiøse og ekte, jeg liker dem, det de står for. Har respekt for deres godhet uten ønske om å leve opp til egne forventninger om å være lik dem.
+Dro på søndagskonsert på Blå. Noen hadde sagt at jeg kunne stuntpoesi og jeg har sett filmen “Elling”. Jeg passer ikke på Blå. Bandet låter bra, selv med over 20 medlemmer. De har hatt mange tusen konserter. Vokalistjobben går på rundgang, alle i bandet må synge på minst en av sangene hver konsert, slik bytter de på å være frontfigur. Tankene mine går til koret.
+En i koret kjører gammel “widowmaker”, betegnelsen på en motorsykkel for kraftig for sin tid. kraftig for sin tid. “Så forferdelig”, sier professoren og ser på meg med triste øyne.
 #### p. 135
 Hun er professor og fagsjef i noe som har med kvinners rettigheter å gjøre innen helse. Hun, som de andre i koret, er god rett gjennom. Min egen ambivalistiske godhet kommer til kort.
 Hennes samboer er en mistet venn og medskaper jeg har sviktet. Andre sier han sviktet meg, men det er motsatt.
 Andres rasjonalisering får være deres.
-Er jeg i stand til å forbedre meg og tone ned bitterhet? er jeg for meg selv utilgivelig? er veien fra “Zero Sum Game” veien til “Zero Value Game”; er det slik femtiåringer begynner å dø?
-Jeg spør kvinnen min, hun som tåler meg på julebordet. “Har jeg blit bitter gammel mann?” Hun har ikke vært min på seksmåneder, “Nei” sier hun og ingen av oss vet om hun lyver.
+Er jeg i stand til å forbedre meg og tone ned bitterheten? er jeg for meg selv utilgivelig? er veien fra “Zero Sum Game”
+veien til “Zero Value Game”; er det slik femtiåringer begynner å dø?
+Jeg spør kvinnen min, hun som tåler meg på julebordet. “Har jeg blitt bitter gammel mann?” Hun har ikke vært min på seks måneder, “Nei” sier hun og ingen av oss vet om hun lyver.
 #### p. 136
 ### To doble Espresso ved skogsvann
 🎵 [Wild World; Cat Stevens](https://aigap.no/mww)
@@ -735,11 +736,11 @@ For å ha nytte av minnene våre er omskriving for nye situasjoner nyttig. Så k
 #### p. 162
 ### Selgeren
 🎵 [Hurtless; Dean Lewis](https://aigap.no/mhl)
-“Haaaalooo!” ropte han utenfor biblioteket mens han pekte på meg. “Hei” svarer jeg nøytralt. “Betaler du ditt eget telefonabonement?” sier han innøvd, han skal selge “Talkmore” telefonabonement. “Talk less. Kan jeg gi deg noe?”, han nikker og jeg gir ham et hardkokt egg fra lunsjen min som går i stykker i det han får det. “Grenseoverskridende det også” sier jeg. Han smiler sportslig.
-Jeg går inn på biblioteket og setter meg ved lunchbordet. To litteraturstudenter snakker ivrig om alt og ingenting. Alt om livet og ingenting om studiene. To inveadrerjenter hører på hiphop som høres av alle men ikke plager noen.
+“Haaaalooo!” ropte han utenfor biblioteket mens han pekte på meg. “Hei” svarer jeg nøytralt. “Betaler du ditt eget telefonabonnement?” sier han innøvd, han skal selge “Talkmore” telefonabonnement. “Talk less. Kan jeg gi deg noe?”, han nikker og jeg gir ham et hardkokt egg fra lunsjen min som går i stykker i det han får det. “Grenseoverskridende det også” sier jeg. Han smiler sportslig.
+Jeg går inn på biblioteket og setter meg ved lunchbordet. To litteraturstudenter snakker ivrig om alt og ingenting. Alt om livet og ingenting om studiene. To invadererjenter hører på hiphop som høres av alle, men ikke plager noen.
 Så ser jeg henne. Hun vagger mot lunchbordet. Gjemt inne bak ørepropper med stirrende blikk rett frem finner finner
 #### p. 163
-hun en plass ved siden av meg. Som hunder finner noen som ikke ser rett på dem finner introverte hverandre. Jeg er like introvert, samtidig like ekstrovert som selgeren utenfor. Får kontakt med de fleste og blir grenseoverskridende for de fleste av dem. Introverte føler jeg maser, ekstroverte at jeg ignorer dem, noe for alle; alt for ingen unntatt henne, og hun er borte.
+hun en plass ved siden av meg. Akkurat som hannbikkjer foretrekker de som ikke ser rett på dem, finner introverte hverandre instinktivt. Jeg er like introvert, samtidig like ekstrovert som selgeren utenfor. Får kontakt med de fleste og blir grenseoverskridende for de fleste av dem. Introverte føler jeg maser, ekstroverte at jeg ignorer dem, noe for alle; alt for ingen unntatt henne, og hun er borte.
 Plutselig spør den introverte meg: “Har du også lest min kamp?”. Jeg svarer bekreftende, “ja på lydbok, men naturlig nok hatet oppleseren Hitler, og jeg ønsker å nære mitt eget hat til forfatteren, ikke dele det til en som leser. Kanskje jeg en gang leser den på tysk”. Hun ser på meg som om jeg skulle være fullstendig tilbakestående, noe jeg plutselig forstår jeg er.
 “Min kamp” av Knausgård, ikke Hitler.
 Senere går jeg ut. Selgeren vinker bekreftende til meg, han likte overtrampet og solen skinner. “Takk for at vi er forskjellige alle sammen. Du må ha en spennende jobb”, sier jeg. Nå ser også han medfølende på meg.
