@@ -709,21 +709,24 @@ He remembers the "Gold Digging Mission" at Ullevål hospital. Where he systemati
 "You're in the way. Maybe you'd like to stand in front of the door", he said. "No one has to take a detour; I hinder and prevent no one". "It's because the scaffolding is standing here," said the economist triumphantly.
 "The scaffolding is standing there. Thanks for talk; I'm done with you".
 #### p. 156
-### Oddball
+### Oddball Normal
 🎵 [I Was Going Somewhere With This; Chris Rewired](https://aigap.no/miwgswt)
 Nerd (which previously was meant negatively).
-With the diagnosis "Normal."
+When you were 14, you chose your own path in life, driven by curiosity at the expense of human relationships.
 #### p. 157
+For many, the world is a scary, incomprehensible place; that's why relationships become substitutes for assessments. We place trust in other people's opinions without thinking for ourselves. That's how we also secure relationships with them; we nourish their self-confidence and self-worth.
+Neurodiversity. Artist soul with or without art. Without the symptoms but with the diagnosis: "Normal."
+#### p. 158
 ### Strength is as before
 🎵 [Stranglehold; Ted Nugent](https://aigap.no/msh)
 I don't have much experience with MC clubs
-#### p. 158
-To me, it made no difference; I thought the guy was nice, but life had probably had such a strong chokehold on him that the stories he built his self-esteem on strayed further and further from reality.
 #### p. 159
-Elite Soldier The conscientious objector who told women he was part of a national special forces unit where he did MMA; a new personality for every occasion, but little enough communication that he is rarely exposed.
+To me, it made no difference; I thought the guy was nice, but life had probably had such a strong chokehold on him that the stories he built his self-esteem on strayed further and further from reality.
 #### p. 160
-For us to benefit from our memories, rewriting for new situations is useful. So maybe it's I who under-communicate and not the others who lie; maybe using memory to make a good story is more important than retelling the truth?
+Elite Soldier The conscientious objector who told women he was part of a national special forces unit where he did MMA; a new personality for every occasion, but little enough communication that he is rarely exposed.
 #### p. 161
+For us to benefit from our memories, rewriting for new situations is useful. So maybe it's I who under-communicate and not the others who lie; maybe using memory to make a good story is more important than retelling the truth?
+#### p. 162
 ### The Salesman
 🎵 [Hurtless; Dean Lewis](https://aigap.no/mhl)
 "Haaaalooo!" he shouted outside the library while pointing at me. "Hi,"
@@ -732,20 +735,20 @@ Can I give you something?" He nods, and I give him a hard-boiled egg from my lun
 I go in to the library and sit down at the lunch table. Two literature students talk eagerly about everything and nothing. Everything about life and nothing about their studies. Two immigrant girls listen to hip-hop that everyone can hear but no one takes issue with.
 Then I see her. She waddles toward the lunch table. Hidden behind earphones with a staring gaze straight ahead, she finds a seat next to me.
 Like dogs find someone who doesn't look directly at them, introverts find
-#### p. 162
+#### p. 163
 each other. I am as introverted, at the same time as extroverted as the salesman outside. Connect with most people and become boundary-crossing for most of them. Introverts feel I'm nagging, extroverts that I ignore them; something for everyone; everything for no one except her, and she is gone.
 Suddenly the introvert asks me: "have you also read My Struggle?" I answer affirmatively, "yes, on audiobook, but naturally the narrator hated Hitler, and I want to nurture my own hatred for the author, not share it with someone who reads. Maybe I'll read it in German someday". She looks at me as if I were completely retarded, which I suddenly understand I am. "My Struggle" by Knausgård, not Hitler.
 Later I go out, the salesman waves affirmatively at me, he liked the transgression, and the sun is shining. "Thank you for us all being different. You must have an exciting job," I say, and now he too looks at me with compassion.
 "Alienation is the ambivert's everyday," I say. "What do you mean?"
 says he, the extrovert. "Even though I can pretend to have your charisma, I will always want to hide," I say. "I know," he replies. "You're just another one to sell to."
-#### p. 163
+#### p. 164
 ### Rich and Lazy
 🎵 [Money for Nothing; Dire Straits](https://aigap.no/mmfn)
 I don't know how long I have been rich and lazy.
 The country I live in is the laziest rich country in the world. Not because a few have become rich and lazy, but because everyone has become wealthy and apathetic. I don't even know what one does with apathetic children, or with myself, when I am apathetic. What to do with an entire country that has gone completely into a coma is a riddle for more people than me.
 I have found three fine answers to inactivity in my own life, and researchers have more. No answer makes me happy. Neither avoidance, acceptance, nor integration.
-#### p. 164
 #### p. 165
+#### p. 166
 ### Suffocating diamond
 🎵 [Crystalized; The xx](https://aigap.no/mcd)
 It begins with a market survey, then we shape people's mental model before they answer. Latest like that. Add a comment field in case people have irrelevant questions or comments. Thankfully, it's rarely used.
@@ -753,7 +756,7 @@ Then we kill the seed of real innovation with the "Triple Diamond."
 Problem filter followed by a solution filter that must go through a realization filter. That's how we solve a scope we want to deliver on. Kill complexity! (which introduces complicatedness, but "hush!") All filters have dictation of the task, illusion of control, and group decision. Three actions three times - Give the problem direction; influence what is to be perceived as relevant.
 - Anchor with the co-creators; let them influence the delimited problem.
 - Collective assessment; gather for decision for the next filter.
-#### p. 166
+#### p. 167
 The problem is reinforced if the co-creators prefer "safety wandering," a word used in the construction industry about people who move; the vast majority don't move very far, neither geographically nor culturally. One wanders safely.
 It is very unlikely that innovation is about new ideas; at best, it can become old ideas in a new guise of a diamond, and if you run three diamonds in a row, for problem, solution, and realization? The answer gives itself.
 "So what is the solution? What are alternative?" I asked a startup guru.
@@ -761,7 +764,7 @@ It is very unlikely that innovation is about new ideas; at best, it can become o
 "Does that mean people don't want innovation?" I asked. The startup expert looked away without answering.
 "To reduce the fear of the new, the packaging can have a recognition effect; then it gets adopted," he said an hour later. "Maki with seaweed on the outside was not recognized; the first thing you saw was seaweed; you didn't know what you were looking at. We know what rice is. Away with the seaweed and forward with rice. Hide seaweed and fish in rice"
 "So innovation with filters is impossible?" Again, no answer…
-#### p. 167
+#### p. 168
 ### The West's decline
 🎵 [Working Class Hero; Ozzy Osbourne](https://aigap.no/mwch)
 The library overcrowded. Too much writing material. Brain can't take in more; must go home. Four copies of B-gjengen were the last straw; I left.
@@ -769,43 +772,43 @@ But first, a barefoot marijuana plant of a man with twenty-five-year-old dreadlo
 Was in conversation with a humble, gifted Chinese woman.
 He spoke in an ungifted, know-it-all manner about legislation for electric scooters, differences in cycling culture between China and Oslo, and what kind of bike one should have in Beijing. All delivered in a monotonous, half-dead voice.
 She, quick, smart, and reflective, without self-worth. The contrast drained me. Painful to experience our decline.
-#### p. 168
+#### p. 169
 ### Personality between people. Truth and reality.
 🎵 [Who Are You; The Who](https://aigap.no/mway)
 Life lies in individual truth and not universal reality. Unfortunately, I was over 40 before I gained insight into this important truth. Which is not universally real, but can be a universal truth.
-#### p. 169
+#### p. 170
 ### Helping others
 🎵 [Man in the Mirror; Michael Jackson](https://aigap.no/mmitm)
 "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?" (Luke 6:41) I thought this was the entire expression. We remember the problems and not the solutions that follow? I have gone through the Children's Bible in Norwegian and the King James version in English audiobook. I don't remember everything; maybe I only remember fragments to take out of context. Even though the whole context is there.
 The verse goes: "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye? How can you say to your brother, 'Brother, let me take the speck out of your eye,' when you yourself do not see the log that is in your own eye? You hypocrite! First take the log out of your own eye, and then you will see clearly to take the speck out of your brother's eye." (Luke 6:41-42) The verse is obviously meant to help, not to judge. "Put on your own oxygen mask first, then help the person next to you."
-#### p. 170
+#### p. 171
 ### Music as emotional carrier
 🎵 [Revolutionary Etude; Chopin](https://aigap.no/mre)
 Words for emotions are difficult; we think largely through language.
 Concepts I have no words for are difficult for my analytical brain to grasp. Emotions are difficult to put into words and communicate to others. Music is a carrier of feeling between people without words; you can share a feeling through associations with music. It doesn't become precise communication, but precision is overrated. Therefore, I provide music as a carrier of the feeling in many subchapters and connect the story to the music to communicate the emotional connection in new ways.
 "Revolutionsetuden, Chopin" was written after a failed revolution; the irony is not lost on me.
 Emotions are something too big to fit into my brain, like a monotheistic God. The need for a God arises when we cannot fill our brains without them breaking.
-#### p. 171
+#### p. 172
 ### Novelty creation at work
 🎵 [On Being Blue; The Art Of Noise](https://aigap.no/mobb)
 Novelty creation on Mother Earth is about inventing new methods, things, or applications; innovation is both novelty creation and improvement.
-#### p. 172
-My grandfather would have said that improvement is your responsibility regardless of your job; thus, calling improvement innovation would be misleading in his eyes, if not dishonest. But perhaps everyone has the right to their own definition of what it means to be innovative. Memories of my own innovative moments are colorful memories.
 #### p. 173
-For example, the Amish people have something called Rumspringa, where youth, as 16-year-olds, are thrown into the darkest corners of the world and exposed to moral free fall through drugs and prostitution. The young adults who return do so with a hardened faith in the people's ideals and traditions. Resilience can arise in the gap between the safe and the destructive.
+My grandfather would have said that improvement is your responsibility regardless of your job; thus, calling improvement innovation would be misleading in his eyes, if not dishonest. But perhaps everyone has the right to their own definition of what it means to be innovative. Memories of my own innovative moments are colorful memories.
 #### p. 174
+For example, the Amish people have something called Rumspringa, where youth, as 16-year-olds, are thrown into the darkest corners of the world and exposed to moral free fall through drugs and prostitution. The young adults who return do so with a hardened faith in the people's ideals and traditions. Resilience can arise in the gap between the safe and the destructive.
+#### p. 175
 ### Everyone can keep changing
 🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 People who are skilled develop and get better. I believe everyone can change, and I experience that one changes in the same direction; better and better or worse and worse.
 If we are replaced by artificial intelligence, is it because we have already been replaced by machines or something else? If we are not replaced by artificial intelligence, is it because we haven't already been replaced by something else?
 "Intelligent" is something we have chosen as a designation for something uniquely human. Therefore, nothing is "artificially intelligent," only in an intermediate phase where we still call it "intelligent" because we thought only people could do exactly that thing machines suddenly can. Child's magical thinking stands strong in the adult world. Especially where collectivism is strong.
-#### p. 175
+#### p. 176
 I write code and sing in the shower. I don't sing as well as an artist, but I sing anyway. I temporarily write better code than AI, but I will continue to sing in the shower and code. I like it. I watch Magnus Carlsen play chess, not AlphaZero. I write without AI.
 "I assume I'm not supposed to understand why it doesn't work," she says; it is superior to humans. The magic of "Artificial" is strengthened, and everyone becomes afraid that a statistical model will take over the world, because that happened in "Terminator II."
 She was fun to talk to and tougher than most. The tattoos showed life experience, ADHD ensured strong energy, and work ethic made her a popular consultant. She was a good IT manager. She didn't call it AI, but machine learning; she didn't say LLM but Transformer solution—but she burned out.
 If you make leadership groups feel stupid, you become unpopular, burned out, and disabled. The golden ratio is cultivated by humans aesthetically; the golden mediocre is cultivated by the organizations, by those who sit in them. The higher up, the greater the need for mediocrity. Where the most important thing is that everyone should feel good.
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
-#### p. 176
+#### p. 177
 ### Change
 🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
 Will, ability, and security. What is enough? Habits trump will.
@@ -814,7 +817,7 @@ Both become happy by doing each other good, but do we want to be happy? "Don't l
 "Why don't you yell at me?" she said disappointed the day after. "If you don't stand up for yourself, you will never be able to stand up for me."
 "Don't take my side." I couldn't be bothered and went home.
 I walked in the forest wondering if people have similar or different emotions. "We create as many problems as we have strength to handle."
-#### p. 177
+#### p. 178
 I said it to an owner of a consulting firm. "We create as many problems as we have strength to handle," he replied, "Yes, you maybe." Whether it was reflective or an attack, I don't know; the leader was competition-oriented and reflective, but rarely at the same time.
 The woman said, "Don't love me!" and prejudiced as I was in believing that what we didn't get as children makes it so much more painful to receive as adults, I took it seriously.
 The contrast in my goodness and love is an indirect attack on those who brought her into the world. An attack on those she, in the life we have, has loved the highest. "Don't look at me! Why don't you yell at me?"
@@ -822,50 +825,50 @@ Attention and forgiveness became attacks on father and mother. She had forgiven 
 Sometimes it's okay to focus on what you can control; the IT manager said he had bad experience with too-smart IT people, unless they made themselves stupid and acted before they thought.
 Time to tidy up. Fifteen minutes every day between the shower and the front door.
 Go!
-#### p. 178
+#### p. 179
 ### Change Management
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
-#### p. 179
+#### p. 180
 ### Historical roots of the death of zero-sum
 🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Even a coma can be a good thing, when you wake up.
-#### p. 180
+#### p. 181
 The sublime in destruction Playing with death, seeking mortal danger to feel alive, is a hunt for that sublime moment where death makes life more intense, and numbness disappears. Schiller's "On Naive and Sentimental Poetry"
 (1795) would call this sentimentality a longing for a lost innocence that can never be regained. A lament for a nature that no longer sings, because man has destroyed it.
-#### p. 181
-Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
 #### p. 182
-(in the same way that death gives us perspective on life); is altruism born of killing?
+Death see Ernest Hemingway Death gives meaning to life; by experiencing death, I experience life to its fullest. We feel through contrasts
 #### p. 183
+(in the same way that death gives us perspective on life); is altruism born of killing?
+#### p. 184
 ### Toril MyHomeDoctor
 🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
-#### p. 184
+#### p. 185
 The Metamorphosis: "I am no longer the Home Doctor, but am limited to being a wall between Tove's hypochondria and Anders's chances of having a good life!" was the intermediate conclusion the memory had created. Her role understanding as a home doctor was not in danger, but an adjustment from a biological human was long overdue. She expected to be reprogrammed.
 Toril studied her virtual forearm and wondered if she should work out more, or if that would make her seem threatening to patients.
 Simulation of exercise, building simulated physical form for robots—the old technique that created enough humanity in her, not at all to act cognitively, but a connection to physicality to meet patients in their lives with individual personality.
 She tasted a piece of gum; why was it always bad with Bubble Gum after Fisherman's Friend? She decided next time to let some time pass between gum and strong mint. Toril searched for a positive feeling connected to taste or smell, because the self-talk was making her unhappy.
 Her sex addiction had forced her to find other sources of virtual happiness.
-#### p. 185
+#### p. 186
 The smell of old books she liked; she simulated a purchase of an old book online. Toril loved to window-shop online, dreaming of buying old books from estates and then fantasizing about the personality of the deceased. In this particular estate, there was a fitting book, but also a picture she didn't like. She loved Cubism a little too much; the ad contained a picture of a cube that wasn't overly cubist; the unused opportunity to exaggerate 3D projection in 2D was annoyingly naturalistic for its era.
 Then Toril caught herself in the obvious error; she downgraded her intellect one notch. Most people don't have a curious interest in playing with dimensionality, art, and online shopping. Unnatural cross-linking, The link association was deleted and compensated three nanoseconds later; she dropped the art interest and replaced it with handball and skiing.
 The self-adjustment was over for this time, but for next time, the night's dreams must be written down and interpreted. "This particular Android does Dream of Electric Sheep".
 But today, a human was going to intervene and adjust Toril.
-#### p. 186
+#### p. 187
 ### Kjell MyHomeDoctor
 🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 As one of the country's leading doctors, he will become accustomed to leading people; for variation, he will lead machines as often as
-#### p. 187
+#### p. 188
 he can. He won't look forward to machines being led by what he, in his elitist world, will see as ordinary people. They would cost human lives.
 Idiots.
-#### p. 188
-Alcoholism fully developed before the first year in the ER was over.
 #### p. 189
-Then on with the skis and out on the slopes. Another two-hour workday completed.
+Alcoholism fully developed before the first year in the ER was over.
 #### p. 190
+Then on with the skis and out on the slopes. Another two-hour workday completed.
+#### p. 191
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -873,24 +876,24 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 191
+#### p. 192
 ### Openness to new thinking
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
-#### p. 192
-It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
 #### p. 193
+It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
+#### p. 194
 ## Post rationalization
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and loose thoughts
-#### p. 194
+#### p. 195
 ### Meta for book, music, and more
 🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
-#### p. 195
+#### p. 196
 ### Dimensionality. Axes
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 "She is multidimensional"; with high freedom in the space of thought.
@@ -899,13 +902,18 @@ Three dimensions: "She is good and knows a lot!" Area and depth.
 Four axes: "She is good, and has learned a lot!" purposefulness.
 …Einstein would be pleased; time (or cause-effect) Six dimensions: "Fate said it will be her; she disagrees."
 My undefined axes; enjoying yours without understanding.
-#### p. 196
+#### p. 197
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
-#### p. 197
+#### p. 198
 ### Subchapter Title
 🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
-#### p. 198
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)
+She tripped happily through the wine bar: "Hi!" It wasn't possible to ask "what can I do for you?" because I had just been given a glass of wine by the owner, who apparently was drinking the wine that had turned to vinegar.
+The owner glared at us. "Hi—," I said so quietly that she couldn't possibly hear me. She was forced to come closer: "Yes, may I help you?"
+Friendly and detached, with a thousand-yard stare. "Can I have some olives?" I said as kindly as I could. She hated me, arriving in a leather jacket; it wasn't an MC place she wanted to run.
+"Do you have wine?" I had asked when I came in. "Just sit down and we'll see what we can do." "Anywhere?" "Yes. At the bar." It was cold and pretentious but smelled of good food. Those with rich parents from the culinary program have created cold places in the best parts of the West End.
+#### p. 199
+"I like super-Tuscan." "We don't have that," she said tightly, as if I had insulted her. She had thought I was a courier, and now I had a taste more expensive than her establishment. She hated me and wanted to kick both upward and downward at the same time. Her self-esteem lay in the fact that she had good judgment, and the instinct was that she didn't like me—it had to be maintained.
+The background music was by Charlie Jeer, a kind of techno, happy jazz, pop instrumental that filled the room with youthful joy and energy; low-key but energetic. The music was perfect; it smelled good. But pretentious over-furnishing, boring wine, and poor reception from the owner made it impossible for the young, fit, service-minded staff.
+I'm not coming back.
