@@ -1,12 +1,10 @@
-<!doctype html><html><body><script>let r={
-
-b:"/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book"
+<!doctype html><html><body><script>r=
+{b:"/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book"
 ,ldd:"/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/Book?book=LifeDemandedDeath.pdf"
 ,chat:"/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/index.html"
 ,ckat:"/aniPublicOfficialReportSelfService/aniPublicOfficialReportSelfService_Html/wwwroot/EnHaandAaHoldeI/indexkatalog.html"
 ,ln:"https://linkedin.com/in/gorm1"
 ,ed:"https://github.com/gormb/_/edit/main/index.html"
-
 },
 p=new URLSearchParams(location.search),k=Object.keys(r).find(x=>p.has(x));
 if(k){p.delete(k);let s=p.toString();setTimeout(()=>location.replace(r[k]+(s?(r[k].includes("?")?"&":"?")+s:"")+(location.hash&&!r[k].includes('#')?location.hash:'')),0)}
