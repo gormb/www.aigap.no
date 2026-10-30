@@ -1242,3 +1242,5 @@ My undefined axes; enjoying yours without understanding.
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
+#### p. 200
+Thanks to Harald Ellefsen for wool socks and SPECTRAVIDEO 328, which led to a career and working life Thanks to grandparents for warm homes and love, so that I could give it to my own children.

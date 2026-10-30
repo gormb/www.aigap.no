@@ -1287,3 +1287,5 @@ Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
+#### p. 200
+varme hjem og kjærlighet, så jeg kunne gi det til egne barn
