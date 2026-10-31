@@ -933,4 +933,4 @@ Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
 #### p. 200
-varme hjem og kjærlighet, så jeg kunne gi det til egne barn
+kjærlighet jeg gav videre til neste generasjon

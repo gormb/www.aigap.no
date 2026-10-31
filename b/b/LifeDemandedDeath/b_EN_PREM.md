@@ -1243,4 +1243,4 @@ My undefined axes; enjoying yours without understanding.
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
 #### p. 200
-Thanks to Harald Ellefsen for wool socks and SPECTRAVIDEO 328, which led to a career and working life Thanks to grandparents for warm homes and love, so that I could give it to my own children.
+Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO 328 which gave career Thanks to grandparents for love I gave the next generation
