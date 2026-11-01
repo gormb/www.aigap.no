@@ -811,8 +811,8 @@ Helgen etter satt Reidar der igjen. En 35-40 år gammel dame kom bort til ham me
 Reidar skal dø i senga av hjerteinnfarkt mens han har sex med tretti år yngre overvektig dame. Lykkelig etter egne premisser.
 #### p. 127
 ### V65 trav
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
-Trond fra beste Oslo Vest stirrer på skjerrmen. Den nye gjesrten på fotballpuben spør “Hei, er det ok å hilse på hunden din?” Thor ser rett gjennom ham med øynene hyperfokusert på TV-skjermen. De viser V65 trav hver dag på en skjerm, to forskjellige fotballkamper på de to andre. Thor har ikke tid til noe annet enn spillet. Han skal vinne tilbake pengene fra forrige uke. Bare forrige uke. Han er ekspert på spill, så det blir lett.
+🎵 [Conquest of Paradise; Vangelis](https://aigap.no/mcop)
+Trond fra beste Oslo Vest stirrer på skjermen. Den nye gjesrten på fotballpuben spør “Hei, er det ok å hilse på hunden din?” Thor ser rett gjennom ham med øynene hyperfokusert på TV-skjermen. De viser V65 trav hver dag på en skjerm, to forskjellige fotballkamper på de to andre. Thor har ikke tid til noe annet enn spillet. Han skal vinne tilbake pengene fra forrige uke. Bare forrige uke. Han er ekspert på spill, så det blir lett.
 Stirrer rett gjennom idioten som vil kose med hunden. Han er ikke del av spillet og finnes ikke. “Du må spille spillet”, sier han alltid. Om det er kundespillet som leverandør, jobbspillet som ansatt, livets spill, V65 eller samtalen med svigerrfar.
 “Gamigfication rules” sier han. Pleide å være slef i et Design Thinking med hovedkontor på Manhattan. Spillet har blitt hans virkelighet, uansett spill.. Ny mulighet for gevinst i dag!
 #### p. 128
@@ -1293,22 +1293,8 @@ Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
 “Jeg lever i handlingen, hun i skjebne mellom handling.”
 Mine frihetsgrader. Jeg nyter hennes. Uten å forstå.
 #### p. 200
-### Dimensjonalitet. Akser
-🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
-“Hun er multidimensjonal"; hun har høy frihet i tankens rom.
-En dimensjon: “Ting er bra!”. Eller mer eller mindre dårlig.
-…En akse av frihetsgrad beskriver alt. En egenskap.
-Tre dimensjoner: “Hun er bra og kan mye!”. Areal og dybde.
-Fire akser: “Hun er bra, og har lært mye!”, planmessighet.
-…Einstein ville være glad; tid (eller årsak-virkning) Fem frihetsgrader: “Hun er bra for meg! Slik jeg tenker.”
-…handling og mulighet som tankeakse.
-“Hun er bra for meg! Slik jeg tenker.” Mening og virkelighet kan være forskjellig. Plassen for alternative syn. Forskjellige tankesystemer som punkter på en akse.
-Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
-“Jeg lever i handlinger, hun og i tro i rom mellom handling.”
-Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
-#### p. 201
 kjærlighet jeg gav videre til neste generasjon
-#### p. 202
+#### p. 201
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer

@@ -549,7 +549,7 @@ They enjoyed themselves for a few minutes, downed the lukewarm espresso, and lef
 Reidar will die in bed of a heart attack while having sex with an overweight woman thirty years younger. Happy on his own terms.
 #### p. 127
 ### V65 harness racing
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Conquest of Paradise; Vangelis](https://aigap.no/mcop)
 Trond from the best part of Oslo's West End stares at the screen. The new guest at the football pub asks, "Hi, is it okay to say hello to your dog?" Thor looks right through him, eyes hyper-focused on the TV screen.
 They show V65 harness racing every day on one screen, two different football matches on the other two. Thor has no time for anything other than the game. He is going to win back the money from last week. Just last week. He is an expert at games, so it will be easy.
 He stares right through the idiot who wants to pet the dog. He is not part of the game and does not exist. "You have to play the game," he always says. Whether it's the customer game as a supplier, the work game as an employee, the game of life, V65, or the conversation with his father-in-law. "Gamification rules," he says. Used to be self in a Design Thinking firm headquartered on Manhattan. The game has become his reality, no matter the game. New opportunity for profit today!
@@ -930,17 +930,8 @@ Six dimensions: "Fate said it will be her; she disagrees."
 "I live in the action, she in fate between actions."
 My degrees of freedom. I enjoy hers. Without understanding.
 #### p. 200
-### Dimensionality. Axes
-🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
-"She is multidimensional"; with high freedom in the space of thought.
-One dimension: "She is good!" Or bad. Points on axis;degree of freedom.
-Three dimensions: "She is good and knows a lot!" Area and depth.
-Four axes: "She is good, and has learned a lot!" purposefulness.
-…Einstein would be pleased; time (or cause-effect) Six dimensions: "Fate said it will be her; she disagrees."
-My undefined axes; enjoying yours without understanding.
-#### p. 201
 Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO 328 which gave career Thanks to grandparents for love I gave the next generation
-#### p. 202
+#### p. 201
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
