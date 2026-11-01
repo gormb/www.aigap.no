@@ -302,13 +302,15 @@ Undres om den danske filosofen etterrasjonaliserte smerte eller etterdønninger 
 #### p. 73
 ### Trening
 🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
-Casey og Chris trener klokken 07 for å fortsette livet sammen. Casey sitter i sal 2 på Majorstua Yoga fra halv syv og får sine daglige ensomme minutter. Barna kjøres i barnehagen av Chris, som kommer inn ett minutt på.  De har trent i tolv år og møtte hverandre ved push-up stangen for ni år siden.
 #### p. 74
-Eden og Evan trener klokken 09 for å ha noe å gjøre lørdag morgen. Han har store overarmer trent hele voksne liv. Bryter tilværelse fra ensomhet. 22 kvadratmeters hjem på Furuholmen. Aker Brygge Yoga og henne. Hun fra hjem med tildekking av hår.
+Cory og Chris trener klokken 07 for å fortsette livet sammen. Hun sitter i sal 2 på Majorstua Yoga fra halv syv og får sine daglige ensomme minutter. Barna kjøres i barnehagen av ham, som kommer inn ett minutt på.  De har trent i tolv år og møtte hverandre ved push-up stangen for ni år siden.
+Eden og Eli trener klokken 09 for å ha noe å gjøre lørdag morgen. Han har store overarmer trent hele voksne liv. Bryter tilværelse fra ensomhet. 22 kvadratmeters hjem på Furuholmen. Aker Brygge Yoga og henne. Hun fra hjem med tildekking av hår.
 Gjemmer seg ikke. Ti år yoga endelig instruktør. Instruerer ham i ny strekkeøvelse. Perfekt. Om en uke ses de igjen.
 #### p. 75
 #### p. 76
-Paris og Peyton trener klokken 20 for å møte den rette. Begge har stått i den fulle heisen. Tre etasjer ned fra gaten, en etasje opp fra parkeringen på SATS Colosseum. Begge topp ti prosent mest attraktiv på Tinder, ingen av dem topp syv prosent. Far lot ham bli mann da han vokste til 160 cm. Han fikk lov til å gå på treningsstudio og bli “Alpha” slik som ham. Far er 164 cm i sokkelessen, men har alltid innlegg i skoene. Sønn trener høyinsentiv og har gjort det fem år. Oslo Marathon og Birken blir Peace of Cake når arbeidslivet kommer. Kliner med henne på basketbanen. Hun som gjør boksing og yoga og har hatt fast følge med noen andre i fire år. Hun skal avansere til ham når alt er på stell. Når han er økonom som far, skal de ha HHBB, tre barn og puddel.
+Nour og Nicky trener klokken 18 for …
+Oakley og Ori trener klokken 19 for …
+Paris og Peri trener klokken 20 for å møte den rette. Begge har stått i den fulle heisen. Tre etasjer ned fra gaten, en etasje opp fra parkeringen på SATS Colosseum. Begge topp ti prosent mest attraktiv på Tinder, ingen av dem topp syv prosent. Far lot ham bli mann da han vokste til 160 cm. Han fikk lov til å gå på treningsstudio og bli “Alpha” slik som ham. Far er 164 cm i sokkelessen, men har alltid innlegg i skoene. Sønn trener høyinsentiv og har gjort det fem år. Oslo Marathon og Birken blir Peace of Cake når arbeidslivet kommer. Kliner med henne på basketbanen. Hun som gjør boksing og yoga og har hatt fast følge med noen andre i fire år. Hun skal avansere til ham når alt er på stell. Når han er økonom som far, skal de ha HHBB, tre barn og puddel.
 #### p. 77
 ### Motstrømregning
 🎵 [Would I lie To You; Duophonic](https://aigap.no/mwilty)
@@ -921,6 +923,16 @@ Filmskapere har både før og etter hatt samme innstilling. I denne boka er musi
 #### p. 198
 ### Dimensjonalitet. Akser
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
+“Hun er multidimensjonal"; med frihet i tankens rom.
+Ikke bare endimensjonal: “Du er bra!”, sier hun likevel.
+…En akse av frihetsgrad beskriver alt. “God. Dårlig”.
+To egenskaper til: “Du er bra, kan og vil mye!”.
+Fire akser: “Du er bra, og du lærer!”, planmessighet.
+…Einstein ville være fornøyd; tid eller årsak-virkning Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
+Mine frihetsgrader. Jeg nyter hennes. Uten å forstå.
+#### p. 199
+### Dimensjonalitet. Akser
+🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 “Hun er multidimensjonal"; hun har høy frihet i tankens rom.
 En dimensjon: “Ting er bra!”. Eller mer eller mindre dårlig.
 …En akse av frihetsgrad beskriver alt. En egenskap.
@@ -928,9 +940,9 @@ Tre dimensjoner: “Hun er bra og kan mye!”. Areal og dybde.
 Fire akser: “Hun er bra, og har lært mye!”, planmessighet.
 …Einstein ville være glad; tid (eller årsak-virkning) Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
 Mine halvdefinerte akser. Jeg nyter hennes. Kjenner dem ikke.
-#### p. 199
+#### p. 200
+kjærlighet jeg gav videre til neste generasjon
+#### p. 201
 ## Uplassert og ubestemt
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix og mer
-#### p. 200
-kjærlighet jeg gav videre til neste generasjon
