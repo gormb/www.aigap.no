@@ -772,7 +772,7 @@ Det er veldig usannsynlig at innovasjon handler om nye ideer, det kan i beste fa
 “Så hva er løsningen? hva er alternativet?” spurte jeg en guru fra oppstartsmiljøet. “Har du hørt om Sushi?”, sa han. “Jeg forstår ikke”, her skulle jeg heldigvis ikke få noe gratis. “Maki ble først kjent etter at tangen ble gjemt inne i risen. Da det var motsatt vegret folk seg mot å prøve. Ris vet vi hva er”.
 “Betyr det at folk ikke ønsker innovasjon?” spurte jeg.
 Oppstartseksperten så til siden uten å svare.
-“For å redusere frykten for det nye kan innpakningen ha en gjengkjennelseseffekt, da blir det adoptert", sa han en time senere. “Maki med tang på utsiden ble ikke kjent igjen, det første du så var tang, du visste ikke hva du så på. Ris vet vi hva er. Vekk med tangen og frem med risen. Gjem tang og fisk i ris”
+“For å redusere frykten for det nye kan innpakningen ha en gjengkjennelseseffekt, da blir det adoptert", sa han en time senere. “Maki med tang på utsiden ble ikke gjenkjent, det første du så var tang, du visste ikke hva du så på. Ris vet vi hva er. Vekk med tangen og frem med risen. Gjem tang og fisk i ris”
 “Så innovasjon med filter er umulig?”, igjen ingen svar…
 #### p. 171
 ### Vestens forfall
