@@ -198,11 +198,14 @@ I flew over the handlebars of the motorcycle at speed, slow enough for survival,
 #### p. 47
 The spine had compression fractures in the 2nd, 3rd, and 6th vertebrae from the top, but I was not paralyzed.
 #### p. 48
+### Treatment
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 Morphine of all types was implanted in the body, placed in the back, given intravenously, and served in pill form. Fast-acting and long-acting.
 #### p. 49
 After the episode, I have never again asked anyone to pull themselves together if they are scared; I am now aware that it is not a given that it is possible.
 #### p. 50
-The advantage of going crazy is, as is also said about death and stupidity, that it is not your own problem, only a problem for those closest to you. The disadvantage of going crazy is that it is a problem for those around you.
+The advantage of going crazy is, as is also said about death and stupidity, that it is not your own problem, only a problem for those closest to you.
+The disadvantage of going crazy is that it is a problem for those around you.
 #### p. 51
 The life as it was is no more. But it doesn't have to be worse; now there is room to build something new.
 #### p. 52
