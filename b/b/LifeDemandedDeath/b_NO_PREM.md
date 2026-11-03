@@ -313,7 +313,7 @@ Mindre skader, som brister i et skulderblad, og brudd i en lillefinger ble ignor
 Derfor sitter jeg igjen med bagatellmessige varige men som en skjev lillefinger og et nervesystem som ikke kjenner nok smerte når det egentlig burde.
 #### p. 48
 ### Behandling
-🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Behandlinger inkluderte et utall operasjoner, hudtransplantasjon, bli lagt i koma og behandling av delir. Delir er en psykotisk tilstand mange får når medisinbruk, operasjoner, manglende oksygentilførsel til hjernen og andre skader går over grensen for hva man som menneske kan takle.
 Man vet ikke hvor mye som skal til før man mister forstanden, før det skjer.
 Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.

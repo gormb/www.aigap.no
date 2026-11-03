@@ -199,7 +199,7 @@ I flew over the handlebars of the motorcycle at speed, slow enough for survival,
 The spine had compression fractures in the 2nd, 3rd, and 6th vertebrae from the top, but I was not paralyzed.
 #### p. 48
 ### Treatment
-🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Morphine of all types was implanted in the body, placed in the back, given intravenously, and served in pill form. Fast-acting and long-acting.
 #### p. 49
 After the episode, I have never again asked anyone to pull themselves together if they are scared; I am now aware that it is not a given that it is possible.

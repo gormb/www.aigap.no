@@ -292,7 +292,7 @@ Minor injuries, like a fractured shoulder blade and a broken little ﬁnger, wer
 Hence, I'm left with minor permanent issues like a crooked little ﬁnger and a nervous system that doesn't feel enough pain when it really should.
 #### p. 48
 ### Treatment
-🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Treatments included countless surgeries, skin grafts, being placed in a coma, and treatment for delirium. Delirium is a psychotic state many enter when medication use, surgeries, lack of oxygen to the brain, and other injuries cross the limit of what a human can handle. You don't know how much it takes before you lose your mind, until it happens.
 Morphine of all types was implanted in the body, placed in the back, given intravenously, and served in pill form. Fast-acting and long-acting.
 After the worst was over physically, psychiatric medication for two days, and the delirium disappeared. An unexpected glimmer of hope, a small spark, was enough to come back from the abyss. I undeservedly returned completely without either tranquilizers or sleeping pills.
