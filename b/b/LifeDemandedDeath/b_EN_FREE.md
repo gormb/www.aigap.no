@@ -204,8 +204,7 @@ Morphine of all types was implanted in the body, placed in the back, given intra
 #### p. 49
 After the episode, I have never again asked anyone to pull themselves together if they are scared; I am now aware that it is not a given that it is possible.
 #### p. 50
-The advantage of going crazy is, as is also said about death and stupidity, that it is not your own problem, only a problem for those closest to you.
-The disadvantage of going crazy is that it is a problem for those around you.
+The advantage of going crazy is, as is also said about death and stupidity, that it is not your own problem, only a problem for those closest to you. The disadvantage of going crazy is that it is a problem for those around you. It is not important for me to know if I have ended up with a permanent personality change or lower cognitive abilities; it lies beyond the horizon and gives no joy to know. Not possible for me to see or measure, and if I ask those closest to me, they may be too shaped by their own traumas, by believing they would lose me, to be able to answer.
 #### p. 51
 The life as it was is no more. But it doesn't have to be worse; now there is room to build something new.
 #### p. 52

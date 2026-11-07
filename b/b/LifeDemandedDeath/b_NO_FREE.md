@@ -204,7 +204,7 @@ Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst 
 #### p. 49
 Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig
 #### p. 50
-Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for de rundt deg.
+Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg.
 #### p. 51
 Livet som det var er ikke mer. Men det trenger ikke være dårligere, nå er det plass til å bygge noe nytt.
 #### p. 52
