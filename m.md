@@ -59,7 +59,7 @@ Jeg møtte henne ikke.
 Lyden av glassplate som knuses. Pulveriseres. Det er lyden av mc-hjelm som ødelegges mot bakken. Hvis du har hjelmen på hodet når den går i stykker. Hjelmer som har gått i bakken må kastes, men folk kan gå videre.
 Verden jeg kjente hadde gått til helvete. Jeg husker øyeblikket jeg forsto det, rett før jeg gikk i koma. Verden gikk ikke til helvete på et øyeblikk, men erkjennelsen kom som et smell som å ødelegge motorsykkelhjelm med hodet først i asfalten.
 Tre av de fire gangene jeg har ødelagt hjelmer husker jeg godt, og alle gangene har satt varige spor. Men erkjennelsen av at verden ikke var den samme smalt hardere enn noen ulykke.
-“Ohne Dich”. En time inne i en samtale med Anna, en altfor
+“Ohne Dich”. En time inne i en samtale med Anna, en altfor ung, og for sin egen lykke for genial, ukrainsk romantisk
 #### p. 10
 interesse, delte vi musikkfavoritter. Min utvalgte låt, en sang av Rammstein, handler om tapet av en mor. For meg handler sangen ikke bare om tapet av min egen mor, men er også et følelsesmessig anker for mange ting som for alltid er tapt.
 Uten deg kan jeg ikke eksistere på samme måte.

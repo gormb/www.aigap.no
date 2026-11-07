@@ -21,14 +21,13 @@ Jeg kjenner mine egne subjektive sannheter og velger med integritet å heller sn
 Starter med noen sanne historier fra mitt liv, ubalansert og av og til objektivt upresist. Rått, fragmentert, provoserende desperat.
 Hvis jeg for eksempel sier “MC-hjelmen sprakk, ikke som i film, men i et sanseløst smell som enda en gang satte seg som varig fysisk frykt i kroppen”, kan det hende at episoden var mer dramatisk for de som så meg gå i bakken. Eller mindre.
 Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Om folk har trodd de bevitnet en dødsulykke, eller en bagatell er deres historeie. For meg kan det bli utelatt eller oppblåst. Blir leseren provosert gir det plass til tolkning.
-Første kapitler er lest høyt mange ganger, neste delt med andre, etterhvert er teksten ren selvsnakk ufiltrert refleksjon.
 #### p. 5
 ### Det gamle finnes ikke mer
 🎵 [Ohne Dich; Rammstein](https://aigap.no/mod)
 Lyden av glassplate som knuses. Pulveriseres. Det er lyden av mc-hjelm som ødelegges mot bakken. Hvis du har hjelmen på hodet når den går i stykker. Hjelmer som har gått i bakken må kastes, men folk kan gå videre.
 Verden jeg kjente hadde gått til helvete. Jeg husker øyeblikket jeg forsto det, rett før jeg gikk i koma. Verden gikk ikke til helvete på et øyeblikk, men erkjennelsen kom som et smell som å ødelegge motorsykkelhjelm med hodet først i asfalten.
 Tre av de fire gangene jeg har ødelagt hjelmer husker jeg godt, og alle gangene har satt varige spor. Men erkjennelsen av at verden ikke var den samme smalt hardere enn noen ulykke.
-“Ohne Dich”. En time inne i en samtale med Anna, en altfor
+“Ohne Dich”. En time inne i en samtale med Anna, en altfor ung, og for sin egen lykke for genial, ukrainsk romantisk
 #### p. 6
 interesse, delte vi musikkfavoritter. Min utvalgte låt, en sang av Rammstein, handler om tapet av en mor. For meg handler sangen ikke bare om tapet av min egen mor, men er også et følelsesmessig anker for mange ting som for alltid er tapt.
 Uten deg kan jeg ikke eksistere på samme måte.
@@ -254,6 +253,7 @@ Men vær så snill og fortell meg hvem jeg er.
 Ved et annet bord på studentkafeen sitter en man i midten av 20-årene og kremter høyt omtrent en gang i minuttet. Et rop om hjelp og oppmerksomhet med angst som munner i for lite naturlig pust. Jeg tenker på mine egne tidvis høye skuldre og manglende pust som barn. Som voksen ble det øredøvende motorsykkel som revnet seg gjennom natten. Det skulle en nesten-dødelig ulykke til for å fjerne nok markeringsbehov til at jeg lever relativt ufarlig. Det er en god ting, selv om kvinner og samfunn gir fordelene til de høyrøstede og aggressive, kan roen og tryggheten belønnes med hvile. Mannen som kremter etter luft speiler min egen tidligere flukt i 200 km/t for å overdøve min indre angst. Før var maskinen eneste rop om hjelp, men jeg er gjenfødt.
 Markeringsbehovet er borte; jeg har funnet roen, den naturlige pusten og et liv som er mitt eget. Skjønnheten i egen ro.
 #### p. 41
+nødvendig    skrivekurs
 kjærlighet jeg gav videre til neste generasjon
 #### p. 42
 ## Uplassert og ubestemt

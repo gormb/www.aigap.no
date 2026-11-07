@@ -21,7 +21,6 @@ Starting with some true stories from my life, unbalanced and occasionally object
 If I, for example, say "the motorcycle helmet cracked, not like in the movies, but in a senseless crash that once again embedded itself as lasting physical fear in my body," it might be that the episode was more dramatic for those who saw me go down. Or less.
 My feeling is nonetheless true and neither underreported nor dramatized.
 Whether people have believed they witnessed a fatal accident, or a triviality, is their story. For me, it can be omitted or inflated. If the reader is provoked, it gives room for interpretation.
-The first chapters have been read aloud many times, the next shared with others; eventually, the text is pure self-talk, unfiltered reflection.
 #### p. 5
 ### The old is no more
 🎵 [Ohne Dich; Rammstein](https://aigap.no/mod)
