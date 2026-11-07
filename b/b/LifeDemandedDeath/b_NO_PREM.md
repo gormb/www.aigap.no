@@ -1291,6 +1291,7 @@ Seks dimensjoner: “Skjebnen sa det blir henne, hun er uenig.”
 “Jeg lever i handlingen, hun i skjebne mellom handling.”
 Mine frihetsgrader. Jeg nyter hennes. Uten å forstå.
 #### p. 200
+nødvendig    skrivekurs
 kjærlighet jeg gav videre til neste generasjon
 #### p. 201
 ## Uplassert og ubestemt
