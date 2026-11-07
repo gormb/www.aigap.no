@@ -33,7 +33,7 @@ interesse, delte vi musikkfavoritter. Min utvalgte låt, en sang av Rammstein, h
 Uten deg kan jeg ikke eksistere på samme måte.
 Den unge kvinnen jeg daglig snakket med bodde i lånt feriehus i Bordeaux, der hun også tok vare på sin mor.
 Leilighetene familien eide i Kiev hadde ikke lenger noen hele vinduer, de var alle knust som et resultat av at byen ble bombet. Den flinke piken trengte hele vinduer rundt seg i sin internasjonale mellomlederjobb.
-"Und die Vögel singen nicht mehr". Da jeg møtte henne første gang fant jeg ut at hun var smartere enn meg. En bunnløs kvinne som la merke til at jeg registrerte at hun var et multidimensjonalt vesen. Ikke overfølsom som skandinaviske overbegavede damer, selv om de også er dømt til et liv med mer evner enn lykke.
+"Und die Vögel singen nicht mehr". Da jeg møtte henne første gang fant jeg ut at hun var smartere enn meg. En bunnløs kvinne som la merke til at jeg registrerte at hun var et multidimensjonalt vesen. Ikke overfølsom som skandinaviske overbegavede damer, selv om de også er dømt til et liv med mer evne enn lykke.
 Denne kvinnen fra krigsherjede Ukraina var også dømt til liv med råskap døpt av ondskap og smerte. Den underliggende nerdete sårbarheten er den samme hos alle de kvinnene som fikk bok i belønning da de var flinke piker, men de begavede fra krig og elendighet mister livets illusjoner gjennom smerte.
 Fuglen synger ikke mer.
 #### p. 7
@@ -171,23 +171,54 @@ Nullsumlivet dør, skapelse uten ødeleggelse blir mulig. Død gir plass til nyt
 #### p. 28
 ### Ulykken
 🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
+Jeg tok en Brun Tequila med M og dama hennes.
+Brun Tequila på formiddagen og livstruende ulykke på kvelden. Det gav erfaringer som aldri kan avlæres.
 Den delen av meg som døde av den livreddende behandlingen på akutten ga mulighet for slutten på et liv, en identitet, et selv.
 Hvor mye jeg skulle beholde av det jeg hadde vært, det kunne jeg velge selv. Fordelen av koma og delir er at så lite er igjen av den man var, at man kan omskrive seg selv.
+Fysisk sett var livet som jeg kjente det var over. En måned på akutten og månedsvis med morfin endret alt. Aksepten for at livet jeg hadde før var borte var enkel, en uklar periode hadde fått en varig avslutning og kroppen ble leget.
 #### p. 29
+Livreddende behandling ved polytraume gis med lite eller stort team, et lite var nok for meg. Skadene inkluderte brist i noen av de øverste ryggvirvlene, lungeblødning, elleve knekte ribbein, høyenergibrudd og en knekt lillefinger. Ingen gadd å bry seg med lillefingeren, så den ser litt rar ut fortsatt. Noen ting er ekstreme nok til at de må oppleves for at man skal kunne forstå dem.
+Det var ikke skadene som fikk meg til å gå fra forstanden.
+Lungeemfysem, en blødning etter operasjonene eller ulykken, hadde nådd lungene. For lite oksygen til hjernen. Selv merket jeg det som vrangforestillinger og fysisk angst. Noe som skiller fysisk angst fra intellektuell, er at det er nyttig å rasjonalisere med en som har den intellektuelle typen.
 Jeg fløy over styret på motorsykkelen i fart, langsomt nok for overlevelse, fort nok for store skader. Det første som treffer bakken går i stykker, for meg var det høyre ben.
+Skader Det ble brudd av kategori type 3b. Brudd deles inn i nivå en, to og tre. Nivå tre deles igjen inn i a, b og c. Statistisk sett ender 3a, b og c med amputasjon henholdsvis 5, 25 og 50 prosent av tilfellene. Mitt brudd medførte 25% sjanse for amputasjon, multitraume og alvorlige skader rundt omkring i kroppen. Sannsynlighet for kognitiv reduksjon. Forskjellige
 #### p. 30
+typer varige men av fysisk og psykisk art.
+“Like shifting sands in an ocean's bed”. Blodoppsamling i lungene begrenset oksygentilførselen til hjernen nok til at jeg, ifølge journaler, hadde ukontrollerte skjelvinger og angst, så jeg gikk i den psykotiske tilstanden delir. Ingenting var lengre stabilt; identitet, kropp og virkelighet var i bevegelse.
 Ryggraden hadde kompresjonsbrudd i 2., 3. og 6. virvel ovenfra, men jeg ble ikke lam.
+Selv om halvparten av ribbeina var knekt hadde de holdt seg på plass, og de som var forskjøvet punkterte ikke vitale organer. Jeg våknet med plast langs hele den ene siden av brystkassen, men vet ikke om det var fordi de plukket ut grusrester av meg eller hadde justert punkterende ribbein, det er ikke viktig.
+Mindre skader, som brister i et skulderblad, og brudd i en lillefinger ble ignorert den første uken mens de mange livsnødvendige operasjonene ble utført og benet ble reddet.
+Derfor sitter jeg igjen med bagatellmessige varige men som en skjev lillefinger og et nervesystem som ikke kjenner nok smerte når det egentlig burde.
 #### p. 31
 ### Behandling
 🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
+Behandlinger inkluderte et utall operasjoner, hudtransplantasjon, bli lagt i koma og behandling av delir.
+Delir er en psykotisk tilstand mange får når medisinbruk, operasjoner, manglende oksygentilførsel til hjernen og andre skader går over grensen for hva man som menneske kan takle.
+Man vet ikke hvor mye som skal til før man mister forstanden, før det skjer.
 Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.
+Etter at det verste var over fysisk ble det psykiatrimedisin to dager, og delir forsvant. Et uventet glimt av håp, en liten gnist var nok til å komme tilbake fra avgrunnen. Jeg kom ufortjent helt tilbake uten hverken beroliggende eller sovemedisin.
 #### p. 32
-Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig
+Opplevelse Under delir var jeg overbevist om at operasjonene var finansiert av naken-TV, og at droner angrep sykehuset ute etter å ta livet mitt. Jeg hadde det jeg vil betegne som fysisk angst, noe vesensforskjellig fra intellektuell angst. Overbevist om at datter hadde ansiktstatovering og at min ukrainske venninne burde ta seg av planleggingen av behandlingen min, var jeg sikkert en irriterende pasient. Intens desorientering må oppleves for å forstås; delir, kaos og hallusinasjon er ikke mer forståelig enn kvantefysikk. Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig. Perioden med delir framstår som ekte fullgode minner, der jeg hadde en annen forståelse av virkeligheten, det er en fortid jeg aksepterer. Kunnskap, håp, og selvopplevelse glir bort, som minner som ikke holder seg; tapet av kontroll er varig, jeg takker hver dag for at jeg er fri for angst og paranoia.
+Småsøsken S så en gang en kort film av meg fra før ulykken og jeg forsto ikke hvorfor hun gråt. Mennesker rundt meg har nok en dypere innsikt i hvor mye ulykken har endret meg enn det er mulig for meg å ha selv. Jeg vet at blodproppen som beveget seg rundt i kroppen er en av tingene som kunne ha drept meg, og kan ha gitt meg varige skader. Kroppen gikk inn i ukontrollerte skjelvinger jeg ikke husker, og på tross av at jeg var sterk og klar
 #### p. 33
-Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg.
+gjennom skader, operasjoner og medisinbruk gikk jeg i delir da kroppen kjempet for livet. Oksygenmangel til hjernen endret alt.
+Min yngste søster trodde aldri jeg skulle bli den samme igjen.
+Mens legene kjempet for livet mitt så hun to mulige utfall.
+Eldste bror skulle dø, eller bli invalid, og friheten han endelig fikk med MC-livet var over. Sjansen for at alt skulle bli som før var for henne minimal. Jeg får aldri vite om jeg ble som før, bare hun vet.
+Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg. Det er ikke viktig for meg å vite om jeg har endt opp med en varig personlighetsendring eller lavere kognitive evner, det ligger utenfor horisonten og gir ikke noe glede å vite det. Ikke mulig for meg å se eller måle, og hvis jeg spør noen av mine nærmeste, kan de være for formet av egne traumer, av å tro de skulle miste meg, til å være i stand til å svare.
+Jeg sitter fast i den kollapserte versjonen av meg selv, kan ikke tillate meg å flyte tilbake til et farlig liv uten å skade dem jeg elsker. Vurderinger rundt eget og andres potensial blir fort begrenset av hvordan man observerer, akkurat som at kvantefysikk er utilgjengelig for hjernen vår. Superposisjoner i kvanteverden blir begrenset ned til å følge behovet til den som observerer. Vil vurderinger av meg være i kontekst av forholdet jeg har til den som observerer, vår intuitive forståelse av både
 #### p. 34
+dimensjonalitet og sannsynlighet er formet av vår evne til å observere, både følelsesmessig og abstrakt.
+“Elsk meg for det jeg er, ikke mitt potensial” har jeg sagt til forelskede, men aldri en søster eller datter.
+Forholdet til mine søstre og døtre har blitt dårligere.
 Livet som det var er ikke mer. Men det trenger ikke være dårligere, nå er det plass til å bygge noe nytt.
+Vrangforestillinger Ikke alle vrangforestillinger kan jeg skrive om. Noen er fortsatt for sårt å snakke om for de jeg er glad i. Tårene triller bare jeg tenker på det. Andre forestillinger er bare morsomme minner.
+Avdelingen ved Ullevål sykehus der de driver akutt kamp for livredning, traumesenteret, akutten, har helikopterplass der det stadig lander helikoptre. Hver gang et helikopter landet, utspant det i hjernen min et droneangrep der jeg skulle drepes.
+Det begynte da hodet fikk for lite oksygen. Journalen avslører at ekstremitetene, armer og bein, begynte å skjelve ukontrollert. Jeg skulle dø. Hjernen fikk for lite oksygen og vrangforestillinger sto for tur. Først fløy det en uskyldig drone rundt den kunstige næringen jeg fikk, dronen tok bilder.
 #### p. 35
+Jeg klaget over den innbilte dronen og husker sykepleierne nikket forståelsesfullt, men ikke løste problemet. Fordi mannen til bonusdatter på det tidspunktet fløy droner i politiet tolker jeg det dithen at familien var der og fulgte med.
+Så kom veteraner i militæret etter meg. Først en mc-klubb fra Trøndelag, de var ute etter meg fordi jeg gav meg for tidlig fra militæret. Tok ikke utenlandstjeneste. En dame fra mc-klubben gikk inn og ut og skulle koordinere hvordan de skulle ta meg ut av spill.
+Etterhvert som tiden gikk grodde historiene sammen, og alle fra militært landsskytterstevne, som var avholdt et sted jeg nylig hadde besøkt, skulle drepe meg med droner fra lang avstand. Jeg visste døden var nær forestående og fikk stadig oppgitt nye tidspunkt jeg skulle skytes.
 Det var helt uaktuelt å få besøk av familie. De måtte overleve.
 #### p. 36
 ### Blanke ark
@@ -200,17 +231,28 @@ Eventyret var ikke lenger hennes virkelighet. Det er greit.
 ### Styrke fra forsørgersvikt
 🎵 [The Logical Song; Supertramp](https://aigap.no/mtls)
 Tre år etter ulykken sitter jeg på en studentcafe.
+Oppmerksomheten går til et ungt par som sitter på skrå overfor meg. De er nok i slutten av 20-årene, tilsynelatende vellykkede, veltrent og velstelt, går de sikkert begge på yoga.
+Jeg forteller meg selv at de aldri i sitt liv har hatt en ubetalt regning, vært i slåsskamp, eller har strøket på noen eksamen.
+Det sitter en ukjønnet baby på mors fang, far sitter og strikker, kanskje er han praktiserende feminist.
+Paret får meg til å reflektere over mine egne foreldres bekymringsløse 70-tallsidyll som rikmannsbarn, deres lettsindighet smittet meg. Da jeg var ung var livet vidunderlig.
 Da jeg først hadde kommet inn på kafeen så jeg en dame okkupere de fire beste setene. På spørsmål om en var ledig,
 #### p. 38
 ristet hun på hodet. Lukten av kjønnsløs nihilisme fra folk som aldri har opplevd ekte motstand eller en ubetalt regning, den norske kaldheten. Klinisk, intellektuell og kynisk.
+Damen som ikke ville dele plass får øye på puddelen jeg har med meg og ser ut som at hun vil ha kontakt. Jeg rynker på nesen, i det jeg har noe hun vil ha, kontakt med en liten hund, ønsker den unge damen velkommen, hun er et slags symbol på en trygg boligsparende generasjon som skal få lønn fra et offentlig byråkrati betalt av oljepenger. Men aldri skape noe nytt for andre. Logisk, ansvarlig og praktisk.
+Jeg vet ikke hvor forakten kommer fra, jeg har alltid lovet meg selv at jeg aldri skulle bli en gretten gammel gubbe, men kanskje er det uunngåelig. Mannen som har sittet og strikket leker og herjer med babyen, kanskje alt er som det skal, hvor ille kan det være at en mann har blitt til en kvinne? Det har kommet til en ung mor til i samtalen paret har, en kjapp og engasjert samtale på brautende bergensdialekt. Kanskje er det ikke noe i veien likevel, kanskje har verden alltid vært slik, og jeg bare er overfølsom for endringene jeg selv går gjennom.
+Avstanden jeg ønsker fra nullsumspillet de alle spiller. Den strikkende mannen tar på seg damekåpen og går etter damene uten å hjelpe til.
+Kanskje var paret litt som mine egne foreldre på 70-tallet.
 #### p. 39
-Pass på hva du sier, ellers kaller de deg radikal.
+Mens 68-erne var frigjort fra arbeid, farget av kvinnefrigjøring, er ungdommen i dag farget av motstanden mot krenking.
+Hverken generasjonen før meg eller den etter har blitt herdet mot realiteten som ligger i at vi i Norge er skjermet mot krig og fattigdom, og ikke trenger å ha politikk innrettet mot nytte for folk, vi kan leve på idealer. Slik som mine foreldre på slutten av 60-tallet, begge rikmannsbarn og uten kjennskap til mer ondskap i verden enn teoretisk urettferdighet, og min forakt bunner ut i at de aldri gav meg mulighetene de selv hadde fått fra sine foreldre. Pass på hva du sier, ellers kaller de deg radikal.
+Jeg husker min mor klaget over at hun ikke fikk så fin bil på 18-årsdagen sin, mens jeg takket være kaotisk ungdomsliv aldri fikk hverken penger eller stabilitet til å ta førerkort for bil i det hele tatt. Kontrasten mellom mors klaging over for dårlig ny bil og min egen kaotiske ungdom uten førerkort hadde sikkert satt spor. Hvis jeg ikke hadde komplisert livet mitt.
+Spørsmålene stikker for dypt for en enkel mann.
+Mine foreldre var frie 68-ere, men for meg ble de emosjonelt passive grønnsaker i sin egen overflod, det var så kaotisk hjemmetilværelse i ungdomsalderen at jeg ikke hadde jobb lenge nok til å betale for den slags, og mors penger gikk til svømmebasenget i hagen og fars til luksusleilighet bak slottet og havseileren. Respektabel, presentabel, en grønnsak!
 #### p. 40
-Mannen som kremter etter luft speiler min egen tidligere flukt i 200 km/t for å overdøve min indre angst. Før var maskinen eneste rop om hjelp, men jeg er gjenfødt.
+Jeg ser det absurde i at mine besteforeldres penger gikk til mine foreldres svømmebasseng og havseiler, mens min egen tilværelse var i konstant oppløsning, og vi levde som fattige i en velstående familie. Jeg vet det høres absurd ut.
+Mor og far ville ha barn, men ville de oppdra? Kanskje hadde jeg vært mer lykkelig hvis jeg arvet deres Machiavellisme og kanskje ikke. I ungdommen hadde jeg håp om å finne min identitet. Men vær så snill og fortell meg hvem jeg er.
+Ved et annet bord på studentkafeen sitter en man i midten av 20-årene og kremter høyt omtrent en gang i minuttet. Et rop om hjelp og oppmerksomhet med angst som munner i for lite naturlig pust. Jeg tenker på mine egne tidvis høye skuldre og manglende pust som barn. Som voksen ble det øredøvende motorsykkel som revnet natten. Det skulle en nesten-dødelig ulykke til for å fjerne nok markeringsbehov til at jeg lever relativt ufarlig. Det er en god ting, selv om kvinner og samfunn gir fordelene til de høyrøstede og aggressive, kan roen og tryggheten belønnes med hvile. Mannen som kremter etter luft speiler min egen tidligere flukt i 200 km/t for å overdøve min indre angst. Før var maskinen eneste rop om hjelp, men jeg er gjenfødt.
+Markeringsbehovet er borte; jeg har funnet roen, den naturlige pusten og et liv som er mitt eget. Skjønnheten i egen ro.
 #### p. 41
 nødvendig    skrivekurs
 kjærlighet jeg gav videre til neste generasjon
-#### p. 42
-## Uplassert og ubestemt
-🎵 [Yesterday; Beatles](https://aigap.no/myb)
-Appendix og mer
