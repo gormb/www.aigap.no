@@ -20,7 +20,7 @@ Innovasjon gir fremskritt, jeg tror ikke vi kaller det innovasjon hvis det ikke 
 Jeg kjenner mine egne subjektive sannheter og velger med integritet å heller snakke om dem.
 Starter med noen sanne historier fra mitt liv, ubalansert og av og til objektivt upresist. Rått, fragmentert, provoserende desperat.
 Hvis jeg for eksempel sier “MC-hjelmen sprakk, ikke som i film, men i et sanseløst smell som enda en gang satte seg som varig fysisk frykt i kroppen”, kan det hende at episoden var mer dramatisk for de som så meg gå i bakken. Eller mindre.
-Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Om folk har trodd de bevitnet en dødsulykke, eller en bagatell er deres historeie. For meg kan det bli utelatt eller oppblåst. Blir leseren provosert gir det plass til tolkning.
+Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Om folk har trodd de bevitnet en dødsulykke, eller en bagatell er deres historie. For meg kan det bli utelatt eller oppblåst. Blir leseren provosert gir det plass til tolkning.
 Første kapitler er lest høyt mange ganger, neste delt med andre, etterhvert er teksten ren selvsnakk ufiltrert refleksjon.
 #### p. 5
 ### Lotte
