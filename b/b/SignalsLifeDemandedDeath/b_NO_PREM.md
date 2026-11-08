@@ -2,7 +2,6 @@
 # SignalsLifeDemandedDeath
 #### p. 2
 ## Nullsum
-🎵 [Spotify Playlist](https://aigap.no/mlist)
 “Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
 Advokaten jeg nettopp hadde møtt over whisky smålo.
 “Nei, du skulle vært død”
