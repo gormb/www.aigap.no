@@ -2,7 +2,6 @@
 # SignalsLifeDemandedDeath
 #### p. 2
 ## Zero Sum
-🎵 [Spotify Playlist](https://aigap.no/mlist)
 "Riding my motorcycle from Kiel to Alicante averaging  170 km/h, I could have been arrested all over Europe", I said.
 The lawyer I had just met over a Whisky chuckled.
 "No, you should be dead"
