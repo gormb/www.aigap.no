@@ -1,8 +1,9 @@
 #### p. 1
 # SignalsLifeDemandedDeath
 #### p. 2
+Spilleliste
 ## Zero Sum
-"Riding my motorcycle from Kiel to Alicante averaging  170 km/h, I could have been arrested all over Europe", I said.
+"Riding motorcycle from Kiel to Alicante average 170 km/h, I could have been arrested all over Europe", I said.
 The lawyer I had just met over a Whisky chuckled.
 "No, you should be dead"
 Maybe so, but I feel nothing anyway, except shame towards my loved ones. Perhaps through Music, I can experience the loss of sanity as sound, time standing still, breakdown and realization.
