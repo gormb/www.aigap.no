@@ -296,7 +296,7 @@ Brun Tequila på formiddagen og livstruende ulykke på kvelden.
 Det gav erfaringer som aldri kan avlæres.
 Den delen av meg som døde av den livreddende behandlingen på akutten ga mulighet for slutten på et liv, en identitet, et selv.
 Hvor mye jeg skulle beholde av det jeg hadde vært, det kunne jeg velge selv. Fordelen av koma og delir er at så lite er igjen av den man var, at man kan omskrive seg selv.
-Fysisk sett var livet som jeg kjente det var over. En måned på akutten og månedsvis med morfin endret alt. Aksepten for at livet jeg hadde før var borte var enkel, en uklar periode hadde fått en varig avslutning og kroppen ble leget.
+Fysisk sett var livet som jeg kjente det over. En måned på akutten og månedsvis med morfin endret alt. Aksepten for at livet jeg hadde før var borte var enkel, en uklar periode hadde fått en varig avslutning og kroppen ble leget.
 #### p. 46
 Livreddende behandling ved polytraume gis med lite eller stort team, et lite var nok for meg. Skadene inkluderte brist i noen av de øverste ryggvirvlene, lungeblødning, elleve knekte ribbein, høyenergibrudd og en knekt lillefinger. Ingen gadd å bry seg med lillefingeren, så den ser litt rar ut fortsatt. Noen ting er ekstreme nok til at de må oppleves for at man skal kunne forstå dem.
 Det var ikke skadene som fikk meg til å gå fra forstanden.
