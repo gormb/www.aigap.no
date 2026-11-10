@@ -439,12 +439,12 @@ Without wanting to die. Without wanting to live. Limbo without presence. The mos
 #### p. 73
 ### Training
 🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
-Aya and Andrea train at 05 o'clock for …
+Aya and Andrea train at 5 o'clock to look good. He applies makeup subtly. He is to look good during training, and look good after sweating. Training or sex: he looks best afterwards. She looks best before. Surgically enhanced J.Lo butt from her 18th birthday maintained as a 40-year-old. Jennifer Lopez has slimmed away her own.…
 Bo and Basma train at 6 o'clock because that is the recipe for living properly conformist.
 He mostly stands between the machines and talks with a colleague from a "Big four" consulting firm, the four glorifying temp agencies that extend the public sector with flexible labor. Three per thousand of the employees get rich; the rest gain entry into middle management at the clients. You don't want to know what they're talking about; it's important and exciting for exactly them, not others. IT. Finance.
+#### p. 74
 She is tall and uses the ski machine to prepare for the winter trips with mom and dad. Feels clumsy on other machines; the ski machine works.
 Soon winter will finally come.
-#### p. 74
 Cory and Chris train at 07 o'clock to continue life together. She sits in studio 2 at Majorstua Yoga from half past six and gets her daily lonely minutes.
 The children are driven to kindergarten by him, who arrives one minute late. They have trained for twelve years and met each other at the push-up bar nine years ago.
 Dakota and Dominique train at 08 o'clock for …
@@ -452,7 +452,7 @@ Eden and Eli train at 09 o'clock to have something to do on Saturday morning. He
 Perfect. In a week they'll see each other again.
 Frida and Finley train at 10 o'clock for …
 #### p. 75
-Gale and Gurli train at 11 o'clock to ﬁnd time together. Father and daughter spend lunch two days a week at an elitist gym. The unnamed center has a pool, hot tub, and Finnish sauna. Most use a personal trainer, but not father and daughter; they have their own program. She gets Dad 100%, and he gets to be the father he didn't take the time to be when she was growing up. It says "1-1 sustainability" in both of their calendar entries.
+Gale and Gurli train at 11 o'clock to find time together. Father and daughter spend lunch two days a week at an elitist gym. The unnamed center has a pool, hot tub, and Finnish sauna. Most use a personal trainer, but not father and daughter; they have their own program. She gets Dad 100%, and he gets to be the father he didn't take the time to be when she was growing up. It says "1-1 sustainability" in both of their calendar entries.
 Hikaru and Hayden train at 12 o'clock for …
 Ingrid and Inès train at 13 o'clock for …
 Jamie and Jude train at 14 o'clock for …
