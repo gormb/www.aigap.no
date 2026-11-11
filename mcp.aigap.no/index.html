@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aigap MCP</title>
+<title>Aigap MCP Overview</title>
 <style>
   :root { color-scheme: light dark }
   body { margin:0 auto; font:16px/1.6 system-ui,-apple-system,sans-serif; max-width:44rem; padding:2.5rem 1.25rem 4rem }
@@ -16,33 +16,11 @@
   details { margin:.75rem 0 }
   summary { cursor:pointer }
 </style>
-<h1>Aigap MCP</h1>
-<p class="sub">A minimal Model Context Protocol server running on Cloudflare Workers.</p>
+<h1>Aigap MCP Overview</h1>
 
-<h2>Endpoint</h2>
-<pre>https://mcp.kontakt-aigap.workers.dev/mcp</pre>
-<p style="opacity:.65;margin:.6rem 0 0">Transport: <strong>Streamable HTTP</strong></p>
-
-<h2>Tools</h2>
-<p><code>hello</code> &mdash; takes <code>name</code> (string) and returns a greeting.</p>
-
-<h2>Connect from VS Code / Copilot</h2>
-<pre>{
-  "servers": {
-    "aigap": {
-      "type": "http",
-      "url": "https://mcp.kontakt-aigap.workers.dev/mcp"
-    }
-  }
-}</pre>
-
-<h2>Try it with curl</h2>
-<pre>curl https://mcp.kontakt-aigap.workers.dev/mcp \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json, text/event-stream' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"initialize",
-       "params":{"protocolVersion":"2025-06-18","capabilities":{},
-                 "clientInfo":{"name":"curl","version":"1"}}}'</pre>
+<h2>Aigap MCP Server</h2>
+<p class="sub">Model Context Protocol server running on Cloudflare Workers.</p>
+<a href="https://mcp.kontakt-aigap.workers.dev" target="_blank">Open in new tab</a>
 
 <h2>Todo</h2>
 Current plan is to implement the following features:
