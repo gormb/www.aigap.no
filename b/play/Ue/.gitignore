@@ -1,0 +1,21 @@
+# Unreal Engine generated output
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Generated IDE project files
+.vs/
+.idea/
+*.sln
+*.slnx
+Automation_*
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Engine-provided plugin copied into the project on demand (re-installed automatically)
+Plugins/VisualStudioTools/
