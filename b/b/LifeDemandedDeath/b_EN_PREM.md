@@ -803,7 +803,7 @@ They don't have the surplus for "what is experienced as empathy", "cultivation",
 The one who kills the moose has the right to eat the heart. My friend kills more than 20 moose every year; he is an expert at hitting animals that others have wounded, "the expert marksman". His problem is that he gets too much moose heart. A moose heart weighs one to two kilos, so with 40 kg of moose heart meat, it becomes more than half of his meals throughout the year. One has too much moose heart, which is why I ate a lot of his moose heart on my trips through Norway.
 #### p. 131
 ### "Timing", Enemy of Love
-🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Cats in the Cradle; Harry Chapin](https://aigap.no/mcitc)
 "Do I fit together with her?" I asked Y.
 - Wrong question.
 - When do I fit together with her?

@@ -578,6 +578,16 @@ Hun har sitt, han har sitt, det er fair game, de er folk. Ingen av dem har i sit
 Den som dreper elgen har rett på hjertet. Min venn dreper mer enn 20 elg hvert år, han er ekspert på å drepe dyr andre har skadet «the expert marksman».
 Problemet med å drepe så mange er at han får for mye elghjerte. Et hjerte veier omtrent to kilo, og skal man spise 40 kg elghjertekjøtt selv blir det hovedingrediens mer enn halvparten av måltidene gjennom året. Han har for mye, Jeg spiste mye av det på turene gjennom Norge.
 #### p. 131
+### Kjærlighetsfienden "Timing"
+🎵 [Cats in the Cradle; Harry Chapin](https://aigap.no/mcitc)
+“Passer jeg sammen med henne”, spurte jeg Y.
+- Feil spørsmål.
+- Når passer jeg sammen med henne?
+- Nettopp.
+- Ikke nå. Vi kommer ikke til å klare det.
+- Hvis du sier det er det sant.
+For meg er det ikke feil kvinne, for henne ikke feil mann. Det er feil tid. For oss. Det er riktig for henne. Det er riktig for meg. Det er feil for oss. Personligheten mellom oss vil ikke.
+Kan ikke ville. Barndommen sier nei.
 #### p. 132
 ### I betraktet av mann fra forrige årtusen
 🎵 [Skin Deep; The Stranglers](https://aigap.no/msd)
