@@ -3,24 +3,33 @@ set "SRC=N:\ue59\s"
 set "DEST=C:\p\UE_5.9b"
 ::Rationale: Copy Win64 binaries needed for running the engine (only newer files).
 :: rd /s Engine
-robocopy "%SRC%\Engine\Binaries\Win64" "%DEST%\Engine\Binaries\Win64" /E /XF *.pdb /XO
-xcopy "%SRC%\Engine\Binaries\DotNET" "%DEST%\Engine\Binaries\DotNET\" /S /I /D
-robocopy "%SRC%\Engine\Binaries\ThirdParty" "%DEST%\Engine\Binaries\ThirdParty" /E /XF *.pdb /XD Linux Mac IOS Android /XO
+set "OPT=/E /XO /R:1 /W:1 /NFL /NDL /NJH /NP /XF *.pdb *.ipch *.ilk *.iobj *.ipdb *.obj *.exp *.map *.tlog *.VC.db"
+
+::Rationale: Copy engine binaries for the platform
+robocopy "%SRC%\Engine\Binaries\Win64" "%DEST%\Engine\Binaries\Win64" %OPT%
 
 ::Rationale: Copy engine binaries for DotNET
-::xcopy "%SRC%\Engine\Binaries\DotNET" "%DEST%\Engine\Binaries\DotNET\" /S /I /Y
-::Rationale: Copy engine binaries for ThirdParty
-::xcopy "%SRC%\Engine\Binaries\ThirdParty" "%DEST%\Engine\Binaries\ThirdParty\" /S /I /Y
+robocopy "%SRC%\Engine\Binaries\DotNET" "%DEST%\Engine\Binaries\DotNET" %OPT%
+
+::Rationale: Copy engine binaries for ThirdParty (skip other platforms)
+robocopy "%SRC%\Engine\Binaries\ThirdParty" "%DEST%\Engine\Binaries\ThirdParty" %OPT% /XD Linux Mac IOS Android
+
 ::Rationale: Copy engine build files
-::xcopy "%SRC%\Engine\Build" "%DEST%\Engine\Build\" /S /I /Y
+robocopy "%SRC%\Engine\Build" "%DEST%\Engine\Build" %OPT%
+
 ::Rationale: Copy engine config files
-::xcopy "%SRC%\Engine\Config" "%DEST%\Engine\Config\" /S /I /Y
+robocopy "%SRC%\Engine\Config" "%DEST%\Engine\Config" %OPT%
+
 ::Rationale: Copy engine content files
-::xcopy "%SRC%\Engine\Content" "%DEST%\Engine\Content\" /S /I /Y
+robocopy "%SRC%\Engine\Content" "%DEST%\Engine\Content" %OPT%
+
 ::Rationale: Copy engine plugins
-::xcopy "%SRC%\Engine\Plugins" "%DEST%\Engine\Plugins\" /S /I /Y
+robocopy "%SRC%\Engine\Plugins" "%DEST%\Engine\Plugins" %OPT%
+
 ::Rationale: Copy engine shaders
-::xcopy "%SRC%\Engine\Shaders" "%DEST%\Engine\Shaders\" /S /I /Y
+robocopy "%SRC%\Engine\Shaders" "%DEST%\Engine\Shaders" %OPT%
+
 ::Rationale: Copy engine source files
-::xcopy "%SRC%\Engine\Source" "%DEST%\Engine\Source\" /S /I /Y
+robocopy "%SRC%\Engine\Source" "%DEST%\Engine\Source" %OPT%
+
 pause
