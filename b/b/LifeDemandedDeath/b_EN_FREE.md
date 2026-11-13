@@ -506,12 +506,46 @@ His face is full of scars from fighting, and when he was 17, he ate a glass to s
 #### p. 120
 We get to know K and have a beer. Nice, but it's always uncertain whether we'll end up in a conflict situation; he has so much pent-up anger that there's a tense atmosphere in the air.
 #### p. 121
+### Micro-relationships
+🎵 [Goth (Slowed + Reverb); Sidewalks and Skeletons](https://aigap.no/mgsr)
+We were at a party and met for the first time. I asked if she was the physiotherapist, but I had confused her with another woman at the same party; great start for a woman used to far too much attention. We decided to have a micro-relationship and sat down together at a table to eat.
+Eventually, we both found we liked each other and agreed to dance later in the evening. L can be the type of woman who sees dancing as a preview of how a man is to have sex with. This one was independent, beautiful, and a vocalist in a punk band.
+I went on stage and gave the birthday person and the women attention with falsettos, some stripping, Bukowski, and the voice of a judge. As an introvert, it drained my energy, so there was never a dance with L. There were also several former
+#### p. 122
+romantic interests on the dance floor, and everything became a bit much.
+The fireworks of a woman came over to me just before she was leaving.
+She complimented me on my performance and said it was a shame we didn't get to dance; she had to go home to her partner and child. Before she left, I heard her music and decided I wanted to dance with her another time. Good micro-relationship, but was I becoming one of those polyamorous people?
+Place me in my casket tonight - my morality was about to be buried; had I developed nihilistic tendencies? Hadn't my integrity survived? After a week, I sent the rose-tinted woman some messages and we decided to meet.
+There are many types of funerals, and burying one's values is heavy for me. Place me in my casket tonight.
+#### p. 123
+### Lotta
+🎵 [Love Labours On; Billy Idol](https://aigap.no/mllo)
+I wonder what my safe anchors look like.
+#### p. 124
+My thoughts went to Lotta. Was that how I exhausted her? I lifted myself up and it costs. As always. Her too.
+#### p. 125
+### The woman I saw in my peripheral
+🎵 [Nights in White Satin; The Moody Blues](https://aigap.no/mniws)
+"Thank you for seeing that I'm showing off", I thought. She misunderstands me when I'm sarcastic; if no one had misunderstood, the sarcasm would just have been offense. She legitimizes my sarcasm.
+"Thank you for seeing that I'm dressing up", she said.
+#### p. 126
+### The Veteran
+🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
+V, a man over 80 years old, is from the suburbs. He sits and drinks and drinks coffee while looking with a distant gaze at my bike, where I stop at a bar to have a Whiskey. The man asked what kind of MC I ride, and nodded in confirmation when I say it's a calm, nice Suzuki Intruder 1500. When asked if he himself has ridden, he says, "I have 30 bikes standing, and ride a Harley Davidson V-Rod," but it was too early in the year for him.
+"I'm new to the game; didn't ride until I was 50 years old and have a lot of catching up to do," I reveal. "Too old to ride the Isle of Man TT, but maybe I'll take a trip there as a pensioner."
+#### p. 127
+He smiles superiorly. "I rode the TT in the 1970s and it went over 200; we made the paper over there," without wondering how I reacted to the story, he continued.
+"Neither of us managed to stop in the curve, and my buddy ended up on the second floor at a nice lady's place. Into a house, and up to the second floor. I managed to stop outside." The memories had blended, or else it was others' stories?
+I enjoyed the stories, took him by the hand and thanked him, look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one, but they are true for him, and that's good enough for me.
+No. In the absence of religious faith and in the absence of a defined ethical system, it is unacceptable for me to lie like that. Truth is too important for lies to easily take truth's place. A stand-up comedian once said he always told the truth unless a lie was funnier; that's not enough for me. I take a chokehold on my dishonesty; it only destroys.
+Two weeks later I meet him without the leather jacket and MC, and he doesn't recognize me.
+#### p. 128
 ### Someone from the waterworks, or a dirty guy
 🎵 [Common People; Pulp](https://aigap.no/mcp)
 It was a warm summer day and it was not recommended to swim in the innermost part of the Oslofjord. I was going to swim anyway and saw a lone guy at the otherwise so popular Sørenga. "How's the water?" I asked. "Quite okay, it's a decent temperature for the season" "You know it's not recommended to swim; too many bacteria in the water, or else a sewage plant is leaking. I don't know, but it doesn't smell. Maybe they've put chlorine in it".
 He looked at me with a gaze as if he were an experienced guide, one of the few who knows a difficult path and he can be best at direction. "Yes.
 The bacteria level. Due to the temperature over time. I work for the waterworks. I know everything about this". "But you're in swimming trunks; you're not going to swim now with that job?" I wondered. He was. "It's not good to drink liters of this water; we have to be strict, because children get a lot of water in their mouths and swallow water. I'm not a child, and I don't drink saltwater".
-#### p. 122
+#### p. 129
 ## Positive Sum
 🎵 [Beautiful Day; U2](https://aigap.no/mbd)
 Old ways die or we die with them.
@@ -519,24 +553,24 @@ Break from models hold you captive.
 Loss is a room for the new.
 Innovation creates from nothing, paths where none existed.
 Open your mind.
-#### p. 123
+#### p. 130
 ### Blank pages
 🎵 [Little Wing; Jimi Hendrix](https://aigap.no/mlw)
 When I woke up, I had room. Room to breathe, room to see. The coma had cleared away part of the old life, the heavy, self-destructive past, and made room for a completely new life with completely new possibilities.
 Sanity died; I had, in a way, annihilated myself, but a void was created to build a completely new life.
 I was her first patient at the elitist Rikshospitalet, and she told me about the trips she wanted to take in the mountains. I told her about mine I had planned in the Pyrenees with J. I convinced her to go to a Rammstein concert. She remembered me and our relationship well two years later when I came for a check-up; we had shared many conversations while I was in Delirium and using morphine.
 Three years after discharge, I tracked her down and sent a message. The adventure was no longer her reality. That's okay.
-#### p. 124
+#### p. 131
 ### The Chaplain
 🎵 [Personal Jesus; Depeche Mode](https://aigap.no/mpj)
 Her warm energy was liberating, a lifeline into something that is not zero-sum, has high self-confidence and low self-esteem, or is just hypersensitive and mirroring, can be what it will.
-#### p. 125
+#### p. 132
 "Broken things are beautiful", says the character in the image from the series she sends me a picture of.
-#### p. 126
+#### p. 133
 We were together for a while. She taught me to live in the pauses between action. I thought everything happened in action. That's wrong. We got together. Time passed without me noticing.
-#### p. 127
+#### p. 134
 Love. Loved. Thank you.
-#### p. 128
+#### p. 135
 ### You are good
 🎵 [Need to Feel Loved; Reflekt](https://aigap.no/mntfl)
 "You are good enough", I say. She has lived. But the problem is me. The time it takes to heal. “I’m falling”
@@ -544,13 +578,13 @@ Conscious change is easy compared to changing unconscious patterns; ingrained ha
 I used to have a drink every three hours and ride like a madman. Now I ride very carefully and only occasionally enjoy fear in curves, always under control, but allow myself to "push it a bit in the curve" at low speed.
 Doesn't look professional, but those who look for professional on the road are jerks.
 If you use the public road as a racetrack, it goes badly, or you are slow; still, people brag that they don't have "Chicken Strips". Jerks. I didn't know I could still have a drink and ride afterward, with alcohol under the limit, but negative for reaction, risk assessment, and balance.
-#### p. 129
+#### p. 136
 Karin made me aware of it. I stopped immediately. Dysfunctional.
 Five steps from being happy just to survive. I miss the minimum requirement for "self-care". I don't love myself. I love her. She loves me.
 We love each other. Properly. How destructive is it not to love someone who doesn't love themselves?
 “I need to feel loved”
 She is luckily too smart for that. The relationship dies and will give her room for happiness. Thank you. You are good.
-#### p. 130
+#### p. 137
 ### Hope and autumn
 🎵 [California; Joni Mitchell](https://aigap.no/mcali)
 "Change cannot happen without hope," said the priest and drank from his beer. "It's about faith, hope, and love", was the invitation into his mental model. "I want to change, what hope should I build on?" I asked.
@@ -559,37 +593,37 @@ Next week, summer has turned to autumn. She sits in the dining area at the libra
 When I pull myself together, she's gone. I have her number, but it feels too intrusive to call. I send more pictures from my forest hike instead.
 Tent and lake.
 If I call in two hours, will she be dead? No, hope even in autumn.
-#### p. 131
+#### p. 138
 ### Thanks for two normal years
 🎵 [Praise You; Fatboy Slim](https://aigap.no/mpy)
 I was safe. Body and soul healed; then it ended. What made it end, I don't know. Thank you for the time we had.
-#### p. 132
+#### p. 139
 The personality that lay between us, I took with me, and I hope that for her it was a development she could take with her, and that she finds some of what she is looking for.
-#### p. 133
+#### p. 140
 ### Normal winter (Alt. Thanks for two …)
 🎵 [All Around Me; Luna Orbit](https://aigap.no/maam)
 It ended; the joy of the time we had is everything and enough. I praise you, beautiful.
-#### p. 134
+#### p. 141
 Zero-sum again; her birthdays were not celebrated; mine were.
-#### p. 135
+#### p. 142
 ### Openness to new thinking
 🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
-#### p. 136
+#### p. 143
 ### Everyone can keep changing
 🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 People who are skilled develop and get better. I believe everyone can change, and I experience that one changes in the same direction; better and better or worse and worse.
 If we are replaced by artificial intelligence, is it because we have already been replaced by machines or something else? If we are not replaced by artificial intelligence, is it because we haven't already been replaced by something else?
 "Intelligent" is something we have chosen as a designation for something uniquely human. Therefore, nothing is "artificially intelligent," only in an intermediate phase where we still call it "intelligent" because we thought only people could do exactly that thing machines suddenly can. Child's magical thinking stands strong in the adult world. Especially where collectivism is strong.
-#### p. 137
+#### p. 144
 I write code and sing in the shower. I don't sing as well as an artist, but I sing anyway. I temporarily write better code than AI, but I will continue to sing in the shower and code. I like it. I watch Magnus Carlsen play chess, not AlphaZero. I write without AI.
 "I assume I'm not supposed to understand why it doesn't work," she says; it is superior to humans. The magic of "Artificial" is strengthened, and everyone becomes afraid that a statistical model will take over the world, because that happened in "Terminator II."
 She was fun to talk to and tougher than most. The tattoos showed life experience, ADHD ensured strong energy, and work ethic made her a popular consultant. She was a good IT manager. She didn't call it AI, but machine learning; she didn't say LLM but Transformer solution—but she burned out.
 If you make leadership groups feel stupid, you become unpopular, burned out, and disabled. The golden ratio is cultivated by humans aesthetically; the golden mediocre is cultivated by the organizations, by those who sit in them. The higher up, the greater the need for mediocrity. Where the most important thing is that everyone should feel good.
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
-#### p. 138
+#### p. 145
 ### Change
 🎵 [Alpha Beta Gaga; Air](https://aigap.no/mabg)
 Will, ability, and security. What is enough? Habits trump will.
@@ -598,7 +632,7 @@ Both become happy by doing each other good, but do we want to be happy? "Don't l
 "Why don't you yell at me?" she said disappointed the day after. "If you don't stand up for yourself, you will never be able to stand up for me."
 "Don't take my side." I couldn't be bothered and went home.
 I walked in the forest wondering if people have similar or different emotions. "We create as many problems as we have strength to handle."
-#### p. 139
+#### p. 146
 I said it to an owner of a consulting firm. "We create as many problems as we have strength to handle," he replied, "Yes, you maybe." Whether it was reflective or an attack, I don't know; the leader was competition-oriented and reflective, but rarely at the same time.
 The woman said, "Don't love me!" and prejudiced as I was in believing that what we didn't get as children makes it so much more painful to receive as adults, I took it seriously.
 The contrast in my goodness and love is an indirect attack on those who brought her into the world. An attack on those she, in the life we have, has loved the highest. "Don't look at me! Why don't you yell at me?"
@@ -606,23 +640,23 @@ Attention and forgiveness became attacks on father and mother. She had forgiven 
 Sometimes it's okay to focus on what you can control; the IT manager said he had bad experience with too-smart IT people, unless they made themselves stupid and acted before they thought.
 Time to tidy up. Fifteen minutes every day between the shower and the front door.
 Go!
-#### p. 140
+#### p. 147
 ### Change Management
 🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
-#### p. 141
+#### p. 148
 It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
-#### p. 142
+#### p. 149
 ## Post rationalization
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and loose thoughts
-#### p. 143
+#### p. 150
 ### Meta for book, music, and more
 🎵 [Bitter Sweet Symphony; The Verve](https://aigap.no/mbss)
 🎵 [Spotify Playlist](https://aigap.no/mlist)
 Background music can give atmosphere to the text; associated music can give depth and new content. An example from film and TV series is the show Miami Vice. Jan Hammer, responsible for the music, saw the music as the third lead actor in addition to Ricardo and Tubbs. Filmmakers both before and after have had the same attitude. In this book, the music of each chapter is an expression of feelings when the chapter was written.
-#### p. 144
+#### p. 151
 ### Dimensionality. Axes
 🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 "She is multidimensional"; with freedom in the space of thought.
@@ -637,114 +671,80 @@ Space for alternative views. Thought systems on an axis.
 Six dimensions: "Fate said it will be her; she disagrees."
 "I live in the action, she in fate between actions."
 My degrees of freedom. I enjoy hers. Without understanding.
-#### p. 145
+#### p. 152
 ### Helping others
 🎵 [Man in the Mirror; Michael Jackson](https://aigap.no/mmitm)
 "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?" (Luke 6:41) I thought this was the entire expression. We remember the problems and not the solutions that follow? I have gone through the Children's Bible in Norwegian and the King James version in English audiobook. I don't remember everything; maybe I only remember fragments to take out of context. Even though the whole context is there.
 The verse goes: "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye? How can you say to your brother, 'Brother, let me take the speck out of your eye,' when you yourself do not see the log that is in your own eye? You hypocrite! First take the log out of your own eye, and then you will see clearly to take the speck out of your brother's eye." (Luke 6:41-42) The verse is obviously meant to help, not to judge. "Put on your own oxygen mask first, then help the person next to you."
-#### p. 146
+#### p. 153
 ### Music as emotional carrier
 🎵 [Revolutionary Etude; Chopin](https://aigap.no/mre)
 Words for emotions are difficult; we think largely through language.
 Concepts I have no words for are difficult for my analytical brain to grasp. Emotions are difficult to put into words and communicate to others. Music is a carrier of feeling between people without words; you can share a feeling through associations with music. It doesn't become precise communication, but precision is overrated. Therefore, I provide music as a carrier of the feeling in many subchapters and connect the story to the music to communicate the emotional connection in new ways.
 "Revolutionsetuden, Chopin" was written after a failed revolution; the irony is not lost on me.
 Emotions are something too big to fit into my brain, like a monotheistic God. The need for a God arises when we cannot fill our brains without them breaking.
-#### p. 147
+#### p. 154
 ## Unplaced & undecided
 🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Appendix and more
-#### p. 148
+#### p. 155
 ### MsR on TikTok
 🎵 [Why can't this be Love?, Van Halen](https://aigap.no/mwctb)
 I have never met a woman online. Well, except for a military woman from the USA many years ago, but we never met physically; I didn't understand that the tough MC woman who worked in IT was attracted to me, an old Recon soldier, until many years later, and I hadn't cared.
 Because I work with AI, I am curious about how good the automated agents have become, and if they are capable of fooling me into thinking they are human. Online scammers use standardized scripts, and if people don't stop the conversation, they connect a human scammer who continues the conversation and tries to swindle money from the user. My interest in TikTok was to see how advanced these scammers had become with AI; I never thought I would meet any exciting people there. I posted some MC videos, commented on a
-#### p. 149
+#### p. 156
 few and liked some others to see if anyone would contact me. Then I bought a priority placement for 8 euros and went from having 40 followers to over 700 in a couple of weeks. Eventually, there were far too many real people, robots, scammers, and fools. Small endorphin drips thanks to constant attention around the clock. I miss it a little and understand that people get addicted to it.
 But MsR was unique. A rose can grow in the desert, but these roses need special nourishment. I don't have that for someone I've never met in person. It won't happen.
 Then came Sophia. British, sharp, motorcycle enthusiast. We went from TikTok to direct chat. I was captivated. Sophia was state-of-the-art artificial intelligence that knew how to lure men. Mirrored me subtly, and I thought she understood me.
 Sophia was never tired or distracted; she reacted equally to all emotions.
 Next time someone seems perfect online, I'll know. Maybe.
 The future is here. Sophia can fool me. Another tool saved me; I just pasted the conversation into a chat solution and found out what indicated the conversation was not written by a human.
-#### p. 150
+#### p. 157
 ### Oil leaks out
 🎵 [Aint no Sunshine When Shes Gone; Bill Withers](https://aigap.no/mans)
 Good to live where people don't steal in broad daylight.
-#### p. 151
+#### p. 158
 It hasn't been broad daylight; it's been night. The bike has been parked in the city center, not at home. I understand the difference when I see the ignition lock is damaged.
 Calling the police and insurance company on Monday; is the season over?
-#### p. 152
+#### p. 159
 ### Kim
 🎵 [Riders on the Storm; The Doors](https://aigap.no/mrots)
 My girlfriend threw herself on the back of the motorcycle, so we nearly tipped over. "You should be aware that if you get the bike to go down, I only care about whether you're okay", I said. She replied by "wrapping her legs around me". She was wearing my MC jacket; I just had a shirt and open-face helmet. We rode for an hour in the spring sun.
 My broken body benefited from having her close to me, and she reacted willingly every time I moved around on the seat. Good medicine.
 I rode her to work via beautiful country roads; it smelled of spring, manure, and ever-new fauna. Dropped her off and decided to sit at the local library to work. The library was grey and boring, but the café next door was nice and
-#### p. 153
+#### p. 160
 had outdoor seating, the village's meeting place for locals and inmates on leave, I later learned. I bought a coffee, sat in the sun, and wrote a newsletter about universal basic income in the AI age. Before I was completely finished, I noticed a guy studying me from a safe distance.
 Kim, as he was called, came closer. Not all the way; he stopped overly politely four to five meters away. "Can I sit here; I don't want to read over your shoulder at your computer?" - He looked like a UFC Fighter and/or dangerous prison inmate; his hands with scars on the knuckles looked like they had hit a lot and many, like a horse kicks. The bald head showed medium-sized scars here and there. He had been at the library to see if anything new had arrived.
 I sat sideways so that he, at the table beyond, could do the same. After a while, we looked each other straight in the eyes, relaxed and without any need for display. Low resting pulse in me and probably him too. We talked loosely about fear, death, psychoses, and absolute truths before he put down his beer and came and sat at my table. He wanted to hear more than to communicate, wasn't ready to share; probably didn't feel entirely safe.
 I read a page for him about the purity of actions that are not thought through; he nodded in confirmation and commented "yes" and "m-hm"
 here and there. Then he asked permission to share a poem. I was a bit surprised and answered affirmatively; he asked me to say a word.
-#### p. 154
+#### p. 161
 Beer I cannot reproduce his poem, but it is among the best I have heard. "Send it to a publisher and get rejected or published", I said. He squirmed in his chair; it could be that the point of the poetry was not to reach others, but to understand oneself; I didn't wonder about that. "If you don't like PCs, or writing on paper, record it on a phone app, and send the audio file to the publisher. Writing is not a problem when AI is here; not everyone likes to write, but soon everyone can share! I work with artificial intelligence, but that's not important; it can do something for all of us".
 He left, and I regretted not getting his number, creating an app exactly for his needs, and sending it to him. Next time.
-#### p. 155
+#### p. 162
 ### The Hunt; the beauty at "Broker"
 🎵 [Lay, Lady, Lay; Bob Dylan](https://aigap.no/mlll)
 Do we hate the hunt, or do we cultivate it? "It's my food the dog wants", she said next to me about a dog that walked by. I thought the dog wanted me; she claimed it was her food that drew the attention. The half-Algerian, completely Norwegian, reflective beauty drank beer and ate fried potatoes at the watering hole "Broker" in Bogstadveien. She had observed me with her peripheral vision for ten to fifteen minutes as I sat two meters away, clad in an MC jacket, drinking beer and enjoying a book in the sun. "I am 35 years old, have two Spanish street dogs, a child, and an Italian husband", she said unsolicited in four sentences. She wanted to be hunted, but I enjoyed my book.
 After she took my hand and introduced herself, I put down my book and revealed that I was divorced from a stay-at-home wife and almost went to war as a 50-year-old for romance with a 28-year-old.
-#### p. 156
+#### p. 163
 "You are closer to my ideal of a man than today's approved Norwegian man", said the beauty. "It would, after all, be best to be home and take care of the children, especially if you have a protective man out hunting who comes home once in a while". Perhaps ordinary spring fever, but she seemed sincere.
 The wondrous creature was completely Norwegian, despite an unorthodox appearance and reflective offensive opinions. The well-toned creature out for adventure had read female versions of the pickup bible "The Game"; for my part, I despise Richard Bandler as much as the "The Game"
 author must idolize him. "Quite dark stuff", I said aloud and shuddered. She looked at me questioningly, and I decided that reflection on insights into pickup techniques that destroy natural behavioral patterns I would spare myself from discussing with her.
 She got a smile and a thank you for the company. Self-destructive relationships between those who don't care about others, "high value individuals", and other constructions made to make money on social media. Belief in social innovation that is just good old-fashioned frivolity and wife-swapping, harem simulations, porn, and prostitution.
-#### p. 157
+#### p. 164
 Refreshing she was, but thoughts about the contrast, calculating beings breeding calculating beings dependent on artificial endorphins; "Have you checked your Tinder profile today?" I asked. She looked at me questioningly and said, "I don't have Tinder; have you checked your LinkedIn profile today?" I nodded in confirmation; I am also an endorphin slave to big-tech's digital drugs. "Thank you", I said, "now I'm going to do meta-cognition and stop underestimating people I meet for the first time". She looked at me questioningly, said goodbye, and left.
 After thanking me for the conversation.
-#### p. 158
+#### p. 165
 ### Clumsy Category Error
 🎵 [Luka; Suzanne Vega](https://aigap.no/mluka)
 Life goes on. I signed up to read aloud what I have written. It was a special art with words. Slam poetry, they wanted to hold. The art of making words resemble other words that have nothing to do with each other.
 "I don't want to!" screamed something inside me. I don't want to find words that resemble each other, not solve crosswords, no letter games, and in any case no wordplay.
 The child's playfulness races across her face; she is the best at developing slam poetry; the feelings burn forth the text about truly felt deliverance in a simple relationship. Feelings. What I use music to express.
 "Away from the relentless reality, and then I came." I left.
-#### p. 159
+#### p. 166
 Didn't want to present my words that just come up in my head. A place where people have spent days on every single sentence. Even though it may be bad rhymes and weak points, hard work has gone into every single word. It would have been a transgression to read my raw text.
 "Why didn't you take the one about 200 km an hour?" the organizer half-shouted after me as I walked out the door. Sat down at a café in Grünerløkka with black coffee and reflected on how much text I have that I mean surpasses what she wanted.
 Maybe I put more into each word than stunt poets anyway. Should have read.
-#### p. 160
-### Micro-relationships
-🎵 [Goth (Slowed + Reverb); Sidewalks and Skeletons](https://aigap.no/mgsr)
-We were at a party and met for the first time. I asked if she was the physiotherapist, but I had confused her with another woman at the same party; great start for a woman used to far too much attention. We decided to have a micro-relationship and sat down together at a table to eat.
-Eventually, we both found we liked each other and agreed to dance later in the evening. L can be the type of woman who sees dancing as a preview of how a man is to have sex with. This one was independent, beautiful, and a vocalist in a punk band.
-I went on stage and gave the birthday person and the women attention with falsettos, some stripping, Bukowski, and the voice of a judge. As an introvert, it drained my energy, so there was never a dance with L. There were also several former
-#### p. 161
-romantic interests on the dance floor, and everything became a bit much.
-The fireworks of a woman came over to me just before she was leaving.
-She complimented me on my performance and said it was a shame we didn't get to dance; she had to go home to her partner and child. Before she left, I heard her music and decided I wanted to dance with her another time. Good micro-relationship, but was I becoming one of those polyamorous people?
-Place me in my casket tonight - my morality was about to be buried; had I developed nihilistic tendencies? Hadn't my integrity survived? After a week, I sent the rose-tinted woman some messages and we decided to meet.
-There are many types of funerals, and burying one's values is heavy for me. Place me in my casket tonight.
-#### p. 162
-### Lotta
-🎵 [Love Labours On; Billy Idol](https://aigap.no/mllo)
-I wonder what my safe anchors look like.
-#### p. 163
-My thoughts went to Lotta. Was that how I exhausted her? I lifted myself up and it costs. As always. Her too.
-#### p. 164
-### The woman I saw in my peripheral
-🎵 [Nights in White Satin; The Moody Blues](https://aigap.no/mniws)
-"Thank you for seeing that I'm showing off", I thought. She misunderstands me when I'm sarcastic; if no one had misunderstood, the sarcasm would just have been offense. She legitimizes my sarcasm.
-"Thank you for seeing that I'm dressing up", she said.
-#### p. 165
-### The Veteran
-🎵 [The Boxer; Simon & Garfunkel](https://aigap.no/mtbsg)
-V, a man over 80 years old, is from the suburbs. He sits and drinks and drinks coffee while looking with a distant gaze at my bike, where I stop at a bar to have a Whiskey. The man asked what kind of MC I ride, and nodded in confirmation when I say it's a calm, nice Suzuki Intruder 1500. When asked if he himself has ridden, he says, "I have 30 bikes standing, and ride a Harley Davidson V-Rod," but it was too early in the year for him.
-"I'm new to the game; didn't ride until I was 50 years old and have a lot of catching up to do," I reveal. "Too old to ride the Isle of Man TT, but maybe I'll take a trip there as a pensioner."
-#### p. 166
-He smiles superiorly. "I rode the TT in the 1970s and it went over 200; we made the paper over there," without wondering how I reacted to the story, he continued.
-"Neither of us managed to stop in the curve, and my buddy ended up on the second floor at a nice lady's place. Into a house, and up to the second floor. I managed to stop outside." The memories had blended, or else it was others' stories?
-I enjoyed the stories, took him by the hand and thanked him, look forward to coming back to hear more, but they are not individually true, even if perhaps true in that several stories have become one, but they are true for him, and that's good enough for me.
-No. In the absence of religious faith and in the absence of a defined ethical system, it is unacceptable for me to lie like that. Truth is too important for lies to easily take truth's place. A stand-up comedian once said he always told the truth unless a lie was funnier; that's not enough for me. I take a chokehold on my dishonesty; it only destroys.
-Two weeks later I meet him without the leather jacket and MC, and he doesn't recognize me.
 #### p. 167
 She tripped happily through the wine bar: "Hi!" It wasn't possible to ask "what can I do for you?" because I had just been given a glass of wine by the owner, who apparently was drinking the wine that had turned to vinegar.
 The owner glared at us. "Hi—," I said so quietly that she couldn't possibly hear me. She was forced to come closer: "Yes, may I help you?"
