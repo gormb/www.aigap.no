@@ -10,12 +10,34 @@ Saved/
 .idea/
 *.sln
 *.slnx
+*.csproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.xcodeproj/
+*.xcworkspace/
 Automation_*
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.opendb
+*.VC.db-shm
+*.VC.db-wal
+*.db-shm
+*.db-wal
+*.log
+*.dmp
+*.tmp
+*.uproject.user
+*.uplugin.user
 *.opensdf
 *.sdf
 *.VC.db
 *.VC.opendb
+
+# Local editor preferences
+Config/*PerProjectUserSettings.ini
 
 # Engine-provided plugin copied into the project on demand (re-installed automatically)
 Plugins/VisualStudioTools/

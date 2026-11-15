@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{35773E36-4957-2329-FD83-4D951E020172}",
+	"EngineAssociation": "{910F9464-45EB-9D94-A40F-F88D17460DC0}",
 	"Category": "",
 	"Description": "LddMin - Default Vignette",
 	"Modules": [
@@ -26,9 +26,5 @@
 				"Win64"
 			]
 		}
-	],
-	"TargetPlatforms": [],
-	"AdditionalRootDirectories": [],
-	"AdditionalPluginDirectories": [],
-	"EpicSampleNameHash": ""
+	]
 }
