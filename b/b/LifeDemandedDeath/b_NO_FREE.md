@@ -954,8 +954,7 @@ Bo og Basma trener klokken 06 fordi det er oppskriften på å leve riktig konfor
 #### p. 199
 Hun er høy og bruker skimaskinen for å forberede seg til vinterturene med mor og far. Føler seg keitete på andre maskiner, skimaskinen virker. Snart kommer endelig vinteren.
 Cory og Chris trener klokken 07 for å fortsette livet sammen. Hun sitter i sal 2 på Majorstua Yoga fra halv syv og får sine daglige ensomme minutter. Barna kjøres i barnehagen av ham, som kommer inn ett minutt på.  De har trent i tolv år og møtte hverandre ved push-up stangen for ni år siden.
-Dakota og Dominique trener klokken 08 for …
-Eden og Eli trener klokken 09 for å ha noe å gjøre lørdag morgen. Han har store overarmer trent hele voksne liv. Bryter tilværelse fra ensomhet. 22 kvadratmeters hjem på Furuholmen. Aker Brygge Yoga og henne. Hun fra hjem med tildekking av hår.
+Dakota og Dominique trener klokken 08 for å fem ganger går hun bort å hjelper ham med yogastillingen Eden og Eli trener klokken 09 for å ha noe å gjøre lørdag morgen. Han har store overarmer trent hele voksne liv. Bryter tilværelse fra ensomhet. 22 kvadratmeters hjem på Furuholmen. Aker Brygge Yoga og henne. Hun fra hjem med tildekking av hår.
 Gjemmer seg ikke. Ti år yoga endelig instruktør. Instruerer ham i ny strekkeøvelse. Perfekt. Om en uke ses de igjen.
 Frida og Finley trener klokken 10 for …
 #### p. 200
