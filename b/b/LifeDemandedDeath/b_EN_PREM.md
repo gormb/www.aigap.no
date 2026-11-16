@@ -1246,7 +1246,7 @@ Dakota and Dominique train at 8 o'clock to make the most of Sunday. He does yoga
 Eden and Eli train at 09 o'clock to have something to do on Saturday morning. He has large upper arms trained his entire adult life. Breaks existence from loneliness. A 22-square-meter home on Furuholmen. Aker Brygge Yoga and her. She from a home with covering of hair. Doesn't hide. Ten years of yoga, finally an instructor. Instructs him in a new stretching exercise.
 Perfect. In a week they'll see each other again.
 #### p. 199
-Frida and Finley train at 10 o'clock for …
+Frida and Finley train at 10 o'clock to stay in shape before old age. She is a physiotherapist; he is a hand therapist. Knitting and bodyweight are weights enough; as experts in exercise technique, they get a complete walkthrough of all muscle groups with 25 minutes of training per week; showering and changing take five minutes.
 Gale and Gurli train at 11 o'clock to find time together. Father and daughter spend lunch two days a week at an elitist gym. The unnamed center has a pool, hot tub, and Finnish sauna. Most use a personal trainer, but not father and daughter; they have their own program. She gets Dad 100%, and he gets to be the father he didn't take the time to be when she was growing up. It says "1-1 sustainability" in both of their calendar entries.
 Hikaru and Hayden train at 12 o'clock to stretch out with yoga. She trains Thai boxing at Frontline; he does BJJ. Because Joe Rogan has said yoga is good, they do it. They also drink the vitamin water he advertises and dream of stem cell treatment in the future.
 Ingrid and Inès train at 13 o'clock for …

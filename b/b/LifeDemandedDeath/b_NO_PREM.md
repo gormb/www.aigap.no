@@ -1284,7 +1284,8 @@ Dakota og Dominique trener klokken 08 for å utnytte søndagen maksimalt. Han yo
 Eden og Eli trener klokken 09 for å ha noe å gjøre lørdag morgen. Han har store overarmer trent hele voksne liv. Bryter tilværelse fra ensomhet. 22 kvadratmeters hjem på Furuholmen. Aker Brygge Yoga og henne. Hun fra hjem med tildekking av hår.
 Gjemmer seg ikke. Ti år yoga endelig instruktør. Instruerer ham i ny strekkeøvelse. Perfekt. Om en uke ses de igjen.
 #### p. 199
-Frida og Finley trener klokken 10 for …
+Frida og Finley trener klokken 10 for å holde seg i form før alderdommen.
+Hun er fysioterapeut, han håndterapeut. Strikker og kroppsvekt er vekter nok, som eksperter på treningsteknikk får de fullstendig gjennomgang av alle muskelgrupper med 25 minutters trening i uken, dusj og skifting tar fem minutter.
 Gale og Gurli trener klokken 11 for å finne tid sammen. Far og datter bruker lunsjen to dager i uka på elitistisk treningssenter. Senteret uten navn har basseng, boblebad, og finsk sauna. De fleste bruker personlig trener, men ikke far og datter, de har sitt eget opplegg. Hun får pappa 100%, og han får være den faren han ikke tok seg tid til å være da hun vokste opp. Det står “1-1 bærekraft” i begges kalenderoppføring.
 Hikaru og Hayden trener klokken 12 for å strekke ut med yoga. Hun trener thai boxing på Frontline, han BJJ. Fordi Joe Rogan har sagt Yoga er bra gjør de det. De drikker også vitaminvannet han reklamerer på og drømmer om stamcellebehandling i fremtiden.
 Ingrid og Inès trener klokken 13 for …
