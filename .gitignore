@@ -25,3 +25,9 @@ Temporary Items
 # Finder
 Icon?
 out.txt
+
+# Unreal Editor's default Untitled level and its generated external assets
+/b/play/Ue/Content/Untitled.umap
+/b/play/Ue/Content/Untitled_HLOD0_Instancing.uasset
+/b/play/Ue/Content/__ExternalActors__/Untitled/
+/b/play/Ue/Content/__ExternalObjects__/Untitled/
