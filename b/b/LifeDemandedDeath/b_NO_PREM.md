@@ -1275,7 +1275,7 @@ Han tenkte på “Gullgravingsoppdraget” på Ullevål sykehus.
 #### p. 197
 ### Trening
 🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
-Aya og Andrea trener klokken 05 for å se bra ut. Han sminker seg subtilt. Skal se bra under trening, og se bra ut etter svetting. Trening eller sex: han ser best ut etterpå. Hun ser best ut før. Operert J.Lo rompe fra 18-års dagen holdt ved like som 40-åring. Jennifer Lopez har slanket bort sin egen.
+Aya og Andrea trener klokken 05 for å se bra ut. Han sminker seg subtilt. Skal se bra ut under trening, og etter svetting. Trening og sex: han ser best ut etterpå. Hun ser best ut før. Operert J.Lo rompe fra 18-års dagen holdt ved like som 40-åring. J-Lo slanket sin.
 Bo og Basma trener klokken 06 fordi det er oppskriften på å leve riktig konformt. Han står for det meste mellom apparatene og snakker med kollega fra et “Big four” konsulentselskap, de fire forherligende vikarbyråene som forlenger det offentlige med fleksibel arbeidskraft. Tre promille av de ansatte blir rike, resten får innpass i mellomledelse hos kundene. Du vil ikke vite hva de snakker om, det er viktig og spennende for akkurat dem, ikke andre. IT. Finans.
 #### p. 198
 Hun er høy og bruker skimaskinen for å forberede seg til vinterturene med mor og far. Føler seg keitete på andre maskiner, skimaskinen virker. Snart kommer endelig vinteren.
@@ -1288,19 +1288,20 @@ Frida og Finley trener klokken 10 for å holde seg i form før alderdommen.
 Hun er fysioterapeut, han håndterapeut. Strikker og kroppsvekt er vekter nok, som eksperter på treningsteknikk får de fullstendig gjennomgang av alle muskelgrupper med 25 minutters trening i uken, dusj og skifting tar fem minutter.
 Gale og Gurli trener klokken 11 for å finne tid sammen. Far og datter bruker lunsjen to dager i uka på elitistisk treningssenter. Senteret uten navn har basseng, boblebad, og finsk sauna. De fleste bruker personlig trener, men ikke far og datter, de har sitt eget opplegg. Hun får pappa 100%, og han får være den faren han ikke tok seg tid til å være da hun vokste opp. Det står “1-1 bærekraft” i begges kalenderoppføring.
 Hikaru og Hayden trener klokken 12 for å strekke ut med yoga. Hun trener thai boxing på Frontline, han BJJ. Fordi Joe Rogan har sagt Yoga er bra gjør de det. De drikker også vitaminvannet han reklamerer på og drømmer om stamcellebehandling i fremtiden.
-Ingrid og Inès trener klokken 13 for …
 #### p. 200
+Ingrid og Inès trener klokken 13 for å utnytte at de kan føre to timers trening som arbeidstid hver uke. “Kan ikke skrive med kvinnes stemme, men forsøkte en vinkling da dama på pilates var borte hos meg hele tida, selv om jeg var lengst mulig unna henne og bare ville strekke meg i fred”, skrev han i ukebrevet på jobben. “Klar for Holmenkollstafetten, har fått med tre reserve fra helsestudio i dag” skrev hun.
 Jamie og Jude trener klokken 14 for …
 Kerry og Kim trener klokken 15 for …
 Logan og Lumi trener klokken 16 for …
-Milan og Marley trener klokken 17 for …
+#### p. 201
+Milan og Marley trener klokken 17 for å vise at de er fremgangsrike. Han går på spinning hele året for å være god på Birken, bruker skimaskinen hele året av samme grunn. Hun har beste “Personal Trainer” fordi hun kan, og sikrer at etter-sex sminken ser bra ut etter svetting. Selfie på SoMe er viktigere enn trening. Alle som betyr noe trykker “like” på bildet etter trening. De er suksess!
 Nour og Nicky trener klokken 18 for …
 Oakley og Ori trener klokken 19 for …
-#### p. 201
+#### p. 202
 Paris og Peri trener klokken 20 for å møte den rette. Begge har stått i den fulle heisen. Tre etasjer ned fra gaten, en etasje opp fra parkeringen på SATS Colosseum. Begge topp ti prosent mest attraktiv på Tinder, ingen av dem topp syv prosent. Far lot ham bli mann da han vokste til 160 cm. Han fikk lov til å gå på treningsstudio og bli “Alpha” slik som ham. Far er 164 cm i sokkelessen, men har alltid innlegg i skoene. Sønn trener høyinsentiv og har gjort det fem år. Oslo Marathon og Birken blir Peace of Cake når arbeidslivet kommer. Kliner med henne på basketbanen. Hun som gjør boksing og yoga og har hatt fast følge med noen andre i fire år. Hun skal avansere til ham når alt er på stell. Når han er økonom som far, skal de ha HHBB, tre barn og puddel.
 Quan og Quincy trener klokken 21 for …
 Robin og Rei trener klokken 22 for …
 Shannon og Sydney trener klokken 23 for …
-#### p. 202
+#### p. 203
 nødvendig    skrivekurs
 kjærlighet jeg gav videre til neste generasjon
