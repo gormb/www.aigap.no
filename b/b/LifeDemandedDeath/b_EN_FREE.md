@@ -150,7 +150,7 @@ We sat for six hours talking at a hip Grünerløkka place and couldn't finish a 
 The night was still young and things escalated; that choice I would really overdo later.
 #### p. 33
 ### Child abuse and wounds
-🎵 [Hurt, Johnny Cash](https://aigap.no/mhnin)
+🎵 [Hurt; Johnny Cash](https://aigap.no/mhjc)
 There is no consequence to leaning too far out of the window. Until you fall. Then you are not prepared.
 #### p. 34
 You don't know where the line goes, but I was in free fall; now I just had to hit the ground.

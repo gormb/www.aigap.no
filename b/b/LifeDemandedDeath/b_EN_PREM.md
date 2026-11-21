@@ -194,7 +194,7 @@ These athletic country girls have an energy that lets them party and love much l
 But a life in high speed is also good; that choice I would really overdo later.
 #### p. 33
 ### Child abuse and wounds
-🎵 [Hurt, Johnny Cash](https://aigap.no/mhnin)
+🎵 [Hurt; Johnny Cash](https://aigap.no/mhjc)
 There is no consequence to leaning too far out of the window. Until you fall. Then you are not prepared.
 The lucky ones live hand in hand with fate, where time and fear are irrelevant. The brain is better equipped for new thinking every time you come out the other side, but it is more numb to danger.
 I was going to fall. Had leaned out of the window for a long time; now it wasn't a matter of bad action, just coincidences over time.
