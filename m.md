@@ -978,4 +978,6 @@ Robin og Rei trener klokken 22 for …
 Shannon og Sydney trener klokken 23 for …
 #### p. 203
 nødvendig    skrivekurs
+var der da jeg begynte å leve.
+På nytt.
 kjærlighet jeg gav videre til neste generasjon
