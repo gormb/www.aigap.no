@@ -1,1 +1,1 @@
--project="../../../LddMin/LddMin.uproject"
+-project="../../../LddMin/LddMin.uproject"  -Messaging
