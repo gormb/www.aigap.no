@@ -35,6 +35,12 @@
 			"SupportedTargetPlatforms": [
 				"Win64"
 			]
+		},
+		{
+			"Name": "UnrealCanvasBridge",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"]
 		}
 	]
 }
