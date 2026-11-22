@@ -26,8 +26,8 @@ Temporary Items
 Icon?
 out.txt
 
-# Unreal Editor's default Untitled level and its generated external assets
-/b/_play/Ue/Content/Untitled.umap
-/b/_play/Ue/Content/Untitled_HLOD0_Instancing.uasset
-/b/_play/Ue/Content/__ExternalActors__/Untitled/
-/b/play/Ue/Content/__ExternalObjects__/Untitled/
+# Unreal Editor's default Untitled level and generated external assets
+/b/Ue/Content/Untitled.umap
+/b/Ue/Content/Untitled_HLOD0_Instancing.uasset
+/b/Ue/Content/__ExternalActors__/Untitled/
+/b/Ue/Content/__ExternalObjects__/Untitled/

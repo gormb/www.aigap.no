@@ -39,5 +39,11 @@ Automation_*
 # Local editor preferences
 Config/*PerProjectUserSettings.ini
 
+# Unreal Editor default level and generated external asset caches
+/Content/Untitled.umap
+/Content/Untitled_HLOD0_Instancing.uasset
+/Content/__ExternalActors__/Untitled/
+/Content/__ExternalObjects__/Untitled/
+
 # Engine-provided plugin copied into the project on demand (re-installed automatically)
 Plugins/VisualStudioTools/
