@@ -1,0 +1,16 @@
+[
+  {"url": "Engine/Config/StagedBuild_LddMin.ini", "size": 3, "sha1": "57218c316b6921e2cd61027a2387edc31a2d9471", "br": 0},
+  {"url": "Engine/Content/Renderer/TessellationTable.bin", "size": 259568, "sha1": "3a3402ca2d3531ab8352c818ea1181288bd78c72", "br": 118561},
+  {"url": "Engine/GlobalShaderCache-SP_WEBGPU_ES3_1_DEFERRED.bin", "size": 825700, "sha1": "570c947cc78ed7063879cae22017ec3d8bcf2ca9", "br": 119156, "tier": "deferred"},
+  {"url": "LddMin/Binaries/Wasm/LddMin.js", "size": 476042, "sha1": "dee82e1c9a5203b06b3c4c207b6c3d2454815337", "br": 96121},
+  {"url": "LddMin/Binaries/Wasm/LddMin.wasm", "size": 202801347, "sha1": "17383eb0e436fc91b8f209d4bf7c00a271d5e62a", "br": 41206254, "code": "24932982b646ee95c74d665d6bdff5e03269255d"},
+  {"url": "LddMin/Content/Paks/LddMin-Wasm.pak", "size": 9187801, "sha1": "4d0f0366a3f43b2d196c33e3adee4cc5b5378df6", "br": 0},
+  {"url": "LddMin/Content/Paks/LddMin-Wasm.ucas", "size": 48544400, "sha1": "84d6d519516edfb221f6f2040cac2418b3b8888a", "br": 0},
+  {"url": "LddMin/Content/Paks/LddMin-Wasm.utoc", "size": 134636, "sha1": "815cdf72f5382f5859818f13afbe1eef67740977", "br": 72046},
+  {"url": "LddMin/Content/Paks/global.ucas", "size": 3796176, "sha1": "97e59b6b86d3e36cd57b170e40c3331da8faaa47", "br": 0},
+  {"url": "LddMin/Content/Paks/global.utoc", "size": 890, "sha1": "9aead418d7dfd083abb559d003ecf1e23132ab2e", "br": 0},
+  {"url": "LddMin/Content/ShaderArchive-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "size": 5584381, "sha1": "3ae82405a70d1141efb42f238c24a74637c71cbe", "br": 3310687, "tier": "deferred"},
+  {"url": "LddMin/Content/ShaderArchive-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "size": 2313634, "sha1": "d7b0d1d6f4a74e4284bd8bd9b3b6e39dbf69a1a2", "br": 1393254, "tier": "deferred"},
+  {"url": "LddMin/Content/ShaderTypeInfo-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "size": 22652, "sha1": "2e75b306f69dd9ad872a601562724410ed6bc5db", "br": 7693, "tier": "deferred"},
+  {"url": "LddMin/Content/ShaderTypeInfo-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "size": 9344, "sha1": "3069260da68f2af1bc4d0c12344ce972f3c52dd2", "br": 1393, "tier": "deferred"}
+]

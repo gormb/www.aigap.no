@@ -1,9 +1,14 @@
 # Unreal Engine generated output
-Binaries/
 Build/
 DerivedDataCache/
 Intermediate/
-Saved/
+Binaries/
+Saved/*
+!Saved/StagedBuilds/
+Saved/StagedBuilds/*
+!Saved/StagedBuilds/Wasm/
+!Saved/StagedBuilds/Wasm/**
+/Saved/StagedBuilds/Wasm/LddMin/Binaries/Wasm/LddMin.wasm
 
 # Generated IDE project files
 .vs/
