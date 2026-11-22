@@ -10,6 +10,15 @@ Saved/StagedBuilds/*
 !Saved/StagedBuilds/Wasm/**
 /Saved/StagedBuilds/Wasm/LddMin/Binaries/Wasm/LddMin.wasm
 
+# The deployed LddMin pack needs its game loader and compressed module.
+!LddMin_Pack/Wasm/LddMin/Binaries/
+LddMin_Pack/Wasm/LddMin/Binaries/*
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/
+LddMin_Pack/Wasm/LddMin/Binaries/Wasm/*
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.js
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.js.br
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.wasm.br
+
 # Generated IDE project files
 .vs/
 .idea/
