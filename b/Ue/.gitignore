@@ -8,7 +8,9 @@ Saved/*
 Saved/StagedBuilds/*
 !Saved/StagedBuilds/Wasm/
 !Saved/StagedBuilds/Wasm/**
-/Saved/StagedBuilds/Wasm/LddMin/Binaries/Wasm/LddMin.wasm
+# Only the compressed module is shipped: GitHub rejects blobs over 100 MB and
+# Pages cannot serve Git LFS, so the uncompressed module(s) must stay out.
+/Saved/StagedBuilds/Wasm/LddMin/Binaries/Wasm/*.wasm
 
 # The deployed LddMin pack needs its game loader and compressed module.
 !LddMin_Pack/Wasm/LddMin/Binaries/
@@ -18,6 +20,9 @@ LddMin_Pack/Wasm/LddMin/Binaries/Wasm/*
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.js
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.js.br
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin.wasm.br
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.js
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.js.br
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.wasm.br
 
 # Generated IDE project files
 .vs/

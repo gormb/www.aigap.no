@@ -1,1 +1,2 @@
-b/Ue/Saved/StagedBuilds/Wasm/LddMin/Binaries/Wasm/LddMin.wasm filter=lfs diff=lfs merge=lfs -text
+# No Git LFS here: GitHub Pages serves LFS pointers verbatim, so a playable
+# Wasm build must be committed as plain files (compressed, well under 100 MB).

@@ -1,0 +1,14 @@
+[
+  {"path": "/Engine/Config/StagedBuild_LddMin.ini", "url": "Engine/Config/StagedBuild_LddMin.ini", "size": 3, "sha1": "57218c316b6921e2cd61027a2387edc31a2d9471"},
+  {"path": "/Engine/Content/Renderer/TessellationTable.bin", "url": "Engine/Content/Renderer/TessellationTable.bin", "size": 259568, "sha1": "3a3402ca2d3531ab8352c818ea1181288bd78c72"},
+  {"path": "/Engine/GlobalShaderCache-SP_WEBGPU_ES3_1_DEFERRED.bin", "url": "Engine/GlobalShaderCache-SP_WEBGPU_ES3_1_DEFERRED.bin", "size": 842441, "sha1": "c91e14febc443ef9e6cae304d550aa5a191a35ca", "tier": "deferred"},
+  {"path": "/LddMin/Content/Paks/LddMin-Wasm.pak", "url": "LddMin/Content/Paks/LddMin-Wasm.pak", "size": 9181031, "sha1": "e14d2147fd1ba98431346acc8dc94a463e242b98"},
+  {"path": "/LddMin/Content/Paks/LddMin-Wasm.ucas", "url": "LddMin/Content/Paks/LddMin-Wasm.ucas", "size": 19333792, "sha1": "ac27f1c008241f8cd63f693249fe8a8ab3a98da9"},
+  {"path": "/LddMin/Content/Paks/LddMin-Wasm.utoc", "url": "LddMin/Content/Paks/LddMin-Wasm.utoc", "size": 93356, "sha1": "9bf3716285358935e648de920f0023ef119fd039"},
+  {"path": "/LddMin/Content/Paks/global.ucas", "url": "LddMin/Content/Paks/global.ucas", "size": 16, "sha1": "e129f27c5103bc5cc44bcdf0a15e160d445066ff"},
+  {"path": "/LddMin/Content/Paks/global.utoc", "url": "LddMin/Content/Paks/global.utoc", "size": 206, "sha1": "feefe947075479c18ecefc4229e5e36a5e043313"},
+  {"path": "/LddMin/Content/ShaderArchive-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "url": "LddMin/Content/ShaderArchive-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "size": 5650127, "sha1": "f673f3e6cd24853f0f9fd71f60ca2fe1463072cd", "tier": "deferred"},
+  {"path": "/LddMin/Content/ShaderArchive-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "url": "LddMin/Content/ShaderArchive-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.ushaderbytecode", "size": 2357213, "sha1": "30a23a907d7eeb2a683f68aa10db82beecbbeec2", "tier": "deferred"},
+  {"path": "/LddMin/Content/ShaderTypeInfo-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "url": "LddMin/Content/ShaderTypeInfo-Global-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "size": 23060, "sha1": "e9c07cd92ec5ee42c667135c5e61de993eab4955", "tier": "deferred"},
+  {"path": "/LddMin/Content/ShaderTypeInfo-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "url": "LddMin/Content/ShaderTypeInfo-LddMin-SF_WEBGPU_ES3_1_DEFERRED-SP_WEBGPU_ES3_1_DEFERRED.stinfo", "size": 9260, "sha1": "ffde22464914199d14f267b3de2a1a55bf4451cf", "tier": "deferred"}
+]
