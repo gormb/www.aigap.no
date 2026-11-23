@@ -7,6 +7,7 @@
 
 class UBorder;
 class UImage;
+class UScrollBox;
 class USizeBox;
 class UTextBlock;
 class UTexture2D;
@@ -67,6 +68,9 @@ protected:
 
 	UPROPERTY(meta = (BindWidgetOptional))
 	TObjectPtr<UBorder> QrQuietZone;
+
+	UPROPERTY(meta = (BindWidgetOptional))
+	TObjectPtr<UScrollBox> QrScrollBox;
 
 	UPROPERTY(Transient)
 	TObjectPtr<UTexture2D> CurrentQrTexture;

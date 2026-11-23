@@ -4,6 +4,7 @@
 #include "Components/Image.h"
 #include "Components/Overlay.h"
 #include "Components/OverlaySlot.h"
+#include "Components/ScrollBox.h"
 #include "Components/SizeBox.h"
 #include "Components/SlateWrapperTypes.h"
 #include "Components/TextBlock.h"
@@ -181,6 +182,17 @@ void UQrRuntimeWidget::ApplyLayout()
 		}
 	}
 
+	// The text must fill the space left under the code and clip, not dictate the panel height.
+	if (QrScrollBox)
+	{
+		if (UVerticalBoxSlot* TextSlot = Cast<UVerticalBoxSlot>(QrScrollBox->Slot))
+		{
+			TextSlot->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
+			TextSlot->SetHorizontalAlignment(HAlign_Fill);
+			TextSlot->SetVerticalAlignment(VAlign_Fill);
+		}
+	}
+
 	if (QrImage)
 	{
 		QrImage->SetDesiredSizeOverride(FVector2D(QrDisplaySize, QrDisplaySize));
@@ -208,6 +220,10 @@ void UQrRuntimeWidget::EnsureWidgetBindings()
 	if (!QrQuietZone)
 	{
 		QrQuietZone = Cast<UBorder>(GetWidgetFromName(TEXT("QrQuietZone")));
+	}
+	if (!QrScrollBox)
+	{
+		QrScrollBox = Cast<UScrollBox>(GetWidgetFromName(TEXT("QrScrollBox")));
 	}
 
 	ApplyLayout();
