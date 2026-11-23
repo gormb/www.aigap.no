@@ -11,4 +11,5 @@ class VIGNETTE_API AVignetteHUD : public AHUD
 
 public:
 	virtual void DrawHUD() override;
+	virtual void BeginPlay() override;
 };
