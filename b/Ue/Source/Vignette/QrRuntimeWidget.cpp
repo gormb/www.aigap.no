@@ -21,6 +21,14 @@
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
 
+#if PLATFORM_WASM
+#include "emscripten.h"
+// The page's own origin, so the widget reads /m.png and /m.md from whatever site serves it.
+EM_JS(char*, QrPageOrigin, (), {
+	return stringToNewUTF8(location.origin || (location.protocol + '//' + location.host));
+});
+#endif
+
 namespace
 {
 	// U+1F3B5 (musical note) as a UTF-16 surrogate pair: avoids any dependence on the source file's encoding.
@@ -84,6 +92,24 @@ namespace
 	{
 		return FString::Printf(TEXT("%s?v=%lld"), *Url, FDateTime::UtcNow().GetTicks());
 	}
+
+		// The origin of the page serving the game: https://aigap.no in production, the local
+		// address while testing. Empty when it cannot be read (a non-web build).
+		FString PageOrigin()
+		{
+	#if PLATFORM_WASM
+			char* Raw = QrPageOrigin();
+			if (!Raw)
+			{
+				return FString();
+			}
+			const FString Origin = UTF8_TO_TCHAR(Raw);
+			free(Raw);
+			return Origin;
+	#else
+			return FString();
+	#endif
+		}
 }
 
 void UQrRuntimeWidget::NativeConstruct()
@@ -199,6 +225,15 @@ void UQrRuntimeWidget::ApplyLayout()
 	}
 }
 
+// /m.png and /m.md at the root of the site that served the page.
+FString UQrRuntimeWidget::SiteUrl(const TCHAR* FileName) const
+{
+	const FString Origin = PageOrigin();
+	return Origin.IsEmpty()
+		? FString::Printf(TEXT("/%s"), FileName)
+		: FString::Printf(TEXT("%s/%s"), *Origin, FileName);
+}
+
 void UQrRuntimeWidget::EnsureWidgetBindings()
 {
 	if (!QrImage)
@@ -273,12 +308,7 @@ void UQrRuntimeWidget::EnsureWidgetBindings()
 
 void UQrRuntimeWidget::FetchImage()
 {
-	FString Url = BaseUrl;
-	if (!Url.EndsWith(TEXT("/")))
-	{
-		Url += TEXT("/");
-	}
-	Url += WithCacheBust(TEXT("m.png"));
+	const FString Url = WithCacheBust(SiteUrl(TEXT("m.png")));
 
 	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> Request =
 		FHttpModule::Get().CreateRequest();
@@ -374,12 +404,7 @@ void UQrRuntimeWidget::DisplayQrTile(const TArray<uint8>& PngData)
 
 void UQrRuntimeWidget::FetchText()
 {
-	FString Url = BaseUrl;
-	if (!Url.EndsWith(TEXT("/")))
-	{
-		Url += TEXT("/");
-	}
-	Url += WithCacheBust(TEXT("m.md"));
+	const FString Url = WithCacheBust(SiteUrl(TEXT("m.md")));
 
 	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> Request =
 		FHttpModule::Get().CreateRequest();

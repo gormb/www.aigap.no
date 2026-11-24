@@ -28,9 +28,6 @@ public:
 	void SetQrSelection(const FString& Selection);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QR")
-	FString BaseUrl = TEXT("https://aigap.no/");
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QR")
 	int32 QrIndex = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QR")
@@ -81,6 +78,7 @@ protected:
 	void FetchText();
 	void EnsureWidgetBindings();
 	void ApplyLayout();
+		FString SiteUrl(const TCHAR* FileName) const;
 	void DisplayQrTile(const TArray<uint8>& PngData);
 	void ApplySelectionFromMarkdown(const FString& Markdown);
 	FString SelectSectionFromMarkdown(const FString& Markdown) const;
