@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- The page of a staged Wasm game (one generic page). UAT stages it at the folder's root next to
-     wasm-manifest.json and replaces %UE_PROJECT% with the project's name (the folder of its .js and .wasm, in
-     <Project>/Binaries/Wasm/) and %UE_TITLE% with its title (WasmPlatform.Automation.cs).
+     wasm-manifest.json and replaces LddMin with the project's name (the folder of its .js and .wasm, in
+     <Project>/Binaries/Wasm/) and LddMin with its title (WasmPlatform.Automation.cs).
      The cover: the game starts at once behind it (on an iPhone or iPad once the start gate opens, wasm-gate.js); the cover lists the start-up steps with a loading bar and lifts when the engine
      says the game is ready ('ue-ready', wasm-play.js). Sound starts on the first click or key (browsers allow audio only after
      a gesture). The ue-start meta set to "click" keeps the cover up after ready until the player clicks (that click is the
@@ -16,12 +16,13 @@
      (auto|click), ue-hint ("Esc=Menu;Tab=Controls": the key hint shown while playing, none by default), ue-gpucheck (1: the
      first-visit GPU check picks a starting resolution), ue-native-build (a link for players whose browser cannot run the game),
      ue-start-gate (auto|tap|focus|off: wasm-gate.js). -->
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>%UE_TITLE%</title><meta name="ue-project" content="%UE_PROJECT%"><meta name="ue-game" content="%UE_GAME%"><link rel="icon" href="data:,">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>LddMin</title><meta name="ue-project" content="LddMin"><meta name="ue-game" content="LddMin"><link rel="icon" href="data:,">
 <!-- The name under a home-screen icon on iOS. Installing the game (a progressive web app: Add to Home Screen, Install in
      Chrome and Edge, then it opens without the browser's bars) is opt-in: with bInstallable UAT stages manifest.webmanifest
      (name, display mode, orientation, colours, icons, filled from the Install settings) and the icons, and adds the manifest
      link (rel manifest) and the home-screen icon iOS takes from the page (rel apple-touch-icon) after this tag -->
-<meta name="apple-mobile-web-app-title" content="%UE_TITLE%">
+<meta name="apple-mobile-web-app-title" content="LddMin">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- UE switches every load gets (wasm-loader.js puts them after ?args=). Threads: Chrome stops at about 76 Workers, so the
      task graph creates its workers on demand and oversubscribes by a quarter (at least one standby worker per queue, so a
      worker task that waits on another task cannot deadlock its queue; at most 4 more threads, inside the pthread pool);
@@ -30,7 +31,7 @@
 <meta name="ue-args" content="-TaskGraphUseDynamicThreadCreation=1 -oversubscriptionratio=1.25 -NoLogThread">
 <!-- what a link's ?args= may pass: all, safe (a /Game/ map and the page's switches) or off; UAT writes all in Development,
      safe in Test and Shipping (setting QueryArgs) -->
-<meta name="ue-query-args" content="safe">
+<meta name="ue-query-args" content="all">
 <meta name="ue-max-dpr" content="1">
 <!-- A phone's or tablet's canvas: at least this many device pixels per CSS pixel (at most the device's), the density a native
      mobile build gives the game, so touch controls laid out in pixels cover the same part of the screen; the 3D scene keeps
@@ -83,10 +84,10 @@
 <meta name="ue-resolution-floor" content="">
 <!-- Compatibility policy (wasm-compat.js): warnings below these, required texture features, phones and tablets (warn|block|
      allow), the line non-Chrome browsers read (empty: the built-in one; "none": no line); arguments for one browser only -->
-<meta name="ue-min-cpus" content="4">
-<meta name="ue-min-memory-gb" content="8">
-<meta name="ue-texture-formats" content="texture-compression-bc">
-<meta name="ue-mobile" content="warn">
+<meta name="ue-min-cpus" content="1">
+<meta name="ue-min-memory-gb" content="1">
+<meta name="ue-texture-formats" content="">
+<meta name="ue-mobile" content="allow">
 <!-- The lowest GPU limits the game's shaders need, below which the check stops with a message ("maxStorageBuffersPerShaderStage=12,
      maxSampledTexturesPerShaderStage=20"; empty: none). The engine's own (maxStorageBuffersPerShaderStage=9) apply whatever this says -->
 <meta name="ue-min-gpu-limits" content="">
@@ -118,7 +119,7 @@
 <meta name="ue-prime-args" content="">
 <meta name="ue-prime-when" content="first">
 <!-- A host that cannot send the isolation headers (COOP/COEP): 1 lets the service worker add them (one reload); 0: off -->
-<meta name="ue-sw-isolation" content="0">
+<meta name="ue-sw-isolation" content="1">
 <!-- The end card: an optional https link offered when the game ends, and its text -->
 <meta name="ue-end-link" content="">
 <meta name="ue-end-link-text" content="">
@@ -289,15 +290,18 @@ td:first-child{white-space:nowrap;color:var(--accent);width:1%}
 <!-- The packager's tags that come after staging (-WasmAddTextureSet's ue-texture-sets) go on the line after this marker:
      a page template needs exactly one, in its head (WasmPlatform.Automation.cs PlaceAtHeadMarker) -->
 <!--UE_HEAD_INJECT-->
-</head>
-<body><canvas id="canvas" tabindex="0" aria-label="%UE_TITLE%"></canvas><div id="status"></div>
+<meta name="ue-audio-thread" content="1">
+<meta name="ue-audio-thread-ios26" content="0">
+<meta name="ue-memory64" content="lowered">
+<style>#steps{display:none!important}</style></head>
+<body><canvas id="canvas" tabindex="0" aria-label="LddMin"></canvas><div id="status"></div>
 <div id="corner"><div id="hint" hidden><span id="hint-keys"></span><span class="sound" id="hint-sound" hidden data-i18n>Click or press a key for sound</span></div>
 <div id="toast" role="status" hidden><span id="toast-text"></span><button id="toast-close" type="button" aria-label="Dismiss">&times;</button></div></div>
 <div id="rotate" role="alert"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M21 9a9 9 0 0 1-3 7M18 16v-3.5M18 16h3.5"/></svg><span data-i18n>Turn your phone sideways to play</span></div>
 <div id="cover" role="dialog" aria-modal="true" aria-labelledby="cover-title" aria-busy="true">
   <div id="shell"></div>
   <div id="art">
-    <div class="title"><h1 id="cover-title">%UE_TITLE%</h1>
+    <div class="title"><h1 id="cover-title">LddMin</h1>
       <div id="loader"><div class="bar" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar"><div id="bar"></div></div><div id="progress-text" role="status" aria-live="polite" data-i18n>Starting...</div></div>
       <div id="notice" hidden></div></div></div>
   <ol id="steps" aria-label="Start-up steps"></ol>
@@ -356,17 +360,7 @@ for (const level of ['log', 'warn', 'error']) {
 <script src="wasm-prewarm.js"></script>
 <script src="wasm-play.js"></script>
 <script src="wasm-gzshim.js"></script>
-<script>
-// index_notest: start without the compatibility gate. Every device class runs single-threaded
-// (ue-threads-* = single), so the game needs no SharedArrayBuffer and no cross-origin isolation.
-(() => {
-  const clear = () => { if (window.ueCompat) { window.ueCompat.check = function () { return null; }; return true; } return false; };
-  if (!clear()) {
-    let tries = 0;
-    const t = setInterval(() => { if (clear() || ++tries > 200) clearInterval(t); }, 5);
-  }
-})();
-</script><script src="wasm-loader.js"></script>
+<script>(function(){function c(){if(window.ueCompat){window.ueCompat.check=function(){return null};return true}return false}if(!c()){var n=0,t=setInterval(function(){if(c()||++n>200)clearInterval(t)},5)}})();</script><script src="wasm-loader.js"></script>
 <script>
 // The page's default hooks: pointer lock for mouse look, taken on a click in the canvas (and within the cover's click in
 // ue-start=click). A game that installs its own Module.ueWebPage ({lock(), wanted}) keeps it.
