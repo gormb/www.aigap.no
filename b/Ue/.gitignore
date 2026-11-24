@@ -1,5 +1,8 @@
 # Unreal Engine generated output
-Build/
+Build/*
+!Build/Wasm/
+Build/Wasm/*
+!Build/Wasm/Template/
 DerivedDataCache/
 Intermediate/
 Binaries/
@@ -23,6 +26,7 @@ LddMin_Pack/Wasm/LddMin/Binaries/Wasm/*
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.js
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.js.br
 !LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.wasm.br
+!LddMin_Pack/Wasm/LddMin/Binaries/Wasm/LddMin-Wasm-Shipping.wasm.gz
 
 # Generated IDE project files
 .vs/
