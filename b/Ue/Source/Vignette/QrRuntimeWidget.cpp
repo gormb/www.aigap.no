@@ -24,9 +24,15 @@
 #if PLATFORM_WASM
 #include "emscripten.h"
 // The page's own origin, so the widget reads /m.png and /m.md from whatever site serves it.
-EM_JS(char*, QrPageOrigin, (), {
-	return stringToNewUTF8(location.origin || (location.protocol + '//' + location.host));
-});
+// The origin is written into a caller buffer: returning a pointer from EM_JS does not marshal
+// under wasm64, where pointers are 64-bit.
+static FString QrPageOrigin()
+{
+	char Buffer[512];
+	Buffer[0] = '\0';
+	EM_ASM({ stringToUTF8(location.origin || '', $0, 512); }, Buffer);
+	return FString(ANSI_TO_TCHAR(Buffer));
+}
 #endif
 
 namespace
@@ -98,14 +104,7 @@ namespace
 		FString PageOrigin()
 		{
 	#if PLATFORM_WASM
-			char* Raw = QrPageOrigin();
-			if (!Raw)
-			{
-				return FString();
-			}
-			const FString Origin = UTF8_TO_TCHAR(Raw);
-			free(Raw);
-			return Origin;
+			return QrPageOrigin();
 	#else
 			return FString();
 	#endif
