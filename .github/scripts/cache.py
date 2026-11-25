@@ -40,7 +40,7 @@ def rest(url, key, path, method='GET', body=None):
 
 def book_sha(deployed):
     """sha1 over bokens synkede filer (.pdf + sidecar-.md) – kun checksum."""
-    d = os.path.join(BOOK_DIR, deployed.rsplit('/', 1)[0]) if deployed else ''
+    d = os.path.join(REPO, deployed.rsplit('/', 1)[0]) if deployed else ''  # deployed er repo-relativ (b/<mappe>/…) – BOOK_DIR ville gitt b/b/
     if not d or not os.path.isdir(d):
         return ''
     h = hashlib.sha1()
@@ -65,12 +65,12 @@ def hi_cut(ns, c):
         k += 1
     return n[:k]
 
-def shelf_slugs():
-    """bokens rekkefølge på hyllen – bestemmer hiCut-prefikset i `wher`."""
+def shelf_slugs(url, key):
+    """bokens navn – Supabase `books` er kilden; bestemmer hiCut-prefikset i `wher`."""
     try:
-        with open(os.path.join(BOOK_DIR, 'b', 'shelf.json'), encoding='utf-8') as f:
-            return [str(x.get('book') or '') for x in json.load(f).get('books', []) if x.get('book')]
-    except OSError:
+        rows = json.loads(rest(url, key, 'books?select=book&order=book.asc') or '[]')
+        return [str(r.get('book') or '') for r in rows if r.get('book')]
+    except Exception:
         return []
 
 def wipe(url, key, dry):
@@ -119,7 +119,7 @@ def main():
     if not changed:
         print('ingen bøker endret')
         return
-    n = purge(url, key, [hi_cut(shelf_slugs(), s) for s, _ in changed], dry)  # gren = bokens prefiks i wher
+    n = purge(url, key, [hi_cut(shelf_slugs(url, key), s) for s, _ in changed], dry)  # gren = bokens prefiks i wher
     if not n and not dry:
         n = wipe(url, key, dry)  # rader uten gjenkjennelig prefiks kan ikke skilles – tøm alt
     if not dry:

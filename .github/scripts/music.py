@@ -104,7 +104,7 @@ def main(argv=None):
 
     # sidecar for språket (og utgaven). Uten --ed: PREM før FREE – første forekomst av en sang vinner
     pattern = f'b_{lg}_{ed}.md' if ed else f'b_{lg}_*.md'
-    files = sorted(glob.glob(os.path.join(BOOK_DIR, 'b', '*', pattern)),
+    files = sorted(glob.glob(os.path.join(BOOK_DIR, '*', pattern)),
                    key=lambda p: (0 if 'PREM' in os.path.basename(p) else 1, p))
     seen, unknown = {}, []
     for path in files:

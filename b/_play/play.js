@@ -78,7 +78,7 @@ const books={
         ,inWz:new URLSearchParams(location.search).get('wzoom')==='1'
         ,wzUrl:on=>{const u=new URL(location.href);if(on)u.searchParams.set('wzoom','1');else u.searchParams.delete('wzoom');if(u.search!==location.search)history.replaceState(history.state,'',u);}
         ,root:'../'
-        ,fnOf:()=>books.play.root+'b/'+books.play.book+'/b_'+books.play.lg+'_'+books.play.ed+'.md'
+        ,fnOf:()=>books.play.root+books.play.dirOf(books.play.book)+'/b_'+books.play.lg+'_'+books.play.ed+'.md'
         ,open:(lg,ed,to)=>{books.play.pdf=null;books.play.lg=lg||books.play.lg;books.play.ed=ed||books.play.ed;
             const l=document.getElementById('lang'),v=document.getElementById('ver');if(l)l.textContent=books.play.flag(books.play.lg);if(v)v.textContent=books.play.edIc(books.play.ed);
             const fn=books.play.fnOf(),reload=fn!==books.play.md.fn;
@@ -108,6 +108,7 @@ const books={
             return (bk===books.play.book&&books.play.md.title)?books.play.md.title:bk;
         }
         ,copies:()=>(books.play.shelf||[]).filter(x=>x.book===books.play.book)
+        ,dirOf:b=>(((books.play.manifest||{}).books||[]).find(x=>x.book===b)||{}).dir||b
         ,verLab:v=>v.pdf?'\u{1F4D5} '+books.play.titleOf(v.book):books.play.flag(v.lg)+books.play.edIc(v.ed)+' '+books.play.titleOf(v.book,v.lg,v.ed)
         ,verOn:()=>{const v=books.play.copies().find(x=>(x.fn&&x.fn===books.play.md.fn)||(x.pdf&&x.pdf===books.play.pdf));return v?books.play.verLab(v):'';}
         ,nodename:pl=>{
@@ -136,7 +137,7 @@ const books={
         ,rebuild:()=>{
             const man=books.play.manifest||{books:[]},o=[];
             (man.books||[]).forEach(x=>{
-                books.play.versionsOf(x).forEach(v=>o.push({book:x.book,title:x.title,lg:v.lg,ed:v.ed,fn:books.play.root+'b/'+x.book+'/b_'+v.lg+'_'+v.ed+'.md'}));
+                books.play.versionsOf(x).forEach(v=>o.push({book:x.book,title:x.title,lg:v.lg,ed:v.ed,fn:books.play.root+(x.dir||x.book)+'/b_'+v.lg+'_'+v.ed+'.md'}));
                 if(x.pdf)o.push({book:x.book,title:x.title,pdf:x.pdf,fn:''});
             });
             books.play.shelf=o;
@@ -160,6 +161,7 @@ const books={
             const i=+root.dataset.b||0,prev=bs[i]||{};
             const b={book:(el.querySelector('[data-se="book"]').value||'').trim()};
             if(prev.title)b.title=prev.title;
+            if(prev.dir)b.dir=prev.dir;
             if(prev.pdf!==undefined&&!el.querySelector('[data-se="pdfOn"]'))b.pdf=prev.pdf;
             const vs=[];
             el.querySelectorAll('input[data-se="on"]').forEach(cb=>{
@@ -180,16 +182,48 @@ const books={
         ,seOpen:(lg,ed)=>{books.play.seSet(books.play.seRead(),false);books.play.open(lg,ed,1);}
         ,seCopy:()=>{const txt=JSON.stringify(books.play.manifest,null,1);
             const say=m=>{const s=document.getElementById('seMsg');if(s)s.textContent=m;};
-            if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(()=>say('JSON copied – paste it into b/shelf.json')).catch(()=>say('Could not copy'));
+            if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(()=>say('Shelf JSON copied')).catch(()=>say('Could not copy'));
             else say('Cut the JSON below by hand');}
         ,seReset:()=>{try{localStorage.removeItem(books.play.ovKey);}catch(e){}books.play.manifest=null;books.play.probe().then(()=>{books.play.render.toc();books.play.render.draw();});}
+        ,cfgP:null
+        ,cfg:()=>books.play.cfgP||(books.play.cfgP=new Promise(res=>{ // db.js = SUPABASE config (+ window.db); probe() and the PIN both wait on it
+            if(window.SUPABASE)return res(window.SUPABASE);
+            const s=document.createElement('script');s.src='https://aigap.no/db.js?v=9';
+            s.onload=()=>res(window.SUPABASE||null);s.onerror=()=>{console.warn('[db.js] could not load in the background');res(null);};
+            document.head.appendChild(s);
+        }))
+        ,srcName:()=>({localStorage:'local edits in this browser',supabase:'Supabase (books + book_versions)'}[books.play.src]||books.play.src||'')
+        ,shelfFromSupabase:async cfg=>{ // the shelf is books + book_versions: the book list, its localized names (version = language) and the PDF path are all data
+            const base=cfg.url+'/rest/v1/',h={apikey:cfg.publishableKey,Authorization:'Bearer '+cfg.publishableKey}
+                ,get=q=>fetch(base+q,{headers:h}).then(r=>r.ok?r.json():null).catch(()=>null)
+                ,rank=lg=>{const i=['NO','EN'].indexOf(lg);return i<0?2:i;} // NO first, then EN, then any other language
+                ,ED=['PREM','FREE'];
+            const [rows,vers]=await Promise.all([
+                get('books?select=book,deployed&order=book.asc'),
+                get('book_versions?select=book,version,name&order=book.asc')
+            ]);
+            if(!Array.isArray(rows))return null;
+            const names={};(vers||[]).forEach(r=>{if(r&&r.book)(names[r.book]=names[r.book]||{})[r.version||'EN']=r.name||'';});
+            const out=[];
+            for(const row of rows){
+                const book=(row.book||'').trim();if(!book)continue;
+                const dir=((row.deployed||'').replace(/^b\//i,'').split('/')[0])||book; // folder from books.deployed – a book's name need not match its folder
+                const nm=names[book]||{},lgs=Object.keys(nm).sort((a,b)=>rank(a)-rank(b)||(a<b?-1:1));
+                const langs=lgs.length?lgs:['NO','EN'];
+                const isMd=!row.deployed||await fetch(books.play.root+dir+'/b_'+langs[0]+'_FREE.md',{method:'HEAD',cache:'no-store'}).then(r=>r.ok).catch(()=>false); // one probe per book, not per combination
+                const title=lgs.length?nm:book;
+                if(isMd){const versions=[];langs.forEach(lg=>ED.forEach(ed=>versions.push({lg,ed})));out.push({book,dir,title,versions});}
+                else out.push({book,dir,title,pdf:row.deployed});
+            }
+            return {books:out};
+        }
         ,probe:async()=>{
-            const mix=(bs,lgs,eds)=>{const o=[];bs.forEach(b=>lgs.forEach(lg=>eds.forEach(ed=>o.push({book:b,lg,ed,fn:books.play.root+'b/'+b+'/b_'+lg+'_'+ed+'.md'}))));return o;};
+            const mix=(bs,lgs,eds)=>{const o=[];bs.forEach(b=>lgs.forEach(lg=>eds.forEach(ed=>o.push({book:b,lg,ed,fn:books.play.root+b+'/b_'+lg+'_'+ed+'.md'}))));return o;};
             let man=null,src='';
             try{const ov=localStorage.getItem(books.play.ovKey);if(ov){man=JSON.parse(ov);src='localStorage';}}catch(e){}
             if(!man||!Array.isArray(man.books)){
-                man=await fetch(books.play.root+'b/shelf.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
-                src=man?'shelf.json':'';
+                const cfg=window.SUPABASE||await books.play.cfg();
+                if(cfg&&cfg.url&&!cfg.url.includes('YOUR-')){man=await books.play.shelfFromSupabase(cfg);src=man?'supabase':'';}
             }
             if(man&&Array.isArray(man.books)){books.play.manifest=man;books.play.src=src;return books.play.rebuild();}
             const cs=mix(books.play.md.books,['NO','EN'],['FREE','PREM']),ok=[];
@@ -488,18 +522,18 @@ const books={
                 const i=Math.max(0,Math.min(bs.length-1,books.play.selIdx())),b=bs[i];
                 const head=(x)=>'<h1>'+esc(x||books.play.LV[0].t)+'</h1>';
                 const src=books.play.src==='localStorage'
-                    ?'⚠ changes live in the browser – b/shelf.json is unchanged. Use Copy JSON to make them permanent, or Reset.'
-                    :(books.play.src?'reading b/shelf.json':'no shelf.json found');
+                    ?'⚠ changes live in this browser only – the shelf in Supabase is unchanged. Reset reloads it.'
+                    :(books.play.src?'reading the shelf from '+books.play.srcName():'no shelf found – configure Supabase (db.js)');
                 const bar='<div class="seRow"><button data-se="add">+ book</button>'
                     +'<button data-se="copy">Copy JSON</button>'
                     +'<button data-se="reset">Reset</button><span class="seMsg" id="seMsg"></span></div>'
-                    +'<details class="seJsonBox"><summary>JSON for b/shelf.json</summary>'
+                    +'<details class="seJsonBox"><summary>Shelf JSON</summary>'
                     +'<pre class="seJson">'+esc(JSON.stringify({books:bs},null,1))+'</pre></details>';
-                if(!b)return '<div class="se" data-b="0">'+head()+'<p class="seHint">No books in shelf.json – add one.</p>'+bar+'</div>';
+                if(!b)return '<div class="se" data-b="0">'+head()+'<p class="seHint">No books on the shelf – add one.</p>'+bar+'</div>';
                 const vs=(lg,ed)=>(books.play.versionsOf(b).find(x=>x.lg===lg&&x.ed===ed)||{}).title;
                 const have=(lg,ed)=>books.play.versionsOf(b).some(x=>x.lg===lg&&x.ed===ed);
-                const srcTxt=books.play.src==='localStorage'?'changes live in the browser – b/shelf.json is unchanged'
-                    :(books.play.src?'reading b/shelf.json':'');
+                const srcTxt=books.play.src==='localStorage'?'changes live in this browser only – Supabase is unchanged'
+                    :(books.play.src?'reading the shelf from '+books.play.srcName():'');
                 if(!books.play.editOn){
                     const links=['NO','EN'].flatMap(lg=>['PREM','FREE'].map(ed=>have(lg,ed)
                         ?'<a class="seOpen" data-se="open" data-lg="'+lg+'" data-ed="'+ed+'" title="open '+lg+' '+ed+'">'
@@ -698,8 +732,8 @@ const books={
             });
             books.play.render.el.page.addEventListener('input',ev=>{if(ev.target.closest&&ev.target.closest('#page .se')){books.play.seSet(books.play.seRead(),false);}});
             books.play.render.el.page.addEventListener('change',ev=>{if(ev.target.closest&&ev.target.closest('#page .se')){books.play.seSet(books.play.seRead(),true);}});
-            const dbjs=document.createElement('script');dbjs.src='https://aigap.no/db.js?v=9';dbjs.onerror=()=>console.warn('[db.js] could not load in the background');document.head.appendChild(dbjs);
-            const musicjs=document.createElement('script');musicjs.type='module';musicjs.src=books.play.root+'music.js?v=11';musicjs.onerror=()=>console.warn('[music.js] could not load in the background');document.head.appendChild(musicjs);
+            books.play.cfg(); // db.js (SUPABASE config + window.db) – one load, shared by probe() and the PIN
+            const musicjs=document.createElement('script');musicjs.type='module';musicjs.src=books.play.root+'_r/music.js?v=11';musicjs.onerror=()=>console.warn('[music.js] could not load in the background');document.head.appendChild(musicjs);
             setTimeout(()=>books.play.render.blink(document.getElementById('hiId'),3),400);
         }
     }

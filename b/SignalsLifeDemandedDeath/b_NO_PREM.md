@@ -254,4 +254,6 @@ Ved et annet bord på studentkafeen sitter en mann i midten av 20-årene og krem
 Markeringsbehovet er borte; jeg har funnet roen, den naturlige pusten og et liv som er mitt eget. Skjønnheten i egen ro.
 #### p. 41
 nødvendig    skrivekurs
+var der da jeg begynte å leve.
+På nytt.
 kjærlighet jeg gav videre til neste generasjon

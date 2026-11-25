@@ -493,15 +493,15 @@ def log_ok(url, key, book, message):
     _log(url, key, book, 'sync', 'ok', message)
 
 def publish_md_to_aigap():
-    """Publiser b/b/LifeDemandedDeath/b_NO_FREE.md som aigap.no/m.md – samme repo, samme commit.
+    """Publiser b/LifeDemandedDeath/b_NO_FREE.md som aigap.no/m.md – samme repo, samme commit.
     Returnerer False når m.md ikke ble publisert – feilen feiler workflowen, ikke bare en annotation."""
-    src = os.path.join(BOOK_DIR, 'b', 'LifeDemandedDeath', 'b_NO_FREE.md')
+    src = os.path.join(BOOK_DIR, 'LifeDemandedDeath', 'b_NO_FREE.md')
     if not os.path.isfile(src):
         gh('error', f'[{src}] finnes ikke – kan ikke publisere aigap.no/m.md')
         return False
     try:
         shutil.copy(src, os.path.join(REPO, 'm.md'))
-        gh('notice', 'publiserte m.md <- b/b/LifeDemandedDeath/b_NO_FREE.md')
+        gh('notice', 'publiserte m.md <- b/LifeDemandedDeath/b_NO_FREE.md')
         return True
     except OSError as e:
         gh('error', f'publisering av aigap.no/m.md FEIL: {e}')
@@ -562,6 +562,14 @@ def main():
             log_error(url, key, book, 'flat_layout', msg)
             errors += 1
             continue
+        # Layout guard: deployed is repo-relative, so b/ is the reader root and must not be
+        # joined on again – b/b/<book>/… is a second hierarchy nothing reads.
+        if deployed.startswith('b/b/'):
+            msg = f'deployed={deployed!r} er dobbel-b (b/b/…) – skal være b/<mappe>/b.pdf'
+            gh('error', f'[{book}] {msg}')
+            log_error(url, key, book, 'double_b', msg)
+            errors += 1
+            continue
         frm, to = epoch(r.get('dtautosyncfrom')), epoch(r.get('dtautosyncto'))
         if (frm is not None and now < frm) or (to is not None and now > to):
             print(f'[{book}] utenfor autosync-vindu – hopper over')
@@ -571,7 +579,7 @@ def main():
         else:
             mm = export_re.search(prod)
             src = f'https://docs.google.com/presentation/d/{mm.group(1)}/export/pdf' if mm else prod
-        dest = os.path.join(BOOK_DIR, deployed)
+        dest = os.path.join(REPO, deployed)  # deployed er repo-relativ (b/<mappe>/b.pdf) – BOOK_DIR ville gitt b/b/
         try:
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             print(f'[{book}] {src} -> {deployed}')

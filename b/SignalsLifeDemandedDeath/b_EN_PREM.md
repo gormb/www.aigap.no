@@ -231,4 +231,6 @@ Maybe I would have been happier if I inherited their Machiavellianism and maybe 
 At another table in the student café sits a man in his mid-twenties and clears his throat loudly about once a minute. A cry for help and attention with anxiety culminating in too little natural breath. I think of my own occasionally high shoulders and lack of breath as a child. As an adult, it became a deafening motorcycle tearing through the night. It took a near-fatal accident to remove enough of the attention-seeking need for me to live relatively safely. That's a good thing, even though women and society give advantages to the loud and aggressive; calm and safety can be rewarded with rest. The man clearing his throat for air mirrors my own earlier escape at 200 km/h to drown out my inner anxiety. Before, the machine was the only cry for help, but I am reborn.
 The need for attention is gone; I have found calm, natural breath, and a life that is my own. The beauty of one's own calm.
 #### p. 41
-Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO328 which gave career Thanks to grandparents for love I gave the next generation
+Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO328 which gave career Thanks to her who was there when I began to live.
+Anew.
+Thanks to grandparents for love I gave the next generation
