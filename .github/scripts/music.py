@@ -103,9 +103,14 @@ def main(argv=None):
     have = {r['id']: r for r in json.loads(rest(url, key, 'music?select=id,ch,su,page,lg') or '[]')}
 
     # sidecar for språket (og utgaven). Uten --ed: PREM før FREE – første forekomst av en sang vinner
-    pattern = f'b_{lg}_{ed}.md' if ed else f'b_{lg}_*.md'
-    files = sorted(glob.glob(os.path.join(BOOK_DIR, '*', pattern)),
-                   key=lambda p: (0 if 'PREM' in os.path.basename(p) else 1, p))
+    files = []
+    for d in sorted(glob.glob(os.path.join(BOOK_DIR, '*'))):  # hver bokmappe b/<mappe>/
+        if not os.path.isdir(d):
+            continue
+        name = os.path.basename(d)
+        pat = f'{name}_{lg}_{ed}.md' if ed else f'{name}_{lg}_*.md'  # sidecarene heter som mappen
+        files += glob.glob(os.path.join(d, pat))
+    files.sort(key=lambda p: (0 if 'PREM' in os.path.basename(p) else 1, p))
     seen, unknown = {}, []
     for path in files:
         title, songs = parse_md(path)

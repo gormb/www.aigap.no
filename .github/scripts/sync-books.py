@@ -493,15 +493,15 @@ def log_ok(url, key, book, message):
     _log(url, key, book, 'sync', 'ok', message)
 
 def publish_md_to_aigap():
-    """Publiser b/LifeDemandedDeath/b_NO_FREE.md som aigap.no/m.md – samme repo, samme commit.
+    """Publiser b/LifeDemandedDeath/LifeDemandedDeath_NO_FREE.md som aigap.no/m.md – samme repo, samme commit.
     Returnerer False når m.md ikke ble publisert – feilen feiler workflowen, ikke bare en annotation."""
-    src = os.path.join(BOOK_DIR, 'LifeDemandedDeath', 'b_NO_FREE.md')
+    src = os.path.join(BOOK_DIR, 'LifeDemandedDeath', 'LifeDemandedDeath_NO_FREE.md')
     if not os.path.isfile(src):
         gh('error', f'[{src}] finnes ikke – kan ikke publisere aigap.no/m.md')
         return False
     try:
         shutil.copy(src, os.path.join(REPO, 'm.md'))
-        gh('notice', 'publiserte m.md <- b/LifeDemandedDeath/b_NO_FREE.md')
+        gh('notice', 'publiserte m.md <- b/LifeDemandedDeath/LifeDemandedDeath_NO_FREE.md')
         return True
     except OSError as e:
         gh('error', f'publisering av aigap.no/m.md FEIL: {e}')
@@ -553,23 +553,25 @@ def main():
         if not (book and deployed and prod):
             print(f'[{book or "(uten navn)"}] mangler deployed/prod – hopper over')
             continue
-        # Layout guard: deployed must be the NESTED path (b/<book>/b.pdf). The old flat
-        # path (b/<book>.pdf) drops files straight into b/ – the "garbage" on every sync.
+        # Layout guards: deployed must name a folder, b/<mappe>/…. The flat form
+        # (b/<mappe>.pdf) dropped files straight into b/, and b/b/… is a second hierarchy
+        # nothing reads. The PDF file name is FORCED to the folder name below, so deployed
+        # only supplies the folder – its file name is ignored.
         if re.fullmatch(r'b/[^/]+', deployed):
-            sug = os.path.splitext(deployed)[0] + '/b.pdf'
+            m = os.path.splitext(deployed[len('b/'):])[0]
+            sug = f'b/{m}/{m}.pdf'
             msg = f'deployed={deployed!r} er GAMMEL flat layout – sett books.deployed til nestet: {sug!r}'
             gh('error', f'[{book}] {msg}')
             log_error(url, key, book, 'flat_layout', msg)
             errors += 1
             continue
-        # Layout guard: deployed is repo-relative, so b/ is the reader root and must not be
-        # joined on again – b/b/<book>/… is a second hierarchy nothing reads.
         if deployed.startswith('b/b/'):
-            msg = f'deployed={deployed!r} er dobbel-b (b/b/…) – skal være b/<mappe>/b.pdf'
+            msg = f'deployed={deployed!r} er dobbel-b (b/b/…) – skal være b/<mappe>/<mappe>.pdf'
             gh('error', f'[{book}] {msg}')
             log_error(url, key, book, 'double_b', msg)
             errors += 1
             continue
+        folder = deployed.split('/')[1]  # b/<mappe>/… → mappenavnet
         frm, to = epoch(r.get('dtautosyncfrom')), epoch(r.get('dtautosyncto'))
         if (frm is not None and now < frm) or (to is not None and now > to):
             print(f'[{book}] utenfor autosync-vindu – hopper over')
@@ -579,14 +581,15 @@ def main():
         else:
             mm = export_re.search(prod)
             src = f'https://docs.google.com/presentation/d/{mm.group(1)}/export/pdf' if mm else prod
-        dest = os.path.join(REPO, deployed)  # deployed er repo-relativ (b/<mappe>/b.pdf) – BOOK_DIR ville gitt b/b/
+        dest = os.path.join(REPO, 'b', folder, f'{folder}.pdf')  # bokfilen heter som mappen – ikke b.pdf
+        rel = f'b/{folder}/{folder}.pdf'
         try:
             os.makedirs(os.path.dirname(dest), exist_ok=True)
-            print(f'[{book}] {src} -> {deployed}')
+            print(f'[{book}] {src} -> {rel}')
             subprocess.run(['curl', '-fsSL', '-L', src, '-o', dest], check=True)
             n += 1
-            extract(dest)  # sidecars: .md / _free.md / _tech.md / .json / _TOC
-            log_ok(url, key, book, f'synkronisert {deployed}')
+            extract(dest)  # sidecars: <mappe>_<lg>_<ed>.md / .pdf ved siden av boken
+            log_ok(url, key, book, f'synkronisert {rel}')
         except Exception as e:
             gh('error', f'[{book}] nedlasting FEIL: {e}')
             log_error(url, key, book, 'download', str(e))

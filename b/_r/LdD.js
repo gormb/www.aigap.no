@@ -132,7 +132,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
         await cBook.Source(src, render, pageNo)
     }
     ,QrUrlScrollY:0
-    ,QrUrl:async function(deep=false,ht=35,img="b/LifeDemandedDeath/bqrmid.png",opt={}) {
+    ,QrUrl:async function(deep=false,ht=35,img="b/LifeDemandedDeath/LifeDemandedDeathqrmid.png",opt={}) {
         if (cBook._qrUrl) URL.revokeObjectURL(cBook._qrUrl);
         const u = new URL("https://aigap.no/b"); // gormb.github.io/_?b&book… har flyttet til aigap.no/b?book…
         const qs=k=>u.search=u.search?(u.search+'&'+k):('?'+k);
