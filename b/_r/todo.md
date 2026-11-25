@@ -4,7 +4,7 @@
 ## Avdekk funksjonalitet
 # Funksjonalitet
 ## ASIS
-Kartlagt fra `LdD.html` (struktur + all logikk i inline `<script>`, `nav`-objektet), `LdD.js` (`cBook` + kobling mot `books.book`/`books.map`) og `LdD.css`.
+Kartlagt fra `index.html` (struktur + all logikk i inline `<script>`, `nav`-objektet), `index.js` (`cBook` + kobling mot `books.book`/`books.map`) og `index.css`.
 ### Velg bok
 Både i TOC og som parameter kan man velkge bok
 - Tittel i TOC (`#_dTocTitle`) er lenke → `nav.Books()`: samme `#_dTocList` bytter fra kapittelliste til bokvelger (`dataset.bk='1'`), og tilbake igjen.

@@ -12,7 +12,7 @@
                       onShow()/onHide() – the page's own bookkeeping around the map going up or down
      books.map.Z.el – the controls the map drives: zoom, inv, bandCollapse, handPrev, handNext, levels, coarser, band, query, mic, page.
                       Give no band and the map builds its own overlay band, head strip and filter foot (books.map.css)
-   See play.js wire() for the play-shaped wiring, LdD.js for the pdf-shaped one. */
+   See play.js wire() for the play-shaped wiring, index.js for the pdf-shaped one. */
 (function(){
 window.books=window.books||{};
 const M=window.books.map={};

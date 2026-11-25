@@ -24,7 +24,7 @@ def epoch(v):
     return datetime.datetime.fromisoformat(v.replace('Z', '+00:00')).timestamp()
 
 # ---------------------------------------------------------------------------
-# Tekstuttrekk (tiered .md / .json / TOC) – speiler font-tierne i LdD.js:
+# Tekstuttrekk (tiered .md / .json / TOC) – speiler font-tierne i index.js:
 #   Garamond (vanlig) = common · EBGaramond/CEGaramond = premium ·
 #   Calibri = free · Arial = comment. Hvit tekst vises aldri.
 _ARIAL_RE    = re.compile(r'arial')
@@ -132,7 +132,7 @@ def _pdf_style(doc):
 def _data(doc, style):
     """Port av cBook.data.get(): strukturerte blokker (chapter/sub/paragraph/link) per side.
     Kapittel vs. underkapittel avgjøres av Y-POSISJON på siden (chapY/subY fra template-sliden),
-    ikke bare skriftstørrelse – som i LdD.js. Paragraphs beholder spans (for tier-filtrering)."""
+    ikke bare skriftstørrelse – som i index.js. Paragraphs beholder spans (for tier-filtrering)."""
     chapH = style.get('chapH') or 16
     chapY = style.get('chapY') or -1
     subY = style.get('subY') or -1

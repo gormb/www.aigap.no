@@ -35,9 +35,9 @@
 
 <script>
 /* ------------------------------------------------------------------
-   Tiny iframe test harness for LdD.html
+   Tiny iframe test harness for index.html
    - each test = {id, name, run()} → {ok, detail} (or throws)
-   - openBook(params) loads LdD.html in a fresh same-origin iframe and
+   - openBook(params) loads index.html in a fresh same-origin iframe and
      resolves once the first view is ready; returns ms + handles
    - loadBook(params) = openBook + close, returns just the ms (timed)
    ------------------------------------------------------------------ */
@@ -78,7 +78,7 @@ const ready=(w,d)=>{
 
 async function openBook(params={}){
   LOG=[];
-  const u=new URL('LdD.html',location.href);
+  const u=new URL('index.html',location.href);
   for(const[k,v] of Object.entries(params)) if(v!=null) u.searchParams.set(k,v);
   const f=document.createElement('iframe');
   f.width=1000; f.height=700; f.style.border='1px solid #ccc';
