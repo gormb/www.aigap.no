@@ -66,6 +66,22 @@ window.saveV=async e=>{e.preventDefault();
   await (await db()).from('book_versions').upsert({book:v_book.value.trim(),version:v_version.value.trim(),name:v_name.value.trim(),description:v_desc.value.trim()});
   resetV();gridV()}
 resetV();gridV();
+// === book_variant (varianter per bok – tittel + gyldighetsperiode) ===
+const gridVrEl=document.getElementById('gridVr');
+const gridVr=async()=>{const{data,error}=await (await db()).from('book_variant').select('*').order('book',{ascending:true}).order('variant',{ascending:true});
+  if(error){gridVrEl.innerHTML=`<p class="exp">${error.message}</p>`;return}
+  gridVrEl.innerHTML=(data||[]).length?`<table><tr><th>book</th><th>variant</th><th>title_no</th><th>title_en</th><th>description</th><th>from</th><th>to</th><th></th></tr>`+data.map(r=>
+    `<tr><td>${esc(r.book)}</td><td>${esc(r.variant)}</td><td>${esc(r.title_no)}</td><td>${esc(r.title_en)}</td><td>${esc(r.description)}</td>
+     <td>${(r.dtfrom||'').slice(0,16)}</td><td>${(r.dtto||'').slice(0,16)}</td>
+     <td><button onclick="editVr('${q(r.book)}','${q(r.variant)}')">✎</button> <button onclick="delVr('${q(r.book)}','${q(r.variant)}')">×</button></td></tr>`).join('')+'</table>':'<p>(empty)</p>'}
+window.resetVr=()=>{fVr.reset();vr_dtFrom.value=iso(Date.now());vr_dtTo.value='2099-12-31T23:59'}
+window.editVr=async(b,v)=>{const{data}=await (await db()).from('book_variant').select('*').eq('book',b).eq('variant',v).single();
+  if(data){vr_book.value=data.book;vr_variant.value=data.variant;vr_title_no.value=data.title_no||'';vr_title_en.value=data.title_en||'';vr_desc.value=data.description||'';vr_dtFrom.value=iso(data.dtfrom)||'';vr_dtTo.value=iso(data.dtto)||''}}
+window.delVr=async(b,v)=>{if(confirm(`Delete ${b}/${v}?`)){await (await db()).from('book_variant').delete().eq('book',b).eq('variant',v);gridVr()}}
+window.saveVr=async e=>{e.preventDefault();
+  await (await db()).from('book_variant').upsert({book:vr_book.value.trim(),variant:vr_variant.value.trim(),title_no:vr_title_no.value.trim(),title_en:vr_title_en.value.trim(),description:vr_desc.value.trim(),dtfrom:utc(vr_dtFrom.value)||new Date().toISOString(),dtto:utc(vr_dtTo.value)||'2099-12-31T23:59:59Z'});
+  resetVr();gridVr()}
+resetVr();gridVr();
 // === usage (logg) – gruppert (bok → kode) og utvidbar ===
 const gridUEl=document.getElementById('gridU');
 const gridU=async()=>{const{data,error}=await (await db()).from('usage').select('*,codes(code)').order('created_at',{ascending:false}).limit(1000);
