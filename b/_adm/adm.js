@@ -66,7 +66,7 @@ window.saveV=async e=>{e.preventDefault();
   await (await db()).from('book_versions').upsert({book:v_book.value.trim(),version:v_version.value.trim(),name:v_name.value.trim(),description:v_desc.value.trim()});
   resetV();gridV()}
 resetV();gridV();
-// === book_variant (varianter per bok – tittel + gyldighetsperiode) ===
+// === book_variant (varianter per book, gir EN+NO og FREE+PREM) ===
 const gridVrEl=document.getElementById('gridVr');
 const gridVr=async()=>{const{data,error}=await (await db()).from('book_variant').select('*').order('book',{ascending:true}).order('variant',{ascending:true});
   if(error){gridVrEl.innerHTML=`<p class="exp">${error.message}</p>`;return}
@@ -103,3 +103,98 @@ window.bookLog=async b=>{const el=document.getElementById('bLog');
   el.innerHTML=`<p><b>${b}</b> – siste synk</p>`+(!(data||[]).length?'<p>(empty)</p>':
     `<table><tr><th>ts</th><th></th><th>kind</th><th>msg</th></tr>`+
     data.map(r=>`<tr><td>${(r.ts||'').slice(0,16).replace('T',' ')}</td><td class="${r.k==='sync'?'ok':'exp'}">${r.k==='sync'?'✓':'✗'}</td><td>${(r.d&&r.d.kind)||''}</td><td>${(r.d&&r.d.msg)||''}</td></tr>`).join('')+`</table>`);};
+
+// === book_chapter (TOC per variant; drag subchapters between variants, Ctrl/⌘ = copy) ===
+const tcBoardEl=document.getElementById('tcBoard'),tcMsgEl=document.getElementById('tc_msg');
+const TC_UNPLACED='LddUnplaced';
+let tcBook='LifeDemandedDeath',tcRows=[],tcChapters=[],tcPool=[],tcUnplacedName='Uplassert og ubestemt',tcMods=false;
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey)tcMods=true});
+document.addEventListener('keyup',e=>{if(!e.ctrlKey&&!e.metaKey)tcMods=false});
+const tcNorm=s=>String(s||'').replace(/[\u201c\u201d]/g,'"').replace(/[\u2018\u2019]/g,"'").replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();
+const tcSubs=r=>String(r.subchapters||'').split('|').map(s=>s.trim()).filter(Boolean);
+const tcBookChapters=async()=>{ // the book's own ## / ### headings, read from the book (md)
+  for(const ed of ['NO_PREM','NO_FREE','EN_PREM','EN_FREE']){
+    try{const r=await fetch(`../${tcBook}/${tcBook}_${ed}.md`,{cache:'no-store'});if(!r.ok)continue;
+      const ch=[];let cur=null;
+      (await r.text()).split('\n').forEach(l=>{const m=l.match(/^(#{2,3})\s+(.*)$/);if(!m)return;
+        const t=tcNorm(m[2].replace(/\s*#+\s*$/,''));
+        if(m[1]==='##'){cur={name:t,subs:[]};ch.push(cur)}else if(cur)cur.subs.push(t)});
+      if(ch.length)return ch;
+    }catch(e){}
+  }
+  return [];
+};
+const tcPoolFrom=()=>{ // unplaced = every subchapter of the book that is not placed in a variant
+  const placed=new Set(tcRows.filter(r=>r.variant!==TC_UNPLACED).flatMap(tcSubs).map(tcNorm));
+  const up=tcChapters.find(c=>/uplassert|ubestemt/i.test(c.name));
+  if(up)tcUnplacedName=up.name;
+  const out=[];
+  tcChapters.forEach(c=>c.subs.forEach(s=>{if(!placed.has(tcNorm(s))&&!out.includes(s))out.push(s)}));
+  return out;
+};
+const tcMarkDups=()=>{ // names that occur in more than one variant are shown in italic
+  const n={};
+  tcBoardEl.querySelectorAll('.tcCol:not([data-unplaced]) .tcName').forEach(el=>{const k=tcNorm(el.textContent);n[k]=(n[k]||0)+1});
+  tcBoardEl.querySelectorAll('.tcName').forEach(el=>el.classList.toggle('tcDup',(n[tcNorm(el.textContent)]||0)>1));
+};
+const tcChip=s=>`<span class="tcChip"><span class="tcGripS" title="dra · Ctrl = kopi">⠿</span><span class="tcName" contenteditable="true">${esc(s)}</span><button type="button" class="tcBtn" onclick="tcDel(this)" title="fjern">×</button></span>`;
+const tcCardHTML=(main,subs)=>`<div class="tcMain"><div class="tcHead"><span class="tcName tcChap" contenteditable="true">${esc(main)}</span><button type="button" class="tcBtn" onclick="tcAddSub(this)" title="underkapittel">+</button><button type="button" class="tcBtn" onclick="tcDel(this)" title="slett kapittel">×</button></div><div class="tcSubs">${(subs||[]).map(s=>tcChip(s)).join('')}</div></div>`;
+const tcUnplacedHTML=()=>`<div class="tcCol tcUp" data-variant="${TC_UNPLACED}" data-unplaced="1"><div class="tcTitle">Uplassert <small>· ${tcPool.length} fra boken</small> <button type="button" class="tcBtn" onclick="tcLoad()" title="hent på nytt fra boken">↻</button></div><div class="tcList">${tcCardHTML(tcUnplacedName,tcPool)}</div></div>`;
+const tcRender=variants=>{
+  const cols=[...variants.filter(v=>v!==TC_UNPLACED).sort((a,b)=>String(a).localeCompare(String(b))),TC_UNPLACED];
+  tcBoardEl.innerHTML=cols.map(v=>{
+    if(v===TC_UNPLACED)return tcUnplacedHTML();
+    const by={},order=[];
+    tcRows.filter(r=>r.variant===v).forEach(r=>{if(!(r.mainchapter in by)){by[r.mainchapter]=order.length;order.push({main:r.mainchapter,subs:tcSubs(r)})}else order[by[r.mainchapter]].subs.push(...tcSubs(r))});
+    return `<div class="tcCol" data-variant="${esc(v)}"><div class="tcTitle">${esc(v)} <button type="button" class="tcBtn" onclick="tcAddMain('${q(v)}')" title="nytt kapittel">+</button></div><div class="tcList">${order.map(m=>tcCardHTML(m.main,m.subs)).join('')}</div></div>`;
+  }).join('');
+  tcSort();
+  tcMarkDups();
+};
+const tcSort=()=>{ // only subchapters are dragged; Ctrl (⌘) keeps a copy behind in the source
+  tcBoardEl.querySelectorAll('.tcSubs').forEach(el=>{if(el._tc)return;el._tc=1;
+    new Sortable(el,{group:{name:'tcSub',pull:true,put:el.closest('.tcCol').dataset.unplaced!=='1'},handle:'.tcGripS',animation:150,onEnd:evt=>{
+      if(tcMods&&evt.from){const dup=evt.item.cloneNode(true);evt.from.insertBefore(dup,evt.from.children[evt.oldDraggableIndex]||null)}
+      tcSave();
+    }});});
+};
+window.tcAddMain=v=>{tcBoardEl.querySelector('.tcCol[data-variant="'+v+'"] > .tcList').insertAdjacentHTML('beforeend',tcCardHTML('Nytt kapittel|',[]));tcSort()};
+window.tcAddSub=btn=>{btn.closest('.tcMain').querySelector('.tcSubs').insertAdjacentHTML('beforeend',tcChip('Nytt underkapittel'));tcSort()};
+window.tcDel=btn=>{(btn.closest('.tcChip')||btn.closest('.tcMain')).remove();tcSave()};
+window.tcSave=async()=>{ // one row per chapter, subchapters pipe-delimited (Uplassert is derived, never stored)
+  const rows=[];
+  tcBoardEl.querySelectorAll('.tcCol:not([data-unplaced])').forEach(col=>{
+    const variant=col.dataset.variant;
+    col.querySelectorAll(':scope > .tcList > .tcMain').forEach((m,i)=>{
+      const main=m.querySelector(':scope > .tcHead > .tcName').textContent.trim();
+      const subs=[...m.querySelectorAll(':scope > .tcSubs > .tcChip > .tcName')].map(s=>s.textContent.trim()).filter(Boolean);
+      rows.push({book:tcBook,variant:variant,mainchapter:main,subchapters:subs.join('|'),ord:i});
+    });
+  });
+  const d=await db();
+  const del=await d.from('book_chapter').delete().eq('book',tcBook);
+  if(del.error){alert(del.error.message);return}
+  if(rows.length){const{error}=await d.from('book_chapter').insert(rows);if(error){alert(error.message);return}}
+  tcRows=rows;
+  tcPool=tcPoolFrom();
+  const up=tcBoardEl.querySelector('.tcCol[data-unplaced]');
+  if(up)up.outerHTML=tcUnplacedHTML();
+  tcSort();
+  tcMarkDups();
+  if(tcMsgEl)tcMsgEl.textContent='lagret '+new Date().toLocaleTimeString();
+};
+window.tcLoad=async()=>{
+  tcBook=(document.getElementById('tc_book').value||'').trim()||'LifeDemandedDeath';
+  if(tcMsgEl)tcMsgEl.textContent='…';
+  const d=await db();
+  const{data,error}=await d.from('book_chapter').select('*').eq('book',tcBook).order('ord',{ascending:true});
+  if(error){tcBoardEl.innerHTML=`<p class="exp">${error.message}</p>`;if(tcMsgEl)tcMsgEl.textContent='';return}
+  tcRows=data||[];
+  const{data:vars}=await d.from('book_variant').select('variant').eq('book',tcBook);
+  tcChapters=await tcBookChapters();
+  tcPool=tcPoolFrom();
+  tcRender([...new Set([...(vars||[]).map(v=>v.variant),...tcRows.map(r=>r.variant)])].filter(Boolean));
+  if(tcMsgEl)tcMsgEl.textContent=tcPool.length+' uplassert · Ctrl-dra = kopi';
+};
+tcBoardEl.addEventListener('blur',e=>{if(e.target.classList&&e.target.classList.contains('tcName'))tcSave()},true);
+tcLoad();

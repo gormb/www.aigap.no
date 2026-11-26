@@ -2,8 +2,7 @@
 # SignalsLifeDemandedDeath
 #### p. 2
 Spilleliste
-## Nullsum
-“Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
+## Nullsum|“Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
 Advokaten jeg nettopp hadde møtt over whisky smålo.
 “Nei, du skulle vært død”
 Kanskje det, men jeg føler ingenting likevel, unntatt skam overfor mine nærmeste. Kanskje gjennom musikk, kan jeg oppleve tapet av forstanden som lyd, tiden som stanser; sammenbrudd og erkjennelse.

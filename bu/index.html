@@ -12,7 +12,7 @@
         <script>
             /* backup all tables in the database to CSV files, committed into this folder (bu/) on GitHub.
                needs a `cfg` row id=ghtoken — a GitHub token with repo write access. */
-            const BU={repo:'gormb/www.aigap.no',branch:'main',dir:'bu',site:'https://aigap.no/',tables:['redir','log','codes','usage','books','book_versions','music','map']}/* cfg left out: it holds the token */
+            const BU={repo:'gormb/www.aigap.no',branch:'main',dir:'bu',site:'https://aigap.no/',tables:['redir','log','log_backup','codes','usage','books','book_versions','book_variant','book_chapter','music','map']}/* cfg left out: it holds the token */
             const buUrl=t=>BU.site+BU.dir+'/'+t+'.csv'/* this page already lives in /bu/ — never use the repo path as a URL */
             const HDR=()=>({apikey:SUPABASE.publishableKey,Authorization:'Bearer '+SUPABASE.publishableKey})
               ,BSEP=';'/* list separator, fixed: never depend on the reader's locale */

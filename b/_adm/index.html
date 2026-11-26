@@ -5,7 +5,8 @@
 <link rel="icon" href="../_r/aigap.webp">
 
 <script src="https://aigap.no/db.js?v=8"></script>
-<link rel="stylesheet" href="adm.css">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+<link rel="stylesheet" href="adm.css?v=3">
 </head>
 <body>
 <details>
@@ -128,13 +129,33 @@ create policy book_versions_all on public.book_versions for all using (true) wit
 );
 alter table public.book_variant enable row level security;
 drop policy if exists book_variant_all on public.book_variant;
-create policy book_variant_all on public.book_variant for all using (true) with check (true);
-insert into public.book_variant (book, variant, title_no, title_en, description) values
-  ('LifeDemandedDeath','LddSignaler','SignalsLifeDemandedDeath','X','Låst utdrag tilpasset Signaler (4–20 sider).'),
-  ('LifeDemandedDeath','LddInnovKi','Innovasjon og KI i praksis','','Fagbok og sakprosa om innovasjon, KI, endringsledelse og byråkrati.'),
-  ('LifeDemandedDeath','LddRefleksjon','Tapets metafysikk og etterrasjonalisering','','Essay- og refleksjonsbok om sannhet, makt, status og indre spenninger.'),
-  ('LifeDemandedDeath','LddPortretter','Møter og skjeve øyeblikk','','Kortprosa- og portrettsamling om møter, stemninger og kriser.')
-on conflict (book, variant) do update set title_no=excluded.title_no, title_en=excluded.title_en, description=excluded.description;</pre>
+create policy book_variant_all on public.book_variant for all using (true) with check (true);</pre>
+</details>
+</details>
+<hr>
+<details>
+<summary>adm; book_chapter (TOC per variant – dra underkapitler mellom varianter; Ctrl = kopi)</summary>
+<form onsubmit="return false">
+  <table><tr>
+    <td>book <input id="tc_book" value="LifeDemandedDeath"></td>
+    <td><button type="button" onclick="tcLoad()">Load</button></td>
+    <td id="tc_msg"></td>
+  </tr></table>
+</form>
+<div id="tcBoard"></div>
+<details>
+<summary>Create tables (SQL in Supabase)</summary>
+<pre>create table if not exists public.book_chapter (
+  book text not null default '',
+  variant text not null default '',
+  mainchapter text not null default '',
+  subchapters text not null default '',
+  ord integer not null default 0,
+  primary key (book, variant, mainchapter)
+);
+alter table public.book_chapter enable row level security;
+drop policy if exists book_chapter_all on public.book_chapter;
+create policy book_chapter_all on public.book_chapter for all using (true) with check (true);</pre>
 </details>
 </details>
 <hr>
@@ -163,6 +184,6 @@ create policy usage_all on public.usage for all using (true) with check (true);<
 </details>
 <div id="gridU"></div>
 </details>
-<script type="module" src="adm.js?v=9"></script>
+<script type="module" src="adm.js?v=11"></script>
 </body>
 </html>
