@@ -1,5 +1,7 @@
 body{font-family:system-ui;margin:1rem;font-size:.9rem}
 h3{margin:.2rem 0}
+summary{cursor:pointer;font-weight:600;margin:.35rem 0}
+details details>summary{font-weight:400}
 table{border-collapse:collapse;width:100%}
 th,td{border:1px solid #ddd;padding:.3rem .5rem;text-align:left;vertical-align:top}
 th{background:#f5f5f5}
