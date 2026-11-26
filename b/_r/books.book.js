@@ -86,7 +86,7 @@ const book=window.books.book={
                     nGoTxt.value = pn;
                     await cBook.Page(pn, true);
                 }
-                ,src:"b/LifeDemandedDeath/LifeDemandedDeath.pdf"
+                ,src:"../LifeDemandedDeath/LifeDemandedDeath.pdf"
                 ,srcBase:()=>{ return book.src.replace(/\.pdf$/i,"");} // keep folder (b/...) so sidecars (.jpg/.png) sit next to the book
                 ,name:()=>{const p=book.src.split("/");return p.length>2?p[p.length-2]:p[p.length-1].replace(/\.pdf$/i,"")} // nested: identity = parent folder
                 ,pn:()=>window.cBook?.pn||1

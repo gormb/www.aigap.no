@@ -134,7 +134,7 @@ let cBook={ctx:null,pdf:null,page:null,pn:0,viewport:null,scale:null,view:null,p
     ,QrUrlScrollY:0
     ,QrUrl:async function(deep=false,ht=35,img="../LifeDemandedDeath/LifeDemandedDeathqrmid.png",opt={}) {
         if (cBook._qrUrl) URL.revokeObjectURL(cBook._qrUrl);
-        const u = new URL("https://aigap.no/b"); // gormb.github.io/_?b&book… har flyttet til aigap.no/b?book…
+        const u = new URL("https://aigap.no/b/_r"); // the reader is at /b/_r (default document) – book= is page-relative (../<mappe>/<mappe>.pdf)
         const qs=k=>u.search=u.search?(u.search+'&'+k):('?'+k);
         if (opt.book!==false) qs('book=' + encodeURIComponent(books.book.src));
         if (deep) {

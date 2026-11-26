@@ -9,7 +9,7 @@ Kartlagt fra `index.html` (struktur + all logikk i inline `<script>`, `nav`-obje
 Både i TOC og som parameter kan man velkge bok
 - Tittel i TOC (`#_dTocTitle`) er lenke → `nav.Books()`: samme `#_dTocList` bytter fra kapittelliste til bokvelger (`dataset.bk='1'`), og tilbake igjen.
 - Bokvelgeren leser `books` (publiserte PDF-er) og `book_versions` (lokaliserte navn) direkte fra Supabase; PDF-stien tas fra `books.deployed`, ikke gjettet.
-- Hver bok får to rader (🇳🇴 og 🇬🇧) som dyp-lenker til `https://aigap.no/b?book=…&page=…&c=w,1000,nLg0|nLg1`.
+- Hver bok får to rader (🇳🇴 og 🇬🇧) som dyp-lenker til `https://aigap.no/b/_r?book=…&page=…&c=w,1000,nLg0|nLg1`.
 - Valgt bok huskes i `localStorage` (`LdD.book`) og kan overstyres med `?book=<sti>`.
 - Kapittel-TOC caches i `nav._tocHtml` og gjenopprettes når man går tilbake fra bokvelgeren.
 ### Vise boka
@@ -69,7 +69,7 @@ Både i TOC og som parameter kan man velkge bok
 - Eksport er premium-only.
 ### Dele (QR)
 - 📲 (`nSh`) viser to QR-koder: «Book» (ren boklenke) og «Deep» (bok + side + posisjon), med avkrysning for bok/side/pos/TOC/en.
-- Lenken er `https://aigap.no/b?book=…&page=…&c=w,1000,nLg0,nTc,s,<scrollY>`; QR lages med `qr-code-styling` (lastes lazy fra unpkg) med `<base>.png`/`<base>2.png` i midten. Fallbilde: `failedqr.png`.
+- Lenken er `https://aigap.no/b/_r?book=…&page=…&c=w,1000,nLg0,nTc,s,<scrollY>`; QR lages med `qr-code-styling` (lastes lazy fra unpkg) med `<base>.png`/`<base>2.png` i midten. Fallbilde: `failedqr.png`.
 - Scroll-posisjon huskes når panelet åpnes (sida rulles til topp), og gjenopprettes når det lukkes.
 ### Eksport
 - 📤 (`nEx`) i premium: teksten hentes fra `.md`-sidecaren (aldri fra PDF), forside og resten hver for seg; musikkinjer hoppes over, overskrifter blir fete.
