@@ -1,0 +1,49 @@
+name: Build book variant (md + pdf)
+
+# Bygger en variant av en bok fra kapitlene i public.book_chapter:
+#   b/<book>/<variant>/<variant>.md  og  .pdf
+# Dispatches fra «Create»-knappen i adm (book_variant-tabellen).
+on:
+  workflow_dispatch:
+    inputs:
+      book:
+        description: 'book (mappe under b/, f.eks. LifeDemandedDeath)'
+        required: true
+      variant:
+        description: 'variant (public.book_variant.variant, f.eks. LddSignal27)'
+        required: true
+
+concurrency:
+  group: build-variant-${{ inputs.book }}-${{ inputs.variant }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Install PyMuPDF
+        run: pip install --quiet pymupdf
+
+      - name: Build variant from book_chapter
+        run: python3 .github/scripts/build-variant.py '${{ inputs.book }}' '${{ inputs.variant }}'
+
+      - name: Commit & Push if Updated
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 'b/**/*.pdf' 'b/**/*.md'
+
+          if git diff --staged --quiet; then
+            echo "No variant update."
+          else
+            git commit -m "Build variant ${{ inputs.variant }} (${{ inputs.book }})"
+            git push
+          fi

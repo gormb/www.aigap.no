@@ -68,12 +68,14 @@ window.saveV=async e=>{e.preventDefault();
 resetV();gridV();
 // === book_variant (varianter per book, gir EN+NO og FREE+PREM) ===
 const gridVrEl=document.getElementById('gridVr');
+const vrUrl=r=>`https://aigap.no/b/_r/?book=../${r.book}/${r.variant}/${r.variant}.pdf`; // leseren ligger i /b/_r/, så ../ = /b/
 const gridVr=async()=>{const{data,error}=await (await db()).from('book_variant').select('*').order('book',{ascending:true}).order('variant',{ascending:true});
   if(error){gridVrEl.innerHTML=`<p class="exp">${error.message}</p>`;return}
-  gridVrEl.innerHTML=(data||[]).length?`<table><tr><th>book</th><th>variant</th><th>title_no</th><th>title_en</th><th>description</th><th>from</th><th>to</th><th></th></tr>`+data.map(r=>
+  gridVrEl.innerHTML=(data||[]).length?`<table><tr><th>book</th><th>variant</th><th>title_no</th><th>title_en</th><th>description</th><th>from</th><th>to</th><th>viewer</th><th></th></tr>`+data.map(r=>
     `<tr><td>${esc(r.book)}</td><td>${esc(r.variant)}</td><td>${esc(r.title_no)}</td><td>${esc(r.title_en)}</td><td>${esc(r.description)}</td>
      <td>${(r.dtfrom||'').slice(0,16)}</td><td>${(r.dtto||'').slice(0,16)}</td>
-     <td><button onclick="editVr('${q(r.book)}','${q(r.variant)}')">✎</button> <button onclick="delVr('${q(r.book)}','${q(r.variant)}')">×</button></td></tr>`).join('')+'</table>':'<p>(empty)</p>'}
+     <td><a href="${vrUrl(r)}" target="_blank" title="åpne varianten i leseren">View ↗</a></td>
+     <td><button onclick="buildVr('${q(r.book)}','${q(r.variant)}')" title="bygg varianten som md + pdf (GitHub Actions)">Create</button> <button onclick="editVr('${q(r.book)}','${q(r.variant)}')">✎</button> <button onclick="delVr('${q(r.book)}','${q(r.variant)}')">×</button></td></tr>`).join('')+'</table>':'<p>(empty)</p>'}
 window.resetVr=()=>{fVr.reset();vr_dtFrom.value=iso(Date.now());vr_dtTo.value='2099-12-31T23:59'}
 window.editVr=async(b,v)=>{const{data}=await (await db()).from('book_variant').select('*').eq('book',b).eq('variant',v).single();
   if(data){vr_book.value=data.book;vr_variant.value=data.variant;vr_title_no.value=data.title_no||'';vr_title_en.value=data.title_en||'';vr_desc.value=data.description||'';vr_dtFrom.value=iso(data.dtfrom)||'';vr_dtTo.value=iso(data.dtto)||''}}
@@ -81,6 +83,21 @@ window.delVr=async(b,v)=>{if(confirm(`Delete ${b}/${v}?`)){await (await db()).fr
 window.saveVr=async e=>{e.preventDefault();
   await (await db()).from('book_variant').upsert({book:vr_book.value.trim(),variant:vr_variant.value.trim(),title_no:vr_title_no.value.trim(),title_en:vr_title_en.value.trim(),description:vr_desc.value.trim(),dtfrom:utc(vr_dtFrom.value)||new Date().toISOString(),dtto:utc(vr_dtTo.value)||'2099-12-31T23:59:59Z'});
   resetVr();gridVr()}
+// Create: dispatcher build-variant.yml – den skriver b/<book>/<variant>/<variant>.{md,pdf} og committer
+const vrMsg=h=>{const e=document.getElementById('vrMsg');if(e)e.innerHTML=h};
+window.buildVr=async(b,v)=>{
+  vrMsg(`${esc(v)}: dispatcher …`);
+  try{
+    const{data,error}=await (await db()).from('cfg').select('val').eq('id','ghtoken').single();
+    if(error||!(data&&data.val))throw new Error('mangler cfg-rad id=ghtoken (GitHub-token med Actions: write)');
+    const r=await fetch('https://api.github.com/repos/gormb/www.aigap.no/actions/workflows/build-variant.yml/dispatches',{
+      method:'POST',
+      headers:{Authorization:'Bearer '+data.val,Accept:'application/vnd.github+json','Content-Type':'application/json'},
+      body:JSON.stringify({ref:'main',inputs:{book:b,variant:v}})});
+    if(r.status!==204)throw new Error('github: '+((await r.json().catch(()=>({}))).message||r.status));
+    vrMsg(`${esc(v)}: bygg startet → <a href="https://github.com/gormb/www.aigap.no/actions/workflows/build-variant.yml" target="_blank">se kjøringen ↗</a> · skriver b/${esc(b)}/${esc(v)}/<b>${esc(v)}</b>.md + .pdf`);
+  }catch(e){vrMsg(`${esc(v)}: ${esc(e.message)}`)}
+};
 resetVr();gridVr();
 // === usage (logg) – gruppert (bok → kode) og utvidbar ===
 const gridUEl=document.getElementById('gridU');
