@@ -1,25 +1,50 @@
 #!/usr/bin/env python3
-"""Bygg en bok-variant (md + pdf) fra kapitlene i public.book_chapter.
+"""Bygg en bok-variant: forside + én kapittelside per kapittel + de fire utgavene.
 
-En variant er en ordnet liste underkapitler hentet fra bokas egen tekst.
-Underkapitlene finnes i bokas .md (sidemarkørene «#### p. N»), og de samme
-sidene løftes ut av bokas .pdf, slik at varianten leses som sin egen bok:
+En variant er en ordnet liste kapitler hentet fra bokas egen tekst. Hvert kapittel
+får malens kapittelside foran sine underkapitler, og boka får malens forside:
 
-    b/<book>/<variant>/<variant>.md   og   b/<book>/<variant>/<variant>.pdf
+    b/<book>/<variant>/<variant>.pdf              spredningen leseren åpner
+    b/<book>/<variant>/<variant>_<lg>_<ed>.pdf    de fire utgavene (halvside, tier-filtrert)
+    b/<book>/<variant>/<variant>_<lg>_<ed>.md     de fire sidecarene
 
-Brukes av .github/workflows/build-variant.yml (workflow_dispatch book+variant),
-som adm-siden dispatcher fra «Create»-knappen i book_variant-tabellen.
+Forside og kapittelside lages av bokas EGEN mal – de siste fire sidene i dekket
+(forside, kapittel, underkapittel, tekst). Malen er merket med et rødt krysstrek og
+Arial-oppskrifter; begge fjernes. De innebygde fontene er cmap-løse subset og kan ikke
+gjenbrukes, så ny tekst settes i Playfair Display (SC for titler).
+
+De fire utgavene og sidecarene skrives av sync-books.py::extract(), slik at en variant
+får nøyaktig samme fasong som en vanlig bok. Mal-blokken legges bakerst i spredningen,
+for det er der sync-books.py leter etter den.
+
+Brukes av .github/workflows/build-variant.yml (workflow_dispatch book+variant).
 """
-import json, os, re, subprocess, sys, unicodedata
+import importlib.util, json, os, re, subprocess, sys, tempfile, unicodedata
+
+import pymupdf  # PyMuPDF - samme bibliotek som sync-books.py
 
 REPO = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).decode().strip()
 BOOK_DIR = os.path.join(REPO, 'b')
+SCRIPTS = os.path.join(REPO, '.github', 'scripts')
 DB_JS = 'https://aigap.no/db.js'  # SUPABASE-konfig hentes fra DEN deployed versjonen (som sync-books.py)
 PAGE_RE = re.compile(r'^####\s+p\.\s*(\d+)\s*$')
 HEAD_RE = re.compile(r'^(#{2,3})\s+(.*)$')
 EDITIONS = ('NO_PREM', 'NO_FREE', 'EN_PREM', 'EN_FREE')  # tekstkilde, mest komplett først
 
+_GF = 'https://raw.githubusercontent.com/google/fonts/main/ofl'
+FONT_URL = {
+    'sc':  f'{_GF}/playfairdisplaysc/PlayfairDisplaySC-Regular.ttf',
+    'sci': f'{_GF}/playfairdisplaysc/PlayfairDisplaySC-Italic.ttf',
+    'pd':  f'{_GF}/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf',
+    'pdi': f'{_GF}/playfairdisplay/PlayfairDisplay-Italic%5Bwght%5D.ttf',
+}
+HALF = 148.8        # midten av venstre halvside (norsk)
+HALF_EN = 446.5     # midten av høyre halvside (engelsk)
+MAXW = 257.0        # brukbar bredde i en halvside
+LEAD = 1.12         # linjeavstand i en flerlinjet tittel
 
+
+# --------------------------------------------------------------------------- felles
 def get(url, headers=None):
     if not url.startswith(('http://', 'https://')):
         with open(url, encoding='utf-8') as f:
@@ -97,10 +122,147 @@ def sub_spans(lines):
     return out
 
 
+def chapter_parts(main):
+    """mainchapter = «NO tittel|NO undertittel|EN tittel|EN undertittel» (engelsk valgfritt)."""
+    p = [x.strip() for x in str(main or '').split('|')]
+    p += [''] * (4 - len(p))
+    return p[0], p[1], p[2], p[3]
+
+
+# --------------------------------------------------------------------------- malen
+def sync_books():
+    """Last sync-books.py (inneholder extract() som skriver de fire utgavene)."""
+    spec = importlib.util.spec_from_file_location('sync_books', os.path.join(SCRIPTS, 'sync-books.py'))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def fonts():
+    """Playfair Display fra Google Fonts (OFL) - caches i temp, committes ikke."""
+    d = os.path.join(tempfile.gettempdir(), 'aigap-fonts')
+    os.makedirs(d, exist_ok=True)
+    out = {}
+    for k, u in FONT_URL.items():
+        p = os.path.join(d, k + '.ttf')
+        if not os.path.isfile(p) or os.path.getsize(p) < 1024:
+            try:
+                subprocess.run(['curl', '-fsSL', u, '-o', p], check=True)
+            except subprocess.CalledProcessError as e:
+                sys.exit(f'kunne ikke hente fonten {u}: {e}')
+        out[k] = p
+    return out
+
+
+_RED = re.compile(r'1(?:\.0+)?\s+0(?:\.0+)?\s+0(?:\.0+)?\s+RG')
+
+
+def strip_red(page):
+    """Fjern malens røde krysstrek (to strøk) fra innholdsstrømmen.
+
+    Strøket er tegnet inline som «1 0 0 RG <sti> S», så det kan skjæres bort uten å
+    røre resten av siden. q/Q beholdes - grafisk tilstand må forbli balansert."""
+    doc, n = page.parent, 0
+    for xref in page.get_contents():
+        s = doc.xref_stream(xref).decode('latin-1')
+        out, i = [], 0
+        while True:
+            m = _RED.search(s, i)
+            if not m:
+                out.append(s[i:])
+                break
+            j = s.find('\nS\n', m.end())
+            if j < 0:
+                out.append(s[i:])
+                break
+            out.append(s[i:m.start()])
+            i = j + 3  # fra og med «S» og utover
+            n += 1
+        doc.update_stream(xref, ''.join(out).encode('latin-1'))
+    return n
+
+
+def drop_text(page, rects):
+    """Fjern tekst uten å røre grafikken (Arial-oppskrifter og ubrukte plassholdere)."""
+    if not rects:
+        return 0
+    for r in rects:
+        page.add_redact_annot(r, fill=False)
+    page.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE,
+                          graphics=pymupdf.PDF_REDACT_LINE_ART_NONE,
+                          text=pymupdf.PDF_REDACT_TEXT_REMOVE)
+    return len(rects)
+
+
+def spans(page):
+    """{renset tekst: span} - første forekomst vinner (malen kan ha like spans i flere fonter)."""
+    out = {}
+    for b in page.get_text('dict')['blocks']:
+        if b['type'] != 0:
+            continue
+        for l in b['lines']:
+            for s in l['spans']:
+                t = s['text'].strip()
+                if t:
+                    out.setdefault(t, s)
+    return out
+
+
+def rects_where(page, pred):
+    out = []
+    for b in page.get_text('dict')['blocks']:
+        if b['type'] != 0:
+            continue
+        for l in b['lines']:
+            for s in l['spans']:
+                if s['text'].strip() and pred(s):
+                    out.append(pymupdf.Rect(s['bbox']))
+    return out
+
+
+def wrap(font, text, size, maxw):
+    lines, cur = [], ''
+    for w in text.split():
+        t = (cur + ' ' + w).strip()
+        if cur and font.text_length(t, size) > maxw:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = t
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def put_text(page, text, tmpl, cx, alias, font):
+    """Skriv teksten sentrert om cx, nederste linje på mal-plassholderens grunnlinje.
+
+    Lang tittel brekkes over inntil to linjer (malen er laget for én), og krympes
+    bare hvis den ikke får plass slik."""
+    if not text:
+        return None
+    size, lines = tmpl['size'], None
+    while size > 6:
+        lines = wrap(font, text, size, MAXW)
+        if len(lines) <= 2:
+            break
+        size -= 0.25
+    y = tmpl['origin'][1]
+    for k, line in enumerate(reversed(lines)):
+        w = font.text_length(line, size)
+        page.insert_text((cx - w / 2, y - k * size * LEAD), line,
+                         fontname=alias, fontsize=size, color=(0, 0, 0))
+    return size, lines
+
+
+# --------------------------------------------------------------------------- bygget
 def build(book, variant, url, key):
     hdrs = {'apikey': key, 'Authorization': f'Bearer {key}'}
-    q = f'{url}/rest/v1/book_chapter?book=eq.{book}&variant=eq.{variant}&select=*&order=ord.asc'
-    rows = json.loads(get(q, hdrs))
+    v = json.loads(get(f'{url}/rest/v1/book_variant?book=eq.{book}&variant=eq.{variant}&select=*', hdrs))
+    title_no = (v[0].get('title_no') if v else '') or variant
+    title_en = (v[0].get('title_en') if v else '') or ''
+    rows = json.loads(get(f'{url}/rest/v1/book_chapter?book=eq.{book}&variant=eq.{variant}'
+                          f'&select=*&order=ord.asc', hdrs))
     if not rows:
         sys.exit(f'ingen book_chapter-rader for book={book!r} variant={variant!r}')
 
@@ -111,44 +273,94 @@ def build(book, variant, url, key):
     if not os.path.isfile(pdf_path):
         sys.exit(f'finner ikke {pdf_path}')
 
-    spans, groups = sub_spans(lines), {p: ls for p, ls in page_groups(lines)}
-    sel, missing = [], []
+    by_sub, groups = sub_spans(lines), {p: ls for p, ls in page_groups(lines)}
+    chaps, placed, missing = [], set(), []
     for r in rows:
+        pages = []
         for sub in [s.strip() for s in (r.get('subchapters') or '').split('|') if s.strip()]:
-            span = spans.get(norm(sub))
+            span = by_sub.get(norm(sub))
             if not span:
                 missing.append(f'{r.get("mainchapter") or "?"} / {sub}')
                 continue
             for p in range(span[0], span[1] + 1):
-                if p not in sel:
-                    sel.append(p)
-    if not sel:
+                if p not in placed:
+                    placed.add(p)
+                    pages.append(p)
+        chaps.append((r.get('mainchapter') or '', pages))
+    if not placed:
         sys.exit('ingen underkapitler kunne stedfestes i bokas md')
+
+    sb = sync_books()
+    src = pymupdf.open(pdf_path)
+    tpl = sb._template_start(src)  # 1-basert side der mal-blokken (siste fire) starter
+    F = fonts()
+    fm = {k: pymupdf.Font(fontfile=p) for k, p in F.items()}
+
+    # 1) sett sammen spredningen: forside, så (kapittelside + kapittelets sider), så malen
+    out = pymupdf.open()
+    out.insert_pdf(src, from_page=tpl - 1, to_page=tpl - 1)
+    cover_i = 0
+    chap_i = []
+    for main, pages in chaps:
+        chap_i.append((out.page_count, main))
+        out.insert_pdf(src, from_page=tpl, to_page=tpl)
+        for p in pages:
+            out.insert_pdf(src, from_page=p - 1, to_page=p - 1)
+    out.insert_pdf(src, from_page=tpl - 1, to_page=tpl + 2)  # malen bakerst (blir ikke bokinnhold)
+
+    # 2) gjør mal-kopiene til ekte sider (ingen flere struktur-endringer nå, så
+    #    sideobjektene holder seg gyldige - hentes på nytt etter hver endring)
+    pg = out[cover_i]
+    strip_red(pg)
+    pg = out[cover_i]
+    kill = rects_where(pg, lambda s: 'arial' in s['font'].lower())
+    if not title_en:
+        kill += rects_where(pg, lambda s: s['text'].strip() == 'Name of Book')
+    drop_text(pg, kill)
+    pg = out[cover_i]
+    pg.insert_font(fontname='VT0', fontfile=F['sc'])
+    pg.insert_font(fontname='VT1', fontfile=F['sci'])
+    sp = spans(pg)
+    if 'Navn På Bok' in sp:
+        print(f'[{book}/{variant}] forside: {put_text(pg, title_no, sp["Navn På Bok"], HALF, "VT0", fm["sc"])}')
+    if title_en and 'Name of Book' in sp:
+        put_text(pg, title_en, sp['Name of Book'], HALF_EN, 'VT1', fm['sci'])
+
+    for idx, main in chap_i:
+        no_t, no_d, en_t, en_d = chapter_parts(main)
+        pg = out[idx]
+        strip_red(pg)
+        pg = out[idx]
+        kill = rects_where(pg, lambda s: 'arial' in s['font'].lower())
+        if not en_t:
+            kill += rects_where(pg, lambda s: s['text'].strip() == 'The Chapter Title')
+        if not en_d:
+            kill += rects_where(pg, lambda s: s['text'].strip() == 'The Chapter Description')
+        drop_text(pg, kill)
+        pg = out[idx]
+        for a, k in (('CT0', 'sc'), ('CT1', 'sci'), ('CD0', 'pd'), ('CD1', 'pdi')):
+            pg.insert_font(fontname=a, fontfile=F[k])
+        sp = spans(pg)
+        for text, key, cx, alias, fk in ((no_t, 'Kapitteltittelen', HALF, 'CT0', 'sc'),
+                                         (no_d, 'Kapittelbeskrivelsen', HALF, 'CD0', 'pd'),
+                                         (en_t, 'The Chapter Title', HALF_EN, 'CT1', 'sci'),
+                                         (en_d, 'The Chapter Description', HALF_EN, 'CD1', 'pdi')):
+            if text and key in sp:
+                put_text(pg, text, sp[key], cx, alias, fm[fk])
 
     out_dir = os.path.join(BOOK_DIR, book, variant)
     os.makedirs(out_dir, exist_ok=True)
+    spread = os.path.join(out_dir, f'{variant}.pdf')
+    out.set_metadata({'title': title_no, 'author': (src.metadata or {}).get('author') or ''})
+    out.save(spread, garbage=4, deflate=True)
+    out.close()
+    src.close()
 
-    md = []
-    for i, p in enumerate(sel, start=1):
-        md.append(f'#### p. {i}')
-        if i == 1:
-            md.append(f'# {variant}')
-        md += groups.get(p, [])
-    md_file = os.path.join(out_dir, f'{variant}.md')
-    with open(md_file, 'w', encoding='utf-8', newline='\n') as f:
-        f.write('\n'.join(md).rstrip('\n') + '\n')
+    # 3) de fire utgavene (.md + .pdf) og sidecarene - samme vei som en vanlig bok
+    sb.extract(spread)
 
-    import pymupdf  # PyMuPDF - samme bibliotek som sync-books.py
-    src = pymupdf.open(pdf_path)
-    out = pymupdf.open()
-    for p in sel:
-        out.insert_pdf(src, from_page=p - 1, to_page=p - 1)
-    pdf_file = os.path.join(out_dir, f'{variant}.pdf')
-    out.save(pdf_file, garbage=4, deflate=True)
-
-    print(f'[{book}/{variant}] {len(sel)} sider -> {os.path.relpath(md_file, REPO)} + '
-          f'{os.path.relpath(pdf_file, REPO)}  ({os.path.getsize(pdf_file) / 1048576:.2f} MB) '
-          f'fra {os.path.basename(md_path)}')
+    print(f'[{book}/{variant}] {len(chaps)} kapitler, {len(placed)} sider -> '
+          f'{os.path.relpath(spread, REPO)} + 4 utgaver, fra {os.path.basename(md_path or "")}')
     for m in missing:
         gh('warning', f'[{book}/{variant}] fant ikke underkapittelet i bokas md: {m}')
     return len(missing)
