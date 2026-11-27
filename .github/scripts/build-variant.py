@@ -208,15 +208,26 @@ def spans(page):
     return out
 
 
-def rects_where(page, pred):
+def rects_lines(page, wanted=(), font=None):
+    """Hele linja rundt en plassholder - malen kan ha tier-ord på samme linje.
+
+    Nøkler matcher fra linjestart, så «Kapitteltittelen premiumfreemium» treffes av
+    «Kapitteltittelen». `font` treffer linjer som inneholder en gitt fontfamilie
+    (Arial = malens oppskrifter, aldri bokinnhold)."""
     out = []
     for b in page.get_text('dict')['blocks']:
         if b['type'] != 0:
             continue
         for l in b['lines']:
-            for s in l['spans']:
-                if s['text'].strip() and pred(s):
-                    out.append(pymupdf.Rect(s['bbox']))
+            sp = [s for s in l['spans'] if s['text'].strip()]
+            if not sp:
+                continue
+            txt = ' '.join(s['text'].strip() for s in sp)
+            hit = any(txt == w or txt.startswith(w) for w in wanted)
+            if not hit and font:
+                hit = any(font in s['font'].lower() for s in sp)
+            if hit:
+                out.append(pymupdf.Rect(l['bbox']))
     return out
 
 
@@ -234,11 +245,19 @@ def wrap(font, text, size, maxw):
     return lines
 
 
-def put_text(page, text, tmpl, cx, alias, font):
-    """Skriv teksten sentrert om cx, nederste linje på mal-plassholderens grunnlinje.
+def pick_font(name):
+    """Plassholderens egen font avgjør hvilken Playfair-variant vi setter inn."""
+    n = re.sub(r'[^a-z]', '', str(name or '').lower())
+    kind = 'sc' if 'displaysc' in n else 'pd'   # SC = tittel-fonten, ellers beskrivelses-fonten
+    return kind + ('i' if 'italic' in n else '')
 
-    Lang tittel brekkes over inntil to linjer (malen er laget for én), og krympes
-    bare hvis den ikke får plass slik."""
+
+def put_text(page, text, tmpl, cx, alias, font, down=False):
+    """Skriv teksten sentrert om cx, med én linje på mal-plassholderens grunnlinje.
+
+    Lang tekst brekkes over inntil to linjer (malen er laget for én) og krympes bare
+    hvis den ikke får plass slik. `down` velger hvilken vei en andre linje vokser -
+    forsiden har ledig plass nedover, kapittelsiden oppover."""
     if not text:
         return None
     size, lines = tmpl['size'], None
@@ -247,10 +266,11 @@ def put_text(page, text, tmpl, cx, alias, font):
         if len(lines) <= 2:
             break
         size -= 0.25
-    y = tmpl['origin'][1]
-    for k, line in enumerate(reversed(lines)):
+    y, step, n = tmpl['origin'][1], size * LEAD, len(lines)
+    for i, line in enumerate(lines):
+        k = i if down else n - 1 - i  # k=0 ligger på grunnlinja
         w = font.text_length(line, size)
-        page.insert_text((cx - w / 2, y - k * size * LEAD), line,
+        page.insert_text((cx - w / 2, y + k * step if down else y - k * step), line,
                          fontname=alias, fontsize=size, color=(0, 0, 0))
     return size, lines
 
@@ -313,40 +333,38 @@ def build(book, variant, url, key):
     pg = out[cover_i]
     strip_red(pg)
     pg = out[cover_i]
-    kill = rects_where(pg, lambda s: 'arial' in s['font'].lower())
-    if not title_en:
-        kill += rects_where(pg, lambda s: s['text'].strip() == 'Name of Book')
-    drop_text(pg, kill)
+    sp = spans(pg)  # mal-geometrien leses FØR plassholderen fjernes
+    drop_text(pg, rects_lines(pg, ['Navn På Bok', 'Name of Book'], font='arial'))
     pg = out[cover_i]
-    pg.insert_font(fontname='VT0', fontfile=F['sc'])
-    pg.insert_font(fontname='VT1', fontfile=F['sci'])
-    sp = spans(pg)
+    for a in ('sc', 'sci', 'pd', 'pdi'):
+        pg.insert_font(fontname=a, fontfile=F[a])
     if 'Navn På Bok' in sp:
-        print(f'[{book}/{variant}] forside: {put_text(pg, title_no, sp["Navn På Bok"], HALF, "VT0", fm["sc"])}')
+        fk = pick_font(sp['Navn På Bok']['font'])
+        put_text(pg, title_no, sp['Navn På Bok'], HALF, fk, fm[fk], down=True)
+        print(f'[{book}/{variant}] forside: {title_no!r}')
     if title_en and 'Name of Book' in sp:
-        put_text(pg, title_en, sp['Name of Book'], HALF_EN, 'VT1', fm['sci'])
+        fk = pick_font(sp['Name of Book']['font'])
+        put_text(pg, title_en, sp['Name of Book'], HALF_EN, fk, fm[fk], down=True)
 
     for idx, main in chap_i:
         no_t, no_d, en_t, en_d = chapter_parts(main)
         pg = out[idx]
         strip_red(pg)
         pg = out[idx]
-        kill = rects_where(pg, lambda s: 'arial' in s['font'].lower())
-        if not en_t:
-            kill += rects_where(pg, lambda s: s['text'].strip() == 'The Chapter Title')
-        if not en_d:
-            kill += rects_where(pg, lambda s: s['text'].strip() == 'The Chapter Description')
-        drop_text(pg, kill)
+        sp = spans(pg)  # mal-geometrien leses FØR plassholderne fjernes
+        drop_text(pg, rects_lines(pg, ['Kapitteltittelen', 'The Chapter Title',
+                                       'Kapittelbeskrivelsen', 'The Chapter Description'],
+                                  font='arial'))
         pg = out[idx]
-        for a, k in (('CT0', 'sc'), ('CT1', 'sci'), ('CD0', 'pd'), ('CD1', 'pdi')):
-            pg.insert_font(fontname=a, fontfile=F[k])
-        sp = spans(pg)
-        for text, key, cx, alias, fk in ((no_t, 'Kapitteltittelen', HALF, 'CT0', 'sc'),
-                                         (no_d, 'Kapittelbeskrivelsen', HALF, 'CD0', 'pd'),
-                                         (en_t, 'The Chapter Title', HALF_EN, 'CT1', 'sci'),
-                                         (en_d, 'The Chapter Description', HALF_EN, 'CD1', 'pdi')):
+        for a in ('sc', 'sci', 'pd', 'pdi'):
+            pg.insert_font(fontname=a, fontfile=F[a])
+        for text, key, cx in ((no_t, 'Kapitteltittelen', HALF),
+                              (no_d, 'Kapittelbeskrivelsen', HALF),
+                              (en_t, 'The Chapter Title', HALF_EN),
+                              (en_d, 'The Chapter Description', HALF_EN)):
             if text and key in sp:
-                put_text(pg, text, sp[key], cx, alias, fm[fk])
+                fk = pick_font(sp[key]['font'])
+                put_text(pg, text, sp[key], cx, fk, fm[fk])
 
     out_dir = os.path.join(BOOK_DIR, book, variant)
     os.makedirs(out_dir, exist_ok=True)
