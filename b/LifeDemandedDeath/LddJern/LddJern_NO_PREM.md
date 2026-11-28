@@ -1,19 +1,19 @@
 #### p. 1
-# LddJern
+# Det vakre i jern og asfalt
 #### p. 2
 Kroppen etter
 ## sammenbruddet
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Skade, delir og gjenoppbygging
 #### p. 3
 ### 20 km/t og under
-🎵 [Flower, Moby](https://aigap.no/mfm)
+🎵 [Flower; Moby](https://aigap.no/mfm)
 På skogsstier i natten kan man løpe og snuble i røtter. Snart overtar automatikken i kroppen. Man enser ikke fare for å falle å slå seg.
 Langs havet er det svaberg og plutselig finner jeg meg løpende, på samme måte i skumringen i skogen, løpende inn i natten på svabergene.
 Akkurat som løping i under 20 km/t slipper sansene taket, og selv om et fall ikke automatisk betyr død, ikke engang store skader, ligner effekten den jeg har med motorsykkel i over 200 km/t. Kanskje finnes flyten og effekten fra meditasjonen for alle, og over alt. Mon tro om det ikke er behovet meg for å føle som styrer, like mye som hendelsene jeg blir utsatt for.
 #### p. 4
 ### Det vakre som varte et øyeblikk
-🎵 [You look like rain, Morphine](https://aigap.no/myllr)
+🎵 [You Look Like Rain; Morphine](https://aigap.no/myllr)
 “Your mind and your experience call me”. Det var to timer igjen til sommerfesten på gresset og jeg var allerede overbelastet av for mange uttrykk. Det ble nei takk til sengevelkomst hos en flamme fra Sørlandet som skulle selge eksmannens Tesla på Gardermoen; bedre å ta en stille ensom time under en falsk palme i Frognerkilen, og roe nervesystemet før en fest med Mezcal, Mont d’Or, Entrecote og trøffelsalt. Hjernen din og erfaringen din kaller på meg.
 “You have lived and your intelligence is sexy”. De tre foregående sommerfestene satt fortsatt i følelsesmessig, de hadde medført korte dater uten mye etterspill, og jeg regnet med det samme nå.
 Så møtte jeg S. Vi drakk den meksikanske rumpespriten mens jeg flamberte entrecote, og deretter unngikk jeg henne resten av festen. Hun var synlig ambivert
@@ -35,7 +35,7 @@ Strukket ut til grensen.
 “You look like rain”. Hun sto der da døden laget plass, og ble koblingen til følelsene i ruinene av mitt nullsumsliv. Jeg vil vite hva du har å si. Det vakre livet med kvinnen var ikke ment å vare, men ble en indikasjon på at positivsum er mulig når nullsum dør. Livet slik jeg kjente det var over. Døden laget plass til et helt nytt liv, forholdet med U var ikke ment å vare, men gi håp. Det fikk vi til.
 #### p. 7
 ### 40 km/t & saltsmak om morgenen
-🎵 [Hun er fri, Raga Rockers](https://aigap.no/mhef)
+🎵 [Hun er fri; Raga Rockers](https://aigap.no/mhef)
 Jeg har saltsmak i kjeften. Merket smaken på vei inn i dagen med motor på tomgang. Gryende soloppgang vekket meg.
 Kvartfinalen i VM i fotball er ferdig for et par timer siden og natten har ikke enda blitt til dag. Min brors familie jeg så kampen med skal sove mange timer. Ikke jeg. Lister meg ut legger merke til niesen min som vinker til meg. Hun har fredfull morgenstund på natten. Vi nikker kort til hverandre mens jeg gleder meg til mitt eget øyeblikk i stillhet.
 Soloppgang på stille vei med stor lat motorsykkel uten å møte folk. All grunn til å smile. Niese får sitt, jeg får mitt.
@@ -57,7 +57,7 @@ Det gjør vondt. Smerte er tegn på liv, en virkelighet det i sannhet ikke skal 
 Jeg har tid. Det kommer til å ta tid å komme videre. Nærmere.
 #### p. 10
 ### Styrken er som før
-🎵 [Stranglehold](https://aigap.no/msh)
+🎵 [Stranglehold; Ted Nugent](https://aigap.no/msh)
 Dansken satt over bordet, han hadde lang erfaring med MC fra MC-klubber som Rabis MC. Jeg har ikke mye erfaring med MC-klubber , men pleide å feste på Rabis MC i Lillestrøm da jeg var 20 år gammel og hadde kjæreste fra området, de holdt åpent hus lengre enn “Martins” og andre lokale vannhull i nærheten.
 Jeg delte i stedenfor med ham at jeg hadde snakket med SBS i militæret, de er del av den engelske spesialstyrken SAS, som har tradisjoner med MC-klubber. Han ble stille en stund, og sa plutselig at han ikke kan noe om HA, som er kortnavnet på Hells Angels. Kanskje han var redd jeg hadde kobling til HA, noe jeg ikke har, og at han hadde fornærmet noen med kobling til Hells Angels.
 #### p. 11
@@ -79,7 +79,7 @@ Men historien om kjøring i 200 km/t om natten, som jeg bare har gjort et par ga
 Jeg hadde aldri ulykker over 100 km/t, hadde jeg vært i stand til å skrive hvis jeg hadde? Om jeg har vært heldig eller har nok overlevelsesinstinkt kan jeg ikke si sikkert. Minner om ulykker, nattkjøring og høy fart blander seg.
 #### p. 14
 ### Historiske røtter nullsummerings død
-🎵 [Dreaming in Colour, Art of Noise](https://aigap.no/mdic)
+🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Traume som tidsbrudd Judith Herman, Cathy Caruth Til og med koma kan være en god ting, når man våkner.
 Erkjennelse av en verden som ikke lenger finnes, er eksempel på traumatisk brudd. Øyeblikk der virkelighet revner og tid oppleves fragmentert. Caruths teori om traumets “forsinkede gjenkomst” forklarer hvorfor lyden av knust glass (eller hjelm) blir et lydmessig minnespor som aktiveres senere øyeblikk av krise. En lydbro til døden minner om alle tap og alt håps død.
 Alt fra ubesvarte kyss til livslange traumer gjør at fortid aldri blir bare fortid; fortid er nåtid, gjentatt i hver ødeleggelse eller manglende handling. Når man våkner fra koma kan man velge å utslette sitt gamle liv og begynne på nytt.
@@ -98,11 +98,11 @@ Frykten, hvis man ikke lar angsten komme frem, kan derfor være en formidabel ki
 Historiske røtter til nulloppsummerings død Drapet bla Ernst Hemmingway En gepard-valp som er syk blir leget av mennesker, vi håper at en gang vi slipper den ut, at vi aldri skal se den igjen. Hvis den klarer å drepe er den fri fra vår menneskelige verden og påvirkning, den går tilbake til naturen. Er det slik at vi gjennom å miste vår menneskelighet setter pris på den, (på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
 #### p. 18
 ## Asfalt, fart og motor
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Jern og bevegelse
 #### p. 19
 ### 200 km/t og oppover
-🎵 [Battle Without Honor or Humanity](https://aigap.no/mbwhoh)
+🎵 [Battle Without Honor or Humanity; HOTEI](https://aigap.no/mbwhoh)
 På motorsykkel i natten i maksimal hastighet er man synlig og kan høres. Det er en hemmelighet at det er full frigjørende stillhet for den som kjører.
 Kroppen hyperfokuseres, redd utslettelse. Sansene svekkes og inntrykk er borte etter minutters galskap.
 Øredøvende monoton vindstøy som treffer hjelmen er det første som blir borte, etterpå forsvinner refleksjon over bevegelser, svinger, natur, dyr, trafikk og lys. Alt blir rutinebevegelser og handlinger, mønstre og vibrasjoner, detaljene borte for alle sanser.
@@ -112,17 +112,17 @@ Alle psykiske problemer er irrelevant, smerte også. Den ultimate stillheten lig
 Nullsumlivet dør, skapelse uten ødeleggelse blir mulig. Død gir plass til nytt liv.
 #### p. 21
 ### Når du åpner øynene er du tilbake
-🎵 [Good Thing, Fine Young Cannibals](https://aigap.no/mx)
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 Den hyggelige sykehuspresten kom til det lokale vannhullet, vi snakket om ”det ondes problem”; hvordan ondskap kan finnes i en tilværelse der gud er god. Husker ikke hvordan jeg kom inn på det, men sa: “Jeg har selv vært psykotisk, falt i delir etter operasjoner fire år siden". “Det er ikke psykose” sa den erfarne sjelesørgeren. “Man får medisin og blir bra, men maksimalt ti dager”. Jeg nikket bekreftende. “To dager for meg”. Fire dagers samtale, to dagers medisinbruk med det jeg bare kan gjette er en ledende lege på sitt område.
 “Hvordan så han ut?”, jeg kjenner mange ved Rikshospitalet.
 “Det var en kvinne, hun var høy og smart”, jeg beskrev henne i detalj. ”Hun er professor innen dette området, du var en enkel sak for en av hennes kaliber”. Så fikk jeg videresendt en takk til henne. Hun var der, jeg fornektet galskap, valgte livet.
 #### p. 22
 ## Kropp, trening og motstand
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Det som tåler trøkk
 #### p. 23
 ### Trening
-🎵 [Call on Me, Eric Prydz](https://aigap.no/mcom)
+🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
 Aya og Andrea trener klokken 05 for å se bra ut. Han sminker seg subtilt. Skal se bra ut under trening, og etter svetting. Trening og sex: han ser best ut etterpå. Hun ser best ut før. Operert J.Lo rompe fra 18-års dagen holdt ved like som 40-åring. J-Lo slanket sin.
 Bo og Basma trener klokken 06 fordi det er oppskriften på å leve riktig konformt. Han står for det meste mellom apparatene og snakker med kollega fra et “Big four” konsulentselskap, de fire forherligende vikarbyråene som forlenger det offentlige med fleksibel arbeidskraft. Tre promille av de ansatte blir rike, resten får innpass i mellomledelse hos kundene. Du vil ikke vite hva de snakker om, det er viktig og spennende for akkurat dem, ikke andre. IT. Finans.
 #### p. 24
@@ -150,45 +150,50 @@ Quan og Quincy trener klokken 21 for …
 Robin og Rei trener klokken 22 for …
 Shannon og Sydney trener klokken 23 for …
 #### p. 29
+nødvendig    skrivekurs
+var der da jeg begynte å leve.
+På nytt.
+kjærlighet jeg gav videre til neste generasjon
+#### p. 30
 ### Ulykken
-🎵 [Time to die, The Stranglers](https://aigap.no/mttd)
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 Jeg tok en Brun Tequila med M og dama hennes.
 Brun Tequila på formiddagen og livstruende ulykke på kvelden.
 Det gav erfaringer som aldri kan avlæres.
 Den delen av meg som døde av den livreddende behandlingen på akutten ga mulighet for slutten på et liv, en identitet, et selv.
 Hvor mye jeg skulle beholde av det jeg hadde vært, det kunne jeg velge selv. Fordelen av koma og delir er at så lite er igjen av den man var, at man kan omskrive seg selv.
 Fysisk sett var livet som jeg kjente det over. En måned på akutten og månedsvis med morfin endret alt. Aksepten for at livet jeg hadde før var borte var enkel, en uklar periode hadde fått en varig avslutning og kroppen ble leget.
-#### p. 30
+#### p. 31
 Livreddende behandling ved polytraume gis med lite eller stort team, et lite var nok for meg. Skadene inkluderte brist i noen av de øverste ryggvirvlene, lungeblødning, elleve knekte ribbein, høyenergibrudd og en knekt lillefinger. Ingen gadd å bry seg med lillefingeren, så den ser litt rar ut fortsatt. Noen ting er ekstreme nok til at de må oppleves for at man skal kunne forstå dem.
 Det var ikke skadene som fikk meg til å gå fra forstanden.
 Lungeemfysem, en blødning etter operasjonene eller ulykken, hadde nådd lungene. For lite oksygen til hjernen. Selv merket jeg det som vrangforestillinger og fysisk angst. Noe som skiller fysisk angst fra intellektuell, er at det er nyttig å rasjonalisere med en som har den intellektuelle typen.
 Jeg fløy over styret på motorsykkelen i fart, langsomt nok for overlevelse, fort nok for store skader. Det første som treffer bakken går i stykker, for meg var det høyre ben.
 Skader Det ble brudd av kategori type 3b. Brudd deles inn i nivå en, to og tre. Nivå tre deles igjen inn i a, b og c. Statistisk sett ender 3a, b og c med amputasjon henholdsvis 5, 25 og 50 prosent av tilfellene. Mitt brudd medførte 25% sjanse for amputasjon, multitraume og alvorlige skader rundt omkring i kroppen.
 Sannsynlighet for kognitiv reduksjon. Forskjellige typer varige men av fysisk og psykisk art.
-#### p. 31
+#### p. 32
 “Like shifting sands in an ocean's bed”. Blodoppsamling i lungene begrenset oksygentilførselen til hjernen nok til at jeg, ifølge journaler, hadde ukontrollerte skjelvinger og angst, så jeg gikk i den psykotiske tilstanden delir. Ingenting var lengre stabilt; identitet, kropp og virkelighet var i bevegelse.
 Ryggraden hadde kompresjonsbrudd i 2., 3. og 6. virvel ovenfra, men jeg ble ikke lam.
 Selv om halvparten av ribbeina var knekt hadde de holdt seg på plass, og de som var forskjøvet punkterte ikke vitale organer. Jeg våknet med plast langs hele den ene siden av brystkassen, men vet ikke om det var fordi de plukket ut grusrester av meg eller hadde justert punkterende ribbein, det er ikke viktig.
 Mindre skader, som brister i et skulderblad, og brudd i en lillefinger ble ignorert den første uken mens de mange livsnødvendige operasjonene ble utført og benet ble reddet.
 Derfor sitter jeg igjen med bagatellmessige varige men som en skjev lillefinger og et nervesystem som ikke kjenner nok smerte når det egentlig burde.
-#### p. 32
+#### p. 33
 ### Behandling
-🎵 [Magic Arrow, Timber Timbre](https://aigap.no/mma)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Behandlinger inkluderte et utall operasjoner, hudtransplantasjon, bli lagt i koma og behandling av delir. Delir er en psykotisk tilstand mange får når medisinbruk, operasjoner, manglende oksygentilførsel til hjernen og andre skader går over grensen for hva man som menneske kan takle.
 Man vet ikke hvor mye som skal til før man mister forstanden, før det skjer.
 Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.
 Etter at det verste var over fysisk ble det psykiatrimedisin to dager, og delir forsvant. Et uventet glimt av håp, en liten gnist var nok til å komme tilbake fra avgrunnen. Jeg kom ufortjent helt tilbake uten hverken beroliggende eller sovemedisin.
-#### p. 33
+#### p. 34
 Opplevelse Under delir var jeg overbevist om at operasjonene var finansiert av naken-TV, og at droner angrep sykehuset ute etter å ta livet mitt. Jeg hadde det jeg vil betegne som fysisk angst, noe vesensforskjellig fra intellektuell angst. Overbevist om at datter hadde ansiktstatovering og at min ukrainske venninne burde ta seg av planleggingen av behandlingen min, var jeg sikkert en irriterende pasient. Intens desorientering må oppleves for å forstås; delir, kaos og hallusinasjon er ikke mer forståelig enn kvantefysikk. Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig . Perioden med delir framstår som ekte fullgode minner, der jeg hadde en annen forståelse av virkeligheten, det er en fortid jeg aksepterer. Kunnskap, håp, og selvopplevelse glir bort, som minner som ikke holder seg; tapet av kontroll er varig, jeg takker hver dag for at jeg er fri for angst og paranoia.
 Småsøsken S så en gang en kort film av meg fra før ulykken og jeg forsto ikke hvorfor hun gråt. Mennesker rundt meg har nok en dypere innsikt i hvor mye ulykken har endret meg enn det er mulig for meg å ha selv. Jeg vet at blodproppen som beveget seg rundt i kroppen er en av tingene som kunne ha drept meg, og kan ha gitt meg varige skader. Kroppen gikk inn i ukontrollerte skjelvinger jeg ikke husker, og på tross av at jeg var sterk og klar
-#### p. 34
+#### p. 35
 gjennom skader, operasjoner og medisinbruk gikk jeg i delir da kroppen kjempet for livet. Oksygenmangel til hjernen endret alt.
 Min yngste søster trodde aldri jeg skulle bli den samme igjen.
 Mens legene kjempet for livet mitt så hun to mulige utfall.
 Eldste bror skulle dø, eller bli invalid, og friheten han endelig fikk med MC-livet var over. Sjansen for at alt skulle bli som før var for henne minimal. Jeg får aldri vite om jeg ble som før, bare hun vet.
 Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg. Det er ikke viktig for meg å vite om jeg har endt opp med en varig personlighetsendring eller lavere kognitive evner, det ligger utenfor horisonten og gir ikke noe glede å vite det. Ikke mulig for meg å se eller måle, og hvis jeg spør noen av mine nærmeste, kan de være for formet av egne traumer, av å tro de skulle miste meg, til å være i stand til å svare.
 Jeg sitter fast i den kollapserte versjonen av meg selv, kan ikke tillate meg å flyte tilbake til et farlig liv uten å skade dem jeg elsker. Vurderinger rundt eget og andres potensial blir fort begrenset av hvordan man observerer, akkurat som at kvantefysikk er utilgjengelig for hjernen vår. Superposisjoner i kvanteverden blir begrenset ned til å følge behovet til den som observerer. Vil vurderinger av meg være i kontekst av forholdet jeg har til den som observerer, vår intuitive forståelse av både
-#### p. 35
+#### p. 36
 dimensjonalitet og sannsynlighet er formet av vår evne til å observere, både følelsesmessig og abstrakt.
 “Elsk meg for det jeg er, ikke mitt potensial” har jeg sagt til forelskede, men aldri en søster eller datter.
 Forholdet til mine søstre og døtre har blitt dårligere.
@@ -197,7 +202,7 @@ Vrangforestillinger Ikke alle vrangforestillinger kan jeg skrive om. Noen er for
 Avdelingen ved Ullevål sykehus der de driver akutt kamp for livredning, traumesenteret, akutten, har helikopterplass der det stadig lander helikoptre. Hver gang et helikopter landet, utspant det i hjernen min et droneangrep der jeg skulle drepes.
 Det begynte da hodet fikk for lite oksygen. Journalen avslører at ekstremitetene, armer og bein, begynte å skjelve ukontrollert.
 Jeg skulle dø. Hjernen fikk for lite oksygen og vrangforestillinger sto for tur. Først fløy det en uskyldig drone rundt den kunstige næringen jeg fikk, dronen tok bilder.
-#### p. 36
+#### p. 37
 Jeg klaget over den innbilte dronen og husker sykepleierne nikket forståelsesfullt, men ikke løste problemet. Fordi mannen til bonusdatter på det tidspunktet fløy droner i politiet tolker jeg det dithen at familien var der og fulgte med.
 Så kom veteraner i militæret etter meg. Først en mc-klubb fra Trøndelag, de var ute etter meg fordi jeg gav meg for tidlig fra militæret. Tok ikke utenlandstjeneste. En dame fra mc-klubben gikk inn og ut og skulle koordinere hvordan de skulle ta meg ut av spill.
 Etterhvert som tiden gikk grodde historiene sammen, og alle fra militært landsskytterstevne, som var avholdt et sted jeg nylig hadde besøkt, skulle drepe meg med droner fra lang avstand. Jeg visste døden var nær forestående og fikk stadig oppgitt nye tidspunkt jeg skulle skytes.

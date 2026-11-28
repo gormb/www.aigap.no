@@ -1,18 +1,18 @@
 #### p. 1
-# LddJern
+# Det vakre i jern og asfalt
 #### p. 2
 Kroppen etter
 ## sammenbruddet
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Skade, delir og gjenoppbygging
 #### p. 3
 ### 20 km/t og under
-🎵 [Flower, Moby](https://aigap.no/mfm)
+🎵 [Flower; Moby](https://aigap.no/mfm)
 Langs havet er det svaberg og plutselig finner jeg meg løpende, på samme måte i skumringen i skogen, løpende inn i natten på svabergene.
 Akkurat som løping i under 20 km/t slipper sansene taket, og selv om et fall ikke automatisk betyr død, ikke engang store skader, ligner effekten den jeg har med motorsykkel i over 200 km/t.
 #### p. 4
 ### Det vakre som varte et øyeblikk
-🎵 [You look like rain, Morphine](https://aigap.no/myllr)
+🎵 [You Look Like Rain; Morphine](https://aigap.no/myllr)
 Vi drakk den meksikanske rumpespriten mens jeg flamberte entrecote, og deretter unngikk jeg henne resten av festen. Hun var synlig ambivert
 #### p. 5
 “'Cause you look like rain”. Ingen av oss visste at nedtellingen var ferdig. Romansen uken etter ble byttet ut med akuttmottak, og sengen nærmest kjellerutgangen på Ullevål, deretter kom koma og kamp for overlevelse og forstand. Du ser ut som regn.
@@ -20,7 +20,7 @@ Vi drakk den meksikanske rumpespriten mens jeg flamberte entrecote, og deretter 
 Livet slik jeg kjente det var over. Døden laget plass til et helt nytt liv, forholdet med U var ikke ment å vare, men gi håp. Det fikk vi til.
 #### p. 7
 ### 40 km/t & saltsmak om morgenen
-🎵 [Hun er fri, Raga Rockers](https://aigap.no/mhef)
+🎵 [Hun er fri; Raga Rockers](https://aigap.no/mhef)
 Jeg har saltsmak i kjeften. Merket smaken på vei inn i dagen med motor på tomgang. Gryende soloppgang vekket meg.
 Kvartfinalen i VM i fotball er ferdig for et par timer siden og natten har ikke enda blitt til dag. Min brors familie jeg så kampen med skal sove mange timer. Ikke jeg. Lister meg ut legger merke til niesen min som vinker til meg. Hun har fredfull morgenstund på natten. Vi nikker kort til hverandre mens jeg gleder meg til mitt eget øyeblikk i stillhet.
 Soloppgang på stille vei med stor lat motorsykkel uten å møte folk. All grunn til å smile. Niese får sitt, jeg får mitt.
@@ -42,7 +42,7 @@ Det gjør vondt. Smerte er tegn på liv, en virkelighet det i sannhet ikke skal 
 Jeg har tid. Det kommer til å ta tid å komme videre. Nærmere.
 #### p. 10
 ### Styrken er som før
-🎵 [Stranglehold](https://aigap.no/msh)
+🎵 [Stranglehold; Ted Nugent](https://aigap.no/msh)
 Jeg har ikke mye erfaring med MC-klubber
 #### p. 11
 For meg gjorde det ingen forskjell, jeg synes fyren var hyggelig, men livet hadde nok hatt så kraftig kvelertak på ham at historiene han bygget selvfølelsen på kom stadig lengre unna virkeligheten.
@@ -52,7 +52,7 @@ Elitesoldat Militærnekteren som til damer sa han var del av en nasjonal spesial
 For å ha nytte av minnene våre er omskriving for nye situasjoner nyttig. Så kanskje det er jeg som underkommuniserer og ikke de andre som lyver. Kanskje er det viktigere å utnytte minnet for å lage en god og nyttig historie enn å gjengi sannheten med optimal presisjon?
 #### p. 14
 ### Historiske røtter nullsummerings død
-🎵 [Dreaming in Colour, Art of Noise](https://aigap.no/mdic)
+🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Til og med koma kan være en god ting, når man våkner.
 #### p. 15
 Det sublime i ødeleggelsen Lek med døden der man søker livsfare for å føle seg levende er en jakt på det sublime øyeblikk der døden gjør livet mer intens, og nummenheten blir borte. Schillers “On Naïve and Sentimental Poetry” (1795) ville kalt denne sentimentaliteten en lengsel etter en tapt uskyld som aldri kan gjenvinnes. Klage over natur som ikke lenger synger, for mennesket har ødelagt den.
@@ -62,11 +62,11 @@ Døden bla Ernst Hemmingway Død gir mening til livet, ved å oppleve død opple
 (på samme måte som at død gir oss perspektiv på liv); er altruisme født av drap?
 #### p. 18
 ## Asfalt, fart og motor
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Jern og bevegelse
 #### p. 19
 ### 200 km/t og oppover
-🎵 [Battle Without Honor or Humanity](https://aigap.no/mbwhoh)
+🎵 [Battle Without Honor or Humanity; HOTEI](https://aigap.no/mbwhoh)
 På motorsykkel i natten i maksimal hastighet er man synlig og kan høres. Det er en hemmelighet at det er full frigjørende stillhet for den som kjører.
 Kroppen hyperfokuseres, redd utslettelse. Sansene svekkes og inntrykk er borte etter minutters galskap.
 Øredøvende monoton vindstøy som treffer hjelmen er det første som blir borte, etterpå forsvinner refleksjon over bevegelser, svinger, natur, dyr, trafikk og lys. Alt blir rutinebevegelser og handlinger, mønstre og vibrasjoner, detaljene borte for alle sanser.
@@ -76,17 +76,17 @@ Alle psykiske problemer er irrelevant, smerte også. Den ultimate stillheten lig
 Nullsumlivet dør, skapelse uten ødeleggelse blir mulig. Død gir plass til nytt liv.
 #### p. 21
 ### Når du åpner øynene er du tilbake
-🎵 [Good Thing, Fine Young Cannibals](https://aigap.no/mx)
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 Den om ”det ondes problem”; hvordan ondskap kan finnes i en tilværelse der gud er god.
 “Det er ikke psykose” sa den erfarne sjelesørgeren.
 Hun var der, jeg fornektet galskap, valgte livet.
 #### p. 22
 ## Kropp, trening og motstand
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Det som tåler trøkk
 #### p. 23
 ### Trening
-🎵 [Call on Me, Eric Prydz](https://aigap.no/mcom)
+🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
 Aya og Andrea trener klokken 05 for å se bra ut. Han sminker seg subtilt. Skal se bra ut under trening, og etter svetting. Trening og sex: han ser best ut etterpå. Hun ser best ut før. Operert J.Lo rompe fra 18-års dagen holdt ved like som 40-åring. J-Lo slanket sin.
 Bo og Basma trener klokken 06 fordi det er oppskriften på å leve riktig konformt. Han står for det meste mellom apparatene og snakker med kollega fra et “Big four” konsulentselskap, de fire forherligende vikarbyråene som forlenger det offentlige med fleksibel arbeidskraft. Tre promille av de ansatte blir rike, resten får innpass i mellomledelse hos kundene. Du vil ikke vite hva de snakker om, det er viktig og spennende for akkurat dem, ikke andre. IT. Finans.
 #### p. 24
@@ -114,23 +114,28 @@ Quan og Quincy trener klokken 21 for …
 Robin og Rei trener klokken 22 for …
 Shannon og Sydney trener klokken 23 for …
 #### p. 29
+nødvendig    skrivekurs
+var der da jeg begynte å leve.
+På nytt.
+kjærlighet jeg gav videre til neste generasjon
+#### p. 30
 ### Ulykken
-🎵 [Time to die, The Stranglers](https://aigap.no/mttd)
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 Den delen av meg som døde av den livreddende behandlingen på akutten ga mulighet for slutten på et liv, en identitet, et selv.
 Hvor mye jeg skulle beholde av det jeg hadde vært, det kunne jeg velge selv. Fordelen av koma og delir er at så lite er igjen av den man var, at man kan omskrive seg selv.
-#### p. 30
-Jeg fløy over styret på motorsykkelen i fart, langsomt nok for overlevelse, fort nok for store skader. Det første som treffer bakken går i stykker, for meg var det høyre ben.
 #### p. 31
-Ryggraden hadde kompresjonsbrudd i 2., 3. og 6. virvel ovenfra, men jeg ble ikke lam.
+Jeg fløy over styret på motorsykkelen i fart, langsomt nok for overlevelse, fort nok for store skader. Det første som treffer bakken går i stykker, for meg var det høyre ben.
 #### p. 32
-### Behandling
-🎵 [Magic Arrow, Timber Timbre](https://aigap.no/mma)
-Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.
+Ryggraden hadde kompresjonsbrudd i 2., 3. og 6. virvel ovenfra, men jeg ble ikke lam.
 #### p. 33
-Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig
+### Behandling
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
+Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.
 #### p. 34
-Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg.
+Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig
 #### p. 35
-Livet som det var er ikke mer. Men det trenger ikke være dårligere, nå er det plass til å bygge noe nytt.
+Fordelen med å bli gal er, som det også sies om døden og dumskap, at det ikke er ens eget problem, bare et problem for de nærmeste. Ulempen med å bli gal er at det er et problem for dem rundt deg.
 #### p. 36
+Livet som det var er ikke mer. Men det trenger ikke være dårligere, nå er det plass til å bygge noe nytt.
+#### p. 37
 Det var helt uaktuelt å få besøk av familie. De måtte overleve.

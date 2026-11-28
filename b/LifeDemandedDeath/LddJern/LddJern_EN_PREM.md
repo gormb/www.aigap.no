@@ -1,15 +1,15 @@
 #### p. 1
-# LddJern
+# Beauty in Iron and Asphalt
 #### p. 2
 #### p. 3
 ### 20 km/h, and bellow
-🎵 [Flower, Moby](https://aigap.no/mfm)
+🎵 [Flower; Moby](https://aigap.no/mfm)
 On forest paths at night, you can run and trip over roots. Soon the body's automatism takes over. You're not aware of the danger of falling and hurting yourself.
 Along the sea, there are smooth rocks, and suddenly I find myself running, in the same way in the twilight in the forest, running into the night on the smooth rocks.
 Just like running at under 20 km/h, the senses let go, and even though a fall doesn't automatically mean death, not even major injuries, the effect resembles the one I have with a motorcycle at over 200 km/h. Perhaps the ﬂow and the eﬀect of meditation exist for everyone, and everywhere. I wonder if it's not the need for me to feel that controls, as much as the events I am exposed to.
 #### p. 4
 ### The beauty that lasted a moment
-🎵 [You look like rain, Morphine](https://aigap.no/myllr)
+🎵 [You Look Like Rain; Morphine](https://aigap.no/myllr)
 "Your mind and your experience call me". There were two hours left until the summer party on the grass, and I was already overloaded by too many expressions. It became a no thanks to a bed welcome from a ﬂame from the South who was going to sell her ex-husband's Tesla at Gardermoen; better to take a quiet, solitary hour under a fake palm in Frognerkilen, and calm the nervous system before a party with Mezcal, Mont d'Or, Entrecote, and truﬄe salt. Your mind and your experience call me.
 "You have lived and your intelligence is sexy". The three previous summer parties still sat in the emotional memory; they had resulted in short dates without much aftermath, and I expected the same now. Then I met S. We drank the Mexican ass-tequila while I flambéed the entrecote, and then I avoided her for the rest of the party.
 She was visibly ambivert
@@ -25,7 +25,7 @@ Apparently medium-low on the autism spectrum, like me. You have lived, and your 
 "You look like rain". She stood there as death made room, and became the connection to the feelings in the ruins of my zero-sum life. I want to know what you have to say. The beautiful life with the woman was not meant to last, but became an indication that positive-sum is possible when zero-sum dies. Life as I knew it was over. Death made room for a completely new life; the relationship with U was not meant to last, but to give hope. We achieved that.
 #### p. 7
 ### 40 km/h & salt taste on morning
-🎵 [Free Fallin, Tom Petty](https://aigap.no/mff)
+🎵 [Free Fallin; Tom Petty](https://aigap.no/mff)
 I have a salty taste in my mouth. Noticed the taste on the way into the day with the engine idling. The rising sunrise woke me. The World Cup quarter-final was over a couple of hours ago, and the night has not yet turned to day. My brother's family, whom I watched the match with, will sleep for many hours. Not me. I sneak out and notice my niece waving at me. She is having a peaceful morning moment at night. We nod briefly to each other while I look forward to my own moment in silence. Sunrise on quiet roads with a big lazy motorcycle without meeting people. Every reason to smile. Niece gets hers, I get mine.
 The motorcycle behaved strangely; stops at the 24-hour gas station and refills air in the rear tire. Over 300kg motorcycle tips over on the ground; I continue filling air. The rear wheel sticks up in the air, so it's easier. A passerby stares from a safe distance.
 #### p. 8
@@ -43,7 +43,7 @@ Now I am broken by a priest, one robust enough to handle me.
 I have time. It will take time to move on. Closer.
 #### p. 10
 ### Strength is as before
-🎵 [Stranglehold](https://aigap.no/msh)
+🎵 [Stranglehold; Ted Nugent](https://aigap.no/msh)
 The Dane sat across the table; he had long experience with MCs from MC clubs like Rabis MC. I don't have much experience with MC clubs , but I used to party at Rabis MC in Lillestrøm when I was 20 and had a girlfriend from the area; they had open house longer than "Martins" and other local watering holes nearby.
 Instead, I shared with him that I had spoken with SBS in the military; they are part of the British special forces SAS, which has traditions with MC clubs. He was quiet for a while, then suddenly said he doesn't know anything about HA, which is short for Hells Angels. Maybe he was afraid I had connections to HA, which I don't, and that he had insulted someone with connections to Hells Angels.
 #### p. 11
@@ -65,7 +65,7 @@ When I rode at night, I was often around the speed limit on small roads, but a s
 I never had accidents over 100 km/h; they were between 50 and 100; otherwise, I couldn't have written this. Whether it was because I was careless in speed blindness or had enough survival instinct, I don't know, but memories of accidents, night driving, and the high speed blend together.
 #### p. 14
 ### Historical roots of the death of zero-sum
-🎵 [On Being Blue, Art of Noise](https://aigap.no/mdic)
+🎵 [Dreaming in Color; The Art Of Noise](https://aigap.no/mdic)
 Trauma as temporal rupture Judith Herman, Cathy Caruth Even a coma can be a good thing, when you wake up.
 Acknowledgment of a world that no longer exists is an example of traumatic rupture. Moments where reality tears and time is experienced as fragmented. Caruth's theory of trauma's "delayed return" explains why the sound of broken glass (or a helmet) becomes an auditory memory trace that is activated later moments of crisis. A sound bridge to death reminds of all losses and the death of all hope. Everything from unanswered kisses to lifelong traumas makes the past never just the past; the past is the present, repeated in every destruction or lack of action. When you wake from a coma, you can choose to erase your old life and start anew.
 #### p. 15
@@ -82,7 +82,7 @@ Historical roots of the death of zero-sum The Kill see Ernest Hemingway A cheeta
 #### p. 18
 #### p. 19
 ### 200 km/h, and beyond
-🎵 [Battle Without Honor or Humanity](https://aigap.no/mbwhoh)
+🎵 [Battle Without Honor or Humanity; HOTEI](https://aigap.no/mbwhoh)
 When riding motorcycle at top speed through night, you are visible and audible. It is a secret that the rider has a state of absolute, liberating silence.
 Your body enters a state of hyperfocus driven by fear of annihilation. Senses dull, impressions leave after minutes of madness.
 Deafening, monotonous roar of wind against your helmet fades first. Next, any conscious reflection on movements, curves, scenery, wildlife, traffic, and lights disappears. Your existence dissolves into routine motions and actions, patterns and vibrations. Details slip away from every sense.
@@ -93,7 +93,7 @@ Ultimate silence lies at heart of a deafening roar, sound audible from afar, unh
 Zero-sum life dies; creation without destruction becomes possible. Death makes way for new life.
 #### p. 21
 ### When you open your eyes, you're back
-🎵 [Good Thing, Fine Young Cannibals](https://aigap.no/mx)
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
 The friendly hospital priest came to the local watering hole; we talked about "the problem of evil"; how evil can exist in an existence where God is good. I don't remember how I got onto it, but I said, "I have myself been psychotic, fell into delirium after operations four years ago." "That's not psychosis," said the experienced spiritual counselor.
 "You get medication and get better, but at most ten days." I nodded in conﬁrmation. "Two days for me." Four days of conversation, two days of medication with what I can only guess is a leading doctor in her ﬁeld.
 "What did he look like?" I know many people at Rikshospitalet.
@@ -101,7 +101,7 @@ The friendly hospital priest came to the local watering hole; we talked about "t
 #### p. 22
 #### p. 23
 ### Training
-🎵 [Call on Me, Eric Prydz](https://aigap.no/mcom)
+🎵 [Call on Me; Eric Prydz](https://aigap.no/mcom)
 Aya and Andrea train at 5 o'clock to look good. He applies makeup subtly. Is to look good during training, and after sweating. Training and sex: he looks best afterwards. She looks best before. Surgically enhanced J.Lo butt from her 18th birthday maintained as a 40-year-old. J-Lo slimmed away hers.
 Bo and Basma train at 6 o'clock because that is the recipe for living properly conformist.
 He mostly stands between the machines and talks with a colleague from a "Big four" consulting firm, the four glorifying temp agencies that extend the public sector with flexible labor. Three per thousand of the employees get rich; the rest gain entry into middle management at the clients. You don't want to know what they're talking about; it's important and exciting for exactly them, not others. IT. Finance.
@@ -132,36 +132,40 @@ Quan and Quincy train at 21 o'clock for …
 Robin and Rei train at 22 o'clock for …
 Shannon and Sydney train at 23 o'clock for …
 #### p. 29
+Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO 328 which gave career Thanks to her who was there when I began to live.
+Anew.
+Thanks to grandparents for love I gave the next generation
+#### p. 30
 ### The Accident
-🎵 [Time to die, The Stranglers](https://aigap.no/mttd)
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 I had a Brown Tequila with M and her girlfriend.
 Brown Tequila in the morning and a life-threatening accident in the evening. It gave experiences that can never be unlearned.
 The part of me that died from the life-saving treatment in the ER gave the opportunity for the end of a life, an identity, a self. How much I would keep of what I had been, I could choose myself. The advantage of coma and delirium is that so little remains of who you were that you can rewrite yourself.
 Physically, the life I knew was over. A month in the ER and months of morphine changed everything. The acceptance that the life I had before was gone was easy; an unclear period had received a deﬁnitive end, and the body was healed.
-#### p. 30
+#### p. 31
 Life-saving treatment for polytrauma is given with a small or large team; a small one was enough for me. The injuries included fractures in some of the upper vertebrae, lung bleeding, eleven broken ribs, high-energy fractures, and a broken little ﬁnger. No one bothered with the little ﬁnger, so it still looks a bit strange.
 Some things are extreme enough that they must be experienced to be understood.
 It wasn't the injuries that made me lose my mind. Pulmonary emphysema, a bleeding following the surgeries or the accident, had reached the lungs. Too little oxygen to the brain. I experienced it as delusions and physical anxiety. What distinguishes physical anxiety from intellectual is that it is useful to rationalize with someone who has the intellectual type.
 I flew over the handlebars of the motorcycle at speed, slow enough for survival, fast enough for major injuries. The first thing to hit the ground breaks; for me, it was the right leg.
 Injuries The fracture was category type 3b. Fractures are divided into levels one, two, and three. Level three is again divided into a, b, and c. Statistically, 3a, b, and c result in amputation in 5, 25, and 50 percent of cases, respectively. My fracture carried a 25% chance of amputation, multi-trauma, and serious injuries around the body. Probability of cognitive reduction. Various
-#### p. 31
+#### p. 32
 types of permanent sequelae, both physical and psychological.
 "Like shifting sands in an ocean's bed". Blood pooling in the lungs limited oxygen supply to the brain enough that, according to medical records, I had uncontrolled tremors and anxiety, so I went into the psychotic state of delirium. Nothing was stable anymore; identity, body, and reality were in motion.
 The spine had compression fractures in the 2nd, 3rd, and 6th vertebrae from the top, but I was not paralyzed.
 Although half the ribs were broken, they had stayed in place, and those that were displaced did not puncture vital organs. I woke up with plastic along one whole side of my chest, but I don't know if it was because they were picking gravel out of me or had adjusted puncturing ribs; it's not important.
 Minor injuries, like a fractured shoulder blade and a broken little ﬁnger, were ignored the ﬁrst week while the many life-saving operations were performed and the leg was saved.
 Hence, I'm left with minor permanent issues like a crooked little ﬁnger and a nervous system that doesn't feel enough pain when it really should.
-#### p. 32
+#### p. 33
 ### Treatment
-🎵 [Magic Arrow, Timber Timbre](https://aigap.no/mma)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Treatments included countless surgeries, skin grafts, being placed in a coma, and treatment for delirium. Delirium is a psychotic state many enter when medication use, surgeries, lack of oxygen to the brain, and other injuries cross the limit of what a human can handle. You don't know how much it takes before you lose your mind, until it happens.
 Morphine of all types was implanted in the body, placed in the back, given intravenously, and served in pill form. Fast-acting and long-acting.
 After the worst was over physically, psychiatric medication for two days, and the delirium disappeared. An unexpected glimmer of hope, a small spark, was enough to come back from the abyss. I undeservedly returned completely without either tranquilizers or sleeping pills.
-#### p. 33
+#### p. 34
 Experience During the delirium, I was convinced the surgeries were ﬁnanced by naked TV, and that drones were attacking the hospital to kill me. I had what I would call physical anxiety, something fundamentally diﬀerent from intellectual anxiety. Convinced that my daughter had a face tattoo and that my Ukrainian friend should take care of planning my treatment, I was surely an irritating patient. Intense disorientation must be experienced to be understood; delirium, chaos, and halluci- nations are no more understandable than quantum physics. After the episode, I have never again asked anyone to pull themselves together if they are scared; I am now aware that it is not a given that it is possible. The period of delirium appears as real, fully formed memories, where I had a diﬀerent understanding of reality; it is a past I accept.
 Knowledge, hope, and self-perception slip away, like memories that don't hold; the loss of control is lasting; I thank every day that I am free of anxiety and paranoia.
 Siblings S once saw a short ﬁlm of me from before the accident, and I didn't understand why she cried. People around me probably have a deeper insight into how much the accident has changed me than it is possible for me to have myself. I know that the blood clot that moved around in my body is one of the things that could have killed me and may have given me permanent damage. The body went into uncontrollable tremors I don't remember, and
-#### p. 34
+#### p. 35
 despite being strong and clear through injuries, surgeries, and medication, I went into delirium as my body fought for life.
 Oxygen deprivation to the brain changed everything.
 My youngest sister never thought I would be the same again.
@@ -169,7 +173,7 @@ While the doctors fought for my life, she saw three possible outcomes. Big broth
 The advantage of going crazy is, as is also said about death and stupidity, that it is not your own problem, only a problem for those closest to you. The disadvantage of going crazy is that it is a problem for those around you. It is not important for me to know if I have ended up with a permanent personality change or lower cognitive abilities; it lies beyond the horizon and gives no joy to know. Not possible for me to see or measure, and if I ask those closest to me, they may be too shaped by their own traumas, by believing they would lose me, to be able to answer.
 I am stuck in the collapsed version of myself; I cannot allow myself to ﬂoat back to a dangerous life without harming those I love.
 Assessments of one's own and others' potential quickly become limited by how one observes, just as quantum physics is inaccessible to our brains. Superpositions in the quantum world are limited down to following the need of the observer. Will assessments of me be in the context of my relationship to the observer, our intuitive understanding of both
-#### p. 35
+#### p. 36
 dimensionality and probability is shaped by our ability to observe, both emotionally and abstractly.
 "Love me for who I am, not my potential", I have said to loves, but never to a sister or daughter.
 My relationships with my sisters and daughters have become worse.
@@ -177,7 +181,7 @@ The life as it was is no more. But it doesn't have to be worse; now there is roo
 Delusions Not all delusions can I write about. Some are still too painful to talk about for those I care about. Tears fall just thinking about it.
 Other delusions are just funny memories.
 The department at Ullevål hospital where they conduct acute life-saving eﬀorts, the trauma center, the ER, has a helipad where helicopters constantly land. Every time a helicopter landed, a drone attack where I was to be killed unfolded in my brain. It started when my head got too little oxygen. The records reveal that my extremities, arms and legs, began to shake uncontrollably. I was going to die. The brain got too little oxygen, and delusions were next. First, an innocent drone ﬂew around the artiﬁcial nutrition I was receiving; the drone took pictures.
-#### p. 36
+#### p. 37
 I complained about the imaginary drone and remember the nurses nodding understandingly but not solving the problem.
 Because my stepdaughter's husband at the time ﬂew drones for the police, I interpreted it as the family being there and watching.
 Then came veterans from the military after me. First, an MC club from Trøndelag; they were after me because I left the military too early. Didn't take foreign service. A woman from the MC club walked in and out and was going to coordinate how they would take me out of play.
