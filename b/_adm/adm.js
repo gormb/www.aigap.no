@@ -149,14 +149,20 @@ const tcPoolFrom=()=>{ // unplaced = every subchapter of the book that is not pl
   tcChapters.forEach(c=>c.subs.forEach(s=>{if(!placed.has(tcNorm(s))&&!out.includes(s))out.push(s)}));
   return out;
 };
-const tcMarkDups=()=>{ // names that occur in more than one variant are shown in italic
+const tcMarkDups=()=>{ // sub chapter names that occur in more than one variant are shown in italic
   const n={};
-  tcBoardEl.querySelectorAll('.tcCol:not([data-unplaced]) .tcName').forEach(el=>{const k=tcNorm(el.textContent);n[k]=(n[k]||0)+1});
-  tcBoardEl.querySelectorAll('.tcName').forEach(el=>el.classList.toggle('tcDup',(n[tcNorm(el.textContent)]||0)>1));
+  tcBoardEl.querySelectorAll('.tcCol:not([data-unplaced]) .tcSubs .tcName').forEach(el=>{const k=tcNorm(el.textContent);n[k]=(n[k]||0)+1});
+  tcBoardEl.querySelectorAll('.tcSubs .tcName').forEach(el=>el.classList.toggle('tcDup',(n[tcNorm(el.textContent)]||0)>1));
 };
 const tcChip=s=>`<span class="tcChip"><span class="tcGripS" title="dra · Ctrl = kopi">⠿</span><span class="tcName" contenteditable="true">${esc(s)}</span><button type="button" class="tcBtn" onclick="tcDel(this)" title="fjern">×</button></span>`;
-const tcCardHTML=(main,subs)=>`<div class="tcMain"><div class="tcHead"><span class="tcName tcChap" contenteditable="true">${esc(main)}</span><button type="button" class="tcBtn" onclick="tcAddSub(this)" title="underkapittel">+</button><button type="button" class="tcBtn" onclick="tcDel(this)" title="slett kapittel">×</button></div><div class="tcSubs">${(subs||[]).map(s=>tcChip(s)).join('')}</div></div>`;
-const tcUnplacedHTML=()=>`<div class="tcCol tcUp" data-variant="${TC_UNPLACED}" data-unplaced="1"><div class="tcTitle">Uplassert <small>· ${tcPool.length} fra boken</small> <button type="button" class="tcBtn" onclick="tcLoad()" title="hent på nytt fra boken">↻</button></div><div class="tcList">${tcCardHTML(tcUnplacedName,tcPool)}</div></div>`;
+// mainchapter = «NO tittel|NO undertittel|EN tittel|EN undertittel» – fire felt, engelsk valgfritt
+const tcParts=s=>{const p=String(s||'').split('|').map(x=>x.trim());return [p[0]||'',p[1]||'',p[2]||'',p[3]||'']};
+const tcJoin=p=>{const a=p.map(x=>String(x||'').trim());while(a.length&&!a[a.length-1])a.pop();return a.join('|')};
+const tcField=(p,i,ph)=>`<span class="tcName" contenteditable="true" data-i="${i}" data-ph="${ph}" title="${ph}">${esc(p[i])}</span>`;
+const tcCardHTML=(main,subs)=>{const p=tcParts(main);
+  return `<div class="tcMain"><div class="tcHead"><div class="tcFields">${tcField(p,0,'NO tittel')}${tcField(p,2,'EN title')}${tcField(p,1,'NO undertittel')}${tcField(p,3,'EN subtitle')}</div><button type="button" class="tcBtn" onclick="tcAddSub(this)" title="underkapittel">+</button><button type="button" class="tcBtn" onclick="tcDel(this)" title="slett kapittel">×</button></div><div class="tcSubs">${(subs||[]).map(s=>tcChip(s)).join('')}</div></div>`};
+// Uplassert er avledet av boken og lagres aldri – derfor bare en etikett, ikke de fire feltene
+const tcUnplacedHTML=()=>`<div class="tcCol tcUp" data-variant="${TC_UNPLACED}" data-unplaced="1"><div class="tcTitle">Uplassert <small>· ${tcPool.length} fra boken</small> <button type="button" class="tcBtn" onclick="tcLoad()" title="hent på nytt fra boken">↻</button></div><div class="tcList"><div class="tcMain"><div class="tcHead"><span class="tcName tcChap">${esc(tcUnplacedName)}</span></div><div class="tcSubs">${tcPool.map(s=>tcChip(s)).join('')}</div></div></div></div>`;
 const tcRender=variants=>{
   const cols=[...variants.filter(v=>v!==TC_UNPLACED).sort((a,b)=>String(a).localeCompare(String(b))),TC_UNPLACED];
   tcBoardEl.innerHTML=cols.map(v=>{
@@ -183,7 +189,7 @@ window.tcSave=async()=>{ // one row per chapter, subchapters pipe-delimited (Upl
   tcBoardEl.querySelectorAll('.tcCol:not([data-unplaced])').forEach(col=>{
     const variant=col.dataset.variant;
     col.querySelectorAll(':scope > .tcList > .tcMain').forEach((m,i)=>{
-      const main=m.querySelector(':scope > .tcHead > .tcName').textContent.trim();
+      const main=tcJoin([0,1,2,3].map(n=>{const el=m.querySelector(`:scope > .tcHead > .tcFields > .tcName[data-i="${n}"]`);return el?el.textContent:''}));
       const subs=[...m.querySelectorAll(':scope > .tcSubs > .tcChip > .tcName')].map(s=>s.textContent.trim()).filter(Boolean);
       rows.push({book:tcBook,variant:variant,mainchapter:main,subchapters:subs.join('|'),ord:i});
     });
