@@ -1,5 +1,5 @@
 #### p. 1
-# SignalsLifeDemandedDeath
+# Signaler om Liv Krevde litt Død
 #### p. 2
 Spilleliste
 ## Nullsum

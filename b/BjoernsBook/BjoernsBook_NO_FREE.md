@@ -1,5 +1,5 @@
 #### p. 1
-# BjoernsBook
+# Bjørns Bok
 #### p. 2
 ## Et Kapittel
 🎵 [Spotify Playlist](https://aigap.no/mlist)
