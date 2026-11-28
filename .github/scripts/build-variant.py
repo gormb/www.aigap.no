@@ -311,6 +311,10 @@ def build(book, variant, url, key):
         sys.exit('ingen underkapitler kunne stedfestes i bokas md')
 
     sb = sync_books()
+    try:
+        sb.load_redir(url, hdrs)  # samme sangnavn som den vanlige bok-pipelinen
+    except Exception as e:
+        gh('warning', f'kunne ikke lese redir-tabellen: {e}')
     src = pymupdf.open(pdf_path)
     tpl = sb._template_start(src)  # 1-basert side der mal-blokken (siste fire) starter
     F = fonts()
@@ -376,6 +380,13 @@ def build(book, variant, url, key):
 
     # 3) de fire utgavene (.md + .pdf) og sidecarene - samme vei som en vanlig bok
     sb.extract(spread)
+
+    # 4) leserens plakat: venstre halvside av side 1 (bokens egen .jpg-konvensjon)
+    doc = pymupdf.open(spread)
+    p1 = doc[0]
+    pix = p1.get_pixmap(clip=pymupdf.Rect(0, 0, p1.rect.width / 2, p1.rect.height), dpi=95)
+    pix.save(os.path.join(out_dir, f'{variant}.jpg'), jpg_quality=82)
+    doc.close()
 
     print(f'[{book}/{variant}] {len(chaps)} kapitler, {len(placed)} sider -> '
           f'{os.path.relpath(spread, REPO)} + 4 utgaver, fra {os.path.basename(md_path or "")}')

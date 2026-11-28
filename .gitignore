@@ -26,6 +26,10 @@ Temporary Items
 Icon?
 out.txt
 
+# Python bytecode (sync-books.py lastes som modul av build-variant.py)
+__pycache__/
+*.pyc
+
 # Unreal Editor's default Untitled level and generated external assets
 /b/Ue/Content/Untitled.umap
 /b/Ue/Content/Untitled_HLOD0_Instancing.uasset

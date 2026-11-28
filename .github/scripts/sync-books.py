@@ -38,7 +38,7 @@ _TIER_LABELS = {'premium': {'premium', 'premiumversjon', 'premium version', 'bet
                 'free': {'freemium', 'gratisversjon', 'gratis', 'free version'}}
 _SPOT_RE     = re.compile(r'https://(?:gormb\.github\.io/_/?\?m|aigap\.no/m)[a-z0-9]+(?<!qr)\b', re.I)
 _MODE_LABEL_RE = re.compile(r'^(?:gratisversjon|premiumversjon|free version|premium version)$', re.I)  # cover-/vannmerke-label – ikke bokinnhold (droppes fra .md)
-_COVER_TEMPLATE_RE = re.compile(r'Navnet På Boken|The Name of the Book')  # cover-malens plassholder – anker for template-blokka på slutten
+_COVER_TEMPLATE_RE = re.compile(r'Navnet På Boken|Navn På Bok|The Name of the Book')  # cover-malens plassholder – anker for template-blokka på slutten
 
 def _font_stem(font):
     return re.sub(r'[^a-z0-9]', '', re.sub(r'^[^+]*\+', '', (font or '').lower()).split('-')[0])
@@ -112,7 +112,7 @@ def _pdf_style(doc):
                         s['subH'], s['subY'] = size, y
                     elif re.fullmatch(r'Kapitteltittelen|The Chapter Title', t):
                         s['chapH'], s['chapY'] = size, y
-                    elif re.fullmatch(r'Navnet På Boken|The Name of the Book', t):
+                    elif re.fullmatch(r'Navnet På Boken|Navn På Bok|The Name of the Book', t):
                         s['coverH'] = size
                 if len(lbl) > 1:  # ekte label-rad: premium og gratis side om side (ikke ordet «freemium» i en tekstlinje)
                     for tier, fams in lbl.items():

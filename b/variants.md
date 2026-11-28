@@ -1,84 +1,122 @@
-# Variants — building a book variant (LddInnovKi)
+# Variants
 
-A variant (`public.book_variant` + `public.book_chapter`) is an ordered selection of a
-book's own chapters, published as its own book. This file tracks the four things a
-variant needs before it can be opened with a short link.
+A **variant** is an ordered selection of a book's own chapters, published as a book in its
+own right. The selection, its titles and its order live in Supabase; the text and the pages
+are taken from the book the variant belongs to. Any number of variants can belong to the
+same book, and rebuilding one never touches another.
 
-The book here is **LddInnovKi** (a variant of `LifeDemandedDeath`):
+## Data model
 
-- `title_no` — Innovasjon og KI i praksis
-- `title_en` — Innovation & AI practice
-- 6 main chapters, 14 sub chapters, all resolving in `b/LifeDemandedDeath/LifeDemandedDeath_NO_PREM.md`
+`public.book_variant` — one row per variant:
 
-## 1) Add cover page
+| column | meaning |
+| --- | --- |
+| `book` | the book the variant is cut from |
+| `variant` | variant name, and the folder/file name it is published under |
+| `title_no`, `title_en` | the cover title, per language |
+| `description` | one-line summary |
+| `dtfrom`, `dtto` | publication window |
 
-Create the cover page using the template (the deck's own 4th-to-last slide) and replace
-`Navn På Bok` with `title_no` and `Name of Book` with `title_en`.
+`public.book_chapter` — one row per main chapter, ordered by `ord`:
 
-## 2) Add a main chapter page for each main chapter
+| column | meaning |
+| --- | --- |
+| `book`, `variant` | which variant the row belongs to |
+| `mainchapter` | the chapter line, pipe-separated, both languages |
+| `subchapters` | the chapter's sub chapters, pipe-separated |
+| `ord` | the chapter's position in the variant |
 
-Use the main chapter template (the 3rd-to-last slide) to create one page per main chapter.
+```text
+mainchapter   NO title|NO subtitle|EN title|EN subtitle
+subchapters   Sub chapter A|Sub chapter B|Sub chapter C
+```
 
-## 3) Construct NO/EN × FREE/PREM md and pdf
+The English parts of `mainchapter` are optional; where they are missing the English half of
+the page is left blank until they are filled in. Sub chapter names are matched against the
+book's own text, so a name that does not occur there is reported and skipped.
 
-Afterwards, also create the four editions for both pdf and md:
-`_NO_FREE`, `_NO_PREM`, `_EN_FREE`, `_EN_PREM`.
+## Build
 
-## 4) Add the aigap.no shortcut
+`.github/scripts/build-variant.py <book> <variant>` is the builder.
+`.github/workflows/build-variant.yml` runs it (`workflow_dispatch` with `book` and
+`variant`), and the **Create** button on the adm page dispatches that workflow. The database
+is read through the Supabase REST API, with the configuration fetched from the deployed
+`db.js`.
 
-So that <https://aigap.no?LddInnovKi> opens the book reader on that book. That means
-inserting a row in `public.redir` in Supabase.
+For any `<book>` and `<variant>`, the build writes into `b/<book>/<variant>/`:
+
+| file | what |
+| --- | --- |
+| `<variant>.pdf` | the spread the reader opens: cover, then per chapter a chapter page followed by that chapter's pages |
+| `<variant>_{NO,EN}_{FREE,PREM}.pdf` | the four editions: one half-page per language, tier-filtered |
+| `<variant>_{NO,EN}_{FREE,PREM}.md` | the four sidecars the reader fetches for text |
+
+## Requirements
+
+A variant is complete when all four hold.
+
+### 1) Cover page
+
+The book deck's 4th-to-last slide is the *Forside* template: copy it and replace `Navn På
+Bok` with `title_no` and `Name of Book` with `title_en`. Each half is set in the font its own
+placeholder used. A title too long to fit is wrapped at the template's own size, and only
+shrunk if it still will not fit. The template's red X and Arial *oppskrifter* are removed,
+leaving the rules, divider and picture in place.
+
+### 2) A main chapter page per main chapter
+
+The book deck's 3rd-to-last slide is the *Kapittelside* template: copy it once per
+`book_chapter` row, ahead of that chapter's pages, and fill in the title and description for
+both languages from `mainchapter`.
+
+### 3) NO/EN × FREE/PREM md and pdf
+
+Once the spread exists, `sync-books.py`'s `extract()` derives the four editions and the four
+sidecars from it. This is the same code path as any other book, so a variant is
+half-page-cropped and tier-filtered exactly like `<book>_NO_PREM.pdf`, and its sidecar
+headings come out as `# <title>`, `## <chapter>`, `### <sub chapter>`, with songs resolved
+through `redir`.
+
+### 4) The aigap.no shortcut
+
+`public.redir` carries the short links. A row makes `https://aigap.no?<variant>` open the
+reader on the variant:
+
+```text
+id    <variant>
+url   https://aigap.no/b/_r?book=../<book>/<variant>/<variant>.pdf
+```
 
 ---
 
 ## AS-IS
 
-Not done yet — **nothing has been written to the repo**. Working tree is clean; all work
-so far is an out-of-repo prototype.
+Requirements 1–3 are implemented in the builder and produce the files listed above.
+Requirement 4 is a row inserted per variant; nothing inserts it automatically.
 
-Settled already:
-
-- **The template** is the book's own slide deck: `b/LifeDemandedDeath/LifeDemandedDeath.pdf`
-  pages 204–207 are the last four slides — 204 *Forside*, 205 *Kapittelside*,
-  206 *Underkapittel*, 207 *Tekst*. (`b/ABook/ABook.pdf` is a standalone 4-page copy of the
-  same deck; `sync-books.py` finds the block via the `Navn På Bok` / `Name of Book` anchor.)
-- **The template slides are marked**: a big red X (two red strokes in the content stream)
-  and the Arial *oppskrifter*, which must not survive into a real page. Arial is dropped by
-  the reader and by the four editions; the red X is not, so it must be removed at build time.
-- **The embedded fonts cannot be reused**: they are cmap-less subsets, so new text needs
-  Playfair Display (SC Regular/Italic for titles, Playfair Display for the descriptions).
-- **Chapter labels carry both languages**, pipe-separated:
-  `NO title|NO subtitle|EN title|EN subtitle`, e.g.
-  `Problemet|Rikdom som gjør oss late|The Problem|Wealth that makes us lazy`.
-  English parts may be absent — then the EN half is left blank until filled in.
-- **The four editions are produced by `sync-books.py`**, not by hand: `extract(spread)` writes
-  `{name}_{NO|EN}_{FREE|PREM}.md` **and** `render_pdfs()` writes the matching half-page,
-  tier-filtered `.pdf`s. `sync-books.py` is importable (it has a `__main__` guard).
-- **The reader target is a spread**, one page per slide: `?book=…/<name>.pdf`; the sidecars are
-  fetched as `<name>_{NO|EN}_{FREE|PREM}.md` beside it (`srcBase` = the book path minus `.pdf`).
-
-Prototype status (verified by rendering, out-of-repo):
-
-- Cover page: works. Titles swapped and auto-fitted (28 pt → 18.5 pt NO / 18.0 pt EN), red X
-  removed by content-stream surgery, Arial *oppskrifter* redacted, rest of the slide intact.
-- Main chapter page: text extraction and fitting work, but the page still failed to render
-  after the content-stream edit — the red-stroke removal needs to be finished and re-verified.
+- **Templates** are read from the variant's own book deck, whose last four slides are
+  *Forside*, *Kapittelside*, *Underkapittel* and *Tekst*. The block is kept last in the
+  spread, because `sync-books.py` finds it by its `Navn På Bok` / `Name of Book` anchor and
+  drops it from the editions.
+- **Template marks** — the slides carry a red X and Arial *oppskrifter*, neither of which
+  belongs on a real page. The Arial text is dropped for the reader and for the editions, and
+  the X is cut out of the content stream, where it is drawn inline as `1 0 0 RG`.
+- **Fonts** — decks embed cmap-less subsets, so their fonts cannot be re-used for new text.
+  Playfair Display (SC for titles) is fetched from Google Fonts at build time into a temp
+  directory and is not committed.
+- **`sync-books.py`** — its cover-placeholder regex knew only `Navnet På Boken`, while the
+  current decks say `Navn På Bok`, so `coverH`/`_title()` never matched and a sidecar's H1
+  fell back to the folder name. Both spellings are now recognised.
+- **Concurrent runs** — the job commits and pushes to `main`. Variants are routinely
+  dispatched several at a time (and `sync-pdf.yml` pushes too), so a push that loses the race
+  is rejected with *fetch first*. The job now stages only its own variant folder and rebases
+  on `origin/main`, retrying the push, so overlapping runs no longer fail.
 
 ## TODO
 
-- [ ] Finish the red-X removal so the edited template page renders (`get_pixmap` currently
-      raises after the content-stream rewrite).
-- [ ] Add cover generation: template slide 204 + `book_variant.title_no` / `title_en`.
-- [ ] Add main-chapter generation: template slide 205 per `book_chapter` row, NO/EN from the
-      pipe fields, before that chapter's pages.
-- [ ] Build the spread `b/<book>/<variant>/<variant>.pdf`: cover → per chapter (chapter page
-      then its pages) → the 4 template slides appended, so `_template_start()` still finds the
-      template block and `render_pdfs()`/`_data()` behave as for every other book.
-- [ ] Call `sync-books.py`'s `extract()` on the spread to emit the 4 `.md` sidecars and the
-      4 `.pdf` editions.
-- [ ] Write the spread + editions into `b/LifeDemandedDeath/LddInnovKi/`.
-- [ ] Extend `.github/scripts/build-variant.py` (and its workflow) to do all of the above.
-- [ ] Teach the adm `book_chapter` editor the 4-part pipe form (EN title/subtitle).
-- [ ] Insert the `public.redir` row: `LddInnovKi` →
-      `https://aigap.no/b/_r?book=../LifeDemandedDeath/LddInnovKi/LddInnovKi.pdf`.
-- [ ] Remove this file when the four points are done.
+- [ ] Insert the `public.redir` row for each variant.
+- [ ] Give the adm `book_chapter` editor the 4-part pipe form, so the English half can be
+      filled in from the UI.
+- [x] `.github/workflows/build-variant.yml` stages the variant's own folder — spread, the four
+      editions and the poster `<variant>.jpg` — and rebases its push, so concurrent runs no
+      longer fail.

@@ -1,7 +1,9 @@
 name: Build book variant (md + pdf)
 
 # Bygger en variant av en bok fra kapitlene i public.book_chapter:
-#   b/<book>/<variant>/<variant>.md  og  .pdf
+#   b/<book>/<variant>/<variant>.pdf               spredningen leseren åpner
+#   b/<book>/<variant>/<variant>_<LANG>_<TIER>.*   de fire utgavene (.md + .pdf)
+#   b/<book>/<variant>/<variant>.jpg               plakaten
 # Dispatches fra «Create»-knappen i adm (book_variant-tabellen).
 on:
   workflow_dispatch:
@@ -39,11 +41,28 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add 'b/**/*.pdf' 'b/**/*.md'
+
+          # bare variantens egen mappe – jobben committer aldri noe den ikke har bygget selv
+          git add "b/${{ inputs.book }}/${{ inputs.variant }}"
 
           if git diff --staged --quiet; then
             echo "No variant update."
-          else
-            git commit -m "Build variant ${{ inputs.variant }} (${{ inputs.book }})"
-            git push
+            exit 0
           fi
+
+          git commit -m "Build variant ${{ inputs.variant }} (${{ inputs.book }})"
+
+          # Flere varianter bygges ofte samtidig, og sync-pdf.yml skriver til main.
+          # Den som taper kappløpet rebaser på origin/main og prøver igjen, i stedet for å feile.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed (attempt $attempt)."
+              exit 0
+            fi
+            echo "::warning::push avvist – rebaser på origin/main (attempt $attempt)"
+            git fetch origin main
+            git rebase origin/main
+          done
+
+          echo "::error::kunne ikke pushe til main etter 5 forsøk"
+          exit 1
