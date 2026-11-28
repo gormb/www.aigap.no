@@ -1,5 +1,5 @@
 #### p. 1
-# SignalsLifeDemandedDeath
+# Signals of Life Demand some Death
 #### p. 2
 Spilleliste
 ## Zero Sum

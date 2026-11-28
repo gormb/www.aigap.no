@@ -1,5 +1,5 @@
 #### p. 1
-# BjoernsBook
+# Bjørns Book
 #### p. 2
 ## Some Chapter
 🎵 [Spotify Playlist](https://aigap.no/mlist)

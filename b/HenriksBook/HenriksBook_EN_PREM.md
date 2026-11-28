@@ -1,5 +1,5 @@
 #### p. 1
-# HenriksBook
+# Henriks Book
 #### p. 2
 ## Some Chapter
 🎵 [Spotify Playlist](https://aigap.no/mlist)
