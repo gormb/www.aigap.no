@@ -1,12 +1,12 @@
 #### p. 1
-# LddSignal27
+# Signaler om Liv krevde litt Død
 #### p. 2
 ## Nullsum
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 “Med MC fra Kiel til Alicante og snitt på 170 km/t kunne jeg vært arrestert i hele Europa”, sa jeg.
 #### p. 3
 ### Nulloppsummering
-🎵 [Nothing Compares 2 U, Sinéad O'Connor](https://aigap.no/mncty)
+🎵 [Nothing Compares 2 U; Sinéad O'Connor](https://aigap.no/mncty)
 Krever nytt liv at noe gammelt dør for å gi plass? Er det begrenset med ressurser og derfor med muligheter?
 Nulloppsummering handler om ressursfordeling uten evne til å skape egne ressurser av ingenting, man må velge mellom å holde gamle ting i live og å skape noe nytt. Det er ikke plass til begge deler samtidig.
 Resultat av innovasjon er at man slutter med gamle ting for å gi plass til de nye. Økonomer måler hvor mye man ikke har sluttet som “legacy cost”. Noen kaller modellen “Zero-Sum Game”. Alternativet er å anta at verdi kan skapes gjennom fremskritt, ikke bare fordele verdier etter gårsdagens premisser. Positivsumspill beskrives i et senere kapittel. Det innebærer at nullsummodell må dø, men den skal føles først.
@@ -19,7 +19,7 @@ Følelsen min er uansett sann og hverken underrapportert eller dramatisert. Om f
 Første kapitler er lest høyt mange ganger, neste delt med andre, etterhvert er teksten ren selvsnakk ufiltrert refleksjon.
 #### p. 5
 ### Det gamle finnes ikke mer
-🎵 [Ohne Dich, Rammstein](https://aigap.no/mod)
+🎵 [Ohne Dich; Rammstein](https://aigap.no/mod)
 Lyden av glassplate som knuses. Pulveriseres. Det er lyden av mc-hjelm som ødelegges mot bakken. Hvis du har hjelmen på hodet når den går i stykker. Hjelmer som har gått i bakken må kastes, men folk kan gå videre.
 Verden jeg kjente hadde gått til helvete. Jeg husker øyeblikket jeg forsto det, rett før jeg gikk i koma. Verden gikk ikke til helvete på et øyeblikk, men erkjennelsen kom som et smell som å ødelegge motorsykkelhjelm med hodet først i asfalten.
 Tre av de fire gangene jeg har ødelagt hjelmer husker jeg godt, og alle gangene har satt varige spor. Men erkjennelsen av at verden ikke var den samme smalt hardere enn noen ulykke.
@@ -53,7 +53,7 @@ Bevisstheten forsvant; med deg står sekundene stille.
 Men jeg har hoppet over noen historier.
 #### p. 10
 ### MC til Middelhavet og en flamme
-🎵 [Dead or Alive, Bon Jovi](https://aigap.no/mwdoa)
+🎵 [Wanted Dead or Alive; Bon Jovi](https://aigap.no/mwdoa)
 Tung MC. Det er desember 2022 og sesongen er slutt. Om det var trygt å kjøre eller ikke, vurderte jeg basert på om værmeldingen hadde vist kuldegrader i løpet av natten, nå var det ikke trygt lenger. Kjører man på is med tung mc glipper forhjulet og man deiser umiddelbart rett i bakken uten muligheter for å påvirke. Det var slik jeg ødela min første Ducati og min første hjelm.
 Jeg fant fram et europakart og så på hvor jeg kunne oppholde meg fra desember til mars der det var varmegrader, Italia sto høyt på listen.
 "It's all the same, only the names will change". Jeg så på kartet; Middelhavet så bra ut, Italia, Spania, kanskje Marokko eller Tyrkia. Landet var uviktig, det som var viktig var flukten
@@ -75,7 +75,7 @@ for henne og en note i margen for meg, alle rundt meg hadde blitt tilskuere til 
 Men vettet hadde sluppet taket.
 #### p. 21
 ### 200 km/t og oppover
-🎵 [Battle Without Honor or Humanity](https://aigap.no/mbwhoh)
+🎵 [Battle Without Honor or Humanity; HOTEI](https://aigap.no/mbwhoh)
 På motorsykkel i natten i maksimal hastighet er man synlig og kan høres. Det er en hemmelighet at det er full frigjørende stillhet for den som kjører.
 Kroppen hyperfokuseres, redd utslettelse. Sansene svekkes og inntrykk er borte etter minutters galskap.
 Øredøvende monoton vindstøy som treffer hjelmen er det første som blir borte, etterpå forsvinner refleksjon over bevegelser, svinger, natur, dyr, trafikk og lys. Alt blir rutinebevegelser og handlinger, mønstre og vibrasjoner, detaljene borte for alle sanser.
@@ -85,7 +85,7 @@ Alle psykiske problemer er irrelevant, smerte også. Den ultimate stillheten lig
 Nullsumlivet dør, skapelse uten ødeleggelse blir mulig. Død gir plass til nytt liv.
 #### p. 23
 ### Ulykken
-🎵 [Time to die, The Stranglers](https://aigap.no/mttd)
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 Den delen av meg som døde av den livreddende behandlingen på akutten ga mulighet for slutten på et liv, en identitet, et selv.
 Hvor mye jeg skulle beholde av det jeg hadde vært, det kunne jeg velge selv. Fordelen av koma og delir er at så lite er igjen av den man var, at man kan omskrive seg selv.
 #### p. 24
@@ -94,7 +94,7 @@ Jeg fløy over styret på motorsykkelen i fart, langsomt nok for overlevelse, fo
 Ryggraden hadde kompresjonsbrudd i 2., 3. og 6. virvel ovenfra, men jeg ble ikke lam.
 #### p. 26
 ### Behandling
-🎵 [Magic Arrow, Timber Timbre](https://aigap.no/mma)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Morfin av alle typer ble innoperert i kroppen, satt i ryggen, gitt intravenøst og servert i pilleform. Hurtigvirkende og langtidsvirkende.
 #### p. 27
 Etter episoden har jeg aldri igjen bedt noen ta seg sammen hvis de er redde, jeg er nå klar over at det ikke er gitt at det er mulig
@@ -106,14 +106,14 @@ Livet som det var er ikke mer. Men det trenger ikke være dårligere, nå er det
 Det var helt uaktuelt å få besøk av familie. De måtte overleve.
 #### p. 31
 ### Blanke ark
-🎵 [Little Wing, Jimi Hendrix](https://aigap.no/mlw)
+🎵 [Little Wing; Jimi Hendrix](https://aigap.no/mlw)
 Da jeg våknet, hadde jeg fått plass. Plass til å puste, plass til å se. Koma hadde ryddet vekk en del av det gamle livet, den tunge, selvødeleggende fortiden, og gitt rom for et helt nytt liv med helt nye muligheter. Forstanden døde, jeg hadde på en måte utryddet meg selv, men et tomrom var skapt for å bygge et helt nytt liv.
 Jeg var hennes første pasient på det elitistiske rikshospitalet og fortalte meg om turene hun ville ta i fjellet. Jeg fortalte om mine jeg hadde planlagt i Pyreneene med J. Jeg overtalte henne til å dra på Rammsteinkonsert. Hun husket meg og vår relasjon godt to år senere da jeg kom på kontroll, vi hadde delt mange samtaler mens jeg hadde Delir og brukte morfin.
 Tre år etter utskrivelse sporet jeg henne opp, sendte melding.
 Eventyret var ikke lenger hennes virkelighet. Det er greit.
 #### p. 32
 ### Styrke fra forsørgersvikt
-🎵 [The Logical Song, Supertramp](https://aigap.no/mtls)
+🎵 [The Logical Song; Supertramp](https://aigap.no/mtls)
 Tre år etter ulykken sitter jeg på en studentcafe.
 Da jeg først hadde kommet inn på kafeen så jeg en dame okkupere de fire beste setene. På spørsmål om en var ledig,
 #### p. 33

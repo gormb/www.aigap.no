@@ -1,9 +1,9 @@
 #### p. 1
-# LddSignal27
+# Signals of Life demand Death
 #### p. 2
 #### p. 3
 ### Zero-Summary
-🎵 [Nothing Compares 2 U, Sinéad O'Connor](https://aigap.no/mncty)
+🎵 [Nothing Compares 2 U; Sinéad O'Connor](https://aigap.no/mncty)
 Does new life demand that something old dies to make space? Are resources and therefore opportunities limited?
 Zero-Summary is about resource allocation without the ability to create resources from nothing; you must choose between keeping old things alive and creating something new. There isn't room to do both at once.
 A result measure of innovation that few understand is how much you manage to stop doing to make room for something new. Some call the effect of having too much "legacy cost", and the system is often referred to as "the Zero-Sum Game". An alternative to the model is to assume that you can create value through progress and not just distribute value based on yesterday's premises. Positive-sum games are described in a later chapter. For this death also entails that the zero-sum model must die, but it must be felt first.
@@ -17,7 +17,7 @@ Whether people have believed they witnessed a fatal accident, or a triviality, i
 The first chapters have been read aloud many times, the next shared with others; eventually, the text is pure self-talk, unfiltered reflection.
 #### p. 5
 ### The old is no more
-🎵 [Ohne Dich, Rammstein](https://aigap.no/mod)
+🎵 [Ohne Dich; Rammstein](https://aigap.no/mod)
 The sound of glass plate shattering into a thousand pieces is the sound you hear when a motorcycle helmet is destroyed on the ground. If you're wearing the helmet.
 The world I knew had gone to hell. I remember the moment I realized it, just before I went into a coma. The world didn't go to hell in an instant, but the realization came like a bang I've only experienced when I smash a motorcycle helmet headfirst into the asphalt. I remember three of the four times I've smashed my helmet, all have left lasting mark on me. I don't know why realization that world is not the same could hit harder than life-threatening accidents, but it did.
 “Ohne Dich” - An hour into a conversation with “J", a far too young, and for her own happiness, brilliant, Ukrainian
@@ -44,7 +44,7 @@ She used her blouse to slow the bleeding enough for the ambulance to get me to t
 But I have skipped some stories.
 #### p. 10
 ### MC to the Mediterranean and a flame
-🎵 [Dead or Alive, Bon Jovi](https://aigap.no/mwdoa)
+🎵 [Wanted Dead or Alive; Bon Jovi](https://aigap.no/mwdoa)
 Heavy motorcycle. It's December 2022 and bike season is over. Whether it was safe to ride or not, was judged based on whether forecast had shown sub-zero temperatures during the night; now it wasn't safe anymore. If you ride on ice with a heavy motorcycle, the front wheel slips and you immediately hit the ground with no chance to influence it. That's how I destroyed my first Ducati and my first helmet.
 I found a map of Europe and looked at where I could stay from December to March where it was above freezing; Italy was high on the list.
 "It's all the same, only the names will change". I looked at the map; the Mediterranean looked good, Italy, Spain, maybe Morocco or Turkey. The country was unimportant; what mattered was the escape from a Norway of isolation, freezing temperatures, and stagnation. The drive
@@ -66,7 +66,7 @@ for her and a note in the margin for myself; everyone around me had become spect
 But my sanity had let go.
 #### p. 21
 ### 200 km/h, and beyond
-🎵 [Battle Without Honor or Humanity](https://aigap.no/mbwhoh)
+🎵 [Battle Without Honor or Humanity; HOTEI](https://aigap.no/mbwhoh)
 When riding motorcycle at top speed through night, you are visible and audible. It is a secret that the rider has a state of absolute, liberating silence.
 Your body enters a state of hyperfocus driven by fear of annihilation. Senses dull, impressions leave after minutes of madness.
 Deafening, monotonous roar of wind against your helmet fades first. Next, any conscious reflection on movements, curves, scenery, wildlife, traffic, and lights disappears. Your existence dissolves into routine motions and actions, patterns and vibrations. Details slip away from every sense.
@@ -77,7 +77,7 @@ Ultimate silence lies at heart of a deafening roar, sound audible from afar, unh
 Zero-sum life dies; creation without destruction becomes possible. Death makes way for new life.
 #### p. 23
 ### The Accident
-🎵 [Time to die, The Stranglers](https://aigap.no/mttd)
+🎵 [Time to Die; The Stranglers](https://aigap.no/mttd)
 The part of me that died from the life-saving treatment in the ER gave the opportunity for the end of a life, an identity, a self. How much I would keep of what I had been, I could choose myself. The advantage of coma and delirium is that so little remains of who you were that you can rewrite yourself.
 #### p. 24
 I flew over the handlebars of the motorcycle at speed, slow enough for survival, fast enough for major injuries. The first thing to hit the ground breaks; for me, it was the right leg.
@@ -85,7 +85,7 @@ I flew over the handlebars of the motorcycle at speed, slow enough for survival,
 The spine had compression fractures in the 2nd, 3rd, and 6th vertebrae from the top, but I was not paralyzed.
 #### p. 26
 ### Treatment
-🎵 [Magic Arrow, Timber Timbre](https://aigap.no/mma)
+🎵 [Magic Arrow; Timber Timbre](https://aigap.no/mma)
 Morphine of all types was implanted in the body, placed in the back, given intravenously, and served in pill form. Fast-acting and long-acting.
 #### p. 27
 After the episode, I have never again asked anyone to pull themselves together if they are scared; I am now aware that it is not a given that it is possible.
@@ -97,14 +97,14 @@ The life as it was is no more. But it doesn't have to be worse; now there is roo
 It was completely out of the question for my family to visit. They had to survive.
 #### p. 31
 ### Blank pages
-🎵 [Little Wing, Jimi Hendrix](https://aigap.no/mlw)
+🎵 [Little Wing; Jimi Hendrix](https://aigap.no/mlw)
 When I woke up, I had room. Room to breathe, room to see. The coma had cleared away part of the old life, the heavy, self-destructive past, and made room for a completely new life with completely new possibilities.
 Sanity died; I had, in a way, annihilated myself, but a void was created to build a completely new life.
 I was her first patient at the elitist Rikshospitalet, and she told me about the trips she wanted to take in the mountains. I told her about mine I had planned in the Pyrenees with J. I convinced her to go to a Rammstein concert. She remembered me and our relationship well two years later when I came for a check-up; we had shared many conversations while I was in Delirium and using morphine.
 Three years after discharge, I tracked her down and sent a message. The adventure was no longer her reality. That's okay.
 #### p. 32
 ### Strength from neglect
-🎵 [The Logical Song, Supertramp](https://aigap.no/mtls)
+🎵 [The Logical Song; Supertramp](https://aigap.no/mtls)
 Three years after the accident, I sit in a student café.
 Once I had entered the café, I saw a woman occupying the four best seats.
 When asked if one was free,
