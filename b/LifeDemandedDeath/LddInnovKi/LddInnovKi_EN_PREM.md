@@ -1,9 +1,9 @@
 #### p. 1
-# LddInnovKi
+# Innovation & AI practice
 #### p. 2
 #### p. 3
 ### Rich and Lazy
-🎵 [Money for Nothing, Dire Straits](https://aigap.no/mmfn)
+🎵 [Money for Nothing; Dire Straits](https://aigap.no/mmfn)
 I don't know how long I have been rich and lazy.
 The country I live in is the laziest rich country in the world. Not because a few have become rich and lazy, but because everyone has become wealthy and apathetic. I don't even know what one does with apathetic children, or with myself, when I am apathetic. What to do with an entire country that has gone completely into a coma is a riddle for more people than me.
 I have found three fine answers to inactivity in my own life, and researchers have more. No answer makes me happy. Neither avoidance, acceptance, nor integration.
@@ -13,7 +13,7 @@ If you would rather be happy than create, the security in big mother's covering 
 Consulting hours for the public sector, if you have a master's degree, can hide you in comfort for your entire professional career, if you don't ask diﬃcult questions. Avoid innovation or society.
 #### p. 5
 ### The West's decline
-🎵 [Working Class Hero, Ozzy Osbourne](https://aigap.no/mwch)
+🎵 [Working Class Hero; Ozzy Osbourne](https://aigap.no/mwch)
 The library overcrowded. Too much writing material. Brain can't take in more; must go home. Four copies of B-gjengen were the last straw; I left.
 But first, a barefoot marijuana plant of a man with twenty-five-year-old dreadlocks. Either a pure psychopath, anarchist, or with an IQ under 80. Completely didn't give a damn about the very concept of a library.
 Was in conversation with a humble, gifted Chinese woman.
@@ -22,7 +22,7 @@ She, quick, smart, and reflective, without self-worth. The contrast drained me. 
 #### p. 6
 #### p. 7
 ### Suffocating diamond
-🎵 [Crystalised, The xx](https://aigap.no/mcd)
+🎵 [Crystalized; The xx](https://aigap.no/mcd)
 It begins with a market survey, then we shape people's mental model before they answer. Latest like that. Add a comment field in case people have irrelevant questions or comments. Thankfully, it's rarely used.
 Then we kill the seed of real innovation with the "Triple Diamond."
 Problem filter followed by a solution filter that must go through a realization filter. That's how we solve a scope we want to deliver on. Kill complexity! (which introduces complicatedness, but "hush!") All filters have dictation of the task, illusion of control, and group decision. Three actions three times - Give the problem direction; influence what is to be perceived as relevant.
@@ -38,13 +38,13 @@ It is very unlikely that innovation is about new ideas; at best, it can become o
 "So innovation with filters is impossible?" Again, no answer…
 #### p. 9
 ### Average brilliant
-🎵 [Everyday is Like Sunday, Morrissey](https://aigap.no/meils)
+🎵 [Everyday is Like Sunday; Morrissey](https://aigap.no/meils)
 Frida in her thirties has an average personality and appearance. She stands alone behind the counter at the electronics store. The customer Freida is in her late fifties, still beautiful, and as expected receives the full attention of the staff. For a long time.
 Frida prefers giving advice on noise-canceling sound quality over taking payment without a receipt. She is average at everything, and doesn't know it. Average driver, socially informed, pretty, intelligent, empathetic—average at everything, including her job—but the beautiful, successful customer accepts her advice.
 I am second in line throughout the entire store. Frida says, "I can help you afterwards; I have to take these now". Freida stands in front of the payment terminal, unfazed by the queue. No one has ever bothered her before—well, no one who counts. "Receipt?" "No thanks"
 #### p. 10
 ### The Library; the Good Bureaucrat
-🎵 [Everything in Its Right Place, Radiohead](https://aigap.no/metiirp)
+🎵 [Everything is in its Right Place; Radiohead](https://aigap.no/metiirp)
 The library is the best place to recharge. Not Deichman Bjørvika, in the city center, where they shout over the PA system about today's offers, which legitimizes a good portion of visitors braying and flailing. "Sheep are not nice animals", I say to myself. I thoroughly enjoy myself every time a library is actually a library, and saying "shh" is legitimate, and my response is "excuse me". This is a day I am going to experience that.
 Grünerløkka works half the time, Majorstua three-quarters. "The fewer service designers who, under the auspices of tax money, have been involved in redefining the library into a city community center, the better", I think, and walk into the cool, quiet Deichman Grünerløkka.
 #### p. 11
@@ -66,7 +66,7 @@ The lady at the library distributes fruit she has arranged and pierced with smal
 #### p. 13
 #### p. 14
 ### Novelty creation at work
-🎵 [On Being Blue, Art of Noise](https://aigap.no/mobb)
+🎵 [On Being Blue; The Art Of Noise](https://aigap.no/mobb)
 Novelty creation on Mother Earth is about inventing new methods, things, or applications; innovation is both novelty creation and improvement.
 My grandfather ran, together with a partner, the company Hougen & Larsen. In his old age, he wanted to be his own master after being technical director in the process industry for many years. Because my father was absent, the writer grandfather and the entrepreneur grandfather ﬁlled the void. roles as good male role models. My grandfather taught me as a child that there are two types of workers: those who build up and those who tear down.
 My journey began with this insight.
@@ -83,20 +83,20 @@ My father is a professor at the university, and it may be that I would have had 
 That focus changes reality through observation ﬁnds parallels in modern physics. With the current model for the smallest elements we know, quantum physics, the state of mass is undetermined until observed; before observation, nothing is ﬁxed, truth is only theoretical. In the same way, you don't know if it's a crisis until you have stood in it. Mythology has realities that are true without being factually real. The darkness we embrace when systems break down, where we go from being passive pieces to becoming conscious observers of our own lives, is treated in this book. A journey not reserved for youth; it can be taken at any age.
 #### p. 17
 ### Novelty creation, a part of innovation
-🎵 [In the Air Tonight, Phil Collins](https://aigap.no/mitat)
+🎵 [In the Air Tonight; Phil Collins](https://aigap.no/mitat)
 Novelty creation is about inventing new methods, things, or applications. When I write about innovation, it's novelty creation I mean. Innovation is creating something from nothing. Here lie the possibilities, in undiscovered space. The result of novelty creation is a world with more dimensions. My world is full of stars.
 It's about seeing the new applications before everyone else sees them. True novelty creation lights the way through our mental models.
 Failing at novelty creation is part of the path towards or without success. When we create something new, we must endure the resistance from the old.
 #### p. 18
 ### Openness to new thinking
-🎵 [Open Your Mind, U.S.U.R.A.](https://aigap.no/moym)
+🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. We are prisoners of our mental models, whether we, like the salmon, must swim, or like the coral, die upon change.
 Open, You're Mine. Coral at the mercy of calm water for survival; the beautiful creature I admire and appreciate is another book. Here the old dies to make room for new life.
 Be free, think for yourself. Open up, you are mine. Or captive.
 #### p. 19
 #### p. 20
 ### Dimensionality. Axes
-🎵 [Teardrop, Massive Attack](https://aigap.no/mtd)
+🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 "She is multidimensional"; with freedom in the space of thought.
 Not just one-dimensional: "You are good!" she says anyway.
 …An axis of degree of freedom describes everything. "Good. Bad."
@@ -111,7 +111,7 @@ Six dimensions: "Fate said it will be her; she disagrees."
 My degrees of freedom. I enjoy hers. Without understanding.
 #### p. 21
 ### Everyone can keep changing
-🎵 [I love Rock and Roll, Joan Jett](https://aigap.no/milrr)
+🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 People who are skilled develop and get better. I believe everyone can change, and I experience that one changes in the same direction; better and better or worse and worse.
 If we are replaced by artificial intelligence, is it because we have already been replaced by machines or something else? If we are not replaced by artificial intelligence, is it because we haven't already been replaced by something else?
 "Intelligent" is something we have chosen as a designation for something uniquely human. Therefore, nothing is "artificially intelligent," only in an intermediate phase where we still call it "intelligent" because we thought only people could do exactly that thing machines suddenly can. Child's magical thinking stands strong in the adult world. Especially where collectivism is strong.
@@ -123,14 +123,14 @@ If you make leadership groups feel stupid, you become unpopular, burned out, and
 "I am very pleasant to have lunch with," said the lawyer who for decades, non-elitist, had succeeded with collectivist groups at the highest level. Now he had no longer given up, and was thrown out. Went voluntarily back into Plato's cave and was killed.
 #### p. 23
 ### Change Management
-🎵 [Turn! Turn! Turn!, The Byrds](https://aigap.no/mttt)
+🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 Helping people and groups through change. For many years, I worked as a strategic enterprise architect in digitalization.
 Competence in change management is not a requirement for those of us who create target images, but it is needed to get people to stretch. I recommend change management for everyone; I have two versions, the ADKAR framework and the "won't, can't"
 framework. The first is useful for reflection; the other for execution.
 #### p. 24
 #### p. 25
 ### Professors
-🎵 [Born to Run, Bruce Springsteen](https://aigap.no/mbtr)
+🎵 [Born to Run; Bruce Springsteen](https://aigap.no/mbtr)
 Maybe I should sign up for the choir at Radiumhospitalet? The choir members are unpretentious and genuine; I like them, what they stand for.
 Have respect for their goodness without wanting to live up to my own expectations of matching them.
 Went to a Sunday concert at Blå. Someone had said I could do stunt poetry and I have seen the film "Elling." I don't fit in at Blå. The band sounds good, even with over 20 members. They have had many thousands of concerts. The vocalist job rotates; everyone in the band must sing on at least one of the songs; that's how they take turns being the front figure. I think about the choir.
@@ -145,7 +145,7 @@ she says, and neither of us knows if she's lying.
 Convenient Truth.
 #### p. 27
 ### Toril MyHomeDoctor
-🎵 [Electric Dreams, Oakey & Moroder](https://aigap.no/med)
+🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril is a home doctor working in Bodø; she is an AI model that controls other AI models so that together they become a good home doctor for AR, Augmented Reality. Toril is one of the 300 bodiless robots that came into being the year technology enabled us to give all citizens personalized, good home healthcare services.
 It is Monday morning, and Toril comes to work; she hasn't had a quiet weekend. There was Tove, a depressed southerner from Bergen with Munchausen syndrome by proxy, whose son Anders with asthma was always in imagined mortal danger. It really ruined her Sunday. All the memories from yesterday are temporarily removed from the training data and replaced with a Metamorphosis.
 #### p. 28
@@ -161,7 +161,7 @@ The self-adjustment was over for this time, but for next time, the night's dream
 But today, a human was going to intervene and adjust Toril.
 #### p. 30
 ### Kjell MyHomeDoctor
-🎵 [Comfortably Numb, Pink Floyd](https://aigap.no/mcn)
+🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 We are in the future; the year is 2040. Kjell eats, goes to the bathroom, and will eventually die.
 He wants a cabin oﬃce in Trysil that winter. The ski lift opens in a couple of hours; there will be powder snow on a blue run, calm and a couple of degrees below zero. Telemark skiing today.
 Professor Kjell-André himself, the prompt leader, is to subtly impart indirect lessons to Tove this day. Monday grumpiness is usually delegated to the senior consultant, but the morning coﬀee before a day on the slopes can't be enjoyed better than with a little extra work when you get to work with your passion.

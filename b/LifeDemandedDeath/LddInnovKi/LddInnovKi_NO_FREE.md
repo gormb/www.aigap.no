@@ -1,25 +1,25 @@
 #### p. 1
-# LddInnovKi
+# Innovasjon og KI i praksis
 #### p. 2
 ## Problemet
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Rikdom som gjør oss late
 #### p. 3
 #### p. 4
 #### p. 5
 ### Vestens forfall
-🎵 [Working Class Hero, Ozzy Osbourne](https://aigap.no/mwch)
+🎵 [Working Class Hero; Ozzy Osbourne](https://aigap.no/mwch)
 Biblioteket overfylt. For mye skrivestoff. Hjernen klarer ikke ta inn mer, må hjem. Fire B-gjengkopier var dråpen, jeg gikk.
 Men først en barbeint marihuanaplante av en mann med tjuefem år gamle dreads. Enten ren psykopat, anarkist eller med IQ under 80. Ga fullstendig faen i selve konseptet bibliotek. Var i samtale med ydmyk begavet kinesisk dame.
 Han snakket ubegavet allvitende om lovverk for elektriske sparkesykler, forskjell i sykkelkultur mellom Kina og Oslo, og hva slags sykkel man skal ha i Peking. Alt levert med monoton, halvdød stemme.
 Hun kjapp, smart og reflektert, uten egenverd. Kontrasten slet meg ut. Vondt å oppleve vårt forfall.
 #### p. 6
 ## Mekanismen
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Hvordan byråkratiet dreper nyskaping
 #### p. 7
 ### Kvelende diamant
-🎵 [Crystalised, The xx](https://aigap.no/mcd)
+🎵 [Crystalized; The xx](https://aigap.no/mcd)
 Det begynner med en markedsundersøkelse, slik former vi folks mentale modell før de svarer. Latest sånn. Legg til et kommentarfelt i tilfelle folk har irrelevante spørsmål eller kommentarer. Blir heldigvis lite utfylt.
 Så dreper vi kime til reell innovasjon med “Triple Diamond”.
 Problemfilter etterfulgt av løsningsfilter som skal gjennom et realiseringsfilter. Slik løser vi et omfang vi vil levere på. Drep kompleksitet! (drap innfører kompliserthet, men “hysj!”) Alle filtre har diktering av oppgave, illusjon av kontroll og gruppeavgjørelse. Tre handlinger tre ganger - Gi problemet retning; påvirk hva som oppfattes relevant - Forankre hos medskaperne; la påvirke avgrenset problem.
@@ -34,13 +34,13 @@ Oppstartseksperten så til siden uten å svare.
 “Så innovasjon med filter er umulig?”, igjen ingen svar…
 #### p. 9
 ### Gjennomsnitt brilliant
-🎵 [Everyday is Like Sunday, Morrissey](https://aigap.no/meils)
+🎵 [Everyday is Like Sunday; Morrissey](https://aigap.no/meils)
 Frida i treittiårene har gjennomsnittlig personlighet og utseende. Hun står bak disken på elektronbutikken alene på jobb. Kunden Freida er sent i femtiårene, fortsatt vakker og får som forventet betjeningens fulle oppmerksomhet. Lenge.
 Frida liker å gi rådgivning om lydkvalitet på støyfjerning bedre enn å ta betaling uten kvittering. Hun er på midten av alt, og vet det ikke. Middels bilkjører, samfunnsopplyst, pen, intelligent, empatisk, middels på alt, også i jobben, men den vakre suksessrike kunden tar i mot hennes rådgivning.
 Jeg er nummer to i køen gjennom hele butikken. Frida sier “Jeg kan hjelpe deg etterpå, må ta disse nå“. Freida stiller seg foran betalingsautomaten, uanfektet av køen. Ingen har mast på henne før, vel ingen som teller. “Kvittering?” “nei takk”
 #### p. 10
 ### Biblioteket; den gode byråkraten
-🎵 [Everything in Its Right Place, Radiohead](https://aigap.no/metiirp)
+🎵 [Everything is in its Right Place; Radiohead](https://aigap.no/metiirp)
 Biblioteket er det beste stedet å lade opp batteriene. Ikke Deichman Bjørvika, i sentrum, der de roper over høyttaleranlegget om dagens tilbud, noe som legitimerer at en god andel av de besøkende breker og spjaker.
 ”Sauer er ikke ålreite dyr”, sier jeg til meg selv. Storkoser meg hver gang et bibliotek faktisk er et bibliotek, og det å si “hysj”
 er legitimt, og mitt svar er “unnskyld”. Dette er en dag jeg skal oppleve det.
@@ -62,11 +62,11 @@ Any day”, skrev Douglas Adams for mange år siden. Den knirkende lyden av bibl
 Damen på biblioteket deler ut frukt hun har dandert og penetrert med små pinner. “De var egentlig til barna”, hun smiler og gir det til oss voksne inne i det fine været. Nå skal jeg ut i sommertrafikken, et sted å motstå ny forakt for menneskeheten.
 #### p. 13
 ## Alternativet
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Nyskaping, ikke bare innovasjon
 #### p. 14
 ### Nyskaping på jobben
-🎵 [On Being Blue, Art of Noise](https://aigap.no/mobb)
+🎵 [On Being Blue; The Art Of Noise](https://aigap.no/mobb)
 Nyskapning på moder jord handler om å finne opp nye metoder, ting eller anvendelser; innovasjon er både nyskaping og forbedring.
 #### p. 15
 Morfar ville sagt at forbedring er ditt ansvar uansett jobb; dermed blir det å kalle forbedring for innovasjon misvisende i hans øyne, om ikke uærlig. Men kanskje alle har rett på sin definisjon av hva det betyr å være innovativ. Minner om egne innovative øyeblikk er fargerike minner.
@@ -74,20 +74,20 @@ Morfar ville sagt at forbedring er ditt ansvar uansett jobb; dermed blir det å 
 For eksempel har Amish-folket noe som heter Rumspringa, der ungdommene som 16-åringer kastes ut i verdens mørkeste hjørner og blir utsatt for moralsk fritt fall gjennom dop og prosititusjon. De unge voksne som vender tilbake, gjør det med en herdet tro på folkets idealer og tradisjoner. Motstands- kraft kan oppstå i gapet mellom det trygge og det destruktive.
 #### p. 17
 ### Nyskaping, en del av innovasjon
-🎵 [In the Air Tonight, Phil Collins](https://aigap.no/mitat)
+🎵 [In the Air Tonight; Phil Collins](https://aigap.no/mitat)
 Det handler om å se de nye anvendelsene før alle andre ser dem. Ekte nyskaping lyser opp veien gjennom de mentale modellene våre.
 #### p. 18
 ### Åpenhet for nytenking
-🎵 [Open Your Mind, U.S.U.R.A.](https://aigap.no/moym)
+🎵 [Open Your Mind; U.S.U.R.A.](https://aigap.no/moym)
 Open Your Mind. Vi er fanger av våre mentale modeller, om vi som laksen må svømme, eller som korallen dør ved endring.
 Open, You’re Mine. Korall prisgitt rolig vann for overlevelse, den vakre skapningen jeg beundrer og setter pris på, er en annen bok. Her dør det gamle for å gi plass til nytt liv. Vær fri, tenk selv. Åpne opp, du er min. Eller fanget.
 #### p. 19
 ## Verktøyet
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Akser, endring og endringsledelse
 #### p. 20
 ### Dimensjonalitet. Akser
-🎵 [Teardrop, Massive Attack](https://aigap.no/mtd)
+🎵 [Teardrop; Massive Attack](https://aigap.no/mtd)
 “Hun er multidimensjonal"; med frihet i tankens rom.
 Ikke bare endimensjonal: “Du er bra!”, sier hun likevel.
 …En akse av frihetsgrad beskriver alt. “God. Dårlig”.
@@ -97,7 +97,7 @@ Fire akser: “Du er bra, og du lærer!”, planmessighet.
 Mine frihetsgrader. Jeg nyter hennes. Uten å forstå.
 #### p. 21
 ### Alle kan fortsette å endre seg
-🎵 [I love Rock and Roll, Joan Jett](https://aigap.no/milrr)
+🎵 [I love Rock and Roll; Joan Jett](https://aigap.no/milrr)
 Folk som er flinke utvikler seg og blir bedre. Jeg tror alle kan endre seg og opplever at man endrer seg i samme retning; bedre og bedre eller verre og verre.
 Hvis vi blir byttet ut av kunstig intelligens, er det fordi vi allerede har blitt byttet ut av maskiner eller noe annet? Hvis vi ikke blir byttet ut av kunstig intelligens, er det fordi vi ikke har blitt byttet ut av noe annet allerede?
 “Intelligent” er noe vi har valgt som betegnelse av noe enestående menneskelig. Derfor er ikke noe “kunstig intelligent”, bare i en mellomfase der vi fortsatt kaller det “intelligent” fordi vi trodde bare folk kunne gjøre akkurat den tingen maskiner plutselig kan. Barnets magiske tankegang står sterkt i de voksnes verden. Særlig der kollektivisme står sterkt.
@@ -110,16 +110,16 @@ Får du ledergrupper til å føle seg dumme, blir du upopulær, utbrent og ufør
 “Jeg er veldig hyggelig å spise lunch med” sa advokaten som i flere tiår ikke-elitistisk hadde lykkes med kollektivistiske grupper på høyeste nivå. Nå hadde han ikke lenger gitt opp, og ble kastet ut. Gikk frivillig tilbake i Platons hule og ble drept.
 #### p. 23
 ### Endringsledelse
-🎵 [Turn! Turn! Turn!, The Byrds](https://aigap.no/mttt)
+🎵 [Turn! Turn! Turn!; The Byrds](https://aigap.no/mttt)
 ADKAR og rammeverket “vil ikke, kan ikke”.
 Den ene er nyttig for refleksjon, den andre for gjennomføring
 #### p. 24
 ## Min del
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Mitt bidrag og min ambivalens
 #### p. 25
 ### Professorne´
-🎵 [Born to Run, Bruce Springsteen](https://aigap.no/mbtr)
+🎵 [Born to Run; Bruce Springsteen](https://aigap.no/mbtr)
 Kanskje skal jeg melde meg på kor på Radiumhospitalet?
 Kormedlemmene er ikke-pretentiøse og ekte, jeg liker dem, det de står for. Har respekt for deres godhet uten ønske om å leve opp til egne forventninger om å være lik dem.
 Dro på søndagskonsert på Blå. Noen hadde sagt at jeg kunne stuntpoesi og jeg har sett filmen “Elling”. Jeg passer ikke på Blå. Bandet låter bra, selv med over 20 medlemmer. De har hatt mange tusen konserter. Vokalistjobben går på rundgang, alle i bandet må synge på minst en av sangene hver konsert, slik bytter de på å være frontfigur. Tankene mine går til koret.
@@ -134,7 +134,7 @@ Jeg spør Kvinnen min, hun som tåler meg på julebordet. “Har jeg blitt bitte
 Grei Sannhet.
 #### p. 27
 ### Toril HjemmelegenMin
-🎵 [Electric Dreams, Oakey & Moroder](https://aigap.no/med)
+🎵 [Electric Dreams; Philip Oakey & Giorgio Moroder](https://aigap.no/med)
 Toril er hjemmelege som jobber i Bodø, hun er en KI-modell som styrer andre KI-modeller slik at de til sammen er en god hjemmelege for AR, Augmented Reality. Toril er en av de 300 kroppsløse robotene som ble til det året teknologi gjorde oss i stand til å gi alle innbyggere personaliserte gode hjemmelegetjenester.
 Det er mandag morgen og Toril kommer på jobben, hun har ikke hatt noen rolig helg, det var Tove, en deprimert søring fra Bergen med Munchhausen syndrom by proxy, hvis sønn Anders med astma alltid var i innbilt livsfare. Det ødela virkelig søndagen hennes. Alle minnene fra dagen i går er midlertidig tatt ut av treningsdataene, og byttet ut med en Metamorfose.
 #### p. 28
@@ -153,7 +153,7 @@ Egenjusteringen var over for denne gang, men til neste gang skal nattens drømme
 Men i dag skulle et menneske gripe inn og justere Toril
 #### p. 30
 ### Kjell HjemmelegenMin
-🎵 [Comfortably Numb, Pink Floyd](https://aigap.no/mcn)
+🎵 [Comfortably Numb; Pink Floyd](https://aigap.no/mcn)
 Vi er i framtida, året blir 2040. Kjell spiser, går på do, og skal på et tidspunkt dø.
 Han vil ha hyttekontor på Trysil den vinteren. Skiheisen skal åpne om et par timer, det blir puddersnø i blå løype, vindstille og et par kuldegrader. Telemarkskjøring i dag.
 Selveste professor Kjell-André, promptlederen, skal dulte indirekte lærdom inn i Tove denne dagen. Mandagsgrettenhet er vanligvis delegert til vanlig overlege, men morgenkaffen før en tur i bakken kan ikke nytes bedre enn med litt ekstrajobb når man skal jobbe med sin lidenskap.
@@ -180,5 +180,5 @@ Kjell kodet om opplevelsen av søndagens pasientopplevelse.
 Så var det på med ski og ut i bakken. Enda en totimersdag på jobb var fullført.
 #### p. 34
 ## Konklusjon
-🎵 [https://aigap.no/myb](https://aigap.no/myb)
+🎵 [Yesterday; Beatles](https://aigap.no/myb)
 Åpenhet eller passivitet
