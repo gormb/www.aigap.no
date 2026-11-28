@@ -1302,6 +1302,18 @@ Quan og Quincy trener klokken 21 for …
 Robin og Rei trener klokken 22 for …
 Shannon og Sydney trener klokken 23 for …
 #### p. 203
+### Angst i trygg verden
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+🎵 [Spotify Playlist](https://aigap.no/mlist)
+Ungen gråter. Far kjefter. Mor liker den maskuline stemmen til far når han kjefter. Hennes far kjeftet slik på ham.
+“Anja! ikke gå bort dit. Aaaanjaaa! vær forsiktig, du vet at stikkontakter er farlig. Anja, skal du ha mat? Anja, hvisdu ikke tar på votter fryser du på hendene, husker du at du har fryst på hendene før?”. En lang strøm av dyp stemme kommer fra far.
+Ungen på tre år småsipper som om hun har fått for lite mat ellersøvn. “Viiil ikkeee…” men det er stemningen som gjør vondt.  Mor føler seg trygg av farts strenge stemme, og den nervøse stemningen minner henne om faren hennes hun savner så dypt, han ble igjen i Brasil, vil ikke til Majorstua. Den norske faren ligner hennes søramerikanske, far er nervøs og angstbiter.
+Verden er ikke et trygt sted. Hun vil ikke.
+#### p. 204
+“Garamond” Etter boken husker du fortsatt følelsen den gav deg, ikke hva den handlet om. Skrevet i fonten “Garamond”.
+Dette er den vanlige skrifttypen som benyttes for gratisteksten.
+Den representerer det åpne og tilgjengelige innholdet i boken, og kjennetegnes av et rent, moderne og standardisert uttrykk med god lesbarhet. Freemium “Calibri” (Kjøp hele teksten i meny) Premium “EB Garamond” Etter boken husker du fortsatt følelsen den gav deg, ikke hva den handlet om.. Dette er betalt tekst, den er i “EB Garamond”. Dette er den spesifikke skrifttypen som benyttes for den betalte teksten. Den er basert på et klassisk, historisk trykk fra 1592, noe som gir teksten et litt mørkere, mykere og mer tradisjonelt boktrykkerpreg. For systemet fungerer den som en helt egen font-ID som gjør at visningsprogrammet ditt kan låse opp eller skjule teksten automatisk basert på betalingsstatus.
+#### p. 205
 nødvendig    skrivekurs
 var der da jeg begynte å leve.
 På nytt.

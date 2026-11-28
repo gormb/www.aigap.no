@@ -962,6 +962,12 @@ Quan and Quincy train at 21 o'clock for …
 Robin and Rei train at 22 o'clock for …
 Shannon and Sydney train at 23 o'clock for …
 #### p. 203
+### Subchapter Title
+🎵 [Meta for bok, musikk og mer](https://aigap.no/mx)
+"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability.
+#### p. 204
+"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium “Calibri” (Buy the whole text in menu)
+#### p. 205
 Thank you Harald Ellefsen for clothes that gave comfort, and SPECTRAVIDEO 328 which gave career Thanks to her who was there when I began to live.
 Anew.
 Thanks to grandparents for love I gave the next generation
