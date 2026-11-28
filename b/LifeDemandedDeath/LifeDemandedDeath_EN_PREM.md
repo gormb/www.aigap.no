@@ -178,8 +178,10 @@ The child of three whimpers as if she has gotten too little food or sleep.
 "Don't want to," she cries; it's an atmosphere that hurts. Not hunger or frost. Mother feels safe. Father's stern voice, and this nervous atmosphere reminds her of childhood and the papa she misses bottomlessly. Papa stayed behind in Brazil; doesn't want to come to Majorstua. The Norwegian father of her children reminds her of her South American one.
 Nervous nail-biting. The world is not a safe place.
 #### p. 30
-"Garamond" After the book, you remember the feeling it gave you, not what it was about. Written in the font "Garamond". This is the standard typeface used for the free text. It represents the open and accessible content of the book, and is characterized by a clean, modern, and standardized expression with good readability. Freemium
-premium "EB Garamond" After the book, you remember the feeling it gave you, not what it was about. This is paid text, in "EB Garamond". This is the speciﬁc typeface used for the paid text. It is based on a classic, historical print from 1592, which gives the text a slightly darker, softer, and more traditional book-printing character. For the system, it functions as a completely separate font ID that allows your viewing program to automatically unlock or hide the text based on payment status.
+The caseworker is depressed. IT security scolds. The boss likes the masculine voice of IT when he scolds. She misses the scolding from the military.
+"Anja! Longer passwords. Aaaanjaaa! Don't write down the password, you know the access card can be misused. Anja, do you want your own portal page? Anja, if you don't lock your screen I'll come and ridicule you, do you remember that you have been bullied before?" Incoherent bully.
+The caseworker is partially on sick leave. As if the job is too difficult or the workload too great. "Don't want to," she cries; it's an atmosphere that hurts. Not the level of difficulty. Not too much work. The leader feels safe. IT security's stern voice and this nervous atmosphere. Reminds her of the NCO school that the leader misses bottomlessly. The military career was not compatible with family; doesn't want to come to Majorstua. The IT culture reminds her of the commander. Nervous nail-biting.
+The world is not a safe place.
 #### p. 31
 ### The early flame
 🎵 [State of Emergency; Cactus World News](https://aigap.no/msoe)

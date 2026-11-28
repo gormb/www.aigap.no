@@ -143,7 +143,9 @@ Ikke sult eller frost. Mor føler seg trygg. Fars strenge stemme, og denne nerv�
 Saksbehandleren er deprimert. IT sikkerhet kjefter. Sjefen liker den maskuline stemmen til IT når han kjefter. Hun savner kjeften fra militæret.
 “Anja! lengre passord. Aaaanjaaa! ikke skriv ned passordet, du vet at adgangskortet kan. misbrukes. Anja, skal du ha egen portalside? Anja, hvis du ikke låser skjermen kommer jeg og latterliggjør deg, husker du at du har blitt mobbet før?”.
 Usammenhengende bølle.
-Saksbehandleren er delvis sykemeldt. Som om jobben er for vanskelig eller arbeidsmengden for stor. “Vil ikke, gråter hun”, det er stemning som gjør vondt. Ikke vanskelighetsgrad eller for mye jobb. Lederen føler seg trygg. IT sikkerhets strenge stemme, og denne nervøse stemningen minner om befalsskolen lederen savner bunnløst. Militærkarrieren var ikke forenlig med familie, vil ikke til Majorstua. IT-kulturen minner om majoren. Nervøs angstbiter. Verden er ikke et trygt sted.
+Saksbehandleren er delvis sykemeldt. Som om jobben er for vanskelig eller arbeidsmengden for stor. “Vil ikke, gråter hun”, det stemning som gjør vondt. Ikke vanskelighetsgrad. Ikke for mye jobb. Lederen føler seg trygg. IT-sikkerhets strenge stemme og denne nervøse stemningen. Minner om befalsskolen som lederen savner bunnløst. Militærkarrieren var ikke forenlig med familie, vil ikke til Majorstua.
+IT-kulturen minner om kommandanten. Nervøs angstbiter.
+Verden er ikke et trygt sted.
 #### p. 31
 ### Den tidlige flammen
 🎵 [State of Emergency; Cactus World News](https://aigap.no/msoe)
